@@ -16,29 +16,6 @@ import { Observable } from 'rxjs/Observable';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import 'rxjs/add/observable/of';
 
-/**
- * Data source to provide what data should be rendered in the table. The observable provided
- * in connect should emit exactly the data that should be rendered by the table. If the data is
- * altered, the observable should emit that new set of data on the stream. In our case here,
- * we return a stream that contains only one set of data that doesn't change.
- */
-export class ExampleDataSource extends DataSource<any> {
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-
-  constructor(private listaRetorno) {
-      super();
-  }
-
-  connect(): Observable<Entidade[]> {
-    const rows = [];
-    this.listaRetorno.forEach(element => rows.push(element, { detailRow: true, element }));
-    console.log(rows);
-    return Observable.of(rows);
-  }
-
-  disconnect() { }
-}
-
 @Component({
   selector: 'snc-table',
   templateUrl: './snc-table.component.html',
@@ -59,9 +36,9 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private sncDataSource: any;
   private mySubscription: Subscription;
   private pages: number = 0;
-  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  expandedElement: any;
-  displayedColumns = ['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho'];
+  private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
+  private expandedElement: any;
+  private displayedColumns = ['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -82,7 +59,12 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
-    this.sncDataSource = new ExampleDataSource(this.listaRetorno[1] as Entidade[]);
+    
+    const rows = [];
+    let entidades = this.listaRetorno[1] as Entidade[];
+    entidades.forEach(element => rows.push(element, { detailRow: true, element }));
+    
+    this.sncDataSource = Observable.of(rows);
     this.sncDataSource.sort = this.sort;
     this.count = this.listaRetorno[0];
     this.pages = this.listaRetorno[3];

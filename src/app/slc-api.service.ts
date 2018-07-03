@@ -16,7 +16,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class SlcApiService {
 
-  private sncUrlHmgLocal = 'http://snchomolog.cultura.gov.br/api/v1/sistemadeculturalocal/';
+  private sncUrlHmgLocal = 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/';
   private sncUrlLocal = 'http://localhost:8000/api/v1/sistemadeculturalocal';
   private listaRetorno = {};
   private buscar = new BehaviorSubject<any>([]);

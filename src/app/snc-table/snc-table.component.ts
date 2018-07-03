@@ -11,13 +11,47 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {BuscaComponent} from '../busca/busca.component';
 import {noUndefined} from '@angular/compiler/src/util';
 
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import 'rxjs/add/observable/of';
 
+/**
+ * Data source to provide what data should be rendered in the table. The observable provided
+ * in connect should emit exactly the data that should be rendered by the table. If the data is
+ * altered, the observable should emit that new set of data on the stream. In our case here,
+ * we return a stream that contains only one set of data that doesn't change.
+ */
+export class ExampleDataSource extends DataSource<any> {
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+
+  constructor(private listaRetorno) {
+      super();
+  }
+
+  connect(): Observable<Entidade[]> {
+    const rows = [];
+    this.listaRetorno.forEach(element => rows.push(element, { detailRow: true, element }));
+    console.log(rows);
+    return Observable.of(rows);
+  }
+
+  disconnect() { }
+}
 
 @Component({
   selector: 'snc-table',
   templateUrl: './snc-table.component.html',
-  styleUrls: ['./snc-table.component.css']
+  styleUrls: ['./snc-table.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
+
 export class SncTableComponent implements OnInit, OnDestroy {
 
   private count: Number;
@@ -25,7 +59,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private sncDataSource: any;
   private mySubscription: Subscription;
   private pages: number = 0;
-  
+  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
+  expandedElement: any;
+  displayedColumns = ['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho'];
+
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -45,8 +82,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
-
-    this.sncDataSource = new MatTableDataSource<Entidade>(this.listaRetorno[1] as Entidade[]);
+    this.sncDataSource = new ExampleDataSource(this.listaRetorno[1] as Entidade[]);
     this.sncDataSource.sort = this.sort;
     this.count = this.listaRetorno[0];
     this.pages = this.listaRetorno[3];

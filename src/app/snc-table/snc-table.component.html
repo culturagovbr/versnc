@@ -33,7 +33,16 @@
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['nome_municipio', 'data_adesao', 'plano_trabalho']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['nome_municipio', 'data_adesao', 'plano_trabalho'];"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+            matRipple 
+            class="element-row" 
+            [class.expanded]="expandedElement == row"
+            (click)="expandedElement = row"></mat-row>
+    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+            [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+            style="overflow: hidden"> 
+    </mat-row>
+
   </mat-table>
 </mat-card>

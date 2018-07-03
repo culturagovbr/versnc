@@ -36,6 +36,7 @@
 .order.up {
     transform: rotate(-180deg);
 }
+
 .total {
     color: white;
     margin-left: 100px;   
@@ -43,4 +44,25 @@
 
 .mat-focused {
     color: #00A697 !important;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.element-row {
+  position: relative;
+}
+
+.element-row:not(.expanded) {
+  cursor: pointer;
+}
+
+.element-row:not(.expanded):hover {
+  background: #f5f5f5;
+}
+
+.element-row.expanded {
+  border-bottom-color: transparent;
 }

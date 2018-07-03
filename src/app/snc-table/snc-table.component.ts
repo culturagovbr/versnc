@@ -63,7 +63,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
     const rows = [];
     let entidades = this.listaRetorno[1] as Entidade[];
     entidades.forEach(element => rows.push(element, { detailRow: true, element }));
-    
     this.sncDataSource = Observable.of(rows);
     this.sncDataSource.sort = this.sort;
     this.count = this.listaRetorno[0];

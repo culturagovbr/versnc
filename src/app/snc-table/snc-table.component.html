@@ -1,3 +1,4 @@
+
 <div id="filtros" fxLayout="row" fxLayoutAlign="start start">
   <!-- <div>
     <h3 class="total" *ngIf="count > 0">Estados: 0</h3>
@@ -33,15 +34,21 @@
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let entidade">
+        <p>Criação Lei Sistema {{entidade.criacao_lei_sistema}}</p>
+        <p>Criação Plano Cultura: {{entidade.criacao_plano_cultura}}</p>
+        <p>Criação Fundo Cultura: {{entidade.criacao_fundo_cultura}}</p>
+        <p>Criação Orgão Gestor: {{entidade.criacao_orgao_gestor}}</p>
+        <p>Criação Conselho Cultural: {{entidade.criacao_conselho_cultural}}</p>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"
-            matRipple 
-            class="element-row" 
-            [class.expanded]="expandedElement == row"
-            (click)="expandedElement = row"></mat-row>
-    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
-            [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
-            style="overflow: hidden"> 
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [class.expanded]="expandedElement == row"
+      (click)="expandedElement = row"></mat-row>
+    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow" [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+      style="overflow: hidden">
     </mat-row>
 
   </mat-table>

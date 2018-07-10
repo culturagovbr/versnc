@@ -86,8 +86,8 @@ export class SlcApiService {
           entidade.data_adesao = element['data_adesao'];
           entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
           entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
-
           entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+          
           if (element['_embedded']['acoes_plano_trabalho'] !== null) {
             entidade.link_plano_trabalho_entidade = String(element['_embedded']['acoes_plano_trabalho']['_links']['self']['href']);
             
@@ -99,7 +99,6 @@ export class SlcApiService {
             entidade.criacao_fundo_cultura = String(element['_embedded']['acoes_plano_trabalho']['criacao_fundo_cultura']['situacao']);
             entidade.criacao_orgao_gestor = String(element['_embedded']['acoes_plano_trabalho']['criacao_orgao_gestor']['situacao']);
           }
-
 
           if (element['ente_federado']['localizacao']['cidade'] !== null) {
             entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);

@@ -36,20 +36,14 @@
 
     <ng-container matColumnDef="expandedDetail">
       <mat-cell *matCellDef="let entidade">
-        <p>Criação Lei Sistema: {{entidade.element.criacao_lei_sistema}}</p>
-        <p>Criação Plano Cultura: {{entidade.element.criacao_plano_cultura}}</p>
-        <p>Criação Fundo Cultura: {{entidade.element.criacao_fundo_cultura}}</p>
-        <p>Criação Orgão Gestor: {{entidade.element.criacao_orgao_gestor}}</p>
-        <p>Criação Conselho Cultural: {{entidade.element.criacao_conselho_cultural}}</p>
-
-        <!-- <div *ngIf="entidade.criacao_lei_sistema=='Concluída'">
-          Criação Lei Sistema:
-          <i class="material-icons">check</i>
+        <div *ngFor='let item of toArray(entidade.element.acoes_plano_trabalho); let i = index;'>
+          <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
+            <p>{{item.key}} <i class="material-icons">check</i></p>
+          </div>
+          <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
+            <p>{{item.key}} <i class="material-icons">close</i></p>
+          </div>
         </div>
-        <div *ngIf="entidade.criacao_lei_sistema!=='Concluída'">
-          Criação Lei Sistema:
-          <i class="material-icons">close</i>
-        </div> -->
       </mat-cell>
     </ng-container>
 

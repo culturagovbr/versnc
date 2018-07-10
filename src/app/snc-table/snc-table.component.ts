@@ -92,4 +92,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getEntesFederados();
   }
+
+  toArray(obj){
+    return Object.keys(obj).map((key)=> { 
+      return { key:key, value:obj[key] }
+    });
+  }
 }

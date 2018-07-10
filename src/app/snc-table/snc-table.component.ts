@@ -38,7 +38,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private pages: number = 0;
   private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
   private expandedElement: any;
-  private displayedColumns = ['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho'];
+  private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 

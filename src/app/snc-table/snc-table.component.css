@@ -66,3 +66,13 @@
 .element-row.expanded {
   border-bottom-color: transparent;
 }
+
+.icon-componente-status-ok {
+  color: green;
+  vertical-align: middle;
+}
+
+.icon-componente-status-not-ok {
+  color: red;
+  vertical-align: middle;
+}

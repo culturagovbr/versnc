@@ -93,6 +93,16 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.getEntesFederados();
   }
 
+  getNomeComponente(componente) {
+      var nomes = componente.split('_');  
+
+      for (var i=1; i<nomes.length; i++) {
+        nomes[i] = nomes[i].charAt(0).toUpperCase() + nomes[i].slice(1);
+      }
+
+      return nomes.slice(1).join(' ');
+  }
+
   toArray(obj){
     return Object.keys(obj).map((key)=> { 
       return { key:key, value:obj[key] }

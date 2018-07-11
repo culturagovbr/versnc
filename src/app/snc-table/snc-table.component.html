@@ -38,10 +38,10 @@
       <mat-cell *matCellDef="let entidade">
         <div *ngFor='let item of toArray(entidade.element.acoes_plano_trabalho); let i = index;'>
           <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
-            <p>{{item.key}} <i class="material-icons">check</i></p>
+            <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
           </div>
           <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
-            <p>{{item.key}} <i class="material-icons">close</i></p>
+            <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
           </div>
         </div>
       </mat-cell>

@@ -42,11 +42,11 @@ describe('' +
       cy.get('.mat-header-cell').eq(2).contains('DETALHAR');
     });
 
-    it('Apresenta 10 elementos referentes aos municipios', () => {
+    it('Apresenta 20 elementos referentes aos municipios e a linha expansível', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row').should('have.length', 10);
+      cy.get('app-root snc-table mat-card mat-table mat-row').should('have.length', 20);
     });
 
     it('Apresenta o componente de paginação', () => {

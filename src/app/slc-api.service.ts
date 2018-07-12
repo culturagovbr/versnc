@@ -88,16 +88,15 @@ export class SlcApiService {
           entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
           entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
           
-          if (element['_embedded']['acoes_plano_trabalho'] !== null) {
-            entidade.link_plano_trabalho_entidade = String(element['_embedded']['acoes_plano_trabalho']['_links']['self']['href']);
-            
-            // let situacao = element['_embedded']['acoes_plano_trabalho']['criacao_lei_sistema']['situacao'];
-            // entidade.criacao_lei_sistema = situacao.match(/\w+[a-zà-ú]\w+/g);
-            entidade.criacao_lei_sistema = element['_embedded']['acoes_plano_trabalho']['criacao_lei_sistema_cultura']['situacao'];
-            entidade.criacao_conselho_cultural = String(element['_embedded']['acoes_plano_trabalho']['criacao_conselho_cultural']['situacao']);
-            entidade.criacao_plano_cultura = String(element['_embedded']['acoes_plano_trabalho']['criacao_plano_cultura']['situacao']);
-            entidade.criacao_fundo_cultura = String(element['_embedded']['acoes_plano_trabalho']['criacao_fundo_cultura']['situacao']);
-            entidade.criacao_orgao_gestor = String(element['_embedded']['acoes_plano_trabalho']['criacao_orgao_gestor']['situacao']);
+          if (element['_embedded']['acoes_plano_trabalho']) {
+            entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+            entidade.link_plano_trabalho_entidade = entidade.acoes_plano_trabalho['_links']['self']['href'];
+
+            entidade.criacao_lei_sistema = entidade.acoes_plano_trabalho['criacao_lei_sistema_cultura']['situacao'].trim();
+            entidade.criacao_conselho_cultural = entidade.acoes_plano_trabalho['criacao_conselho_cultural']['situacao'].trim();
+            entidade.criacao_plano_cultura = entidade.acoes_plano_trabalho['criacao_plano_cultura']['situacao'].trim();
+            entidade.criacao_fundo_cultura = entidade.acoes_plano_trabalho['criacao_fundo_cultura']['situacao'].trim();
+            entidade.criacao_orgao_gestor = entidade.acoes_plano_trabalho['criacao_orgao_gestor']['situacao'].trim();
           }
 
           if (element['ente_federado']['localizacao']['cidade'] !== null) {
@@ -110,6 +109,7 @@ export class SlcApiService {
 
           return entidade;
         });
+
         return { entesFederados, count };
       });
   }

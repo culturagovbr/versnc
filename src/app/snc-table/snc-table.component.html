@@ -13,7 +13,7 @@
   <mat-table #snctable [dataSource]="sncDataSource" matSort>
     <ng-container matColumnDef="nome_municipio">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">MUNICÍPIO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.nome_municipio}} - {{ entidade.sigla_estado}} </mat-cell>
+      <mat-cell *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="data_adesao">

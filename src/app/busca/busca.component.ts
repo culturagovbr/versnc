@@ -25,6 +25,7 @@ export class BuscaComponent implements OnInit {
   private listaEntidades: [Entidade];
   private seletorTipoBusca: boolean = false;
   private termoSimples: String = '';
+  private termoUF: String = '';
   private page: number = 0;
   private data_adesao_min: String = "";
   private data_adesao_max: String = "";
@@ -36,7 +37,7 @@ export class BuscaComponent implements OnInit {
 
   queries: { [query: string]: String }
     = {
-      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': ''
+      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '', 'nome_uf': ''
     };
 
 
@@ -63,13 +64,18 @@ export class BuscaComponent implements OnInit {
         this.onRealizarBusca();
 
       } else { // BUSCA AVANÇADA
-        this.queries['estado_sigla'] = this.queries['estado_sigla'].toUpperCase()
+        this.pesquisarEstado(this.termoUF);
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
         this.onRealizarBusca();
       }
 
     }
+  }
+
+  pesquisarEstado(nome_uf){
+    this.queries['estado_sigla'] = nome_uf.length < 3 ? nome_uf.toUpperCase() : '';
+    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';    
   }
 
   onRealizarBusca() {

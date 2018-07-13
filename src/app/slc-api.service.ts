@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
-import {Response} from '@angular/http';
-import {Location} from '@angular/common';
-import {Router} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { Response } from '@angular/http';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
-import {MessageService} from './message.service';
+import { MessageService } from './message.service';
 
-import {Entidade} from './models/entidade.model';
-import {element} from 'protractor';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Entidade } from './models/entidade.model';
+import { element } from 'protractor';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SlcApiService {
@@ -28,9 +28,9 @@ export class SlcApiService {
   }
 
   constructor(private http: HttpClient,
-              private messageService: MessageService,
-              private location: Location,
-              private router: Router) {
+    private messageService: MessageService,
+    private location: Location,
+    private router: Router) {
   }
 
   /**
@@ -60,7 +60,7 @@ export class SlcApiService {
 
   /** Entidades busca simplificada ETAPA:1 */
   searchFilter(queries): Observable<any> {
-    return this.http.get(this.sncUrlHmgLocal, {params: queries})
+    return this.http.get(this.sncUrlHmgLocal, { params: queries })
       .map(res => {
 
         let count: Number = 0;
@@ -73,23 +73,22 @@ export class SlcApiService {
             'conselho': '', 'acoes_plano_trabalho': '', 'link_entidade': '',
             'link_plano_trabalho_entidade': '', 'nome_municipio': '', 'criacao_lei_sistema': '',
             'criacao_conselho_cultural': '', 'criacao_orgao_gestor': '', 'criacao_fundo_cultura': '',
-            'criacao_plano_cultura': '', 'sigla_estado': '', 'data_adesao': ''
+            'criacao_plano_cultura': '', 'sigla_estado': '', 'data_adesao': '', 'municipioUF': '', 'nome_estado': ''
           };
+
 
           entidade.id = element['id'];
           entidade.ente_federado = element['ente_federado'];
 
-          if (element['situacao_adesao'] !== null) {
-            entidade.situacao_adesao = String(element['situacao_adesao']['situacao_adesao']);
-          }
+          entidade.situacao_adesao = element['situacao_adesao'] ? String(element['situacao_adesao']['situacao_adesao']) : '';
+          entidade.conselho = element['conselho'] ? element['conselho'] : ''; 
 
-          if (element['conselho'] !== null) {
-            entidade.conselho = element['conselho'];
-          }
-          entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
           entidade.link_entidade = String(element['_links']['self']['href']);
           entidade.data_adesao = element['data_adesao'];
-
+          entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
+          entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
+          
+          entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
           if (element['_embedded']['acoes_plano_trabalho'] !== null) {
             entidade.link_plano_trabalho_entidade = String(element['_embedded']['acoes_plano_trabalho']['_links']['self']['href']);
             // entidade.criacao_lei_sistema = String(element['_embedded']['acoes_plano_trabalho']['criacao_lei_sistema']['situacao']);
@@ -98,17 +97,20 @@ export class SlcApiService {
             // entidade.criacao_fundo_cultura = String(element['_embedded']['acoes_plano_trabalho']['criacao_fundo_cultura']['situacao']);
             // entidade.criacao_orgao_gestor = String(element['_embedded']['acoes_plano_trabalho']['criacao_orgao_gestor']['situacao']);
           }
+          
 
-          entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
           if (element['ente_federado']['localizacao']['cidade'] !== null) {
             entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);
+            entidade.municipioUF = entidade.nome_municipio + " - " + entidade.sigla_estado;
           } else {
             entidade.nome_municipio = null;
-
+            entidade.municipioUF = entidade.nome_estado;
           }
+
+
           return entidade;
         });
-        return { entesFederados , count };
+        return { entesFederados, count };
       });
   }
 

@@ -13,5 +13,7 @@ export class Entidade {
     criacao_fundo_cultura: string;
     criacao_plano_cultura: string;
     sigla_estado: string;
+    nome_estado: string;
     data_adesao: string;
+    municipioUF: string;
   }

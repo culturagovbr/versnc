@@ -58,6 +58,22 @@ export class SlcApiService {
     this.messageService.add('slc-api.service: ' + message);
   }
 
+  getComponentes(acoes_plano_trabalho: {}) {
+    let componentes = [];
+
+    if (acoes_plano_trabalho) {
+      for (var key in acoes_plano_trabalho) {
+        if(acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
+          componentes.push({key: key, value: acoes_plano_trabalho[key]});
+        else if(key != "_links" && key != "_embedded" && key != "id") {
+          componentes.push({key: key, value: ''})
+        }
+      }
+    }
+
+    return componentes;
+  }
+
   /** Entidades busca simplificada ETAPA:1 */
   searchFilter(queries): Observable<any> {
     return this.http.get(this.sncUrlHmgLocal, { params: queries })
@@ -69,12 +85,10 @@ export class SlcApiService {
         entesFederados = res['_embedded']['items'].map((element, index) => {
           const entidade: Entidade = {
             'id': '', 'ente_federado': '', 'situacao_adesao': '',
-            'conselho': '', 'acoes_plano_trabalho': '', 'link_entidade': '',
-            'link_plano_trabalho_entidade': '', 'nome_municipio': '', 'criacao_lei_sistema': '',
-            'criacao_conselho_cultural': '', 'criacao_orgao_gestor': '', 'criacao_fundo_cultura': '',
-            'criacao_plano_cultura': '', 'sigla_estado': '', 'data_adesao': '', 'municipioUF': '', 'nome_estado': '',
+            'conselho': '', 'acoes_plano_trabalho': [], 'link_entidade': '',
+            'nome_municipio': '','sigla_estado': '',
+            'data_adesao': '', 'municipioUF': '', 'nome_estado': ''
           };
-
 
           entidade.id = element['id'];
           entidade.ente_federado = element['ente_federado'];
@@ -86,19 +100,10 @@ export class SlcApiService {
           entidade.data_adesao = element['data_adesao'];
           entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
           entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
-          entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+       
+          let acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+          entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);       
           
-          if (element['_embedded']['acoes_plano_trabalho']) {
-            entidade.acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
-            entidade.link_plano_trabalho_entidade = entidade.acoes_plano_trabalho['_links']['self']['href'];
-
-            entidade.criacao_lei_sistema = entidade.acoes_plano_trabalho['criacao_lei_sistema_cultura']['situacao'].trim();
-            entidade.criacao_conselho_cultural = entidade.acoes_plano_trabalho['criacao_conselho_cultural']['situacao'].trim();
-            entidade.criacao_plano_cultura = entidade.acoes_plano_trabalho['criacao_plano_cultura']['situacao'].trim();
-            entidade.criacao_fundo_cultura = entidade.acoes_plano_trabalho['criacao_fundo_cultura']['situacao'].trim();
-            entidade.criacao_orgao_gestor = entidade.acoes_plano_trabalho['criacao_orgao_gestor']['situacao'].trim();
-          }
-
           if (element['ente_federado']['localizacao']['cidade'] !== null) {
             entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);
             entidade.municipioUF = entidade.nome_municipio + " - " + entidade.sigla_estado;

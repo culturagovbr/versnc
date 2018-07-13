@@ -102,10 +102,4 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
       return nomes.slice(1).join(' ');
   }
-
-  toArray(obj){
-    return Object.keys(obj).map((key)=> { 
-      return { key:key, value:obj[key] }
-    });
-  }
 }

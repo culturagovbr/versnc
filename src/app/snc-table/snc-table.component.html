@@ -36,8 +36,8 @@
 
     <ng-container matColumnDef="expandedDetail">
       <mat-cell *matCellDef="let entidade">
-        <div *ngIf="entidade.element.acoes_plano_trabalho">
-          <div *ngFor='let item of toArray(entidade.element.acoes_plano_trabalho); let i = index;'>
+        <div *ngIf="entidade.element.acoes_plano_trabalho.length > 0">
+          <div *ngFor='let item of entidade.element.acoes_plano_trabalho; let i = index;'>
             <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
               <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
             </div>
@@ -45,6 +45,13 @@
               <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
             </div>
           </div>
+        </div>
+        <div *ngIf="entidade.element.acoes_plano_trabalho.length <= 0">
+          <p>Lei Sistema Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Órgão Gestor <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Conselho Cultural <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Fundo Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Plano Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
         </div>
       </mat-cell>
     </ng-container>

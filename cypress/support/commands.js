@@ -72,3 +72,12 @@ Cypress.Commands.add('api_data_adesao_max', () => {
     response: 'fixture:adesao_ate_1-1-2016'        // and force the response to be: []
   })
 });
+
+Cypress.Commands.add('api_df', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=Distrito Federal',    // that have a URL that matches '/users/*'
+    response: 'fixture:DistritoFederal'        // and force the response to be: []
+  })
+});

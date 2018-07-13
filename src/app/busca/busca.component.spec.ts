@@ -62,14 +62,45 @@ describe('BuscaComponent', () => {
     expect(htmlComponent.querySelector('h4').textContent).toContain('Consulte seu Estado ou Município');
   });
 
-  it('Verifica se a informação digitada na busca é armazenada corretamente no componente', inject([SlcApiService], (service: SlcApiService) => {
+  it('Verifica método que trata a pesquisa do nome do Município por extenso - Busca Simples', inject([SlcApiService], (service: SlcApiService) => {
     let htmlComponent = fixture.debugElement.nativeElement;    
     let inputElement = htmlComponent.querySelector('input');
 
     inputElement.value = 'Barreiras';
     inputElement.dispatchEvent(new Event('input'));
-
+  
     component.onRealizarBuscaComEnter(event);
     expect(component['termoSimples']).toBe('Barreiras');
+    expect(component.queries['nome_municipio']).toBe('Barreiras');
+
   }));
+
+  it('Verifica método que trata a pesquisa da sigla do Estado - Busca Simples', inject([SlcApiService], (service: SlcApiService) => {
+    let htmlComponent = fixture.debugElement.nativeElement;    
+    let inputElement = htmlComponent.querySelector('input');
+
+    inputElement.value = 'pe';
+    inputElement.dispatchEvent(new Event('input'));
+  
+    component.onRealizarBuscaComEnter(event);
+    expect(component['termoSimples']).toBe('pe');
+    expect(component.queries['estado_sigla']).toBe('PE');
+  }));
+  
+  it('Verifica método que trata a pesquisa pelo nome do Estado por extenso - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = 'Distrito Federal';
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+
+    expect(component.queries['nome_uf']).toEqual('Distrito Federal');
+  }));
+
+  it('Verifica método que trata a pesquisa pela sigla do Estado - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = 'ba';
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+
+    expect(component.queries['estado_sigla']).toEqual('BA');
+  }));
+
 });

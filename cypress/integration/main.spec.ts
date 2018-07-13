@@ -75,22 +75,31 @@ describe('' +
       cy.get('.alinhamento').eq(1).contains('Abrir Filtros');
     });
 
-    it('Testa input Estado/Municipio da Busca Avançada e retorno respectivo na tabela', () => {
+    it('Testa input Municipio - Busca Avançada', () => {
       cy.apiSimples();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('Malhada{enter}');
+      cy.get('input').eq(1).type('Malhada{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
     });
 
-    it('Testa input UF da Busca Avançada e retorno respectivo na tabela', () => {
+    it('Testa input da sigla do Estado - Busca Avançada', () => {
       cy.api_busca_uf();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('DF{enter}');
+      cy.get('input').eq(0).type('DF{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('- DF');
+    });
+
+    it('Testa input da nome do Estado por extenso - Busca Avançada', () => {
+      cy.api_df();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('input').eq(0).type('Distrito Federal{enter}');
+
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Distrito Federal ');
     });
 
     it('Testa a opção de ADESÃO A PARTIR DE, na Busca Avançada', () => {

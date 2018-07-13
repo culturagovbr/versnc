@@ -1,0 +1,102 @@
+{
+    "_links": {
+        "self": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?format=json&id=3"
+        },
+        "page": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?format=json&id=3&limit={?page}",
+            "templated": true
+        }
+    },
+    "_embedded": {
+        "items": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3/?format=json"
+                    }
+                },
+                "id": 3,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/3270/?format=json"
+                            }
+                        },
+                        "id": 3270,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": "",
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "00.394.601/0001-26",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 53,
+                            "sigla": "DF",
+                            "nome_uf": "Distrito Federal"
+                        },
+                        "cidade": null,
+                        "cep": "70075-900",
+                        "bairro": "",
+                        "endereco": " PALÁCIO DO BURITI, 1º ANDAR ",
+                        "complemento": "ZONA CÍVICO ADMINISTRATIVA"
+                    },
+                    "telefones": {
+                        "telefone_um": "39611556",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": null
+                },
+                "governo": {
+                    "nome_prefeito": "AGNELO SANTOS QUEIROZ FILHO",
+                    "email_institucional_prefeito": "agnelo.queiroz@buriti.gov.br",
+                    "termo_posse_prefeito": null
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2013-02-07"
+            }
+        ]
+    },
+    "count": 1,
+    "page_size": 10
+}

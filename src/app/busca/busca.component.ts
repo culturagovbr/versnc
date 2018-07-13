@@ -29,15 +29,16 @@ export class BuscaComponent implements OnInit {
   private page: number = 0;
   private data_adesao_min: String = "";
   private data_adesao_max: String = "";
-  private visualizarEstados = false;
-  private visualizarMunicipios = false;
+  private visualizarEstados = true;
+  private visualizarMunicipios = true;
 
   constructor(private slcApiService: SlcApiService) {
   }
 
   queries: { [query: string]: String }
     = {
-      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '', 'nome_uf': ''
+      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '',
+      'nome_uf': '', 'estadual': '', 'municipal': ''
     };
 
 
@@ -67,6 +68,8 @@ export class BuscaComponent implements OnInit {
         this.pesquisarEstado(this.termoUF);
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
+        this.queries['estadual'] = !this.visualizarEstados ? '' : 'true';
+        this.queries['municipal'] = !this.visualizarMunicipios ? '' : 'true';
         this.onRealizarBusca();
       }
 

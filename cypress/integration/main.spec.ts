@@ -90,7 +90,40 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(1).type('DF{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('- DF');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+    });
+
+    it('Testa a pesquisa do nome do Estado por extenso ', () => {
+      cy.api_somente_municipios();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('input').eq(1).type('Distrito Federal{enter}');
+
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+    });
+
+    it('Testa retorno de SOMENTE MUNÌCIPIOS na busca Avançada', () => {
+      cy.api_somente_municipios();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('section mat-checkbox').eq(0).click();
+
+      cy.get('input').eq(1).type('BA{enter}');
+
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' Arataca - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Aporá - BA ');
+    });
+
+    it('Testa retorno de SOMENTE ESTADOS na busca Avançada', () => {
+      cy.api_somente_estados();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('section mat-checkbox').eq(1).click();
+
+      cy.get('input').eq(0).type('{enter}');
+
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' São Paulo ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Minas Gerais ');
     });
 
     it('Testa a opção de ADESÃO A PARTIR DE, na Busca Avançada', () => {

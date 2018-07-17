@@ -4,8 +4,15 @@ import { HomeComponent } from './home/home.component';
 import {SncTableComponent} from './snc-table/snc-table.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'tabela-uf-municipio', component: SncTableComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'tabela-uf-municipio',
+    component: SncTableComponent
+  },
 ];
 
 @NgModule({

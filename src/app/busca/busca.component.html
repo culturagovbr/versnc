@@ -11,11 +11,13 @@
         <mat-icon>search</mat-icon>
       </mat-placeholder>
 
-      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoSimples" [ngModelOptions]="{standalone: true}"
-        (keypress)="onRealizarBuscaComEnter($event)" />
-
+      <input
+        #searchBox matInput type="search" id="search-box"
+        [(ngModel)]="termoSimples"
+        [ngModelOptions]="{standalone: true}"
+        (keypress)="onRealizarBuscaComEnter($event)"
+      />
     </mat-form-field>
-
   </form>
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">

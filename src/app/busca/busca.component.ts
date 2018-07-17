@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'snc-busca',
@@ -18,7 +19,6 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 })
 
 export class BuscaComponent implements OnInit {
-
   private listaRetorno = {};
   private listaEntidades: [Entidade];
   private seletorTipoBusca: boolean = false;
@@ -27,7 +27,7 @@ export class BuscaComponent implements OnInit {
   private data_adesao_min: String = "";
   private data_adesao_max: String = "";
 
-  constructor(private slcApiService: SlcApiService) {
+  constructor(private slcApiService: SlcApiService, public activatedRoute: ActivatedRoute) {
   }
 
   queries: { [query: string]: String }
@@ -37,6 +37,11 @@ export class BuscaComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      let userId = params['userId'];
+      console.log(userId);
+    });
+
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
   }
 
@@ -45,7 +50,6 @@ export class BuscaComponent implements OnInit {
 
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
-
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
         if (this.termoSimples.length < 3) {
           this.queries['nome_municipio'] = '';
@@ -55,18 +59,17 @@ export class BuscaComponent implements OnInit {
           this.queries['estado_sigla'] = '';
           this.queries['offset'] = '';
           this.queries['nome_municipio'] = this.termoSimples;
-
         }
-        this.onRealizarBusca();
 
+        this.onRealizarBusca();
       } else { // BUSCA AVANÇADA
         this.queries['estado_sigla'] = this.queries['estado_sigla'].toUpperCase()
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
         this.queries['data_adesao_max']=this.getDatePicker(this.data_adesao_max);
-        console.log(this.queries);
+        console.info(this.queries);
+
         this.onRealizarBusca();
       }
-
     }
   }
 
@@ -82,7 +85,7 @@ export class BuscaComponent implements OnInit {
     }
     else if (datepicker['_i']['date']) {
       var dd = datepicker['_i']['date'];
-      var mm = datepicker['_i']['month']; // objeto tem as posições 0-11 por default 
+      var mm = datepicker['_i']['month']; // objeto tem as posições 0-11 por default
       var yy = datepicker['_i']['year'];
 
       return (dd + '/' + (mm + 1) + '/' + yy);

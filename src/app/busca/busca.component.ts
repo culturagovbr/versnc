@@ -41,7 +41,7 @@ export class BuscaComponent implements OnInit {
       'nome_uf': '', 'estadual': '', 'municipal': ''
     };
 
-  
+
   ngOnInit(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
   }
@@ -52,6 +52,8 @@ export class BuscaComponent implements OnInit {
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
+        this.queries['estadual'] = '';
+        this.queries['municipal'] = '';
         if (this.termoSimples.length < 3) {
           this.queries['nome_municipio'] = '';
           this.queries['offset'] = '';
@@ -75,7 +77,7 @@ export class BuscaComponent implements OnInit {
 
     }
   }
-  
+
   pesquisarEstado(nome_uf) {
     this.queries['estado_sigla'] = nome_uf.length < 3 ? nome_uf.toUpperCase() : '';
     this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';

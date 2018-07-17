@@ -48,6 +48,15 @@
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
 
+    <section>
+      <mat-checkbox class="primary" [(ngModel)]="visualizarEstados" color="primary" [ngModelOptions]="{standalone: true}">
+        <span class="checkbox">Estados</span>
+      </mat-checkbox>
+      <mat-checkbox class="primary" [(ngModel)]="visualizarMunicipios" color="primary" [ngModelOptions]="{standalone: true}">
+        <span class="checkbox">Municípios</span>
+      </mat-checkbox>
+    </section>
+
   </form>
 
   <button *ngIf="!seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = true">

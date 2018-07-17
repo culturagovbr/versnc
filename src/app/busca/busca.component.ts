@@ -29,13 +29,16 @@ export class BuscaComponent implements OnInit {
   private page: number = 0;
   private data_adesao_min: String = "";
   private data_adesao_max: String = "";
+  private visualizarEstados = true;
+  private visualizarMunicipios = true;
 
   constructor(private slcApiService: SlcApiService) {
   }
 
   queries: { [query: string]: String }
     = {
-      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '', 'nome_uf': ''
+      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '',
+      'nome_uf': '', 'estadual': '', 'municipal': ''
     };
 
 
@@ -48,8 +51,9 @@ export class BuscaComponent implements OnInit {
 
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
-
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
+        this.queries['estadual'] = '';
+        this.queries['municipal'] = '';
         if (this.termoSimples.length < 3) {
           this.queries['nome_municipio'] = '';
           this.queries['offset'] = '';
@@ -65,16 +69,18 @@ export class BuscaComponent implements OnInit {
       } else { // BUSCA AVANÇADA
         this.pesquisarEstado(this.termoUF);
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
-        this.queries['data_adesao_max']=this.getDatePicker(this.data_adesao_max);
+        this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
+        this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
+        this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
         this.onRealizarBusca();
       }
 
     }
   }
 
-  pesquisarEstado(nome_uf){
+  pesquisarEstado(nome_uf) {
     this.queries['estado_sigla'] = nome_uf.length < 3 ? nome_uf.toUpperCase() : '';
-    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';    
+    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   onRealizarBusca() {

@@ -34,34 +34,33 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="expandedDetail">
-      <mat-cell *matCellDef="let entidade">
-        <div *ngIf="entidade.element.acoes_plano_trabalho.length > 0">
-          <div *ngFor='let item of entidade.element.acoes_plano_trabalho; let i = index;'>
-            <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
-              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
-            </div>
-            <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
-              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
-            </div>
-          </div>
-        </div>
-        <div *ngIf="entidade.element.acoes_plano_trabalho.length <= 0">
-          <p>Lei Sistema Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Órgão Gestor <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Conselho Cultural <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Fundo Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Plano Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
-        </div>
-      </mat-cell>
-    </ng-container>
-
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [class.expanded]="expandedElement == row"
-      (click)="expandedElement = row"></mat-row>
-    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow" [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
-      style="overflow: hidden">
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
+     [cdkDetailRowTpl]="tpl" [cdkDetailRowExpand]="expandElements" (click)="expandElements = row">
     </mat-row>
 
   </mat-table>
+
+  <ng-template #tpl let-entidade>
+    <div class="mat-row mat-cell detail-row" [@detailExpand] (@detailExpand.start)="a($event)" style="overflow: hidden">
+      <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
+        <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
+          <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
+            <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
+          </div>
+          <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
+            <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="entidade.acoes_plano_trabalho.length <= 0">
+        <p>Lei Sistema Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+        <p>Órgão Gestor <i class="material-icons icon-componente-status-not-ok">close</i></p>
+        <p>Conselho Cultural <i class="material-icons icon-componente-status-not-ok">close</i></p>
+        <p>Fundo Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+        <p>Plano Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+      </div>
+    </div>
+  </ng-template>
+
 </mat-card>

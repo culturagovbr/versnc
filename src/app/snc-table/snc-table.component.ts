@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginator, MatTableDataSource, MatSort, MatSelectModule, MatChipsModule, PageEvent } from '@angular/material';
 
 import { SlcApiService } from '../slc-api.service';
+import { CdkDetailRowDirective } from './cdk-detail-row.directive';
 import { Entidade } from '../models/entidade.model';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
@@ -22,9 +23,9 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./snc-table.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed, void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-      state('expanded', style({ height: '*', visibility: 'visible' })),
-      transition('* <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('*', style({ height: '*', visibility: 'visible' })),
+      transition('void <=> *', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
 })
@@ -37,7 +38,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private mySubscription: Subscription;
   private pages: number = 0;
   private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  private expandedElement: any;
+  private expandElements = false;
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
@@ -56,24 +57,14 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(CdkDetailRowDirective) detailRow: CdkDetailRowDirective;
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
-    
-    const rows = [];
-    let entidades = this.listaRetorno[1] as Entidade[];
-    entidades.forEach(element => rows.push(element, { detailRow: true, element }));
-    this.sncDataSource = new MatTableDataSource(rows);
-    this.sncDataSource.sort = this.sort;
-    this.sncDataSource.sortingDataAccessor = (item, property) => {
-      if(item.detailRow) {
-        return item.element[property];
-      }
-      else{
-        return item[property];
-      }
-    };
 
+    let entidades = this.listaRetorno[1] as Entidade[];
+    this.sncDataSource = new MatTableDataSource(entidades);
+    this.sncDataSource.sort = this.sort;
     this.count = this.listaRetorno[0];
     this.pages = this.listaRetorno[3];
   }
@@ -113,7 +104,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
   }
 
   clearExpandedElements($event) {
-    this.expandedElement = false;
+    this.expandElements = false;
   }
 
+  a($event) {
+    console.log($event);
+  }
 }

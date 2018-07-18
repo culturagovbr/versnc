@@ -15,14 +15,14 @@ import { SlcApiService } from './slc-api.service';
 
 import { AppComponent } from './app.component';
 import { SncTableComponent } from './snc-table/snc-table.component';
+import { CdkDetailRowDirective } from './snc-table/cdk-detail-row.directive';
 import { HomeComponent } from './home/home.component';
 import { BuscaComponent } from './busca/busca.component';
 import { MenuComponent } from './menu/menu.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MessageComponent } from './message/message.component';
 import { MessageService } from './message.service';
-import {FormsModule} from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import {FormsModule} from '@angular/forms';
     BuscaComponent,
     MenuComponent,
     MessageComponent,
+    CdkDetailRowDirective
   ],
   imports: [
     BrowserModule,

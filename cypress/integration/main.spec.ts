@@ -62,12 +62,30 @@ describe('' +
       cy.get('app-root snc-table mat-card mat-table mat-row').should('not.be.empty');
     });
 
-    it('Testa input Estado/Municipio da Busca Simples e retorno respectivo na tabela', () => {
+    it('Testa pesquisa do Nome do Município na Busca Simples', () => {
       cy.apiSimples();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Malhada{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
     });
+
+    it('Testa pesquisa do Nome do Estado por extenso na Busca Simples', () => {
+      cy.api_busca_uf();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('Distrito Federal{enter}');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
+    });
+
+
+    it('Testa pesquisa da Sigla do Estado por extenso na Busca Simples', () => {
+      cy.api_busca_uf();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('DF{enter}');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
+    });
+
 
     it('Testa mudança da Busca Simples p/ Busca Avançada após click no botão de Abrir Filtros', () => {
       cy.api();

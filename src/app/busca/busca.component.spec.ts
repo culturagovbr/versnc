@@ -45,7 +45,7 @@ describe('BuscaComponent', () => {
     component['termoSimples'] = 'df';
     component.onRealizarBuscaComEnter(event);
 
-    expect(component['queries']['estado_sigla']).toEqual('DF');
+    expect(component['queries']['ente_federado']).toEqual('DF');
     expect(component['queries']['nome_municipio']).toEqual('');
   });
 
@@ -53,7 +53,7 @@ describe('BuscaComponent', () => {
     component['termoSimples'] = 'Brasília';
     component.onRealizarBuscaComEnter(event);
 
-    expect(component['queries']['nome_municipio']).toEqual('Brasília');
+    expect(component['queries']['ente_federado']).toEqual('Brasília');
     expect(component['queries']['estado_sigla']).toEqual('');
   });
 
@@ -71,7 +71,7 @@ describe('BuscaComponent', () => {
   
     component.onRealizarBuscaComEnter(event);
     expect(component['termoSimples']).toBe('Barreiras');
-    expect(component.queries['nome_municipio']).toBe('Barreiras');
+    expect(component.queries['ente_federado']).toBe('Barreiras');
 
   }));
 
@@ -84,7 +84,7 @@ describe('BuscaComponent', () => {
   
     component.onRealizarBuscaComEnter(event);
     expect(component['termoSimples']).toBe('pe');
-    expect(component.queries['estado_sigla']).toBe('PE');
+    expect(component['queries']['ente_federado']).toBe('PE');
   }));
   
   it('Verifica método que trata a pesquisa pelo nome do Estado por extenso - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {

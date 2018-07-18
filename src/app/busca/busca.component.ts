@@ -38,7 +38,7 @@ export class BuscaComponent implements OnInit {
   queries: { [query: string]: String }
     = {
       'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '',
-      'nome_uf': '', 'estadual': '', 'municipal': ''
+      'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
     };
 
 
@@ -54,16 +54,7 @@ export class BuscaComponent implements OnInit {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
         this.queries['estadual'] = '';
         this.queries['municipal'] = '';
-        if (this.termoSimples.length < 3) {
-          this.queries['nome_municipio'] = '';
-          this.queries['offset'] = '';
-          this.queries['estado_sigla'] = this.termoSimples.toUpperCase();
-        } else if (this.termoSimples === '' || this.termoSimples.length > 2) {
-          this.queries['estado_sigla'] = '';
-          this.queries['offset'] = '';
-          this.queries['nome_municipio'] = this.termoSimples;
-
-        }
+        this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
         this.onRealizarBusca();
 
       } else { // BUSCA AVANÇADA
@@ -79,7 +70,7 @@ export class BuscaComponent implements OnInit {
   }
 
   pesquisarEstado(nome_uf) {
-    this.queries['estado_sigla'] = nome_uf.length < 3 ? nome_uf.toUpperCase() : '';
+    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
     this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 

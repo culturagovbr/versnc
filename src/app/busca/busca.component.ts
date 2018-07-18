@@ -59,6 +59,7 @@ export class BuscaComponent implements OnInit {
 
       } else { // BUSCA AVANÇADA
         this.pesquisarEstado(this.termoUF);
+        this.queries['ente_federado'] = '';
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
         this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';

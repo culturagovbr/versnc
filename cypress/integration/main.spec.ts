@@ -75,20 +75,20 @@ describe('' +
       cy.get('.alinhamento').eq(1).contains('Abrir Filtros');
     });
 
-    it('Testa input Estado/Municipio da Busca Avançada e retorno respectivo na tabela', () => {
+    it('Testa input Municipio - Busca Avançada', () => {
       cy.apiSimples();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('Malhada{enter}');
+      cy.get('input').eq(1).type('Malhada{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
     });
 
-    it('Testa input UF da Busca Avançada e retorno respectivo na tabela', () => {
+    it('Testa input da sigla do Estado - Busca Avançada', () => {
       cy.api_busca_uf();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('DF{enter}');
+      cy.get('input').eq(0).type('DF{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
     });
@@ -97,7 +97,7 @@ describe('' +
       cy.api_somente_municipios();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Distrito Federal{enter}');
+      cy.get('input').eq(0).type('Distrito Federal{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
     });
@@ -108,7 +108,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('section mat-checkbox').eq(0).click();
 
-      cy.get('input').eq(1).type('BA{enter}');
+      cy.get('input').eq(0).type('BA{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' Arataca - BA ');
       cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Aporá - BA ');
@@ -125,6 +125,7 @@ describe('' +
       cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' São Paulo ');
       cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Minas Gerais ');
     });
+
 
     it('Testa a opção de ADESÃO A PARTIR DE, na Busca Avançada', () => {
       cy.api_data_adesao_min();

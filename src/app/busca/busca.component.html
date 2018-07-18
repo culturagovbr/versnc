@@ -20,24 +20,20 @@
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
-      <mat-placeholder> Estado ou Município
-        <mat-icon>search</mat-icon>
-      </mat-placeholder>
-
-      <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="queries['nome_municipio']" [ngModelOptions]="{standalone: true}"
-        autofocus/>
-
-    </mat-form-field>
-    <mat-form-field class="textCenter">
       <mat-placeholder> Estado
         <mat-icon>search</mat-icon>
       </mat-placeholder>
-
-      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}"
-        autofocus/>
-
-
+      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}" autofocus/>
     </mat-form-field>
+    
+    <mat-form-field class="textCenter">
+      <mat-placeholder> Município
+        <mat-icon>search</mat-icon>
+      </mat-placeholder>
+      <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="queries['nome_municipio']" [ngModelOptions]="{standalone: true}"
+        autofocus/>
+    </mat-form-field>
+
 
     <mat-form-field class="textCenter">
       <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_adesao_min" [ngModelOptions]="{standalone: true}" placeholder="Adesão a partir da data">

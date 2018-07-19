@@ -44,18 +44,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() :void{
-    // fluxograma
-    // Se Tem parâmetro na rota?
-    //   pega os parâmetros e chama a requisição
-    // caso não, pega os parâmetros pesquisados e coloca na rota
     this.getEntesFederados();
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      console.log('chegando 1');
-      console.log(params);
       if (Object.keys(params).length > 0) {
-        // localhost:4200/tabela-uf-municipio?nome_municipio=Rio de Janeiro&estado_sigla=RJ&data_adesao_min=18,03,1995&data_adesao_max=18,03,2010
-        console.log('chegando 2');
         this.queries['nome_municipio'] = params['nome_municipio'].toUpperCase();
         this.queries['estado_sigla'] = params['estado_sigla'].toUpperCase()
         this.queries['data_adesao_min'] = params['data_adesao_min'];
@@ -65,10 +57,12 @@ export class SncTableComponent implements OnInit, OnDestroy {
         this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
         this.slcApiService.carregarPagina(0, this.queries);
       } else {
-        let url = '?';
 
-        for (const param in params) {
-          url = url.concat(param + '=' + params[param]);
+        let url = window.location.pathname.concat('?');
+        const searchResults = this.listaRetorno[2];
+
+        for (const param in searchResults) {
+          url = url.concat(param + '=' + searchResults[param]);
           url = url.concat('&');
         }
 
@@ -76,33 +70,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
         window.history.pushState(null, null, url);
       }
-
-      // console.log('carregou?');
-      // console.log(this.listaRetorno);
-
-      // if (this.listaRetorno.length !== 0) {
-      // let url = '?';
-
-      // for (const param in params) {
-      //   url = url.concat(param + '=' + params[param]);
-      //   url = url.concat('&');
-      // }
-
-      // url = url.slice(0, -1);
-
-      // window.history.pushState(null, null, url);
-
-
-      // this.estadoOuMinicipio = params['estadoOuMinicipio'];
-      // this.uf = params['uf'];
-      // this.inicioAdesao = params['inicioAdesao'];
-      // this.fimAdesao = params['fimAdesao'];
-      // http://localhost:4200/?estadoOuMinicipio=Distrito&uf=DF&inicioAdesao=18,03,1995&fimAdesao=18,03,2010
-      // console.log('MOSTRANDO OS LOGS');
-      // console.log(this.estadoOuMinicipio);
-      // console.log(this.uf);
-      // console.log(this.inicioAdesao);
-      // console.log(this.fimAdesao);
     });
 
   }
@@ -117,6 +84,11 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.sncDataSource.sort = this.sort;
     this.count = this.listaRetorno[0];
     this.pages = this.listaRetorno[3];
+  }
+
+  public formatDate(date: String): String {
+
+    return '';
   }
 
   ngOnDestroy() {

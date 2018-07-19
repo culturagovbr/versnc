@@ -32,6 +32,13 @@ export class BuscaComponent implements OnInit {
   private visualizarEstados = true;
   private visualizarMunicipios = true;
 
+  private leiSistema = false;
+  private fundoCultura = false;
+  private orgaoGestor = false;
+  private conselhoCultura = false;
+  private planoCultura = false;
+
+
   constructor(private slcApiService: SlcApiService) {
   }
 

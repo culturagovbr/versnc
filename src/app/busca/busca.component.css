@@ -51,12 +51,21 @@
     line-height: normal;
 }
 
+mat-checkbox {
+    margin-left: 10px;
+    padding: 2%;
+}
+
 section mat-checkbox  {
     padding: 2%;
 }
 
 form section {
     padding-bottom: 10px;
+}
+
+section {
+    width: 50%;
 }
 
 @media (max-width: 580px) {

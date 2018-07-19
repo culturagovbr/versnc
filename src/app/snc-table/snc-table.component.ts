@@ -23,7 +23,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private sncDataSource: any;
   private mySubscription: Subscription;
   private pages: number = 0;
-  
+
   constructor(private slcApiService: SlcApiService, private router: Router, public activatedRoute: ActivatedRoute) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -38,7 +38,12 @@ export class SncTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
+  queries: { [query: string]: String } = {
+    'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': ''
+  };
+
+
+  ngOnInit() :void{
     // fluxograma
     // Se Tem parâmetro na rota?
     //   pega os parâmetros e chama a requisição
@@ -46,23 +51,48 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.getEntesFederados();
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      console.log('carregou?');
-      console.log(this.listaRetorno);
-
-      // if (this.listaRetorno.length !== 0) {
-      if (Object.keys(params).length > 0) {  
+      console.log('chegando 1');
+      console.log(params);
+      if (Object.keys(params).length > 0) {
+        // localhost:4200/tabela-uf-municipio?nome_municipio=Rio de Janeiro&estado_sigla=RJ&data_adesao_min=18,03,1995&data_adesao_max=18,03,2010
+        console.log('chegando 2');
+        this.queries['nome_municipio'] = params['nome_municipio'].toUpperCase();
+        this.queries['estado_sigla'] = params['estado_sigla'].toUpperCase()
+        this.queries['data_adesao_min'] = params['data_adesao_min'];
+        this.queries['data_adesao_max']= params['data_adesao_max'];
+        this.queries['offset'] = '';
+        this.queries['limit'] = '';
+        this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
+        this.slcApiService.carregarPagina(0, this.queries);
+      } else {
         let url = '?';
 
         for (const param in params) {
           url = url.concat(param + '=' + params[param]);
           url = url.concat('&');
         }
-        
+
         url = url.slice(0, -1);
-        
+
         window.history.pushState(null, null, url);
       }
-      
+
+      // console.log('carregou?');
+      // console.log(this.listaRetorno);
+
+      // if (this.listaRetorno.length !== 0) {
+      // let url = '?';
+
+      // for (const param in params) {
+      //   url = url.concat(param + '=' + params[param]);
+      //   url = url.concat('&');
+      // }
+
+      // url = url.slice(0, -1);
+
+      // window.history.pushState(null, null, url);
+
+
       // this.estadoOuMinicipio = params['estadoOuMinicipio'];
       // this.uf = params['uf'];
       // this.inicioAdesao = params['inicioAdesao'];
@@ -99,13 +129,13 @@ export class SncTableComponent implements OnInit, OnDestroy {
     let index = this.slcApiService['paginaAtual'];
 
     this.pages = index * 10; // Number offset que vai para a chamada da API
-    this.listaRetorno[3] = this.pages; 
+    this.listaRetorno[3] = this.pages;
     this.listaRetorno[2]['offset'] = this.pages.toString(); // String 'offset' que vai para a chamada da API e realiza a paginação
-    
+
     this.slcApiService.carregarPagina(index, this.listaRetorno[2]);
   }
-  
+
   ngAfterViewInit() {
-    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente    
+    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente
   }
 }

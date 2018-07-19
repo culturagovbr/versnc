@@ -26,7 +26,7 @@ export class BuscaComponent implements OnInit {
   private page: number = 0;
   private data_adesao_min: String = '';
   private data_adesao_max: String = '';
-  
+
   private estadoOuMinicipio: String = '';
   private uf: String = '';
   private inicioAdesao: Date = new Date();

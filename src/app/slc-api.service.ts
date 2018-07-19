@@ -114,15 +114,15 @@ export class SlcApiService {
       resposta => {
         this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index]);
         this.router.navigate(
-          ['/tabela-uf-municipio'],
-          {
-            queryParams: {
-              nome_municipio: queries['nome_municipio'] || null,
-              estado_sigla: queries['estado_sigla'] || null,
-              data_adesao_min: queries['data_adesao_min'] || null,
-              data_adesao_max: queries['data_adesao_max'] || null
-            }
-          }
+          ['/tabela-uf-municipio']
+          // {
+          //   queryParams: {
+          //     nome_municipio: queries['nome_municipio'] || null,
+          //     estado_sigla: queries['estado_sigla'] || null,
+          //     data_adesao_min: queries['data_adesao_min'] || null,
+          //     data_adesao_max: queries['data_adesao_max'] || null
+          //   }
+          // }
         )
       }
     );

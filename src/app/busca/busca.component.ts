@@ -58,7 +58,8 @@ export class BuscaComponent implements OnInit {
         this.onRealizarBusca();
 
       } else { // BUSCA AVANÇADA
-        this.pesquisarEstado(this.termoUF);
+        this.queries['estado_sigla'] = this.termoUF.length == 2 ? this.termoUF.toUpperCase() : '';
+        this.queries['nome_uf'] = this.termoUF.length > 2 ? this.termoUF : '';
         this.queries['ente_federado'] = '';
         this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
@@ -68,11 +69,6 @@ export class BuscaComponent implements OnInit {
       }
 
     }
-  }
-
-  pesquisarEstado(nome_uf) {
-    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
-    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   onRealizarBusca() {

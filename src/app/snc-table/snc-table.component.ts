@@ -38,9 +38,19 @@ export class SncTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  queries: { [query: string]: String } = {
-    'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': ''
+  queries: { [query: string]: Object } = {
+    'data_adesao_max': '',
+    'data_adesao_min': '',
+    'ente_federado': '',
+    'estado_sigla': '',
+    'estadual': '',
+    'limit': '',
+    'municipal': '',
+    'nome_municipio': '',
+    'nome_uf': '',
+    'offset': '',
   };
+
 
   ngOnInit() :void{
     this.getEntesFederados();
@@ -72,13 +82,17 @@ export class SncTableComponent implements OnInit, OnDestroy {
    * @param urlQueryParams  query params presentes na URL ´urlQueryParams´.
    */
   public callApiWithQueryParams(urlQueryParams: Params): void {
-    this.queries['nome_municipio'] = urlQueryParams['nome_municipio'].toUpperCase();
-    this.queries['estado_sigla'] = urlQueryParams['estado_sigla'].toUpperCase();
-    this.queries['data_adesao_min'] = urlQueryParams['data_adesao_min'];
-    this.queries['data_adesao_max']= urlQueryParams['data_adesao_max'];
-    this.queries['offset'] = urlQueryParams['offset'];
-    this.queries['limit'] = urlQueryParams['limit'];
-    this.slcApiService['paginaAtual'] = Number(urlQueryParams['offset']); // Garante que a busca sempre seja vista inicialmente na primeira página
+    this.queries['data_adesao_max'] = urlQueryParams['data_adesao_max']
+    this.queries['data_adesao_min'] = urlQueryParams['data_adesao_min']
+    this.queries['ente_federado'] = urlQueryParams['ente_federado']
+    this.queries['estado_sigla'] = urlQueryParams['estado_sigla']
+    this.queries['estadual'] = urlQueryParams['estadual']
+    this.queries['limit'] = urlQueryParams['limit']
+    this.queries['municipal'] = urlQueryParams['municipal']
+    this.queries['nome_municipio'] = urlQueryParams['nome_municipio']
+    this.queries['nome_uf'] = urlQueryParams['nome_uf']
+    this.queries['offset'] = urlQueryParams['offset']
+    this.slcApiService['paginaAtual'] = urlQueryParams['offset']; // Garante que a busca sempre seja vista inicialmente na primeira página
     this.slcApiService.carregarPagina(0, this.queries);
   }
 

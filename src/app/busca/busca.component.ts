@@ -43,18 +43,6 @@ export class BuscaComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.activatedRoute.queryParams.subscribe((params: Params) => {
-    //   this.estadoOuMinicipio = params['estadoOuMinicipio'];
-    //   this.uf = params['uf'];
-    //   this.inicioAdesao = params['inicioAdesao'];
-    //   this.fimAdesao = params['fimAdesao'];
-    //   // http://localhost:4200/?estadoOuMinicipio=Distrito&uf=DF&inicioAdesao=18,03,1995&fimAdesao=18,03,2010
-    //   // console.log('MOSTRANDO OS LOGS');
-    //   // console.log(this.estadoOuMinicipio);
-    //   // console.log(this.uf);
-    //   // console.log(this.inicioAdesao);
-    //   // console.log(this.fimAdesao);
-    // });
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
   }
 

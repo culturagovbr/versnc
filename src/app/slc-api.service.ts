@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
-import {Response} from '@angular/http';
-import {Location} from '@angular/common';
-import {Router} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { Response } from '@angular/http';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
-import {MessageService} from './message.service';
+import { MessageService } from './message.service';
 
-import {Entidade} from './models/entidade.model';
-import {element} from 'protractor';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Entidade } from './models/entidade.model';
+import { element } from 'protractor';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SlcApiService {
@@ -28,9 +28,9 @@ export class SlcApiService {
   }
 
   constructor(private http: HttpClient,
-              private messageService: MessageService,
-              private location: Location,
-              private router: Router) {
+    private messageService: MessageService,
+    private location: Location,
+    private router: Router) {
   }
 
   /**
@@ -60,7 +60,7 @@ export class SlcApiService {
 
   /** Entidades busca simplificada ETAPA:1 */
   searchFilter(queries): Observable<any> {
-    return this.http.get(this.sncUrlHmgLocal, {params: queries})
+    return this.http.get(this.sncUrlHmgLocal, { params: queries })
       .map(res => {
 
         let count: Number = 0;
@@ -105,7 +105,7 @@ export class SlcApiService {
           }
           return entidade;
         });
-        return { entesFederados , count };
+        return { entesFederados, count };
       });
   }
 
@@ -113,19 +113,8 @@ export class SlcApiService {
     this.searchFilter(queries).subscribe(
       resposta => {
         this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index]);
-        this.router.navigate(
-          ['/tabela-uf-municipio']
-          // {
-          //   queryParams: {
-          //     nome_municipio: queries['nome_municipio'] || null,
-          //     estado_sigla: queries['estado_sigla'] || null,
-          //     data_adesao_min: queries['data_adesao_min'] || null,
-          //     data_adesao_max: queries['data_adesao_max'] || null
-          //   }
-          // }
-        )
-      }
-    );
+        this.router.navigate(['/tabela-uf-municipio'])
+      });
   }
 
 }

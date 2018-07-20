@@ -42,7 +42,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
     'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': ''
   };
 
-
   ngOnInit() :void{
     this.getEntesFederados();
 
@@ -83,16 +82,15 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.slcApiService.carregarPagina(0, this.queries);
   }
 
-
   /**
    * Coloca na URL como query params os parâmetros usados na pesquisa.
    */
   public pushQueryParamsOfSeachResult(): void {
     let url = window.location.pathname.concat('?');
-    const searchResults = this.listaRetorno[2];
+    const paramsOfSearch = this.listaRetorno[2];
 
-    for (const param in searchResults) {
-      url = url.concat(param + '=' + searchResults[param]);
+    for (const param in paramsOfSearch) {
+      url = url.concat(param + '=' + paramsOfSearch[param]);
       url = url.concat('&');
     }
 

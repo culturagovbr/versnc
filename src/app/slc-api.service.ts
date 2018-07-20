@@ -116,7 +116,7 @@ export class SlcApiService {
     this.searchFilter(queries).subscribe(
       resposta => {
         this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index]);
-        this.router.navigate(['/tabela-uf-municipio'])
+        this.router.navigate(['/tabela-uf-municipio']);
       });
   }
 

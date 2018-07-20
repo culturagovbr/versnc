@@ -21,12 +21,6 @@
 }
 #filtros {
     background-color: #00A697;
-    padding-bottom: 20px;
-    padding: 10px;
-}
-.mat-chip {
-    font-size: 11px;
-    background-color: white;
 }
 
 .filtrar {
@@ -41,4 +35,12 @@
 
 .order.up {
     transform: rotate(-180deg);
+}
+.total {
+    color: white;
+    margin-left: 100px;   
+}
+
+.mat-focused {
+    color: #00A697 !important;
 }

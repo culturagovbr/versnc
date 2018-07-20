@@ -1,50 +1,28 @@
-<div class="container" id="filtros">
-  <div fxLayout="row" fxLayoutAlign="start center" class="content">
-    <!--<div class="blocks" fxFlex="70%">-->
-      <!--<mat-chip-list>-->
-        <!--<mat-chip>Município</mat-chip>-->
-        <!--<mat-chip>CNPJ</mat-chip>-->
-        <!--<mat-chip>Publicado no DOU</mat-chip>-->
-      <!--</mat-chip-list>-->
-    <!--</div>-->
-
-    <!--<div class="blocks filtrar" fxLayoutAlign="end" fxFlex="20%">-->
-      <!--<mat-form-field>-->
-        <!--<mat-select [(value)]="selected" placeholder="Filtrar por">-->
-          <!--<mat-option value="nome_municipio">Município</mat-option>-->
-          <!--<mat-option value="situacao_adesao">Situação da Adesão</mat-option>-->
-          <!--<mat-option value="data_adesao">Data da Adesão</mat-option>-->
-        <!--</mat-select>-->
-      <!--</mat-form-field>-->
-    <!--</div>-->
-    <!--<div class="blocks" fxLayoutAlign="center" fxFlex="10%">-->
-      <!--<img class="order" src="../../assets/Group 5.png"/>-->
-      <!--<img class="order up" src="../../assets/Group 4.png"/>-->
-    <!--</div>-->
+<div id="filtros" fxLayout="row" fxLayoutAlign="start start">
+  <!-- <div>
+    <h3 class="total" *ngIf="count > 0">Estados: 0</h3>
+  </div> -->
+  <div>
+    <h3 class="total" *ngIf="count > 0">Municípios: {{count}}</h3>
   </div>
-
 </div>
 
 <mat-card id="tabela">
-  <mat-paginator [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
+  <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
+
   <mat-table #snctable [dataSource]="sncDataSource" matSort>
     <ng-container matColumnDef="nome_municipio">
-      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="above">MUNICÍPIO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.nome_municipio}} - {{entidade.sigla_estado}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="situacao_adesao">
-      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="above">SITUAÇÂO DA ADESÃO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.situacao_adesao}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">MUNICÍPIO</mat-header-cell>
+      <mat-cell *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="data_adesao">
-      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="above">DATA DA ADESÃO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/M/y'}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
+      <mat-cell *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="plano_trabalho">
-      <mat-header-cell *matHeaderCellDef matTooltip="Ordenar A-Z" matTooltipPosition="above">DETALHAR</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>DETALHAR</mat-header-cell>
       <mat-cell *matCellDef="let entidade">
         <a href="http://hmg.snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
           <i class="material-icons">insert_drive_file</i>
@@ -55,34 +33,7 @@
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['nome_municipio', 'situacao_adesao', 'data_adesao', 'plano_trabalho'];"></mat-row>
+    <mat-header-row *matHeaderRowDef="['nome_municipio', 'data_adesao', 'plano_trabalho']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nome_municipio', 'data_adesao', 'plano_trabalho'];"></mat-row>
   </mat-table>
 </mat-card>
-
-<!-- <div style="margin-left:10%; margin-right:20%; width:80%;">
-<mat-paginator [length]="count" [pageSize]="10" (page)="pageEvent = getEntesFederados($event)"></mat-paginator>
-<header style="width:100%;">
-  <thead style="width:100%;">
-    <tr style="width:100%;">
-      <td style="margin-left:10%; margin-right:20%; width:20%;">municipio</td>
-      <td style="margin-left:10%; margin-right:20%; width:20%;">municipio</td>
-      <td style="margin-left:10%; margin-right:20%; width:20%;">municipio</td>
-      <td style="margin-left:10%; margin-right:20%; width:20%;">municipio</td>
-     </tr>
-  </thead>
-</header>
-
-
-<mat-accordion *ngFor="let entidade of entidades">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>{{entidade.nome_municipio}}</mat-panel-description>
-        <mat-panel-description>{{entidade.situacao_adesao}}</mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <mat-panel-description><b>CNPJ Prefeitura:</b> {{entidade.ente_federado.cnpj_prefeitura}}</mat-panel-description>
-    </mat-expansion-panel>
-
-  </mat-accordion>
-</div> -->

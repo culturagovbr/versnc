@@ -8,6 +8,7 @@ import {
   MatPaginatorModule,
   MatGridListModule,
   MatCardModule,
+  MatCheckboxModule,
   MatButtonModule,
   MatInputModule,
   MatFormFieldModule,
@@ -31,6 +32,7 @@ import {
     MatNativeDateModule
   ],
   exports: [
+    MatCheckboxModule,
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,

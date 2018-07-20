@@ -45,7 +45,7 @@ describe('BuscaComponent', () => {
     component['termoSimples'] = 'df';
     component.onRealizarBuscaComEnter(event);
 
-    expect(component['queries']['estado_sigla']).toEqual('DF');
+    expect(component['queries']['ente_federado']).toEqual('DF');
     expect(component['queries']['nome_municipio']).toEqual('');
   });
 
@@ -53,23 +53,54 @@ describe('BuscaComponent', () => {
     component['termoSimples'] = 'Brasília';
     component.onRealizarBuscaComEnter(event);
 
-    expect(component['queries']['nome_municipio']).toEqual('Brasília');
+    expect(component['queries']['ente_federado']).toEqual('Brasília');
     expect(component['queries']['estado_sigla']).toEqual('');
   });
 
-  it('Verifica se descrição do campo de busca contem - Consulte o seu Município ou UF - ', () => {
+  it('Verifica se descrição do campo de busca contem - Consulte seu Estado ou Município - ', () => {
     const htmlComponent = fixture.debugElement.nativeElement;
-    expect(htmlComponent.querySelector('h4').textContent).toContain('Consulte o seu Município ou UF');
+    expect(htmlComponent.querySelector('h4').textContent).toContain('Consulte seu Estado ou Município');
   });
 
-  it('Verifica se a informação digitada na busca é armazenada corretamente no componente', inject([SlcApiService], (service: SlcApiService) => {
+  it('Verifica método que trata a pesquisa do nome do Município por extenso - Busca Simples', inject([SlcApiService], (service: SlcApiService) => {
     let htmlComponent = fixture.debugElement.nativeElement;    
     let inputElement = htmlComponent.querySelector('input');
 
     inputElement.value = 'Barreiras';
     inputElement.dispatchEvent(new Event('input'));
-
+  
     component.onRealizarBuscaComEnter(event);
     expect(component['termoSimples']).toBe('Barreiras');
+    expect(component.queries['ente_federado']).toBe('Barreiras');
+
   }));
+
+  it('Verifica método que trata a pesquisa da sigla do Estado - Busca Simples', inject([SlcApiService], (service: SlcApiService) => {
+    let htmlComponent = fixture.debugElement.nativeElement;    
+    let inputElement = htmlComponent.querySelector('input');
+
+    inputElement.value = 'pe';
+    inputElement.dispatchEvent(new Event('input'));
+  
+    component.onRealizarBuscaComEnter(event);
+    expect(component['termoSimples']).toBe('pe');
+    expect(component['queries']['ente_federado']).toBe('PE');
+  }));
+  
+  it('Verifica método que trata a pesquisa pelo nome do Estado por extenso - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = 'Distrito Federal';
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+
+    expect(component.queries['nome_uf']).toEqual('Distrito Federal');
+  }));
+
+  it('Verifica método que trata a pesquisa pela sigla do Estado - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = 'ba';
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+
+    expect(component.queries['estado_sigla']).toEqual('BA');
+  }));
+
 });

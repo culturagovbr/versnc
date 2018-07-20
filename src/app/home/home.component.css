@@ -7,8 +7,8 @@
 
 .contador {
   background: #F2F2F2;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 30%;
+  height: 200px;
+  min-height: 40px;
   margin: 0 0 0 0px;
 }
 
@@ -19,18 +19,47 @@
 }
 
 .contador p{
-  text-align: center;
   color: #2B9087;
-  font-size: 26px;
   margin: 0 0 0 0;
-  padding: 0 0 0 0;
 }
 .contador h1{
-  text-align: center;
   color: #2B9087;
-  font-size: 32px;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+}
+
+.contador h2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-align: center;
+  color: #828282;
+  margin: 30px 0px 0px 0px;
+}
+
+#numeroAdesoes {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+}
+
+@media (min-width: 288px) {
+  .alinhamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0px;
+  }
+
+  .locations {
+    width: 30%;
+  }
+
+}
+
+@media (min-width: 360px) {
+  .locations{
+    margin-right: 6%;
+    margin-left: 6%;
+  }
 }
 
 @media (min-width: 659px) {
@@ -40,8 +69,10 @@
     justify-content: space-around;
     margin-bottom: 0px;
   }
+
   #cardsHome {
-    height: 40%;
+    height: 360px;
+    min-height: 360px;
   }
 }
 
@@ -61,10 +92,14 @@
   position: relative;
 }
 
-#cardsHome h4 {
+#cardsHome h2 {
   color: whitesmoke;
   text-align: center;
   margin-top: 10px;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 36px;
+  font-style: normal;
 }
 
 .card a {
@@ -93,4 +128,22 @@
 
 #verdeClaro span {
   color: #00FF6A;
+}
+
+.locations {
+  margin-right: -15px;
+}
+
+mat-card h1 {
+  text-align: left;
+  color: #2B9087;
+  font-weight: 300;
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+
+mat-card p {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
 }

@@ -3,6 +3,7 @@
 }
 .alinhamento{
     width: 50%;
+    max-width: 50%;
     text-align:center;
     margin-left: 25%;
 }
@@ -29,5 +30,41 @@
     color: #2B9087;
     text-align: center;
     margin-bottom: 2px;
-  }
+}
  
+#trocaBusca {
+    width: 135px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-transform: capitalize;
+    color: #828282;
+    padding: 8px;
+}
+
+.checkbox {
+    color: #595959;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+}
+
+section mat-checkbox  {
+    padding: 2%;
+}
+
+form section {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 580px) {
+    form {
+        width: 100%;
+        min-width: 100%;
+        margin: 0 0 0 0;
+    }
+    .alinhamento {
+        margin-left:5%;
+    }
+}

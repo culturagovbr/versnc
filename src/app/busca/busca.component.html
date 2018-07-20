@@ -1,45 +1,39 @@
 <div class="fit">
   <div class="busca">
     <h4>
-      Consulte o seu Município ou UF
+      Consulte seu Estado ou Município
     </h4>
   </div>
 
   <form *ngIf="seletorTipoBusca == false" class="alinhamento card-busca">
     <mat-form-field class="layoutFill textCenter">
-      <mat-placeholder>Informe o Estado, Município ou UF
+      <mat-placeholder>Consulte seu Estado ou Município
         <mat-icon>search</mat-icon>
       </mat-placeholder>
 
-      <input
-        #searchBox matInput type="search" id="search-box"
-        [(ngModel)]="termoSimples"
-        [ngModelOptions]="{standalone: true}"
-        (keypress)="onRealizarBuscaComEnter($event)"
-      />
+      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoSimples" [ngModelOptions]="{standalone: true}"
+        (keypress)="onRealizarBuscaComEnter($event)" />
+
     </mat-form-field>
+
   </form>
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
-      <mat-placeholder> Estado ou Município
+      <mat-placeholder> Estado
         <mat-icon>search</mat-icon>
       </mat-placeholder>
+      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}" autofocus/>
+    </mat-form-field>
 
+    <mat-form-field class="textCenter">
+      <mat-placeholder> Município
+        <mat-icon>search</mat-icon>
+      </mat-placeholder>
       <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="queries['nome_municipio']" [ngModelOptions]="{standalone: true}"
         autofocus/>
-
     </mat-form-field>
-    <mat-form-field class="textCenter">
-      <mat-placeholder> UF
-        <mat-icon>search</mat-icon>
-      </mat-placeholder>
 
-      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="queries['estado_sigla']" [ngModelOptions]="{standalone: true}"
-        autofocus/>
-
-
-    </mat-form-field>
 
     <mat-form-field class="textCenter">
       <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_adesao_min" [ngModelOptions]="{standalone: true}" placeholder="Adesão a partir da data">
@@ -48,12 +42,28 @@
     </mat-form-field>
 
     <mat-form-field class="textCenter">
-      <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_adesao_max" [ngModelOptions]="{standalone: true}" placeholder="Adesão até a data">
+      <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_adesao_max" [ngModelOptions]="{standalone: true}"
+        placeholder="Adesão até a data">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
 
+    <section>
+      <mat-checkbox class="primary" [(ngModel)]="visualizarEstados" color="primary" [ngModelOptions]="{standalone: true}">
+        <span class="checkbox">Estados</span>
+      </mat-checkbox>
+      <mat-checkbox class="primary" [(ngModel)]="visualizarMunicipios" color="primary" [ngModelOptions]="{standalone: true}">
+        <span class="checkbox">Municípios</span>
+      </mat-checkbox>
+    </section>
+
   </form>
 
-  <a class="alinhamento" (click)="seletorTipoBusca = !seletorTipoBusca">{{ seletorTipoBusca ? '&#x25B4; Busca Simples' : '&#x25B8; Busca Avançada' }}</a>
+  <button *ngIf="!seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = true">
+    <span class="material-icons">keyboard_arrow_down</span>{{ seletorTipoBusca ? false : 'Abrir Filtros'}}
+  </button>
+  <button *ngIf="seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = false">
+    <span class="material-icons">keyboard_arrow_up</span> Fechar Filtros
+  </button>
+
 </div>

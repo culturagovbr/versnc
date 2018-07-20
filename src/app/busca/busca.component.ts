@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { Entidade } from '../models/entidade.model';
-import { SlcApiService } from '../slc-api.service';
-import { SncTableComponent } from '../snc-table/snc-table.component';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { SncTableComponent } from '../snc-table/snc-table.component';
+
+import { SlcApiService } from '../slc-api.service';
 
 @Component({
   selector: 'snc-busca',
@@ -19,26 +20,25 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 
 export class BuscaComponent implements OnInit {
+
   private listaRetorno = {};
   private listaEntidades: [Entidade];
   private seletorTipoBusca: boolean = false;
   private termoSimples: String = '';
+  private termoUF: String = '';
   private page: number = 0;
-  private data_adesao_min: String = '';
-  private data_adesao_max: String = '';
+  private data_adesao_min: String = "";
+  private data_adesao_max: String = "";
+  private visualizarEstados = true;
+  private visualizarMunicipios = true;
 
-  private estadoOuMinicipio: String = '';
-  private uf: String = '';
-  private inicioAdesao: Date = new Date();
-  private fimAdesao: Date = new Date();
-
-
-  constructor(private slcApiService: SlcApiService, public activatedRoute: ActivatedRoute) {
+  constructor(private slcApiService: SlcApiService) {
   }
 
   queries: { [query: string]: String }
     = {
-      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': ''
+      'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '',
+      'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
     };
 
 
@@ -52,26 +52,27 @@ export class BuscaComponent implements OnInit {
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
-        if (this.termoSimples.length < 3) {
-          this.queries['nome_municipio'] = '';
-          this.queries['offset'] = '';
-          this.queries['estado_sigla'] = this.termoSimples.toUpperCase();
-        } else if (this.termoSimples === '' || this.termoSimples.length > 2) {
-          this.queries['estado_sigla'] = '';
-          this.queries['offset'] = '';
-          this.queries['nome_municipio'] = this.termoSimples;
-        }
-
+        this.queries['estadual'] = '';
+        this.queries['municipal'] = '';
+        this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
         this.onRealizarBusca();
-      } else { // BUSCA AVANÇADA
-        this.queries['estado_sigla'] = this.queries['estado_sigla'].toUpperCase()
-        this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
-        this.queries['data_adesao_max']=this.getDatePicker(this.data_adesao_max);
-        console.info(this.queries);
 
+      } else { // BUSCA AVANÇADA
+        this.pesquisarEstado(this.termoUF);
+        this.queries['ente_federado'] = '';
+        this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
+        this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
+        this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
+        this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
         this.onRealizarBusca();
       }
+
     }
+  }
+
+  pesquisarEstado(nome_uf) {
+    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
+    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   onRealizarBusca() {

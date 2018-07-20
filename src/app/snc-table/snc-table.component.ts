@@ -46,29 +46,11 @@ export class SncTableComponent implements OnInit, OnDestroy {
   ngOnInit() :void{
     this.getEntesFederados();
 
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (Object.keys(params).length > 0) {
-        this.queries['nome_municipio'] = params['nome_municipio'].toUpperCase();
-        this.queries['estado_sigla'] = params['estado_sigla'].toUpperCase()
-        this.queries['data_adesao_min'] = params['data_adesao_min'];
-        this.queries['data_adesao_max']= params['data_adesao_max'];
-        this.queries['offset'] = '';
-        this.queries['limit'] = '';
-        this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
-        this.slcApiService.carregarPagina(0, this.queries);
+    this.activatedRoute.queryParams.subscribe((urlQueryParams: Params) => {
+      if (Object.keys(urlQueryParams).length > 0) {
+        this.callApiWithQueryParams(urlQueryParams);
       } else {
-
-        let url = window.location.pathname.concat('?');
-        const searchResults = this.listaRetorno[2];
-
-        for (const param in searchResults) {
-          url = url.concat(param + '=' + searchResults[param]);
-          url = url.concat('&');
-        }
-
-        url = url.slice(0, -1);
-
-        window.history.pushState(null, null, url);
+        this.pushQueryParamsOfSeachResult();
       }
     });
 
@@ -86,9 +68,37 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.pages = this.listaRetorno[3];
   }
 
-  public formatDate(date: String): String {
+  /**
+   * Chama a api passando os query params da URL.
+   * @param urlQueryParams  query params presentes na URL ´urlQueryParams´.
+   */
+  public callApiWithQueryParams(urlQueryParams: Params): void {
+    this.queries['nome_municipio'] = urlQueryParams['nome_municipio'].toUpperCase();
+    this.queries['estado_sigla'] = urlQueryParams['estado_sigla'].toUpperCase();
+    this.queries['data_adesao_min'] = urlQueryParams['data_adesao_min'];
+    this.queries['data_adesao_max']= urlQueryParams['data_adesao_max'];
+    this.queries['offset'] = '';
+    this.queries['limit'] = '';
+    this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
+    this.slcApiService.carregarPagina(0, this.queries);
+  }
 
-    return '';
+
+  /**
+   * Coloca na URL como query params os parâmetros usados na pesquisa.
+   */
+  public pushQueryParamsOfSeachResult(): void {
+    let url = window.location.pathname.concat('?');
+    const searchResults = this.listaRetorno[2];
+
+    for (const param in searchResults) {
+      url = url.concat(param + '=' + searchResults[param]);
+      url = url.concat('&');
+    }
+
+    url = url.slice(0, -1);
+
+    window.history.pushState(null, null, url);
   }
 
   ngOnDestroy() {

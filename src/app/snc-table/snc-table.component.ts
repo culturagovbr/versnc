@@ -76,9 +76,9 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.queries['estado_sigla'] = urlQueryParams['estado_sigla'].toUpperCase();
     this.queries['data_adesao_min'] = urlQueryParams['data_adesao_min'];
     this.queries['data_adesao_max']= urlQueryParams['data_adesao_max'];
-    this.queries['offset'] = '';
-    this.queries['limit'] = '';
-    this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
+    this.queries['offset'] = urlQueryParams['offset'];
+    this.queries['limit'] = urlQueryParams['limit'];
+    this.slcApiService['paginaAtual'] = Number(urlQueryParams['offset']); // Garante que a busca sempre seja vista inicialmente na primeira página
     this.slcApiService.carregarPagina(0, this.queries);
   }
 

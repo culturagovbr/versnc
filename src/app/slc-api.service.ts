@@ -20,7 +20,6 @@ export class SlcApiService {
 
   private sncUrlHmgLocal = 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/';
   private sncUrlLocal = 'http://localhost:8000/api/v1/sistemadeculturalocal';
-  private sncUrlHmgPlanoTrabalho = 'http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/';
   private listaRetorno = {};
   private buscar = new BehaviorSubject<any>([]);
   buscaAtual = this.buscar.asObservable();
@@ -121,36 +120,6 @@ export class SlcApiService {
         return { entesFederados, count };
       });
   }
-
-
-  searchPlanoTrabalho(queries): Observable<any> {
-    return this.http.get(this.sncUrlHmgPlanoTrabalho, { params: queries })
-      .map(res => {
-
-        let count: number = 0;
-        let planosTrabalho: PlanoTrabalho[] = [];
-        count = res['count'];
-        planosTrabalho = res['_embedded']['items'].map((element, index) => {
-          const planotrabalho: PlanoTrabalho = {
-            'id': '', 'situacao_lei_id': '', 'situacao_plano_id': '', 'situacao_orgao_id': '', 
-            'situacao_fundo_id': '', 'situacao_conselho_id': ''
-          };
-
-          planotrabalho.situacao_lei_id = element['situacao_lei_id'] ? '2': '';
-          planotrabalho.situacao_plano_id = element['situacao_plano_id'] ? '2': '';
-          planotrabalho.situacao_lei_id = element['situacao_orgao_id'] ? '2': '';
-          planotrabalho.situacao_lei_id = element['situacao_fundo_id'] ? '2': '';
-          planotrabalho.situacao_lei_id = element['situacao_conselho_id'] ? '2': '';
-
-          return planotrabalho;
-        });
-
-        return { planosTrabalho, count };
-      });
-  }
-
-
-
 
   carregarPagina(index: number, queries) {
     this.searchFilter(queries).subscribe(

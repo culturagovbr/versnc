@@ -41,11 +41,6 @@ export class BuscaComponent implements OnInit {
       'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
     };
 
-  queriesPlanoTrabalho: { [query: string]: String } = {
-    'id': '', 'situacao_lei_id': '', 'situacao_plano_id': '', 'situacao_orgao_id': '',
-    'situacao_fundo_id': '', 'situacao_conselho_id': ''
-  };
-
   componentes = [false, false, false, false, false]; // leiSistema, OrgaoGestor, PlanoCultura, Fundocultura, ConselhoCultura
 
   ngOnInit(): void {

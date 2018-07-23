@@ -7,11 +7,10 @@ export class CdkDetailRowDirective {
   private row: any;
   private tRef: TemplateRef<any>;
   private opened: boolean;
-  private expand: any;
 
   @HostBinding('class.expanded')
-  get expanded(): boolean {
-    return this.opened && this.expand;
+  get expended(): boolean {
+    return this.opened;
   }
 
   @Input()
@@ -28,11 +27,6 @@ export class CdkDetailRowDirective {
     }
   }
 
-  @Input('cdkDetailRowExpand')
-  set cdkDetailRowExpand(value: any) {
-    this.expand = value;
-  }
-
   constructor(public vcRef: ViewContainerRef) { }
 
   @HostListener('click')
@@ -41,13 +35,12 @@ export class CdkDetailRowDirective {
   }
 
   toggle(): void {
-    if (this.opened && this.expand) {
+    if (this.opened) {
       this.vcRef.clear();
-      this.opened = false;
     } else {
       this.render();
-      this.opened = true;
     }
+    this.opened = this.vcRef.length > 0;
   }
 
   private render(): void {

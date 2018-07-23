@@ -38,8 +38,8 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private mySubscription: Subscription;
   private pages: number = 0;
   private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  private expandElements = false;
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
+  private isDisabled = false;
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -57,7 +57,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(CdkDetailRowDirective) detailRow: CdkDetailRowDirective;
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
@@ -103,11 +102,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
       return nomes.slice(1).join(' ');
   }
 
-  clearExpandedElements($event) {
-    this.expandElements = false;
-  }
-
-  a($event) {
-    console.log($event);
+  setAnimationAsDisabled(status: boolean) {
+    this.isDisabled = status;
   }
 }

@@ -24,26 +24,27 @@ import { MessageComponent } from './message/message.component';
 import { MessageService } from './message.service';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    SncTableComponent,
-    HomeComponent,
     BuscaComponent,
+    CdkDetailRowDirective,
+    HomeComponent,
     MenuComponent,
     MessageComponent,
-    CdkDetailRowDirective
+    SncTableComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    HttpClientModule,
-    MaterialModule,
+    BrowserAnimationsModule,
+    BrowserModule,
     FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
     HttpModule,
-    FormsModule
+    MaterialModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [SlcApiService, MessageService, SncTableComponent],
   bootstrap: [AppComponent]

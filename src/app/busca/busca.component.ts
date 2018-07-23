@@ -32,13 +32,6 @@ export class BuscaComponent implements OnInit {
   private visualizarEstados = true;
   private visualizarMunicipios = true;
 
-  private leiSistema = false;
-  private fundoCultura = false;
-  private orgaoGestor = false;
-  private conselhoCultura = false;
-  private planoCultura = false;
-
-
   constructor(private slcApiService: SlcApiService) {
   }
 
@@ -48,6 +41,12 @@ export class BuscaComponent implements OnInit {
       'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
     };
 
+  queriesPlanoTrabalho: { [query: string]: String } = {
+    'id': '', 'situacao_lei_id': '', 'situacao_plano_id': '', 'situacao_orgao_id': '',
+    'situacao_fundo_id': '', 'situacao_conselho_id': ''
+  };
+
+  componentes = [false, false, false, false, false]; // leiSistema, OrgaoGestor, PlanoCultura, Fundocultura, ConselhoCultura
 
   ngOnInit(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
@@ -59,8 +58,7 @@ export class BuscaComponent implements OnInit {
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
-        this.queries['estadual'] = '';
-        this.queries['municipal'] = '';
+        this.limparQueriesDaBusca();
         this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
         this.onRealizarBusca();
 
@@ -75,6 +73,15 @@ export class BuscaComponent implements OnInit {
       }
 
     }
+  }
+ 
+  limparQueriesDaBusca() {
+    this.queries['data_adesao_max'] = '';
+    this.queries['data_adesao_min'] = '';
+    this.queries['estado_sigla'] = '';
+    this.queries['nome_uf'] = '';
+    this.queries['nome_municipio'] = '';
+    this.termoUF = '';
   }
 
   pesquisarEstado(nome_uf) {

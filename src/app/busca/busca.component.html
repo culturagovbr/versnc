@@ -63,22 +63,22 @@
         <!-- COMPONENTES -->
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
-          <mat-checkbox class="primary" [(ngModel)]="leiSistema" color="primary" [ngModelOptions]="{standalone: true}">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[0]" color="primary" [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Lei Sistema</span>
           </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="orgaoGestor" color="primary" [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Órgão Gestor</span>
-          </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="planoCultura" color="primary" [ngModelOptions]="{standalone: true}">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[2]" color="primary" [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Plano Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="componentes[1]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Órgão Gestor</span>
           </mat-checkbox>
         </div>
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
-          <mat-checkbox class="primary" [(ngModel)]="fundoCultura" color="primary" [ngModelOptions]="{standalone: true}">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[3]" color="primary" [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Fundo Cultura</span>
           </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="conselhoCultura" color="primary" [ngModelOptions]="{standalone: true}">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[4]" color="primary" [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Conselho Cultura</span>
           </mat-checkbox>
         </div>

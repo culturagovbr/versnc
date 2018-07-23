@@ -13,6 +13,7 @@ import { MessageService } from '../message.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs/Observable';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SncTableComponent', () => {
   let component: SncTableComponent;
@@ -24,6 +25,7 @@ describe('SncTableComponent', () => {
       imports: [ HttpClientModule, MaterialModule, NoopAnimationsModule, RouterTestingModule ],
       declarations: [ SncTableComponent, BuscaComponent ],
       providers: [ SlcApiService, MessageService ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

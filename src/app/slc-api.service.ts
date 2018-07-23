@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { MessageService } from './message.service';
 
 import { Entidade } from './models/entidade.model';
+import { PlanoTrabalho } from './models/planotrabalho.model';
+
 import { element } from 'protractor';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -18,6 +20,7 @@ export class SlcApiService {
 
   private sncUrlHmgLocal = 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/';
   private sncUrlLocal = 'http://localhost:8000/api/v1/sistemadeculturalocal';
+  private sncUrlHmgPlanoTrabalho = 'http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/';
   private listaRetorno = {};
   private buscar = new BehaviorSubject<any>([]);
   buscaAtual = this.buscar.asObservable();
@@ -63,10 +66,10 @@ export class SlcApiService {
 
     if (acoes_plano_trabalho) {
       for (var key in acoes_plano_trabalho) {
-        if(acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
-          componentes.push({key: key, value: acoes_plano_trabalho[key]});
-        else if(key != "_links" && key != "_embedded" && key != "id") {
-          componentes.push({key: key, value: ''})
+        if (acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
+          componentes.push({ key: key, value: acoes_plano_trabalho[key] });
+        else if (key != "_links" && key != "_embedded" && key != "id") {
+          componentes.push({ key: key, value: '' })
         }
       }
     }
@@ -86,7 +89,7 @@ export class SlcApiService {
           const entidade: Entidade = {
             'id': '', 'ente_federado': '', 'situacao_adesao': '',
             'conselho': '', 'acoes_plano_trabalho': [], 'link_entidade': '',
-            'nome_municipio': '','sigla_estado': '',
+            'nome_municipio': '', 'sigla_estado': '',
             'data_adesao': '', 'municipioUF': '', 'nome_estado': ''
           };
 
@@ -100,10 +103,10 @@ export class SlcApiService {
           entidade.data_adesao = element['data_adesao'];
           entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
           entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
-       
+
           let acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
-          entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);       
-          
+          entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);
+
           if (element['ente_federado']['localizacao']['cidade'] !== null) {
             entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);
             entidade.municipioUF = entidade.nome_municipio + " - " + entidade.sigla_estado;
@@ -118,6 +121,36 @@ export class SlcApiService {
         return { entesFederados, count };
       });
   }
+
+
+  searchPlanoTrabalho(queries): Observable<any> {
+    return this.http.get(this.sncUrlHmgPlanoTrabalho, { params: queries })
+      .map(res => {
+
+        let count: number = 0;
+        let planosTrabalho: PlanoTrabalho[] = [];
+        count = res['count'];
+        planosTrabalho = res['_embedded']['items'].map((element, index) => {
+          const planotrabalho: PlanoTrabalho = {
+            'id': '', 'situacao_lei_id': '', 'situacao_plano_id': '', 'situacao_orgao_id': '', 
+            'situacao_fundo_id': '', 'situacao_conselho_id': ''
+          };
+
+          planotrabalho.situacao_lei_id = element['situacao_lei_id'] ? '2': '';
+          planotrabalho.situacao_plano_id = element['situacao_plano_id'] ? '2': '';
+          planotrabalho.situacao_lei_id = element['situacao_orgao_id'] ? '2': '';
+          planotrabalho.situacao_lei_id = element['situacao_fundo_id'] ? '2': '';
+          planotrabalho.situacao_lei_id = element['situacao_conselho_id'] ? '2': '';
+
+          return planotrabalho;
+        });
+
+        return { planosTrabalho, count };
+      });
+  }
+
+
+
 
   carregarPagina(index: number, queries) {
     this.searchFilter(queries).subscribe(

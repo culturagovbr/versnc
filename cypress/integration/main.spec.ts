@@ -42,11 +42,19 @@ describe('' +
       cy.get('.mat-header-cell').eq(2).contains('DETALHAR');
     });
 
-    it('Apresenta 20 elementos referentes aos municipios e a linha expansível', () => {
+    it('Apresenta 10 elementos referentes aos municipios e a linha expansível', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row').should('have.length', 20);
+      cy.get('app-root snc-table mat-card mat-table mat-row').should('have.length', 10);
+    });
+
+    it('Criação de uma nova linha após o click em alguma das linhas da tabela', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('{enter}');
+      cy.get('mat-table mat-row').eq(0).click();
+      cy.get('mat-table div.mat-row');
     });
 
     it('Apresenta o componente de paginação', () => {
@@ -124,7 +132,7 @@ describe('' +
       cy.api_somente_municipios();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('section mat-checkbox').eq(0).click();
+      cy.get('mat-checkbox').eq(0).click();
 
       cy.get('input').eq(0).type('BA{enter}');
 
@@ -136,7 +144,7 @@ describe('' +
       cy.api_somente_estados();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('section mat-checkbox').eq(1).click();
+      cy.get('mat-checkbox').eq(1).click();
 
       cy.get('input').eq(0).type('{enter}');
 

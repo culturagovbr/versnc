@@ -5,7 +5,7 @@ describe('' +
       // cy.api();
     });
 
-    /*it('Retorna 200 OK ao acessar a raiz', () => {
+    it('Retorna 200 OK ao acessar a raiz', () => {
       cy.visit('http://localhost:4200/');
     });
 
@@ -160,7 +160,7 @@ describe('' +
 
       cy.get('input').eq(2).type('11/10/2017{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Morada Nova de Minas - MG ');
-    });*/
+    });
 
     it('Testa a opção de ADESÃO ATÉ A DATA, na Busca Avançada', () => {
       cy.api_data_adesao_max();
@@ -178,7 +178,6 @@ describe('' +
       cy.get('.mat-sort-header-button').eq(0).contains('MUNICÍPIO').click();
 
       cy.get('mat-cell').eq(0).contains(' Aporá - BA ');
-      // cy.get('mat-cell').eq(0).contains(/^A\w+\s-\s\w+/);
     });
 
     it('Testa ordenação alfabética DESC da tabela ao clicar no titulo MUNICÍPIO', () => {
@@ -196,6 +195,24 @@ describe('' +
       cy.get('input').type('{enter}');
 
       cy.get('div h3.total.ng-star-inserted').contains('Municípios: 2967');
+    });
+
+    it('Testa se linha expansível mostra informações corretamente', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('{enter}');
+      cy.get('mat-cell').eq(0).click();
+
+      cy.get('.detail-row').should('be.visible');
+      cy.get('.detail-row').contains('Lei Sistema');
+      cy.get('.detail-row').contains('Orgao Gestor');
+      cy.get('.detail-row').contains('Conselho Cultural');
+      cy.get('.detail-row').contains('Fundo Cultura');
+      cy.get('.detail-row').contains('Plano Cultura');
+      cy.get('.detail-row p').should('not.be.empty');
+
+      cy.get('mat-cell').eq(0).click();
+      cy.get('.detail-row').should('not.be.visible');
     });
 
   });

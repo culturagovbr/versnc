@@ -5,7 +5,7 @@ describe('' +
       // cy.api();
     });
 
-    it('Retorna 200 OK ao acessar a raiz', () => {
+    /*it('Retorna 200 OK ao acessar a raiz', () => {
       cy.visit('http://localhost:4200/');
     });
 
@@ -160,7 +160,7 @@ describe('' +
 
       cy.get('input').eq(2).type('11/10/2017{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Morada Nova de Minas - MG ');
-    });
+    });*/
 
     it('Testa a opção de ADESÃO ATÉ A DATA, na Busca Avançada', () => {
       cy.api_data_adesao_max();

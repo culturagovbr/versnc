@@ -103,4 +103,32 @@ describe('BuscaComponent', () => {
     expect(component.queries['estado_sigla']).toEqual('BA');
   }));
 
+  it('Verifica se a query é setada corretamente com array de componentes ativo', 
+    inject([SlcApiService], (service: SlcApiService) => {
+
+    component['componentes'] = [true, true, true, true, true];
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+  
+    expect(component.queries['situacao_lei_id']).toBe('2');
+    expect(component.queries['situacao_plano_id']).toBe('2');
+    expect(component.queries['situacao_orgao_id']).toBe('2');
+    expect(component.queries['situacao_fundo_id']).toBe('2');
+    expect(component.queries['situacao_conselho_id']).toBe('2');
+  }));
+
+  it('Verifica se a query é setada corretamente com array de componentes inativo', 
+    inject([SlcApiService], (service: SlcApiService) => {
+
+    component['componentes'] = [false, false, false, false, false];
+    component['seletorTipoBusca'] = true;
+    component.onRealizarBuscaComEnter(event);
+  
+    expect(component.queries['situacao_lei_id']).toBe('');
+    expect(component.queries['situacao_plano_id']).toBe('');
+    expect(component.queries['situacao_orgao_id']).toBe('');
+    expect(component.queries['situacao_fundo_id']).toBe('');
+    expect(component.queries['situacao_conselho_id']).toBe('');
+  }));
+
 });

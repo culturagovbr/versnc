@@ -215,4 +215,27 @@ describe('' +
       cy.get('.detail-row').should('not.be.visible');
     });
 
-  });
+    it('Testa filtro de componentes com checkboxs ativos', () => {
+      cy.api_componentes();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+
+      cy.get('.mat-checkbox-input').eq(2).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(3).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(4).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(5).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(6).click({ force: true });
+
+      cy.get('input').eq(1).type('{enter}');
+
+      cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
+        cy.wrap($el).click();
+        cy.get('.detail-row').contains('Lei Sistema').contains('check');
+        cy.get('.detail-row').contains('Orgao Gestor').contains('check');
+        cy.get('.detail-row').contains('Conselho Cultural').contains('check');
+        cy.get('.detail-row').contains('Fundo Cultura').contains('check');
+        cy.get('.detail-row').contains('Plano Cultura').contains('check');
+      });
+    });
+
+});

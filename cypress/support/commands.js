@@ -38,6 +38,16 @@ Cypress.Commands.add('api', () => {
   })
  });
 
+Cypress.Commands.add('api_componentes', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=' +
+    '&situacao_lei_id=2&situacao_plano_id=2&situacao_orgao_id=2&situacao_fundo_id=2&situacao_conselho_id=2',    
+    response: 'fixture:componentesResponse'        // and force the response to be: []
+  })
+ });
+
 Cypress.Commands.add('apiSimples', () => {
   cy.server()           // enable response stubbing
   cy.route({

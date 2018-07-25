@@ -1,0 +1,2264 @@
+{
+   "_links":{
+      "self":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?format=json&limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=&situacao_lei_id=2&situacao_plano_id=2&situacao_orgao_id=2&situacao_fundo_id=2&situacao_conselho_id=2"
+      },
+      "next":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=&estado_sigla=&estadual=&format=json&limit=10&municipal=&nome_municipio=&nome_uf=&offset=10&situacao_conselho_id=2&situacao_fundo_id=2&situacao_lei_id=2&situacao_orgao_id=2&situacao_plano_id=2"
+      },
+      "page":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=&estado_sigla=&estadual=&format=json&limit={?page}&municipal=&nome_municipio=&nome_uf=&offset=&situacao_conselho_id=2&situacao_fundo_id=2&situacao_lei_id=2&situacao_orgao_id=2&situacao_plano_id=2",
+         "templated":true
+      }
+   },
+   "_embedded":{
+      "items":[
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3846/?format=json"
+               }
+            },
+            "id":3846,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5550/?format=json"
+                     }
+                  },
+                  "id":5550,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/LEI_N%C2%BA216-2015_MAIS_CNPJ.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/LEI_-_197_._2013_-_Disp%C3%B5e_sobre_a_Reestrutura%C3%A7%C3%A3o_Administrativa_Municipal_renomeia_cargos_efetivos_e_comiss%C3%A3o_e_cria_novos_cargos..pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/DECRETO_DE_NOMEA%C3%87%C3%83O_DOS_CONSELHEIROS_DE_CULTURA.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"22.945.625/0001-69",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/Decreto.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/RELAT%C3%93RIO_DA_1%C2%AA_CONFER%C3%8ANCIA_DE_CULTURA.PDF",
+                     "minuta_preparada":"/media/minuta_preparada/PROJETO_DE_LEI_PLANO_MUNICIPAL_DE_CULTURA.PDF",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/ATA_DE_APROVA%C3%87%C3%83O_DO_PLANO_MUNICIPAL_DE_CULTURA.PDF",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/Antonio_Almeida_Lei_231-16.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3846/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"06.554.018/0001-11",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":22,
+                     "sigla":"PI",
+                     "nome_uf":"Piauí"
+                  },
+                  "cidade":{
+                     "codigo_ibge":220080,
+                     "nome_municipio":"Antônio Almeida"
+                  },
+                  "cep":"64.855-00",
+                  "bairro":"CENTRO",
+                  "endereco":"Praça Agostinho Varão, 57",
+                  "complemento":"casa"
+               },
+               "telefones":{
+                  "telefone_um":"89994205491",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"JOAO BATISTA CAVALCANTE COSTA",
+               "email_institucional_prefeito":"pmaa-pi@hotmail.com",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"IOLANDA PEREIRA DA LUZ CARVALHO - TITULAR",
+                     "segmento":"REPRESENTANTE DA SECRETARIA MUNICIPAL DE CULTURA - PODER PÚBLICO MUNICIPAL",
+                     "email":"iolandaluzcarvalho20@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"NAIDA FERREIRA DE FRANÇA - SUPLENTE",
+                     "segmento":"REPRESENTANTE DA SECRETARIA MUNICIPAL DE CULTURA - SUPLENTE - PODER PÚBLICO MUNICIPAL",
+                     "email":"nailda.01@outlook.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ALUCIANO COELHO DE SÁ - TITULAR",
+                     "segmento":"REPRESENTANTE DA SECRETARIA MUNICIPAL DA JUVENTUDE, ESPORTE, TURISMO E LAZER - PODER PÚBLICO MUNICIPAL",
+                     "email":"alucianocs@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"DAYSE MARTINS ARAÚJO - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"dayse.bv@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARIA JOSÉ ALVES DA S. DAMASCENO - TITULAR",
+                     "segmento":"Outros",
+                     "email":"mjdamasceno19@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARIA DE LOURDES DUARTE DA SILVA - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"silvalourdesduarte@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"HAIDÊ CARDOSO - TITULAR",
+                     "segmento":"Outros",
+                     "email":"haidecardoso@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"JONELSON FERREIRA GUIMARÃES - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"soujonelson@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ELDINA PEREIRA DE OLIVEIRA - TITULAR",
+                     "segmento":"Outros",
+                     "email":"eldinap16@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ANA PAULA OLIVEIRA DOS SANTOS - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"anapaula-052016@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"JOÃO DE DEUS PEREIRA - TITULAR",
+                     "segmento":"Outros",
+                     "email":"requelmejoao@outlook.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARIA LUCIMAR BESERRA ROSADO - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"mlucimarbeserra@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ERALDO DOS SANTOS OLIVEIRO - TITULAR",
+                     "segmento":"Outros",
+                     "email":"eral-do@hotmal.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"JAIRO GOMES DO VALE - suplente",
+                     "segmento":"Outros",
+                     "email":"djairo101vp@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"CLÁUDIA MARIA DO NASCIMENTO - TITULAR",
+                     "segmento":"Outros",
+                     "email":"maria12341931@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"BENILDE SOARES DE SOUSA SANTOS - SUPLENTE",
+                     "segmento":"Outros",
+                     "email":"benilde1@outlook.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2015-09-28"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3472/?format=json"
+               }
+            },
+            "id":3472,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5064/?format=json"
+                     }
+                  },
+                  "id":5064,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/Lei_n%C2%BA_607_2014_aprovada.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_n%C2%BA_498_Reorganiza%C3%A7%C3%A3o_administrativa_cria_Dep_de_Cultura.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/Ata_elei%C3%A7%C3%A3o_conselho_cultura_G23FdwU.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"22729504000180",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/Lei_n%C2%BA_607_2014_aprovada.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/Relat%C3%B3rio_encontros_setoriais.pdf",
+                     "minuta_preparada":"/media/minuta_preparada/Minuta_plataforma.pdf",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/Ata_de_valida%C3%A7%C3%A3o_do_PMC_pelo_conselho.pdf",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/Decreto_n._669_2016_aprova_o_PMC.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3472/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"80637424000109",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":42,
+                     "sigla":"SC",
+                     "nome_uf":"Santa Catarina"
+                  },
+                  "cidade":{
+                     "codigo_ibge":420543,
+                     "nome_municipio":"Formosa do Sul"
+                  },
+                  "cep":"89859-000",
+                  "bairro":" Centro",
+                  "endereco":"Avenida Getúlio Vargas, 580",
+                  "complemento":"Edifício"
+               },
+               "telefones":{
+                  "telefone_um":"33430043",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"RUDIMAR CONTE",
+               "email_institucional_prefeito":"jorge@formosa.sc.gov.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"Rosemeri Santin",
+                     "segmento":"Secretaria de Educação, Cultura, Esporte e Turismo",
+                     "email":"educacao@formosa.sc.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Fabieli Cella",
+                     "segmento":"Culturas Populares",
+                     "email":"fabielicella@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Ana Carla Comunello",
+                     "segmento":"Culturas Populares",
+                     "email":"carlacomunello@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Andressa Foralosso",
+                     "segmento":"Artes de Espetáculo",
+                     "email":"aldf1999@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Idalina Ana Cella",
+                     "segmento":"Artesanato",
+                     "email":"aartefor@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Vilsa Corioletti",
+                     "segmento":"Secretaria de Administração, Finança e Planejamento",
+                     "email":"administracao@formosa.sc.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Arlete Pereira",
+                     "segmento":"Departamento de Assistência Social",
+                     "email":"cras@formosa.sc.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Karine Cella",
+                     "segmento":"Secretaria de Educação, Cultura, Esporte e Turismo",
+                     "email":"karinecella23@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Moacir Paulo Fiorese",
+                     "segmento":"Patrimônio Cultural",
+                     "email":"moacirfiorese@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Daiane Frigo",
+                     "segmento":"Secretaria de Educação, Cultura, Esporte e Turismo",
+                     "email":"cultura@formosa.sc.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-03-25"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3457/?format=json"
+               }
+            },
+            "id":3457,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5277/?format=json"
+                     }
+                  },
+                  "id":5277,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/Sistema_Muicipal_Cultura_Parna%C3%ADba_Lei_Complementar_n%C2%BA_061_21nov2014.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_Complementar_020_Cria_Superintend%C3%AAncia_de_Cultura.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/Ata_de_Instala%C3%A7%C3%A3o_-__1%C2%AA_Sess%C3%A3o_Ordin%C3%A1ria_COMCULTURA_Parna%C3%ADba.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"23.391.939/0001-20",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/Lei_3.010_2015_Fundo_M._de_Cultura.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/Relat%C3%B3rio_II_Confer%C3%AAncia_Municipal_de_Cultura_13.08.2013.pdf",
+                     "minuta_preparada":"/media/minuta_preparada/Minuta_Plano_Municipal_de_Cultura_de_Parna%C3%ADba.pdf",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/Ata_17_Comcultura_aprova_plano.pdf",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/DOM_Lei_FMC_3.010_Lei_PMC_3.011_17.08.2015.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3457/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"06554430000131",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":22,
+                     "sigla":"PI",
+                     "nome_uf":"Piauí"
+                  },
+                  "cidade":{
+                     "codigo_ibge":220770,
+                     "nome_municipio":"Parnaíba"
+                  },
+                  "cep":"64215-115",
+                  "bairro":"PINDORAMA",
+                  "endereco":" RUA ITAÚNA, 1434",
+                  "complemento":"SEDE ADMINISTRATIVA"
+               },
+               "telefones":{
+                  "telefone_um":"08633231724",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"FRANCISCO DE ASSIS DE MORAES SOUZA",
+               "email_institucional_prefeito":"GAB.PARNAIBA@GMAIL.COM",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"CARLOS ANTONIO FURTADO DOS SANTOS",
+                     "segmento":"Outros",
+                     "email":"karllosfurttaddo@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ANA CLARA BATISTA SAMPAIO",
+                     "segmento":"Outros",
+                     "email":"suplan@parnaiba.pi.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ROMUALDO COSTA NEVES",
+                     "segmento":"Outros",
+                     "email":"romualdoneves@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"NAYARA DE CASTRO VIEIRA SILVA",
+                     "segmento":"Outros",
+                     "email":"sefaz@parnaiba.pi.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"FRANCILANE SILVA PERIERA",
+                     "segmento":"Teatro",
+                     "email":"sfrancilane@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARIA ESTHER ARAÚJO SILVA",
+                     "segmento":"Artes Visuais",
+                     "email":"esthersilva2008@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"JÚLIO CÉSAR DA CUNHA SOARES",
+                     "segmento":"Música Popular",
+                     "email":"juliocunha_phblive@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"JUAREZ DE SOUZA FONTENELE",
+                     "segmento":"Culturas Populares",
+                     "email":"juarezfontenele@yahoo.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"COSME COSTA FERREIRA DE SOUSA",
+                     "segmento":"Outros",
+                     "email":"cosmephb@bol.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"FRANCISCO CARLOS PONTES",
+                     "segmento":"Literatura, Livro e Leitura",
+                     "email":"cloris-carlos@uol.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"SIMONE CRISTINA PUTRICK",
+                     "segmento":"Outros",
+                     "email":"sputrick02@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"HELDER JOSÉ SOUZA DO NASCIMENTO",
+                     "segmento":"Outros",
+                     "email":"phbhelder@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARIA DO ROSÁRIO DE FATIMA VIEIRA DA SILVA",
+                     "segmento":"Outros",
+                     "email":"fatimasilva.1@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"MARCOS VINÍCIUS MIRANDA FONTELES",
+                     "segmento":"Outros",
+                     "email":"turismo@parnaiba.pi.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-12-03"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3353/?format=json"
+               }
+            },
+            "id":3353,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5128/?format=json"
+                     }
+                  },
+                  "id":5128,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/Lei_4121_-_Disp%C3%B5e_sobre_o_Sistema_Municipal_de_Cultura_de_Itanha%C3%A9m.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_-_3133_-_Reoganiza%C3%A7%C3%A3o_Administrativa.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/ATA_-_Conselho_Municipal_de_Pol%C3%ADtica_Cultura_de_Itanha%C3%A9m.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"46.578.498/0001-75",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/Fundo_de_Cultura_-_Lei_-_3238.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":null,
+                     "minuta_preparada":null,
+                     "ata_reuniao_aprovacao_plano":null,
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/Publica%C3%A7%C3%A3o_Boletim_Oficial_-_PMCI.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3353/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"46.578.498/0001-75",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":35,
+                     "sigla":"SP",
+                     "nome_uf":"São Paulo"
+                  },
+                  "cidade":{
+                     "codigo_ibge":352210,
+                     "nome_municipio":"Itanhaém"
+                  },
+                  "cep":"11740-000",
+                  "bairro":"Centro",
+                  "endereco":"  Av. Washington Luiz, 75",
+                  "complemento":"-"
+               },
+               "telefones":{
+                  "telefone_um":"1334211600",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":""
+            },
+            "governo":{
+               "nome_prefeito":"MARCO AURELIO GOMES DOS SANTOS",
+               "email_institucional_prefeito":"prefeito@itanhaem.sp.gov.br",
+               "termo_posse_prefeito":"/media/termo_posse/Termo_de_Posse_Fls_1_e_2.pdf"
+            },
+            "conselho":{
+               "conselheiros":[
+
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-09-06"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3167/?format=json"
+               }
+            },
+            "id":3167,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/2046/?format=json"
+                     }
+                  },
+                  "id":2046,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/LEI_2418_-_SISTEMA_MUNICIPAL_DE_CULTURA_DE_ESCADA-PE.txt",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_2434_que_cria_a_SECRETARIA_DE_CULTURA_DE_ESCADA.txt",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/Ata_CMPC_Escada-PE-2017.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"23.690.337/0001-73",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/LEI_2418_-_SISTEMA_MUNICIPAL_DE_CULTURA_DE_ESCADA-PE.txt",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/ANEXO_V_-_Relatorio_ConferenciaMunicipaleSCADA-pe_FINAL.doc",
+                     "minuta_preparada":"/media/minuta_preparada/Projeto_de_Lei_034.2015_-_PLANO__MUNICIPAL_DE_CULTURA_DE_ESCADA__26-10-2015.docx",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/ATA_DE_CMPC_ESCADA_-_VALIDA%C3%87%C3%83O_E_APROVA%C3%87%C3%83O_DO_PMC__ESCADA-PE.jpg",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/Lei_2454.2015_-_PLANO__MUNICIPAL_DE_CULTURA_DE__ESCADA.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3167/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"11.294.303/0001-80",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":26,
+                     "sigla":"PE",
+                     "nome_uf":"Pernambuco"
+                  },
+                  "cidade":{
+                     "codigo_ibge":260520,
+                     "nome_municipio":"Escada"
+                  },
+                  "cep":"55.500-000",
+                  "bairro":"JAGUARIBE",
+                  "endereco":"AV. DR ANTONIO DE CASTRO, 680",
+                  "complemento":"Sede do governo municipal"
+               },
+               "telefones":{
+                  "telefone_um":"08135341400",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":""
+            },
+            "governo":{
+               "nome_prefeito":"LUCRÉCIO JORGE GOMES PEREIRA  DA SILVA",
+               "email_institucional_prefeito":"prefeituramunicipaldeescada@escada.pe.gov.br",
+               "termo_posse_prefeito":"/media/termo_posse/TERMO_DE_POSSE_LUCRECIO_GOMES_xnkKL6A.docx"
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"Robério Henrique de Albuquerque Saraiva",
+                     "segmento":"Culturas Afro-brasileiras",
+                     "email":"roberioxxx46@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Caio Mateus da Silva Coelho",
+                     "segmento":"Secretaria da Educação, da Cultura e dos Esportes – SEC",
+                     "email":"caiomatheus23@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Eliedja Rodrigues Vieira",
+                     "segmento":"Secretaria da Educação, da Cultura e dos Esportes – SEC [SUPLENTE]",
+                     "email":"niedja_vieiraa@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Edmundo Fernandes Cavalcante da Silva",
+                     "segmento":"Órgão Gestor da Política Municipal de Cultura",
+                     "email":"EDMUNDOPT1@GMAIL.COM",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Edvaldo José Levino",
+                     "segmento":"Órgão Gestor da Política Municipal de Cultura [SUPLENTE]",
+                     "email":"edylevinodudoce@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Amaro Diogo de Souza Neto",
+                     "segmento":"Secretaria do Desenvolvimento Econômico - SDE",
+                     "email":"diogodesouzaneto@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Sérgio José da Silva",
+                     "segmento":"Secretaria do Desenvolvimento Econômico - SDE [SUPLENTE]",
+                     "email":"sergio.escada.1@Gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Luciana Maria Araujo da Silva Ramalho",
+                     "segmento":"Diretoria de Turismo e Lazer [SUPLENTE]",
+                     "email":"lumas.lu@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Marcos Aurélio Martins",
+                     "segmento":"Diretoria de Turismo e Lazer",
+                     "email":"cacoximenes@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Silvia Walkiria Alves Lins Ferreira",
+                     "segmento":"Secretaria do Desenvolvimento Social - SDS",
+                     "email":"silviawalkiria@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Jonas Rafael Oliveira de Freitas",
+                     "segmento":"Secretaria do Desenvolvimento Social - SDS [SUPLENTE]",
+                     "email":"Jonas_tec.ambiental@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Antônio Rufino da Costa Rodrigues",
+                     "segmento":"Câmara Municipal de Vereadores",
+                     "email":"antoniorufinofilho@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Arlindo Pereira Oliveira Filho",
+                     "segmento":"Câmara Municipal de Vereadores [SUPLENTE]",
+                     "email":"arlindo.pereira@camaradaescada.pe.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Maria do Carmo Tavares da Silva",
+                     "segmento":"Artes Visuais",
+                     "email":"mariapintura@gmail.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Antonio Francisco de Sousa Junior",
+                     "segmento":"Artes Visuais",
+                     "email":"toinhodisousa@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Joseildo Ivanildo da Silva",
+                     "segmento":"Artesanato",
+                     "email":"jopercussivo@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Maria Rodrigues de Oliveira",
+                     "segmento":"Artesanato",
+                     "email":"mariarte19@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Dimison Cesar Vieira Gomes",
+                     "segmento":"Música Popular",
+                     "email":"dimison_cesar@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Weydson Santos da Silva",
+                     "segmento":"Música Popular",
+                     "email":"weydson.santos@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Márcio Silva de Lima",
+                     "segmento":"Teatro",
+                     "email":"marsilvalima@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Jocemar José dos Santos",
+                     "segmento":"Teatro",
+                     "email":"jocie_marr@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Ricardo Washington Pinto de Paiva",
+                     "segmento":"Culturas Afro-brasileiras",
+                     "email":"rpcapoeira@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Adriano de Souza Sales",
+                     "segmento":"Literatura, Livro e Leitura",
+                     "email":"adrianosales.logistica@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  },
+                  {
+                     "nome":"Alex Antony da Cruz Mendonça",
+                     "segmento":"Literatura, Livro e Leitura",
+                     "email":"alex_pe15@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-11-20",
+                     "data_situacao":"2017-11-20"
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-11-26"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1426/?format=json"
+               }
+            },
+            "id":1426,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/2875/?format=json"
+                     }
+                  },
+                  "id":2875,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/sistema_municipal_de_cultura_DkcVDQi.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei-ordinaria-7370-2005-Sorocaba-SP-consolidada-10-09-2014.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/Conselho_Municipal_de_Pol%C3%ADtica_Cultural_CMPC.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"46.634.044/0001-74",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/Fundo_Municipal_de_Cultura_8zH73pW.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/PlanoMunicipal_de_Cultura_2017_a_2026_texto_na_integra_revisa16.pdf",
+                     "minuta_preparada":"/media/minuta_preparada/PlanoMunicipal_de_Cultura_2017_a_2026_texto_na_integra_revisa16.pdf",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/atas_CMPC.pdf",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/Lei-ordinaria-11326-2016.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1426/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"46634044000174",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":35,
+                     "sigla":"SP",
+                     "nome_uf":"São Paulo"
+                  },
+                  "cidade":{
+                     "codigo_ibge":355220,
+                     "nome_municipio":"Sorocaba"
+                  },
+                  "cep":"18013-280",
+                  "bairro":"",
+                  "endereco":"AVENIDA ENGENHEIRO CARLOS RUA MENDES 3.041",
+                  "complemento":""
+               },
+               "telefones":{
+                  "telefone_um":"32382100",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"JOSE ANTONIO CALDINI CRESPO",
+               "email_institucional_prefeito":"acpannunzio@yahoo.com.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"André Mascarenhas",
+                     "segmento":"Outros",
+                     "email":"amascarenhas@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Régis Massarotto Lima dos Santos",
+                     "segmento":"Outros",
+                     "email":"trsantos@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Claudia Tavares Ribeiro",
+                     "segmento":"Outros",
+                     "email":"clribeiro@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Flávia Cristina R. Bueno",
+                     "segmento":"Outros",
+                     "email":"fbueno@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Jéssica Pedrosa",
+                     "segmento":"Outros",
+                     "email":"tjpedrosa@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Ana Cristina Miragaia",
+                     "segmento":"Outros",
+                     "email":"amiragaia@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Mariana Carolina L. C. Albuquerque",
+                     "segmento":"Outros",
+                     "email":"maralbuquerque@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Rodrigo Miranda de Andrade",
+                     "segmento":"Outros",
+                     "email":"randrade@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Mirian de Oliveira Galvão Zacareli",
+                     "segmento":"Outros",
+                     "email":"tmzacareli@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Abílio Samuel do Patrocínio",
+                     "segmento":"Outros",
+                     "email":"apatrocinio@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Mônica Georgetti Minelli Teixeira",
+                     "segmento":"Outros",
+                     "email":"balletmonicaminelli@uol.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Magda dos Santos Barbosa",
+                     "segmento":"Outros",
+                     "email":"magda28.santos@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Luciana Gonçalves Valsechi",
+                     "segmento":"Outros",
+                     "email":"luvalsechi@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Carlos Alberto Doles Jr",
+                     "segmento":"Outros",
+                     "email":"carlos.doles@trupedeteatro.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Marta Lima Dias da Silva",
+                     "segmento":"Artes Visuais",
+                     "email":"imprensa@macs.org.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Silvio César de Goes Menino",
+                     "segmento":"Literatura, Livro e Leitura",
+                     "email":"cesarmenino@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Rodrigo Otávio Bertoncini Mendes",
+                     "segmento":"Outros",
+                     "email":"rodrigo.mendes@inovasorocaba.org.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Geraldo Aparecido Ricci",
+                     "segmento":"Outros",
+                     "email":"geraricci@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Jorge Antunes Ribeiro Jr",
+                     "segmento":"Outros",
+                     "email":"peu.rasgadacoletiva@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Thiago Consíglio Cruz",
+                     "segmento":"Outros",
+                     "email":"thiago.consiglio@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Glaucilene Rodrigues da Mota",
+                     "segmento":"Outros",
+                     "email":"gmota@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Janaína Simões Caldeira",
+                     "segmento":"Outros",
+                     "email":"tjcaldeira@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Daniella Gomes Moreira",
+                     "segmento":"Outros",
+                     "email":"danmoreira@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Isaura Helena Mello de Mattos",
+                     "segmento":"Outros",
+                     "email":"imattos@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Luiz Gustavo Maganhato",
+                     "segmento":"Outros",
+                     "email":"lmaganhato@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Júlia David Franco Gomes",
+                     "segmento":"Outros",
+                     "email":"jgomes@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Carolina Marques Oliveira Sodré",
+                     "segmento":"Outros",
+                     "email":"csodre@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Rubens Gonçalves do Nascimento Filho",
+                     "segmento":"Outros",
+                     "email":"rgfilho@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"José Antônio de Oliveira Jr",
+                     "segmento":"Outros",
+                     "email":"jaoliveira.procon@sorocaba.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Márcio Roberto dos Santos",
+                     "segmento":"Outros",
+                     "email":"marciobrown89@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Juliana Cecília Mendes",
+                     "segmento":"Outros",
+                     "email":"arq.julianamendes@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Daniele da Silva",
+                     "segmento":"Outros",
+                     "email":"daniele.silva@trupedeteatro.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Maria Cristina Ayres de O. Delanhesi",
+                     "segmento":"Artes Visuais",
+                     "email":"cristinadelanhesi@macs.org.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Maria Cristina Santos",
+                     "segmento":"Outros",
+                     "email":"cristina.santos@inovasorocaba.org.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Maurício Matos Caetano",
+                     "segmento":"Outros",
+                     "email":"mauricio@margemsom.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Adriano Bertanha",
+                     "segmento":"Outros",
+                     "email":"adriano2604@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-09-24"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1332/?format=json"
+               }
+            },
+            "id":1332,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5090/?format=json"
+                     }
+                  },
+                  "id":5090,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/L002813-2011_Sistema_Municipal_de_Cultura_xefd4xf.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_2683_-_SEMC.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/L002716-2010_Conselho_Cultura_e_Fundo_de_Cultura.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"18.124.052/0001-35",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/L002813-2011_Sistema_Municipal_de_Cultura.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":null,
+                     "minuta_preparada":null,
+                     "ata_reuniao_aprovacao_plano":null,
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/L003175-2016_-_PLANO_MUNICIPAL_DE_CULTURA.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1332/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"46523262000131",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":35,
+                     "sigla":"SP",
+                     "nome_uf":"São Paulo"
+                  },
+                  "cidade":{
+                     "codigo_ibge":351830,
+                     "nome_municipio":"Guararema"
+                  },
+                  "cep":"78503-250",
+                  "bairro":" CENTRO",
+                  "endereco":"PRAÇA CEL. BRASÍLIO FONSECA 35",
+                  "complemento":""
+               },
+               "telefones":{
+                  "telefone_um":"44431700",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"ADRIANO DE TOLEDO LEITE",
+               "email_institucional_prefeito":"prguararema@hotmail.com",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-03-21"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1317/?format=json"
+               }
+            },
+            "id":1317,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/4988/?format=json"
+                     }
+                  },
+                  "id":4988,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/LEI_3244_SMC.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/LEI_2725_Est._Admin._PMCB.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/ATA_POSSE_REGIMENTO_CB.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"45.735.479/0001-42",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/LEI_3244_SMC.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/Conf._Casa_Branca.doc",
+                     "minuta_preparada":"/media/minuta_preparada/PMC_Casa_Branca_21.3_aprovado_pelo_Conselho_em_5.4.docx",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/Ata_aprova%C3%A7%C3%A3o_do_Plano_Conselho.pdf",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/LEI_MUNICIPAL_NO._3.343_DE_23_DE_SETEMBRO_DE_2016_E_PLANO_EM_ANEXO.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1317/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"45735479000142",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":35,
+                     "sigla":"SP",
+                     "nome_uf":"São Paulo"
+                  },
+                  "cidade":{
+                     "codigo_ibge":351080,
+                     "nome_municipio":"Casa Branca"
+                  },
+                  "cep":"13700-000",
+                  "bairro":"Centro",
+                  "endereco":"Praça Rui Barbosa  0",
+                  "complemento":""
+               },
+               "telefones":{
+                  "telefone_um":"1936740309",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"MARCO CESAR DE PAIVA AGA",
+               "email_institucional_prefeito":"gabinete@casabranca.sp.gov.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"Luis Renato Thadeu Lima ",
+                     "segmento":"Outros",
+                     "email":"luisrenatol@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Eliana Inocêncio Antonio Bittencourt de Lima",
+                     "segmento":"Outros",
+                     "email":"eliana_inocencio123@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Eliana Zaira de Souza ",
+                     "segmento":"Outros",
+                     "email":"educa_jmauricio@casabranca.sp.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Marcelo Venturine Pegoritti ",
+                     "segmento":"Outros",
+                     "email":"ma_pegoritti@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Andrea Rodrigues Barbosa Negrini ",
+                     "segmento":"Outros",
+                     "email":"andicarvi@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Suzana Hebling Camargo ",
+                     "segmento":"Outros",
+                     "email":"suzana.hebling@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"André Nigro Gonçalves de Andrade ",
+                     "segmento":"Artes Visuais",
+                     "email":"adrena365@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Lucas Henrique Gimenez",
+                     "segmento":"Outros",
+                     "email":"lucas_redbull27@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Adalberto de Souza ",
+                     "segmento":"Outros",
+                     "email":"beto.vocal@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"João Gilberto Moffa ",
+                     "segmento":"Outros",
+                     "email":"naoutiliza@naoutiliza",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Rodrigo Aparecido Florentino ",
+                     "segmento":"Culturas Populares",
+                     "email":"rdf5086@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Maria Aparecida Serafim ",
+                     "segmento":"Outros",
+                     "email":"mariapserafim@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2014-10-02"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1199/?format=json"
+               }
+            },
+            "id":1199,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/2322/?format=json"
+                     }
+                  },
+                  "id":2322,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/lei_do_sistema_de_cultura.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/Lei_restrutura%C3%A7%C3%A3o_administratica_e_cria%C3%A7%C3%A3o_do_dep._de_ciltura_e_portaria_departamento_cultura.docx",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/ata__e_regimento_interno_conselho_da_cultura_TIGRINHOS_SC.docx",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"23.481.299/0001-49",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/cnpj.docx",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":"/media/relatorio_diretrizes/ata_sensibiliza%C3%A7%C3%A3o.docx",
+                     "minuta_preparada":"/media/minuta_preparada/ata_elabora%C3%A7%C3%A3o_do_plano_de_cultura.docx",
+                     "ata_reuniao_aprovacao_plano":"/media/ata_aprovacao_plano/ata_para_encaminhamento_vereadores_1.docx",
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/lei_plano_cultura_Tigrinhos.docx",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1199/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"01566620000155",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":42,
+                     "sigla":"SC",
+                     "nome_uf":"Santa Catarina"
+                  },
+                  "cidade":{
+                     "codigo_ibge":421795,
+                     "nome_municipio":"Tigrinhos"
+                  },
+                  "cep":"89875-000",
+                  "bairro":"Centro",
+                  "endereco":"Avenida  Felipe Baczinski 479",
+                  "complemento":"Prédio Próprio"
+               },
+               "telefones":{
+                  "telefone_um":"4936580044",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"DERLI ANTONIO DE OLIVEIRA",
+               "email_institucional_prefeito":"tigrinhos@tigrinhos.sc.gov.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"ANDREIA PORFIRIO",
+                     "segmento":"Teatro",
+                     "email":"andreiaporfirio@sed.sc.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"VANIR STIELER",
+                     "segmento":"Turismo",
+                     "email":"edutigrinhos@mhnet.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"ELISANGELA BECKERT ROSSATTO",
+                     "segmento":"",
+                     "email":"elijarda@hotmail.com",
+                     "situacao":"Desabilitado",
+                     "data_cadastro":null,
+                     "data_situacao":"2017-05-03"
+                  },
+                  {
+                     "nome":"Márcia de Oliveira ",
+                     "segmento":"Secretaria Municipal de Educação",
+                     "email":"culturatg@mhnet.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-10",
+                     "data_situacao":"2017-07-10"
+                  },
+                  {
+                     "nome":"Milton José Huppes",
+                     "segmento":"Administração Municipal",
+                     "email":"culturatg@mhnet.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-10",
+                     "data_situacao":"2017-07-10"
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2014-04-04"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1191/?format=json"
+               }
+            },
+            "id":1191,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/2787/?format=json"
+                     }
+                  },
+                  "id":2787,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":"/media/leis_sistema_cultura/L8748_-_SISTEMA_MUNICIPAL_DE_CULTURA.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":"/media/relatorio_atividades/L6529_-_REFORMA_ADMINISTRATIVA.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":"/media/regimentos/85%C2%AA_Reuni%C3%A3o_Ordin%C3%A1ria_14.03.17_-_Ata.pdf",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"21.897.636/0001-58",
+                     "lei_fundo_cultura":"/media/lei_fundo_cultura/L5155_-_FUNDO_MUNICIPAL_DE_CULTURA.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":null,
+                     "minuta_preparada":null,
+                     "ata_reuniao_aprovacao_plano":null,
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":"/media/lei_plano_cultura/L8718_-_PLANO_MUNICIPAL_DE_CULTURA.PDF",
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1191/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"27142058000126",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":32,
+                     "sigla":"ES",
+                     "nome_uf":"Espírito Santo"
+                  },
+                  "cidade":{
+                     "codigo_ibge":320530,
+                     "nome_municipio":"Vitória"
+                  },
+                  "cep":"29050-945",
+                  "bairro":"Bento Ferreira",
+                  "endereco":"Avenida Marechal Mascarenhas de Morais 1.927",
+                  "complemento":"Palácio Jerônimo Monteiro"
+               },
+               "telefones":{
+                  "telefone_um":"2733358600",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"LUCIANO SANTOS REZENDE",
+               "email_institucional_prefeito":"lucianorezende@vitoria.es.gov.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+                  {
+                     "nome":"Leonardo Vais da Silva",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"levsilva@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Francisco Amalio Grijó",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"fagrijo@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Lilian Pereira Menenguci",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"lpmenenguci@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Sandra Pereira de Vasconcellos",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"spvasconvellos@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Maria Emilia Fernandes Moça Vasconcellos",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"mefmvasconcellos@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Edson Roberto do Nascimento",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"ernascimento@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Murilo Sodré de Abreu",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"msabreu@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Kênia Marques Lyra",
+                     "segmento":"Secretaria Municipal de Cultura",
+                     "email":"kmlyra@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Anna Karine de Queiroz Bellini",
+                     "segmento":"Secretaria Municipal de Desenvolvimento da Cidade",
+                     "email":"akqbellini@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Daysi Aysi Koehler Behning",
+                     "segmento":"Secretaria Municipal de Turismo, Trabalho e Renda",
+                     "email":"dakbehning@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Leonardo Ferreiro de Mello",
+                     "segmento":"Secretaria Municipal de Turismo, Trabalho e Renda",
+                     "email":"lfmello@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Clívia Leite Mendonça",
+                     "segmento":"Secretaria Municipal de Desenvolvimento da Cidade",
+                     "email":"clmendonca@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Luiz Carlos Duarte Melo",
+                     "segmento":"Secretaria Municipal de Assistência Social",
+                     "email":"lcdmelo@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Francisca Martins de Souza Cardoso",
+                     "segmento":"Secretaria Municipal de Assistência Social",
+                     "email":"fmscardoso@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Giovani Fernandes Martins",
+                     "segmento":"Secretaria Municipal de Educação",
+                     "email":"gfmartins@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Myriam Fernandes Pestana Oliveira",
+                     "segmento":"Secretaria Municipal de Educação",
+                     "email":"mfpoliveira@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Carolina Maria Moreira Alves",
+                     "segmento":"Secretaria Municipal de Cidandania e Direitos Humanos",
+                     "email":"cmmalves@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Filipe Briguiet Pereira",
+                     "segmento":"Secretaria Municipal de Cidandania e Direitos Humanos",
+                     "email":"fbpereira@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Rita de Cássia Vasconcelos Barreiros",
+                     "segmento":"Secretaria Municipal de Meio Ambiente",
+                     "email":"rcvbarreiros@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Fabienne Braga de Oliveira",
+                     "segmento":"Secretaria Municipal de Meio Ambiente",
+                     "email":"fboliveira@correio1.vitoria.es.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Edivaldo Euzébio dos Anjos",
+                     "segmento":"Companhia de Desenvolvimento de Vitória",
+                     "email":"eeanjos@cdvdevitoria.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Ângela Carla Delfino dos Reis da Rós",
+                     "segmento":"Companhia de Desenvolvimento de Vitória",
+                     "email":"acdrros@cdvdevitoria.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-09",
+                     "data_situacao":"2017-06-09"
+                  },
+                  {
+                     "nome":"Neidiana do Nascimento",
+                     "segmento":"Cultura Popular",
+                     "email":"nei-diana@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Celeuza Maria Alves",
+                     "segmento":"Cultura Popular",
+                     "email":"nei-diana@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Romeu Mirandola Neto",
+                     "segmento":"Artesanato",
+                     "email":"romeumirandola@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Maria das Graças Reis Costa",
+                     "segmento":"Artesanato",
+                     "email":"mgreiscosta@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Duilio Henrique Kuster Cid",
+                     "segmento":"Teatro",
+                     "email":"duiliokustercid@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"José Celso Cavalieri",
+                     "segmento":"Teatro",
+                     "email":"jcelsoncavalieri@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Felipe Salles Xavier",
+                     "segmento":"Dança",
+                     "email":"felipesalles2005@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Amanda Areias Fernandes",
+                     "segmento":"Dança",
+                     "email":"amandadelyrio@hotmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Carlos Augusto Peixoto",
+                     "segmento":"Circo",
+                     "email":"summerview@bol.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Alerson Costa Bastos",
+                     "segmento":"Circo",
+                     "email":"shampinha@ig.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Gardenia Paschoal Marques",
+                     "segmento":"Música",
+                     "email":"projetosculturaes@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Daniel Gonçalves Morelo",
+                     "segmento":"Música",
+                     "email":"daniel.morelo@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Regina Menezes Loureiro",
+                     "segmento":"Literatura",
+                     "email":"reginamenezesloureiro@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Colette Dulce Dantas Gomes",
+                     "segmento":"Patrimônio e Arquitetura",
+                     "email":"colette@colettedantas.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Rovena de Oliveira Daher",
+                     "segmento":"Patrimônio e Arquitetura",
+                     "email":"colette@colettedantas.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Maria Verônica do Nascimento Gomes",
+                     "segmento":"Audiovisual",
+                     "email":"mariaveronicagomes2@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Regina Célia Schimitt Huapaya",
+                     "segmento":"Audiovisual",
+                     "email":"reginaschimitt@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Vânia Margarida Caus",
+                     "segmento":"Artes Visuais",
+                     "email":"vaniamcaus@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Luiz Henrique Gonçalves Dias",
+                     "segmento":"Artes Visuais",
+                     "email":"lhgimoveis@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Felipe Matiello Redins",
+                     "segmento":"Instituição não Governamental",
+                     "email":"bob.redins@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Iza Marcialina Meireles Rosemberg",
+                     "segmento":"Instituição não Governamental",
+                     "email":"izarosemberg@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Iamara Nascimento",
+                     "segmento":"Agremiações Carnavalescas de Vitória",
+                     "email":"iamaranasci@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Jackson Mello de Souza",
+                     "segmento":"Agremiações Carnavalescas de Vitória",
+                     "email":"iamaranasci@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Otávio Nunes Silva",
+                     "segmento":"Conselho Popular de Vitória – CPV",
+                     "email":"conselhopopulardevitoria@ig.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Anderson Augusto Pestana",
+                     "segmento":"Conselho Popular de Vitória – CPV",
+                     "email":"conselhopopulardevitoria@ig.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-06-23",
+                     "data_situacao":"2017-06-23"
+                  },
+                  {
+                     "nome":"Ailse Therezinha Cypreste Romanelli",
+                     "segmento":"Literatura",
+                     "email":"reginamenezesloureiro@gmail.com",
+                     "situacao":"Habilitado",
+                     "data_cadastro":null,
+                     "data_situacao":null
+                  },
+                  {
+                     "nome":"Robson Loureiro",
+                     "segmento":"Universidade Federal do Espírito Santo",
+                     "email":"robbsonn@uol.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-26",
+                     "data_situacao":"2017-07-26"
+                  },
+                  {
+                     "nome":"Marlene Martins de Oliveira",
+                     "segmento":"Universidade Federal do Espírito Santo",
+                     "email":"marlenemol@yahoo.com.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-26",
+                     "data_situacao":"2017-07-26"
+                  },
+                  {
+                     "nome":"Maria Helena Soares Armaud",
+                     "segmento":"Instituto do Patrimônio Histórico e Artístico Nacional - IPHAN",
+                     "email":"maria.arnaud@iphan.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-26",
+                     "data_situacao":"2017-07-26"
+                  },
+                  {
+                     "nome":"Rafael Borges Deminicis",
+                     "segmento":"Instituto do Patrimônio Histórico e Artístico Nacional - IPHAN",
+                     "email":"rafael.deminicis@iphan.gov.br",
+                     "situacao":"Habilitado",
+                     "data_cadastro":"2017-07-26",
+                     "data_situacao":"2017-07-26"
+                  }
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2014-07-30"
+         }
+      ]
+   },
+   "count":18,
+   "page_size":10
+}

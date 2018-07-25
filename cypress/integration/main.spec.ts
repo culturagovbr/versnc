@@ -197,23 +197,41 @@ describe('' +
       cy.get('div h3.total.ng-star-inserted').contains('Municípios: 2967');
     });
 
-    it('Testa se linha expansível mostra informações corretamente', () => {
-      cy.api();
+    it('Testa linha expansível com situações positivas', () => {
+      cy.api_linha_expansivel();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('mat-cell').eq(0).click();
+      cy.get('mat-row').eq(0).click();
 
       cy.get('.detail-row').should('be.visible');
-      cy.get('.detail-row').contains('Lei Sistema');
-      cy.get('.detail-row').contains('Orgao Gestor');
-      cy.get('.detail-row').contains('Conselho Cultural');
-      cy.get('.detail-row').contains('Fundo Cultura');
-      cy.get('.detail-row').contains('Plano Cultura');
+      cy.get('.detail-row').contains('Lei Sistema').contains('check');
+      cy.get('.detail-row').contains('Orgao Gestor').contains('check');
+      cy.get('.detail-row').contains('Conselho Cultural').contains('check');
+      cy.get('.detail-row').contains('Fundo Cultura').contains('check');
+      cy.get('.detail-row').contains('Plano Cultura').contains('check');
       cy.get('.detail-row p').should('not.be.empty');
 
-      cy.get('mat-cell').eq(0).click();
+      cy.get('mat-row').eq(0).click();
       cy.get('.detail-row').should('not.be.visible');
     });
+
+    it('Testa linha expansível com situações negativas', () => {
+      cy.api_linha_expansivel();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('{enter}');
+      cy.get('mat-row').eq(1).click();
+
+      cy.get('.detail-row').should('be.visible');
+      cy.get('.detail-row').contains('Lei Sistema').contains('close');
+      cy.get('.detail-row').contains('Orgao Gestor').contains('close');
+      cy.get('.detail-row').contains('Conselho Cultural').contains('close');
+      cy.get('.detail-row').contains('Fundo Cultura').contains('close');
+      cy.get('.detail-row').contains('Plano Cultura').contains('close');
+      cy.get('.detail-row p').should('not.be.empty');
+
+      cy.get('mat-row').eq(1).click();
+      cy.get('.detail-row').should('not.be.visible');
+    });    
 
     it('Testa filtro de componentes com checkboxs ativos', () => {
       cy.api_componentes();

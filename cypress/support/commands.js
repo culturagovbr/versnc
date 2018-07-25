@@ -38,13 +38,23 @@ Cypress.Commands.add('api', () => {
   })
  });
 
+Cypress.Commands.add('api_linha_expansivel', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=' +
+    '&situacao_lei_id=&situacao_plano_id=&situacao_orgao_id=&situacao_fundo_id=&situacao_conselho_id=',    
+    response: 'fixture:componentesExpand'        // and force the response to be: []
+  })
+ });
+
 Cypress.Commands.add('api_componentes', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
     url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=' +
     '&situacao_lei_id=2&situacao_plano_id=2&situacao_orgao_id=2&situacao_fundo_id=2&situacao_conselho_id=2',    
-    response: 'fixture:componentesResponse'        // and force the response to be: []
+    response: 'fixture:componentesFiltragem'        // and force the response to be: []
   })
  });
 

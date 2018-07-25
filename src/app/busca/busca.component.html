@@ -25,7 +25,7 @@
       </mat-placeholder>
       <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}" autofocus/>
     </mat-form-field>
-    
+
     <mat-form-field class="textCenter">
       <mat-placeholder> Município
         <mat-icon>search</mat-icon>
@@ -48,15 +48,44 @@
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
 
-    <section>
-      <mat-checkbox class="primary" [(ngModel)]="visualizarEstados" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Estados</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="visualizarMunicipios" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Municípios</span>
-      </mat-checkbox>
-    </section>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+        <mat-checkbox class="primary" [(ngModel)]="visualizarEstados" color="primary" [ngModelOptions]="{standalone: true}">
+          <span class="checkbox">Estados</span>
+        </mat-checkbox>
+        <mat-checkbox class="primary" [(ngModel)]="visualizarMunicipios" color="primary" [ngModelOptions]="{standalone: true}">
+          <span class="checkbox">Municípios</span>
+        </mat-checkbox>
 
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <!-- COMPONENTES -->
+
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[0]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Lei Sistema</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="componentes[1]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Plano Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="componentes[2]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Órgão Gestor</span>
+          </mat-checkbox>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-checkbox class="primary" [(ngModel)]="componentes[3]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Fundo Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="componentes[4]" color="primary" [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Conselho Cultura</span>
+          </mat-checkbox>
+        </div>
+
+      </div>
+
+    </div>
   </form>
 
   <button *ngIf="!seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = true">

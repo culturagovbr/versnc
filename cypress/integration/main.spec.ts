@@ -42,11 +42,19 @@ describe('' +
       cy.get('.mat-header-cell').eq(2).contains('DETALHAR');
     });
 
-    it('Apresenta 10 elementos referentes aos municipios', () => {
+    it('Apresenta 10 elementos referentes aos municipios e a linha expansível', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row').should('have.length', 10);
+    });
+
+    it('Criação de uma nova linha após o click em alguma das linhas da tabela', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('{enter}');
+      cy.get('mat-table mat-row').eq(0).click();
+      cy.get('mat-table div.mat-row');
     });
 
     it('Apresenta o componente de paginação', () => {
@@ -124,7 +132,7 @@ describe('' +
       cy.api_somente_municipios();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('section mat-checkbox').eq(0).click();
+      cy.get('mat-checkbox').eq(0).click();
 
       cy.get('input').eq(0).type('BA{enter}');
 
@@ -136,7 +144,7 @@ describe('' +
       cy.api_somente_estados();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('section mat-checkbox').eq(1).click();
+      cy.get('mat-checkbox').eq(1).click();
 
       cy.get('input').eq(0).type('{enter}');
 
@@ -170,7 +178,6 @@ describe('' +
       cy.get('.mat-sort-header-button').eq(0).contains('MUNICÍPIO').click();
 
       cy.get('mat-cell').eq(0).contains(' Aporá - BA ');
-      // cy.get('mat-cell').eq(0).contains(/^A\w+\s-\s\w+/);
     });
 
     it('Testa ordenação alfabética DESC da tabela ao clicar no titulo MUNICÍPIO', () => {
@@ -190,4 +197,45 @@ describe('' +
       cy.get('div h3.total.ng-star-inserted').contains('Municípios: 2967');
     });
 
-  });
+    it('Testa se linha expansível mostra informações corretamente', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('{enter}');
+      cy.get('mat-cell').eq(0).click();
+
+      cy.get('.detail-row').should('be.visible');
+      cy.get('.detail-row').contains('Lei Sistema');
+      cy.get('.detail-row').contains('Orgao Gestor');
+      cy.get('.detail-row').contains('Conselho Cultural');
+      cy.get('.detail-row').contains('Fundo Cultura');
+      cy.get('.detail-row').contains('Plano Cultura');
+      cy.get('.detail-row p').should('not.be.empty');
+
+      cy.get('mat-cell').eq(0).click();
+      cy.get('.detail-row').should('not.be.visible');
+    });
+
+    it('Testa filtro de componentes com checkboxs ativos', () => {
+      cy.api_componentes();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+
+      cy.get('.mat-checkbox-input').eq(2).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(3).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(4).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(5).click({ force: true });
+      cy.get('.mat-checkbox-input').eq(6).click({ force: true });
+
+      cy.get('input').eq(1).type('{enter}');
+
+      cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
+        cy.wrap($el).click();
+        cy.get('.detail-row').contains('Lei Sistema').contains('check');
+        cy.get('.detail-row').contains('Orgao Gestor').contains('check');
+        cy.get('.detail-row').contains('Conselho Cultural').contains('check');
+        cy.get('.detail-row').contains('Fundo Cultura').contains('check');
+        cy.get('.detail-row').contains('Plano Cultura').contains('check');
+      });
+    });
+
+});

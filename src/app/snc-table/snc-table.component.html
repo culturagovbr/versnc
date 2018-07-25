@@ -1,3 +1,4 @@
+
 <div id="filtros" fxLayout="row" fxLayoutAlign="start start">
   <!-- <div>
     <h3 class="total" *ngIf="count > 0">Estados: 0</h3>
@@ -10,15 +11,15 @@
 <mat-card id="tabela">
   <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
 
-  <mat-table #snctable [dataSource]="sncDataSource" matSort>
+  <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
     <ng-container matColumnDef="nome_municipio">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">MUNICÍPIO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="data_adesao">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
-      <mat-cell *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="plano_trabalho">
@@ -33,7 +34,35 @@
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="['nome_municipio', 'data_adesao', 'plano_trabalho']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['nome_municipio', 'data_adesao', 'plano_trabalho'];"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
+     [cdkDetailRowTpl]="tpl" (click)="setAnimationAsDisabled(false)">
+    </mat-row>
+
   </mat-table>
+
+  <ng-template #tpl let-entidade>
+    <div [@.disabled]="isDisabled">
+      <div class="mat-row mat-cell detail-row" [@detailExpand] style="overflow: hidden">
+        <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
+          <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
+            <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
+              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
+            </div>
+            <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
+              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="entidade.acoes_plano_trabalho.length <= 0">
+          <p>Lei Sistema Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Órgão Gestor <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Conselho Cultural <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Fundo Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Plano Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
 </mat-card>

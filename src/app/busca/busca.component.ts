@@ -31,6 +31,8 @@ export class BuscaComponent implements OnInit {
   private data_adesao_max: String = "";
   private visualizarEstados = true;
   private visualizarMunicipios = true;
+  private componentesIds = ['situacao_lei_id', 'situacao_plano_id', 'situacao_orgao_id', 'situacao_fundo_id',
+     'situacao_conselho_id'];
 
   constructor(private slcApiService: SlcApiService) {
   }
@@ -41,6 +43,7 @@ export class BuscaComponent implements OnInit {
       'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
     };
 
+  componentes = [false, false, false, false, false]; // leiSistema, PlanoCultura, OrgaoGestor, Fundocultura, ConselhoCultura
 
   ngOnInit(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
@@ -52,8 +55,7 @@ export class BuscaComponent implements OnInit {
   onRealizarBuscaComEnter(event) {
     if (event.keyCode === 13) {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
-        this.queries['estadual'] = '';
-        this.queries['municipal'] = '';
+        this.limparQueriesDaBusca();
         this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
         this.onRealizarBusca();
 
@@ -64,9 +66,30 @@ export class BuscaComponent implements OnInit {
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
         this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
         this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
+        this.filtraComponentes();
         this.onRealizarBusca();
       }
 
+    }
+  }
+ 
+  limparQueriesDaBusca() {
+    this.queries['data_adesao_max'] = '';
+    this.queries['data_adesao_min'] = '';
+    this.queries['estado_sigla'] = '';
+    this.queries['nome_uf'] = '';
+    this.queries['nome_municipio'] = '';
+    this.termoUF = '';
+
+    for(var i=0; i<this.componentesIds.length; i++) {
+      this.queries[this.componentesIds[i]] = '';
+    }
+  }
+
+  filtraComponentes() {
+    const STATUS_CONCLUIDO = '2';
+    for(var i=0; i<this.componentes.length; i++) {
+      this.queries[this.componentesIds[i]] = this.componentes[i] ? STATUS_CONCLUIDO : '';
     }
   }
 

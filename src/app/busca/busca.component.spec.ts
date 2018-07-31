@@ -103,32 +103,43 @@ describe('BuscaComponent', () => {
     expect(component.queries['estado_sigla']).toEqual('BA');
   }));
 
-  it('Verifica se a query é setada corretamente com array de componentes ativo', 
+  it('Verifica se o params é setado corretamente com array de componentes ativo', 
     inject([SlcApiService], (service: SlcApiService) => {
 
     component['componentes'] = [true, true, true, true, true];
     component['seletorTipoBusca'] = true;
     component.onRealizarBuscaComEnter(event);
   
-    expect(component.queries['situacao_lei_id']).toBe('2');
-    expect(component.queries['situacao_plano_id']).toBe('2');
-    expect(component.queries['situacao_orgao_id']).toBe('2');
-    expect(component.queries['situacao_fundo_id']).toBe('2');
-    expect(component.queries['situacao_conselho_id']).toBe('2');
+    expect(component.params.getAll('situacao_lei_id')[0]).toBe('2');
+    expect(component.params.getAll('situacao_lei_id')[1]).toBe('3');
+
+    expect(component.params.getAll('situacao_plano_id')[0]).toBe('2');
+    expect(component.params.getAll('situacao_plano_id')[1]).toBe('3');
+
+    expect(component.params.getAll('situacao_orgao_id')[0]).toBe('2');
+    expect(component.params.getAll('situacao_orgao_id')[1]).toBe('3');
+
+    expect(component.params.getAll('situacao_fundo_id')[0]).toBe('2');
+    expect(component.params.getAll('situacao_fundo_id')[1]).toBe('3');
+
+    expect(component.params.getAll('situacao_conselho_id')[0]).toBe('2');
+    expect(component.params.getAll('situacao_conselho_id')[1]).toBe('3');
+    
   }));
 
-  it('Verifica se a query é setada corretamente com array de componentes inativo', 
+  it('Verifica se o params é setado corretamente com array de componentes inativo', 
     inject([SlcApiService], (service: SlcApiService) => {
 
     component['componentes'] = [false, false, false, false, false];
     component['seletorTipoBusca'] = true;
     component.onRealizarBuscaComEnter(event);
   
-    expect(component.queries['situacao_lei_id']).toBe('');
-    expect(component.queries['situacao_plano_id']).toBe('');
-    expect(component.queries['situacao_orgao_id']).toBe('');
-    expect(component.queries['situacao_fundo_id']).toBe('');
-    expect(component.queries['situacao_conselho_id']).toBe('');
+    expect(component.params.get('situacao_lei_id')).toBeNull();
+    expect(component.params.get('situacao_orgao_id')).toBeNull();
+    expect(component.params.get('situacao_orgao_id')).toBeNull();
+    expect(component.params.get('situacao_fundo_id')).toBeNull();
+    expect(component.params.get('situacao_conselho_id')).toBeNull();
+    
   }));
 
 });

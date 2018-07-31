@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
+import { HttpParams } from '@angular/common/http';
 import { Entidade } from '../models/entidade.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,20 +25,21 @@ export class BuscaComponent implements OnInit {
   private listaRetorno = {};
   private listaEntidades: [Entidade];
   private seletorTipoBusca: boolean = false;
-  private termoSimples: String = '';
-  private termoUF: String = '';
+  private termoSimples: string = '';
+  private termoUF: string = '';
   private page: number = 0;
-  private data_adesao_min: String = "";
-  private data_adesao_max: String = "";
+  private data_adesao_min: string = "";
+  private data_adesao_max: string = "";
   private visualizarEstados = true;
   private visualizarMunicipios = true;
   private componentesIds = ['situacao_lei_id', 'situacao_plano_id', 'situacao_orgao_id', 'situacao_fundo_id',
      'situacao_conselho_id'];
+  params: HttpParams;
 
   constructor(private slcApiService: SlcApiService) {
   }
 
-  queries: { [query: string]: String }
+  queries: { [query: string]: string }
     = {
       'limit': '', 'offset': '', 'nome_municipio': '', 'estado_sigla': '', 'data_adesao_min': '', 'data_adesao_max': '',
       'nome_uf': '', 'estadual': '', 'municipal': '', 'ente_federado': ''
@@ -57,6 +59,7 @@ export class BuscaComponent implements OnInit {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
         this.limparQueriesDaBusca();
         this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
+        this.params = new HttpParams({fromObject: this.queries});
         this.onRealizarBusca();
 
       } else { // BUSCA AVANÇADA
@@ -66,6 +69,7 @@ export class BuscaComponent implements OnInit {
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
         this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
         this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
+        this.params = new HttpParams({fromObject: this.queries});
         this.filtraComponentes();
         this.onRealizarBusca();
       }
@@ -81,15 +85,17 @@ export class BuscaComponent implements OnInit {
     this.queries['nome_municipio'] = '';
     this.termoUF = '';
 
-    for(var i=0; i<this.componentesIds.length; i++) {
-      this.queries[this.componentesIds[i]] = '';
-    }
+    this.componentes = [false, false, false, false, false];
   }
 
   filtraComponentes() {
     const STATUS_CONCLUIDO = '2';
+    const STATUS_APROVADO_COM_RESSALVAS = '3';
     for(var i=0; i<this.componentes.length; i++) {
-      this.queries[this.componentesIds[i]] = this.componentes[i] ? STATUS_CONCLUIDO : '';
+      if(this.componentes[i]) {
+        this.params = this.params.append(this.componentesIds[i], STATUS_CONCLUIDO);
+        this.params = this.params.append(this.componentesIds[i], STATUS_APROVADO_COM_RESSALVAS);
+      }
     }
   }
 
@@ -101,7 +107,7 @@ export class BuscaComponent implements OnInit {
   onRealizarBusca() {
     this.listaEntidades = undefined;
     this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
-    this.slcApiService.carregarPagina(this.page, this.queries);
+    this.slcApiService.carregarPagina(this.page, this.params);
   }
 
   getDatePicker(datepicker: String) { // recebe um objeto Datepicker e retorna somente a data

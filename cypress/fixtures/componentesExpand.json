@@ -1,0 +1,287 @@
+{
+    "_embedded": {
+        "items": [
+            {
+                "id": 4466,
+                "conselho": {
+                    "conselheiros": []
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4466/"
+                    }
+                },
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "id": 6185,
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Concluída"
+                        },
+                        "_links": {
+                            "self": {
+                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/6185/"
+                            }
+                        },
+                        "criacao_plano_cultura": {
+                            "ata_reuniao_aprovacao_plano": null,
+                            "minuta_preparada": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Arquivo aprovado com ressalvas",
+                            "ata_votacao_projeto_lei": null,
+                            "relatorio_diretrizes_aprovadas": null
+                        },
+                        "criacao_orgao_gestor": {
+                            "situacao": "Concluída",
+                            "relatorio_atividade_secretaria": null
+                        },
+                        "criacao_fundo_cultura": {
+                            "lei_fundo_cultura": null,
+                            "situacao": "Arquivo aprovado com ressalvas",
+                            "cnpj_fundo_cultura": "18.851.446/0001-95"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4466/"
+                                    }
+                                }
+                            }
+                        },
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Concluída"
+                        }
+                    }
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "governo": {
+                    "nome_prefeito": "Chico Xavier",
+                    "email_institucional_prefeito": "janaina.lima.df@gmail.com",
+                    "termo_posse_prefeito": "/media/termo_posse/Chrysanthemum.jpg"
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "18.761.172/0001-43",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 53,
+                            "sigla": "DF"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 530010,
+                            "nome_municipio": "Brasília"
+                        },
+                        "cep": "70.770-100",
+                        "bairro": "Asa Norte",
+                        "endereco": "Bla bla bla",
+                        "complemento": "bla bla"
+                    },
+                    "telefones": {
+                        "telefone_um": "99999999999",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "https://www.geradordecpf.org/"
+                }
+            },
+            {
+                "id": 4465,
+                "conselho": {
+                    "conselheiros": [
+                        {
+                            "email": "teste@email.com",
+                            "data_cadastro": "2018-03-29",
+                            "data_situacao": "2018-03-29",
+                            "nome": "TEste 123",
+                            "segmento": "Circo",
+                            "situacao": "1"
+                        }
+                    ]
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4465/"
+                    }
+                },
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "id": 6183,
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_links": {
+                            "self": {
+                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/6183/"
+                            }
+                        },
+                        "criacao_plano_cultura": {
+                            "ata_reuniao_aprovacao_plano": null,
+                            "minuta_preparada": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento",
+                            "ata_votacao_projeto_lei": null,
+                            "relatorio_diretrizes_aprovadas": null
+                        },
+                        "criacao_orgao_gestor": {
+                            "situacao": "Em preenchimento",
+                            "relatorio_atividade_secretaria": null
+                        },
+                        "criacao_fundo_cultura": {
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento",
+                            "cnpj_fundo_cultura": "96.384.155/0001-48"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4465/"
+                                    }
+                                }
+                            }
+                        },
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        }
+                    }
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "governo": {
+                    "nome_prefeito": "Prefeito do Teste",
+                    "email_institucional_prefeito": "teste@email.com",
+                    "termo_posse_prefeito": "/media/termo_posse/Modelo_1mdl3.png"
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "66.537.377/0001-92",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 15,
+                            "sigla": "PA"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 150140,
+                            "nome_municipio": "Belém"
+                        },
+                        "cep": "71.000-000",
+                        "bairro": "Rua de Cima",
+                        "endereco": "Avenida Nao Importa",
+                        "complemento": "Rua de Baixo"
+                    },
+                    "telefones": {
+                        "telefone_um": "22020205950",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.cultura.gov.br/snc"
+                }
+            },
+            {
+                "id": 4464,
+                "conselho": {
+                    "conselheiros": []
+                },
+                "_links": {
+                    "self": {
+                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4464/"
+                    }
+                },
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "id": 6182,
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_links": {
+                            "self": {
+                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/6182/"
+                            }
+                        },
+                        "criacao_plano_cultura": {
+                            "ata_reuniao_aprovacao_plano": null,
+                            "minuta_preparada": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento",
+                            "ata_votacao_projeto_lei": null,
+                            "relatorio_diretrizes_aprovadas": null
+                        },
+                        "criacao_orgao_gestor": {
+                            "situacao": "Em preenchimento",
+                            "relatorio_atividade_secretaria": null
+                        },
+                        "criacao_fundo_cultura": {
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento",
+                            "cnpj_fundo_cultura": null
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4464/"
+                                    }
+                                }
+                            }
+                        },
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        }
+                    }
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "governo": {
+                    "nome_prefeito": "Fulano Cicrano",
+                    "email_institucional_prefeito": "fulano.cicrano@cultura.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/Captura_de_tela_de_2017-04-13_01-28-59.png"
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "95.876.554/0001-63",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 35,
+                            "sigla": "SP"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 350460,
+                            "nome_municipio": "Bady Bassitt"
+                        },
+                        "cep": "14.300-000",
+                        "bairro": "Benjanmin Constant",
+                        "endereco": "Rua 0",
+                        "complemento": "Numero 0"
+                    },
+                    "telefones": {
+                        "telefone_um": "61998246668",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": ""
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&cnpj_prefeitura="
+        },
+        "page": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?cnpj_prefeitura=&estado_sigla=&limit={?page}&nome_municipio=&offset=",
+            "templated": true
+        },
+        "next": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?cnpj_prefeitura=&estado_sigla=&limit=10&nome_municipio=&offset=10"
+        }
+    },
+    "count": 2967,
+    "page_size": 10
+}

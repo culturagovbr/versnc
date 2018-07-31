@@ -46,10 +46,10 @@
       <div class="mat-row mat-cell detail-row" [@detailExpand] style="overflow: hidden">
         <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
           <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
-            <div *ngIf="item.value.situacao && item.value.situacao=='Concluída'">
+            <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
               <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
             </div>
-            <div *ngIf="item.value.situacao && item.value.situacao!=='Concluída'">
+            <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
               <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
             </div>
           </div>

@@ -60,17 +60,35 @@ Cypress.Commands.add('apiSimples', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=Malhada',    
+    response: 'fixture:entidade.json'        // and force the response to be: []
+  })
+});
+
+Cypress.Commands.add('api_municipio_avancada', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
     url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=Malhada&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=',    
     response: 'fixture:entidade.json'        // and force the response to be: []
   })
 });
 
-Cypress.Commands.add('api_busca_uf', () => {
+Cypress.Commands.add('api_busca_uf_avancada', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
     url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=DF&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=',    
-    response: 'fixture:entidadeResponse'        // and force the response to be: []
+    response: 'fixture:DistritoFederal'        // and force the response to be: []
+  })
+ });
+
+Cypress.Commands.add('api_busca_uf_simples', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=DF',    
+    response: 'fixture:DistritoFederal'        // and force the response to be: []
   })
  });
 
@@ -98,10 +116,20 @@ Cypress.Commands.add('api_df', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=Distrito Federal&ente_federado=',    // that have a URL that matches '/users/*'
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=Distrito Federal',    // that have a URL that matches '/users/*'
     response: 'fixture:DistritoFederal'        // and force the response to be: []
   })
 });
+
+Cypress.Commands.add('api_busca_estado_avancada', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=Distrito Federal&estadual=&municipal=&ente_federado=',    // that have a URL that matches '/users/*'
+    response: 'fixture:DistritoFederal'        // and force the response to be: []
+  })
+});
+
 Cypress.Commands.add('api_somente_municipios', () => {
   cy.server()           // enable response stubbing
   cy.route({

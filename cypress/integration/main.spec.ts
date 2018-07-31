@@ -78,7 +78,7 @@ describe('' +
     });
 
     it('Testa pesquisa do Nome do Estado por extenso na Busca Simples', () => {
-      cy.api_busca_uf();
+      cy.api_df();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Distrito Federal{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
@@ -86,8 +86,8 @@ describe('' +
     });
 
 
-    it('Testa pesquisa da Sigla do Estado por extenso na Busca Simples', () => {
-      cy.api_busca_uf();
+    it('Testa pesquisa da Sigla do Estado na Busca Simples', () => {
+      cy.api_busca_uf_simples();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('DF{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
@@ -102,7 +102,7 @@ describe('' +
     });
 
     it('Testa input Municipio - Busca Avançada', () => {
-      cy.apiSimples();
+      cy.api_municipio_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(1).type('Malhada{enter}');
@@ -111,7 +111,7 @@ describe('' +
     });
 
     it('Testa input da sigla do Estado - Busca Avançada', () => {
-      cy.api_busca_uf();
+      cy.api_busca_uf_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(0).type('DF{enter}');
@@ -119,8 +119,8 @@ describe('' +
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
     });
 
-    it('Testa a pesquisa do nome do Estado por extenso ', () => {
-      cy.api_somente_municipios();
+    it('Testa a pesquisa do nome do Estado por extenso - Busca Avançada ', () => {
+      cy.api_busca_estado_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(0).type('Distrito Federal{enter}');

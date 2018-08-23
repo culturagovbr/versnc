@@ -6,6 +6,7 @@ import { MatPaginator, MatTableDataSource, MatSort, MatSelectModule, MatChipsMod
 import { SlcApiService } from '../slc-api.service';
 import { CdkDetailRowDirective } from './cdk-detail-row.directive';
 import { Entidade } from '../models/entidade.model';
+import { HttpParams } from '@angular/common/http';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -79,9 +80,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
     this.pages = index * 10; // Number offset que vai para a chamada da API
     this.listaRetorno[3] = this.pages; 
-    this.listaRetorno[2]['offset'] = this.pages.toString(); // String 'offset' que vai para a chamada da API e realiza a paginação
-    
-    this.slcApiService.carregarPagina(index, this.listaRetorno[2]);
+    this.listaRetorno[2]['offset'] = this.pages.toString(); // String 'offset' que vai para a chamada da API e realiza a paginação    
+    let queries = new HttpParams({fromObject: this.listaRetorno[2]})
+   
+    this.slcApiService.carregarPagina(index, queries);
   }
   
   ngAfterViewInit() {

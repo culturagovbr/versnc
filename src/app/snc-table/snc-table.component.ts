@@ -16,6 +16,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import 'rxjs/add/observable/of';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'snc-table',
@@ -40,6 +41,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
+  private tituloEnteFederado: 'ENTE FEDERADO';
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -60,7 +62,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
-
     let entidades = this.listaRetorno[1] as Entidade[];
     this.sncDataSource = new MatTableDataSource(entidades);
     this.sncDataSource.sort = this.sort;
@@ -86,9 +87,11 @@ export class SncTableComponent implements OnInit, OnDestroy {
   
   ngAfterViewInit() {
     this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente    
+    this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
   }
   
   ngOnInit() {
+    this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
     this.getEntesFederados();
   }
 
@@ -105,4 +108,5 @@ export class SncTableComponent implements OnInit, OnDestroy {
   setAnimationAsDisabled(status: boolean) {
     this.isDisabled = status;
   }
+
 }

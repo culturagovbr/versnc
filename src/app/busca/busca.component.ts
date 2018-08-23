@@ -9,6 +9,7 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 import { SncTableComponent } from '../snc-table/snc-table.component';
 
 import { SlcApiService } from '../slc-api.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'snc-busca',
@@ -33,10 +34,10 @@ export class BuscaComponent implements OnInit {
   private visualizarEstados = true;
   private visualizarMunicipios = true;
   private componentesIds = ['situacao_lei_id', 'situacao_plano_id', 'situacao_orgao_id', 'situacao_fundo_id',
-     'situacao_conselho_id'];
+    'situacao_conselho_id'];
   params: HttpParams;
 
-  constructor(private slcApiService: SlcApiService) {
+  constructor(private slcApiService: SlcApiService, private table: SncTableComponent) {
   }
 
   queries: { [query: string]: string }
@@ -55,11 +56,12 @@ export class BuscaComponent implements OnInit {
   /* AQUI COMEÇA O TESTE DE REFATORAÇÃO DA BUSCA */
 
   onRealizarBuscaComEnter(event) {
+    this.slcApiService['tituloEnteFederado'] = this.definirTituloEnteFederado()['value'];
     if (event.keyCode === 13) {
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
         this.limparQueriesDaBusca();
         this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
-        this.params = new HttpParams({fromObject: this.queries});
+        this.params = new HttpParams({ fromObject: this.queries });
         this.onRealizarBusca();
 
       } else { // BUSCA AVANÇADA
@@ -69,14 +71,14 @@ export class BuscaComponent implements OnInit {
         this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
         this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
         this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
-        this.params = new HttpParams({fromObject: this.queries});
+        this.params = new HttpParams({ fromObject: this.queries });
         this.filtraComponentes();
         this.onRealizarBusca();
       }
 
     }
   }
- 
+
   limparQueriesDaBusca() {
     this.queries['data_adesao_max'] = '';
     this.queries['data_adesao_min'] = '';
@@ -91,8 +93,8 @@ export class BuscaComponent implements OnInit {
   filtraComponentes() {
     const STATUS_CONCLUIDO = '2';
     const STATUS_APROVADO_COM_RESSALVAS = '3';
-    for(var i=0; i<this.componentes.length; i++) {
-      if(this.componentes[i]) {
+    for (var i = 0; i < this.componentes.length; i++) {
+      if (this.componentes[i]) {
         this.params = this.params.append(this.componentesIds[i], STATUS_CONCLUIDO);
         this.params = this.params.append(this.componentesIds[i], STATUS_APROVADO_COM_RESSALVAS);
       }
@@ -107,6 +109,7 @@ export class BuscaComponent implements OnInit {
   onRealizarBusca() {
     this.listaEntidades = undefined;
     this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
+
     this.slcApiService.carregarPagina(this.page, this.params);
   }
 
@@ -124,6 +127,19 @@ export class BuscaComponent implements OnInit {
     else {
       return datepicker['_i']
     }
+  }
+
+  definirTituloEnteFederado(): Observable<string> {
+    if(this.visualizarEstados == true && this.visualizarMunicipios == true){
+      return Observable.of('ENTE FEDERADO');
+    }
+    else if (this.visualizarEstados == true && this.visualizarMunicipios == false) {
+      return Observable.of('ESTADO');
+    }
+    else {
+      return Observable.of('MUNICÍPIO');
+    }
+
   }
 
 }

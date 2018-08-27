@@ -21,11 +21,31 @@ describe('' +
       cy.get('app-root snc-table mat-card');
     });
 
-    it('Apresenta título MUNICÍPIO na tabela da Página Inicial após pesquisa', () => {
+    it('Apresenta título ENTE FEDERADO na tabela da Página Inicial após pesquisa', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
+      cy.get('.mat-sort-header-button').contains('ENTE FEDERADO');
+    });
+
+    it('Apresenta título MUNICÍPIO para pesquisa de somente Municípios', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('mat-checkbox').eq(0).click();
+      cy.get('input').eq(1).type('{enter}');
+
       cy.get('.mat-sort-header-button').contains('MUNICÍPIO');
+    });
+
+    it('Apresenta título ESTADO para pesquisa de somente Estados', () => {
+      cy.api();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('mat-checkbox').eq(1).click();
+      cy.get('input').eq(1).type('{enter}');
+
+      cy.get('.mat-sort-header-button').contains('ESTADO');
     });
 
     it('Apresenta título DATA DA ADESÃO na tabela da Página Inicial após pesquisa', () => {
@@ -171,20 +191,20 @@ describe('' +
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Aparecida de Goiânia - GO ');
     });
 
-    it('Testa ordenação alfabética ASC da tabela ao clicar no titulo MUNICÍPIO', () => {
+    it('Testa ordenação alfabética ASC da tabela ao clicar no titulo ENTE FEDERADO', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('MUNICÍPIO').click();
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click();
 
       cy.get('mat-cell').eq(0).contains(' Aporá - BA ');
     });
 
-    it('Testa ordenação alfabética DESC da tabela ao clicar no titulo MUNICÍPIO', () => {
+    it('Testa ordenação alfabética DESC da tabela ao clicar no titulo ENTE FEDERADO', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('MUNICÍPIO').click().click();
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click();
 
       cy.get('mat-cell').eq(0).contains(' Porto do Mangue - RN ');
     });

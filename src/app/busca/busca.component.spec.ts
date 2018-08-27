@@ -142,4 +142,29 @@ describe('BuscaComponent', () => {
     
   }));
 
+  it('Verifica se o título na tabela é modificado para ESTADO na busca avançada por Estados', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = '';
+    component['seletorTipoBusca'] = true;
+    component['visualizarEstados'] = true;
+    component.onRealizarBuscaComEnter(event);
+    
+    expect(component['slcApiService']['tituloEnteFederado'] == 'ESTADO')
+  }));
+
+  it('Verifica se o título na tabela é modificado para MUNICÍPIO na busca avançada por Municípios', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = '';
+    component['seletorTipoBusca'] = true;
+    component['visualizarMunicipios'] = true;
+    component.onRealizarBuscaComEnter(event);
+    
+    expect(component['slcApiService']['tituloEnteFederado'] == 'MUNICÍPIO')
+  }));
+
+  it('Verifica se o título na tabela é modificado para ENTE FEDERADO na busca avançada por Municípios e Estados', inject([SlcApiService], (service: SlcApiService) => {
+    component['termoUF'] = '';
+    component.onRealizarBuscaComEnter(event);
+    
+    expect(component['slcApiService']['tituloEnteFederado'] == 'ENTE FEDERADO')
+  }));
+
 });

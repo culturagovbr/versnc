@@ -85,13 +85,15 @@ export class SlcApiService {
         let count: number = 0;
         let count_estados: number = 0;
         let estados_aderidos: number = 0;
-        
+        let municipios_aderidos: number = 0;
+
         let entesFederados: Entidade[] = [];
-        
+
         count = res['count'];
         count_estados = res['estados'];
         estados_aderidos = res['estados_aderidos'];
-        
+        municipios_aderidos = res['municipios_aderidos'];
+
         entesFederados = res['_embedded']['items'].map((element, index) => {
           const entidade: Entidade = {
             'id': '', 'ente_federado': '', 'situacao_adesao': '',
@@ -125,14 +127,15 @@ export class SlcApiService {
           return entidade;
         });
 
-        return { entesFederados, count, count_estados, estados_aderidos };
+        return { entesFederados, count, count_estados, estados_aderidos, municipios_aderidos };
       });
   }
 
   carregarPagina(index: number, queries) {
     this.searchFilter(queries).subscribe(
       resposta => {
-        this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index, resposta['count_estados'], resposta['estados_aderidos']]);
+        this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index, 
+                        resposta['count_estados'], resposta['estados_aderidos'], resposta['municipios_aderidos']]);
         this.router.navigate(['/tabela-uf-municipio']);
       });
   }

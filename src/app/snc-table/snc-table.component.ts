@@ -37,6 +37,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private count: Number = 0;
   private count_estados: Number = 0;
   private estados_aderidos: Number = 0;
+  private municipios_aderidos: Number = 0;
   private listaRetorno = {};
   private sncDataSource: any;
   private mySubscription: Subscription;
@@ -72,6 +73,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.count = this.listaRetorno[0];
     this.count_estados = this.listaRetorno[4];
     this.estados_aderidos = this.listaRetorno[5];
+    this.municipios_aderidos = this.listaRetorno[6];
   }
 
   ngOnDestroy() {

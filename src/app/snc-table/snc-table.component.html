@@ -1,13 +1,16 @@
 
-<div id="filtros" fxLayout="row" fxLayoutAlign="start start">
+<div id="filtros" fxLayout="row" fxLayoutAlign="space-evenly center">
   <div *ngIf="count_estados != 0">
     <h3 class="total">Estados: {{count_estados}}</h3>
   </div>
-  <div *ngIf="(count - count_estados) != 0">
+  <div *ngIf="count_estados != 0">
     <h3 class="total">Estados Aderidos: {{estados_aderidos}} ({{ (estados_aderidos/count_estados)*100 | number }}%)</h3>
   </div>
   <div *ngIf="(count - count_estados) != 0">
     <h3 class="total">Municípios: {{count - count_estados}}</h3>
+  </div>
+  <div *ngIf="(count - count_estados) != 0">
+      <h3 class="total">Municípios Aderidos: {{municipios_aderidos}} ({{ municipios_aderidos/(count-count_estados)*100 | number }}%)</h3>
   </div>
 </div>
 

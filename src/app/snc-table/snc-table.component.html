@@ -1,10 +1,10 @@
 
 <div id="filtros" fxLayout="row" fxLayoutAlign="start start">
-  <!-- <div>
-    <h3 class="total" *ngIf="count > 0">Estados: 0</h3>
-  </div> -->
-  <div>
-    <h3 class="total" *ngIf="count > 0">Municípios: {{count}}</h3>
+  <div *ngIf="count_estados != 0">
+    <h3 class="total">Estados: {{count_estados}}</h3>
+  </div>
+  <div *ngIf="(count - count_estados) != 0">
+    <h3 class="total">Municípios: {{count - count_estados}}</h3>
   </div>
 </div>
 

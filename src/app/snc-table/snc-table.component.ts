@@ -34,7 +34,9 @@ import { forEach } from '@angular/router/src/utils/collection';
 
 export class SncTableComponent implements OnInit, OnDestroy {
 
-  private count: Number;
+  private count: Number = 0;
+  private count_estados: Number = 0;
+  private estados_aderidos: Number = 0;
   private listaRetorno = {};
   private sncDataSource: any;
   private mySubscription: Subscription;
@@ -66,8 +68,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
     let entidades = this.listaRetorno[1] as Entidade[];
     this.sncDataSource = new MatTableDataSource(entidades);
     this.sncDataSource.sort = this.sort;
-    this.count = this.listaRetorno[0];
     this.pages = this.listaRetorno[3];
+    this.count = this.listaRetorno[0];
+    this.count_estados = this.listaRetorno[4];
+    this.estados_aderidos = this.listaRetorno[5];
   }
 
   ngOnDestroy() {

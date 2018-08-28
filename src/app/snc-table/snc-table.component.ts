@@ -87,10 +87,8 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
     this.pages = index * 10; // Number offset que vai para a chamada da API
     this.listaRetorno[3] = this.pages; 
-    this.listaRetorno[2]['offset'] = this.pages.toString(); // String 'offset' que vai para a chamada da API e realiza a paginação    
-    let queries = new HttpParams({fromObject: this.listaRetorno[2]})
-   
-    this.slcApiService.carregarPagina(index, queries);
+    this.listaRetorno[2] = this.listaRetorno[2].set('offset', this.pages.toString());
+    this.slcApiService.carregarPagina(index, this.listaRetorno[2]);
   }
   
   ngAfterViewInit() {

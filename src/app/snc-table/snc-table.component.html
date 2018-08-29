@@ -1,13 +1,3 @@
-
-<div id="filtros" fxLayout="row" fxLayoutAlign="start start">
-  <div *ngIf="count_estados != 0">
-    <h3 class="total">Estados: {{count_estados}}</h3>
-  </div>
-  <div *ngIf="(count - count_estados) != 0">
-    <h3 class="total">Municípios: {{count - count_estados}}</h3>
-  </div>
-</div>
-
 <mat-card id="tabela">
   <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
 
@@ -35,11 +25,13 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
-     [cdkDetailRowTpl]="tpl" (click)="setAnimationAsDisabled(false)">
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"
+      (click)="setAnimationAsDisabled(false)">
     </mat-row>
 
   </mat-table>
+
+
 
   <ng-template #tpl let-entidade>
     <div [@.disabled]="isDisabled">
@@ -47,22 +39,44 @@
         <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
           <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
             <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
-              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-ok">check</i></p>
+              <p>{{getNomeComponente(item.key)}}
+                <i class="material-icons icon-componente-status-ok">check</i>
+              </p>
             </div>
             <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
-              <p>{{getNomeComponente(item.key)}} <i class="material-icons icon-componente-status-not-ok">close</i></p>
+              <p>{{getNomeComponente(item.key)}}
+                <i class="material-icons icon-componente-status-not-ok">close</i>
+              </p>
             </div>
           </div>
         </div>
         <div *ngIf="entidade.acoes_plano_trabalho.length <= 0">
-          <p>Lei Sistema Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Órgão Gestor <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Conselho Cultural <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Fundo Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
-          <p>Plano Cultura <i class="material-icons icon-componente-status-not-ok">close</i></p>
+          <p>Lei Sistema Cultura
+            <i class="material-icons icon-componente-status-not-ok">close</i>
+          </p>
+          <p>Órgão Gestor
+            <i class="material-icons icon-componente-status-not-ok">close</i>
+          </p>
+          <p>Conselho Cultural
+            <i class="material-icons icon-componente-status-not-ok">close</i>
+          </p>
+          <p>Fundo Cultura
+            <i class="material-icons icon-componente-status-not-ok">close</i>
+          </p>
+          <p>Plano Cultura
+            <i class="material-icons icon-componente-status-not-ok">close</i>
+          </p>
         </div>
       </div>
     </div>
   </ng-template>
 
+  <div id="filtros" fxLayout="row" fxLayoutAlign="end center">
+    <div *ngIf="count_estados != 0">
+      <h3 class="total">Estados: {{count_estados}}</h3>
+    </div>
+    <div *ngIf="(count - count_estados) != 0">
+      <h3 class="total">Municípios: {{count - count_estados}}</h3>
+    </div>
+  </div>
 </mat-card>

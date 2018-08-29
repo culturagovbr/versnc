@@ -209,7 +209,7 @@ describe('' +
       cy.get('mat-cell').eq(0).contains(' São Sebastião da Amoreira - PR ');
     });
 
-    it('Testa se a quantidade de municípios retornados pela busca está correto na descrição acima da tabela', () => {
+    it('Testa se a quantidade de municípios retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
@@ -217,7 +217,7 @@ describe('' +
       cy.get('div h3.total').eq(1).contains('Municípios: 3018');
     });
 
-    it('Testa se a quantidade de estados retornados pela busca está correto na descrição acima da tabela', () => {
+    it('Testa se a quantidade de estados retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');

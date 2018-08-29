@@ -13,15 +13,14 @@
 }
 
 .mat-header-cell{
-    font-size: 14px;
-    color: rgba(0,0,0,.87);    
+    font-size: 16px;
+    color: rgb(43, 144, 135);
+    font-weight: bold;
 }
 .mat-cell{
     color: rgba(0, 0, 0, 0.65);
 }
-#filtros {
-    background-color: #00A697;
-}
+
 
 .filtrar {
     max-height: 38px;
@@ -37,9 +36,17 @@
     transform: rotate(-180deg);
 }
 
+#filtros {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: #f2f2f2;
+    font-size: 14px;
+}
+
 .total {
-    color: white;
-    margin-left: 100px;   
+    color: #2b9087;
+    margin-left: 100px;
 }
 
 .mat-focused {

@@ -1,6 +1,7 @@
 .fit{
     max-height: 315px;
     min-height: 250px;
+    min-width: 500px;
 }
 .alinhamento{
     width: 60%;
@@ -13,6 +14,7 @@
     background-color: #ededed66;
     border-radius: 8px;
     padding: 5px;
+    min-width: 500px;
 }
 
 .layoutFill{
@@ -77,6 +79,9 @@ section {
     .alinhamento {
         margin-left:5%;
     }
+    .fit {
+        max-height: 360px;
+    }
 }
 
 @media (min-width: 1268px) {
@@ -85,3 +90,4 @@ section {
         max-width: 62%;
     }
 }
+

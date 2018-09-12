@@ -62,7 +62,7 @@ export class BuscaComponent implements OnInit {
   }
 
   definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA
-    if (!this.seletorTipoBusca) { // BUSCA SIMPLES - Usa somente a query 'ente_federado'
+    if (!tipoBusca) { // BUSCA SIMPLES - Usa somente a query 'ente_federado'
       this.limparQueriesDaBusca();
       this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
 
@@ -74,7 +74,7 @@ export class BuscaComponent implements OnInit {
       this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
       this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
     }
-    
+
     this.params = new HttpParams({ fromObject: this.queries });
   }
 

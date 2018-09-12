@@ -64,34 +64,25 @@ export class SlcApiService {
   getComponentes(acoes_plano_trabalho: {}) {
     let componentes = [];
 
-    if (acoes_plano_trabalho) {
-      for (var key in acoes_plano_trabalho) {
-        if (acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
-          componentes.push({ key: key, value: acoes_plano_trabalho[key] });
-        else if (key != "_links" && key != "_embedded" && key != "id") {
-          componentes.push({ key: key, value: '' })
-        }
+    for (var key in acoes_plano_trabalho) {
+      if (acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
+        componentes.push({ key: key, value: acoes_plano_trabalho[key] });
+      else if (key != "_links" && key != "_embedded" && key != "id") {
+        componentes.push({ key: key, value: '' })
       }
     }
 
     return componentes;
   }
 
-  /** Entidades busca simplificada ETAPA:1 */
-  searchFilter(queries): Observable<any> {
+  searchFilter(queries): Observable<any> { 
     return this.http.get(this.sncUrlHmgLocal, { params: queries })
       .map(res => {
-
-        let count: number = 0;
-        let count_estados: number = 0;
-        let estados_aderidos: number = 0;
-        
         let entesFederados: Entidade[] = [];
-        
-        count = res['count'];
-        count_estados = res['estados'];
-        estados_aderidos = res['estados_aderidos'];
-        
+        let count: number = res['count'];
+        let count_estados: number = res['estados'];
+        let estados_aderidos: number = res['estados_aderidos'];
+
         entesFederados = res['_embedded']['items'].map((element, index) => {
           const entidade: Entidade = {
             'id': '', 'ente_federado': '', 'situacao_adesao': '',
@@ -100,27 +91,7 @@ export class SlcApiService {
             'data_adesao': '', 'municipioUF': '', 'nome_estado': ''
           };
 
-          entidade.id = element['id'];
-          entidade.ente_federado = element['ente_federado'];
-
-          entidade.situacao_adesao = element['situacao_adesao'] ? String(element['situacao_adesao']['situacao_adesao']) : '';
-          entidade.conselho = element['conselho'] ? element['conselho'] : '';
-
-          entidade.link_entidade = String(element['_links']['self']['href']);
-          entidade.data_adesao = element['data_adesao'];
-          entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
-          entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
-
-          let acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
-          entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);
-
-          if (element['ente_federado']['localizacao']['cidade'] !== null) {
-            entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);
-            entidade.municipioUF = entidade.nome_municipio + " - " + entidade.sigla_estado;
-          } else {
-            entidade.nome_municipio = null;
-            entidade.municipioUF = entidade.nome_estado;
-          }
+          this.definirPropriedadesEntidade(entidade, element);
 
           return entidade;
         });
@@ -137,4 +108,29 @@ export class SlcApiService {
       });
   }
 
+  definirPropriedadesEntidade(entidade, element) { //define as propriedades padrão do Ente Federado
+    entidade.id = element['id'];
+    entidade.link_entidade = String(element['_links']['self']['href']);
+    entidade.ente_federado = element['ente_federado'];
+    entidade.nome_estado = element['ente_federado']['localizacao']['estado']['nome_uf'];
+    entidade.sigla_estado = element['ente_federado']['localizacao']['estado']['sigla'];
+    entidade.data_adesao = element['data_adesao'];
+
+    entidade.conselho = element['conselho'] ? element['conselho'] : '';
+    entidade.situacao_adesao = element['situacao_adesao'] ? String(element['situacao_adesao']['situacao_adesao']) : '';
+
+    if (element['_embedded']['acoes_plano_trabalho']) {
+      let acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+      entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);
+    }
+
+    if (element['ente_federado']['localizacao']['cidade'] !== null) {
+      entidade.nome_municipio = String(element['ente_federado']['localizacao']['cidade']['nome_municipio']);
+      entidade.municipioUF = entidade.nome_municipio + " - " + entidade.sigla_estado;
+    } else {
+      entidade.nome_municipio = null;
+      entidade.municipioUF = entidade.nome_estado;
+    }
+
+  }
 }

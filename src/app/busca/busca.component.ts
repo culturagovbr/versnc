@@ -58,6 +58,8 @@ export class BuscaComponent implements OnInit {
   onRealizarBuscaComEnter(event) {
     this.slcApiService['tituloEnteFederado'] = this.definirTituloEnteFederado()['value'];
     if (event.keyCode === 13) {
+     
+
       if (!this.seletorTipoBusca) { // BUSCA SIMPLES
         this.limparQueriesDaBusca();
         this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
@@ -80,14 +82,15 @@ export class BuscaComponent implements OnInit {
   }
 
   limparQueriesDaBusca() {
-    this.queries['data_adesao_max'] = '';
-    this.queries['data_adesao_min'] = '';
-    this.queries['estado_sigla'] = '';
-    this.queries['nome_uf'] = '';
-    this.queries['nome_municipio'] = '';
-    this.termoUF = '';
+    for (var query in this.queries) {
+      this.queries[query.toString()] = '';
+    }
 
-    this.componentes = [false, false, false, false, false];
+    for (var comp in this.componentes){
+      this.componentes[comp] = false;
+    }
+    
+    this.termoUF = '';
   }
 
   filtraComponentes() {

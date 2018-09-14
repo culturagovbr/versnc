@@ -52,42 +52,30 @@ export class BuscaComponent implements OnInit {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
   }
 
-
-  /* AQUI COMEÇA O TESTE DE REFATORAÇÃO DA BUSCA */
-
   onRealizarBuscaComEnter(event) {
     this.slcApiService['tituloEnteFederado'] = this.definirTituloEnteFederado()['value'];
     if (event.keyCode === 13) {
-      if (!this.seletorTipoBusca) { // BUSCA SIMPLES
-        this.limparQueriesDaBusca();
-        this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
-        this.params = new HttpParams({ fromObject: this.queries });
-        this.onRealizarBusca();
-
-      } else { // BUSCA AVANÇADA
-        this.pesquisarEstado(this.termoUF);
-        this.queries['ente_federado'] = '';
-        this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
-        this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
-        this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
-        this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
-        this.params = new HttpParams({ fromObject: this.queries });
-        this.filtraComponentes();
-        this.onRealizarBusca();
-      }
-
+      this.definirTipoDeBusca(this.seletorTipoBusca);
+      this.filtraComponentes();
+      this.onRealizarBusca();
     }
   }
 
-  limparQueriesDaBusca() {
-    this.queries['data_adesao_max'] = '';
-    this.queries['data_adesao_min'] = '';
-    this.queries['estado_sigla'] = '';
-    this.queries['nome_uf'] = '';
-    this.queries['nome_municipio'] = '';
-    this.termoUF = '';
+  definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA
+    if (!this.seletorTipoBusca) { // BUSCA SIMPLES - Usa somente a query 'ente_federado'
+      this.limparQueriesDaBusca();
+      this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
 
-    this.componentes = [false, false, false, false, false];
+    } else { // BUSCA AVANÇADA
+      this.pesquisarEstado(this.termoUF);
+      this.queries['ente_federado'] = '';
+      this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
+      this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
+      this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
+      this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
+    }
+    
+    this.params = new HttpParams({ fromObject: this.queries });
   }
 
   filtraComponentes() {
@@ -101,16 +89,26 @@ export class BuscaComponent implements OnInit {
     }
   }
 
-  pesquisarEstado(nome_uf) {
-    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
-    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
-  }
-
   onRealizarBusca() {
     this.listaEntidades = undefined;
     this.slcApiService['paginaAtual'] = 0; // Garante que a busca sempre seja vista inicialmente na primeira página
-
     this.slcApiService.carregarPagina(this.page, this.params);
+  }
+
+  limparQueriesDaBusca() { //limpa as queries de busca antes de uma busca simples ser realizada
+    this.termoUF = '';
+    for (var query in this.queries) {
+      this.queries[query.toString()] = '';
+    }
+
+    for (var comp in this.componentes) {
+      this.componentes[comp] = false;
+    }
+  }
+
+  pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado
+    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
+    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   getDatePicker(datepicker: String) { // recebe um objeto Datepicker e retorna somente a data
@@ -129,8 +127,8 @@ export class BuscaComponent implements OnInit {
     }
   }
 
-  definirTituloEnteFederado(): Observable<string> {
-    if(this.visualizarEstados == true && this.visualizarMunicipios == true){
+  definirTituloEnteFederado(): Observable<string> { // Define o título da 1a coluna da tabela de acordo com o tipo da Busca
+    if (this.visualizarEstados == true && this.visualizarMunicipios == true) {
       return Observable.of('ENTE FEDERADO');
     }
     else if (this.visualizarEstados == true && this.visualizarMunicipios == false) {
@@ -141,5 +139,4 @@ export class BuscaComponent implements OnInit {
     }
 
   }
-
 }

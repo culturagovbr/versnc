@@ -15,6 +15,7 @@
   },
   "private": true,
   "dependencies": {
+
     "@angular/animations": "^5.2.9",
     "@angular/cdk": "^5.2.4",
     "@angular/common": "5.2.9",
@@ -62,6 +63,7 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.9.1",
     "typescript": "2.6.2"
+
   },
   "jest": {
     "preset": "jest-preset-angular",

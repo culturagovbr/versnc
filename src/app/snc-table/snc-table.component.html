@@ -34,7 +34,20 @@
 
 
   <ng-template #tpl let-entidade>
-    <div [@.disabled]="isDisabled">
+    <mat-table #snctable [dataSource]="sncDataSource" class="detail">
+      <ng-container matColumnDef="nome_componente">
+        <mat-header-cell *matHeaderCellDef matTooltip="Ordenar A-Z" matTooltipPosition="before">Validação do SNC</mat-header-cell>
+        <mat-cell class="linha_principal" *matCellDef="let entidade"> Componente </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="situacao_componente">
+        <mat-header-cell *matHeaderCellDef matTooltip="Ordenar A-Z" matTooltipPosition="before">Situação</mat-header-cell>
+        <mat-cell class="linha_principal" *matCellDef="let entidade"> <i class="material-icons icon-componente-status-ok">check</i> Situação do Componente </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="['nome_componente', 'situacao_componente']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['nome_componente', 'situacao_componente'];"></mat-row>
+    </mat-table>
+
+    <!-- <div [@.disabled]="isDisabled">
       <div class="mat-row mat-cell detail-row" [@detailExpand] style="overflow: hidden">
         <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
           <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
@@ -68,7 +81,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </ng-template>
 
   <div id="filtros" fxLayout="row" fxLayoutAlign="end center">

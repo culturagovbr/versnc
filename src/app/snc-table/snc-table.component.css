@@ -100,3 +100,8 @@
     margin-left: 10%;
     padding-bottom: 5%;
 }
+
+mat-table.detail {
+    background-color: white;
+    margin: 2%;
+}

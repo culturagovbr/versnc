@@ -34,14 +34,20 @@
 
 
   <ng-template #tpl let-entidade>
-    <mat-table #snctable [dataSource]="sncDataSource" class="detail">
+    <mat-table #snctable [dataSource]="sncDataSource" class="detail" *ngIf="entidade.acoes_plano_trabalho">
       <ng-container matColumnDef="nome_componente">
-        <mat-header-cell *matHeaderCellDef matTooltip="Ordenar A-Z" matTooltipPosition="before">Validação do SNC</mat-header-cell>
-        <mat-cell class="linha_principal" *matCellDef="let entidade"> Componente </mat-cell>
+        <mat-header-cell *matHeaderCellDef>Validação do SNC</mat-header-cell>
+        <mat-cell class="linha_principal" *matCellDef="let entidade"> Nome do Componente
+          <div *ngFor="let item of entidade.acoes_plano_trabalho">
+            <p>{{item}}</p>
+          </div>
+        </mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="situacao_componente">
-        <mat-header-cell *matHeaderCellDef matTooltip="Ordenar A-Z" matTooltipPosition="before">Situação</mat-header-cell>
-        <mat-cell class="linha_principal" *matCellDef="let entidade"> <i class="material-icons icon-componente-status-ok">check</i> Situação do Componente </mat-cell>
+        <mat-header-cell *matHeaderCellDef>Situação</mat-header-cell>
+        <mat-cell class="linha_principal" *matCellDef="let entidade">
+          <i class="material-icons icon-componente-status-ok">check</i> Situação do Componente </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="['nome_componente', 'situacao_componente']"></mat-header-row>
       <mat-row *matRowDef="let row; columns: ['nome_componente', 'situacao_componente'];"></mat-row>

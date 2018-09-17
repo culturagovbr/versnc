@@ -1,4 +1,4 @@
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe, NgIf} from '@angular/common';
 import {Component, OnInit, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginator, MatTableDataSource, MatSort, MatSelectModule, MatChipsModule, PageEvent } from '@angular/material';

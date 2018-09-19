@@ -34,24 +34,29 @@
 
 
   <ng-template #tpl let-entidade>
-    <mat-table #snctable [dataSource]="sncDataSource" class="detail" *ngIf="entidade.acoes_plano_trabalho">
-      <ng-container matColumnDef="nome_componente">
-        <mat-header-cell *matHeaderCellDef>Validação do SNC</mat-header-cell>
-        <mat-cell class="linha_principal" *matCellDef="let entidade"> Nome do Componente
-          <div *ngFor="let item of entidade.acoes_plano_trabalho">
-            <p>{{item}}</p>
-          </div>
-        </mat-cell>
-      </ng-container>
+    <div class="mat-table" *ngIf="entidade.acoes_plano_trabalho.length > 0 ">
+      <div class="mat-header-row header_componentes">
+        <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
+        <div class="mat-header-cell componentes">Situação</div>
+      </div>
 
-      <ng-container matColumnDef="situacao_componente">
-        <mat-header-cell *matHeaderCellDef>Situação</mat-header-cell>
-        <mat-cell class="linha_principal" *matCellDef="let entidade">
-          <i class="material-icons icon-componente-status-ok">check</i> Situação do Componente </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="['nome_componente', 'situacao_componente']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['nome_componente', 'situacao_componente'];"></mat-row>
-    </mat-table>
+      <div *ngFor="let item of entidade.acoes_plano_trabalho; let i = index;">
+        <div class="mat-row">
+          <div class="mat-cell">{{getNomeComponente(item.key)}}</div>
+          <div class="mat-cell">
+            <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
+              <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>
+            </div>
+            
+            <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
+              <p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- <div [@.disabled]="isDisabled">
       <div class="mat-row mat-cell detail-row" [@detailExpand] style="overflow: hidden">

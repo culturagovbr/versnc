@@ -101,7 +101,16 @@
     padding-bottom: 5%;
 }
 
-mat-table.detail {
+div.mat-table {
     background-color: white;
     margin: 2%;
+}
+
+.componentes {
+    font-size: 14px;
+    color:#666666;
+}
+
+.header_componentes{
+    border-bottom-color: #C4C4C4; 
 }

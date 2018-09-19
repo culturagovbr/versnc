@@ -79,12 +79,12 @@
 }
 
 .icon-componente-status-ok {
-  color: green;
+  color: #25AE88;
   vertical-align: middle;
 }
 
 .icon-componente-status-not-ok {
-  color: red;
+  color: #ED7161;
   vertical-align: middle;
 }
 
@@ -108,7 +108,6 @@ div.mat-table {
 
 .componentes {
     font-size: 14px;
-    color:#666666;
 }
 
 .header_componentes{

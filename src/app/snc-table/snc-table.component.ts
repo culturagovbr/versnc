@@ -46,6 +46,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
   private tituloEnteFederado: 'ENTE FEDERADO';
+  private listaComponentes = ['Lei Sistema Cultura','Orgão Gestor','Conselho Cultural', 'Fundo Cultura','Plano Cultura'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 

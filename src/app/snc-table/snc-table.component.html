@@ -34,65 +34,36 @@
 
 
   <ng-template #tpl let-entidade>
-    <div class="mat-table" *ngIf="entidade.acoes_plano_trabalho.length > 0 ">
+    <div class="mat-table">
       <div class="mat-header-row header_componentes">
         <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
         <div class="mat-header-cell componentes">Situação</div>
       </div>
 
-      <div *ngFor="let item of entidade.acoes_plano_trabalho; let i = index;">
-        <div class="mat-row">
+      <div *ngFor="let item of entidade.acoes_plano_trabalho">
+        <div class="mat-row" *ngIf="entidade.acoes_plano_trabalho.length > 0">
           <div class="mat-cell">{{getNomeComponente(item.key)}}</div>
           <div class="mat-cell">
             <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
               <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>
             </div>
-            
+
             <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
               <p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p>
             </div>
-            
-          </div>
 
+          </div>
         </div>
       </div>
+
+      <div *ngFor="let i of listaComponentes">  <!-- TABELA VISÌVEL PARA QUEM NÃO TEM COMPONENTES DO SISTEMA-->
+        <div class="mat-row" *ngIf="entidade.acoes_plano_trabalho.length==0">
+          <div class="mat-cell">{{i}}</div>
+          <div class="mat-cell"><p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p></div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- <div [@.disabled]="isDisabled">
-      <div class="mat-row mat-cell detail-row" [@detailExpand] style="overflow: hidden">
-        <div *ngIf="entidade.acoes_plano_trabalho.length > 0">
-          <div *ngFor='let item of entidade.acoes_plano_trabalho; let i = index;'>
-            <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
-              <p>{{getNomeComponente(item.key)}}
-                <i class="material-icons icon-componente-status-ok">check</i>
-              </p>
-            </div>
-            <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
-              <p>{{getNomeComponente(item.key)}}
-                <i class="material-icons icon-componente-status-not-ok">close</i>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div *ngIf="entidade.acoes_plano_trabalho.length <= 0">
-          <p>Lei Sistema Cultura
-            <i class="material-icons icon-componente-status-not-ok">close</i>
-          </p>
-          <p>Órgão Gestor
-            <i class="material-icons icon-componente-status-not-ok">close</i>
-          </p>
-          <p>Conselho Cultural
-            <i class="material-icons icon-componente-status-not-ok">close</i>
-          </p>
-          <p>Fundo Cultura
-            <i class="material-icons icon-componente-status-not-ok">close</i>
-          </p>
-          <p>Plano Cultura
-            <i class="material-icons icon-componente-status-not-ok">close</i>
-          </p>
-        </div>
-      </div>
-    </div> -->
   </ng-template>
 
   <div id="filtros" fxLayout="row" fxLayoutAlign="end center">

@@ -1,4 +1,4 @@
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe, NgIf} from '@angular/common';
 import {Component, OnInit, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginator, MatTableDataSource, MatSort, MatSelectModule, MatChipsModule, PageEvent } from '@angular/material';
@@ -37,6 +37,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private count: Number = 0;
   private count_estados: Number = 0;
   private estados_aderidos: Number = 0;
+  private municipios_aderidos: Number = 0;
   private listaRetorno = {};
   private sncDataSource: any;
   private mySubscription: Subscription;
@@ -45,6 +46,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
   private tituloEnteFederado: 'ENTE FEDERADO';
+  private listaComponentes = ['Lei Sistema Cultura','Orgão Gestor','Conselho Cultural', 'Fundo Cultura','Plano Cultura'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -72,6 +74,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.count = this.listaRetorno[0];
     this.count_estados = this.listaRetorno[4];
     this.estados_aderidos = this.listaRetorno[5];
+    this.municipios_aderidos = this.listaRetorno[6];
   }
 
   ngOnDestroy() {

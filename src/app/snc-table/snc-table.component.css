@@ -79,12 +79,12 @@
 }
 
 .icon-componente-status-ok {
-  color: green;
+  color: #25AE88;
   vertical-align: middle;
 }
 
 .icon-componente-status-not-ok {
-  color: red;
+  color: #ED7161;
   vertical-align: middle;
 }
 
@@ -94,4 +94,22 @@
 
 .detail-row {
     margin-left: 3%;
+}
+
+.ranking {
+    margin-left: 10%;
+    padding-bottom: 5%;
+}
+
+div.mat-table {
+    background-color: white;
+    margin: 2%;
+}
+
+.componentes {
+    font-size: 14px;
+}
+
+.header_componentes{
+    border-bottom-color: #C4C4C4; 
 }

@@ -65,17 +65,17 @@ export class SlcApiService {
     let componentes = [];
 
     for (var key in acoes_plano_trabalho) {
-      if (acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
+      componentes.push({ key: key, value: '' });
+      
+      if (acoes_plano_trabalho[key].hasOwnProperty('situacao')) {
         componentes.push({ key: key, value: acoes_plano_trabalho[key] });
-      else if (key != "_links" && key != "_embedded" && key != "id") {
-        componentes.push({ key: key, value: '' })
       }
     }
 
     return componentes;
   }
 
-  searchFilter(queries): Observable<any> { 
+  searchFilter(queries): Observable<any> {
     return this.http.get(this.sncUrlHmgLocal, { params: queries })
       .map(res => {
         let entesFederados: Entidade[] = [];
@@ -123,6 +123,7 @@ export class SlcApiService {
 
     if (element['_embedded']['acoes_plano_trabalho']) {
       let acoes_plano_trabalho = element['_embedded']['acoes_plano_trabalho'];
+      console.log(acoes_plano_trabalho);
       entidade.acoes_plano_trabalho = this.getComponentes(acoes_plano_trabalho);
     }
 

@@ -62,19 +62,19 @@ export class BuscaComponent implements OnInit {
   }
 
   definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA
-    if (!this.seletorTipoBusca) { // BUSCA SIMPLES - Usa somente a query 'ente_federado'
-      this.limparQueriesDaBusca();
-      this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
-
-    } else { // BUSCA AVANÇADA
+    this.limparQueriesDaBusca();
+    this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
+    this.termoUF = !tipoBusca ? '' : this.termoUF;
+    
+    if (tipoBusca) { // BUSCA AVANÇADA
       this.pesquisarEstado(this.termoUF);
       this.queries['ente_federado'] = '';
       this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
       this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
       this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
       this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
-    }
-    
+    } 
+
     this.params = new HttpParams({ fromObject: this.queries });
   }
 
@@ -96,13 +96,8 @@ export class BuscaComponent implements OnInit {
   }
 
   limparQueriesDaBusca() { //limpa as queries de busca antes de uma busca simples ser realizada
-    this.termoUF = '';
     for (var query in this.queries) {
       this.queries[query.toString()] = '';
-    }
-
-    for (var comp in this.componentes) {
-      this.componentes[comp] = false;
     }
   }
 

@@ -3,3 +3,5 @@ version: "2"
 exclude_patterns:
 - "src/app/**/*.spec.ts"
 - "cypress"
+- "src/app/home/"
+- "src/app/message/"

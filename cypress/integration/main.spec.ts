@@ -97,6 +97,14 @@ describe('' +
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
     });
 
+    it('Testa pesquisa do Nome do Município na Busca Simples pelo botão', () => {
+      cy.apiSimples();
+      cy.visit('http://localhost:4200/');
+      cy.get('input').type('Malhada');
+      cy.get('.mat-raised-button').click()
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+    });
+
     it('Testa pesquisa do Nome do Estado por extenso na Busca Simples', () => {
       cy.api_df();
       cy.visit('http://localhost:4200/');
@@ -126,6 +134,16 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(1).type('Malhada{enter}');
+
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+    });
+
+    it('Testa input Municipio - Busca Avançada pelo botão', () => {
+      cy.api_municipio_avancada();
+      cy.visit('http://localhost:4200/');
+      cy.get('.alinhamento').eq(1).click();
+      cy.get('input').eq(1).type('Malhada');
+      cy.get('.mat-raised-button').click()
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
     });

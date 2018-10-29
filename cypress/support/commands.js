@@ -148,3 +148,21 @@ Cypress.Commands.add('api_somente_estados', () => {
   })
 });
 
+Cypress.Commands.add('api_count_estados', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?municipal=false',    
+    response: 'fixture:countEstados'        // and force the response to be: []
+  })
+});
+
+Cypress.Commands.add('api_count_municipios', () => {
+  cy.server()           // enable response stubbing
+  cy.route({
+    method: 'GET',      // Route all GET requests
+    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?estadual=false',    
+    response: 'fixture:countMunicipios'        // and force the response to be: []
+  })
+});
+

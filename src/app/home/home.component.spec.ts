@@ -4,9 +4,10 @@ import { HomeComponent } from './home.component';
 import { BuscaComponent } from '../busca/busca.component';
 import { MaterialModule } from '../material/material.module';
 import { SlcApiService } from '../slc-api.service';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MessageService } from '../message.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,9 +15,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, NoopAnimationsModule],
+      imports: [HttpClientModule, MaterialModule, NoopAnimationsModule, RouterTestingModule],
       declarations: [HomeComponent, BuscaComponent],
-      providers:[SlcApiService, HttpClient, HttpHandler, MessageService]
+      providers:[SlcApiService, HttpClient, MessageService]
     })
       .compileComponents();
   }));

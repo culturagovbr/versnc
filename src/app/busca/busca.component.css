@@ -53,6 +53,12 @@
     line-height: normal;
 }
 
+.mat-raised-button {
+    background-color: #2B9087;
+    color: white;
+    margin: 8px;
+}
+
 mat-checkbox {
     margin-left: 10px;
     padding: 2%;

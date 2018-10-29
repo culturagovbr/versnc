@@ -16,6 +16,8 @@
 
     </mat-form-field>
 
+    <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>
+
   </form>
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
@@ -47,6 +49,8 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
+
+    <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>
 
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <div fxLayout="column" fxLayoutAlign="space-between start">

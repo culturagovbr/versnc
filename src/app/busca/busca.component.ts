@@ -54,7 +54,7 @@ export class BuscaComponent implements OnInit {
 
   onRealizarBuscaComEnter(event) {
     this.slcApiService['tituloEnteFederado'] = this.definirTituloEnteFederado()['value'];
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 || event.type == "click") {
       this.definirTipoDeBusca(this.seletorTipoBusca);
       this.filtraComponentes();
       this.onRealizarBusca();

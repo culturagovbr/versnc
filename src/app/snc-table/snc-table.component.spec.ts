@@ -71,11 +71,4 @@ describe('SncTableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('verifica a obtenção do nome do componente', () => {
-    let nome = "criacao_lei_sistema";
-    let nome_humanized = component.getNomeComponente(nome);
-
-    expect(nome_humanized).toEqual("Lei Sistema");
-  });
-
 });

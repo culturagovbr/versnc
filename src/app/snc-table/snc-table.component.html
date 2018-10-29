@@ -42,7 +42,23 @@
 
       <div *ngFor="let item of entidade.acoes_plano_trabalho">
         <div class="mat-row " *ngIf="entidade.acoes_plano_trabalho.length > 0">
-          <div class="mat-cell">{{getNomeComponente(item.key)}}</div>
+          <div class="mat-cell">
+            <div *ngIf="item.key == 'criacao_lei_sistema_cultura'">
+              Sistema de Cultura
+            </div>
+            <div *ngIf="item.key == 'criacao_orgao_gestor'">
+              Órgão Gestor
+            </div>
+            <div *ngIf="item.key == 'criacao_conselho_cultural'">
+              Conselho de Política Cultural
+            </div>
+            <div *ngIf="item.key == 'criacao_fundo_cultura'">
+              Fundo de Cultura
+            </div>
+            <div *ngIf="item.key == 'criacao_plano_cultura'">
+              Plano de Cultura
+            </div>
+          </div>
           <div class="mat-cell">
             <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
               <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>

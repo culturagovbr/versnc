@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SlcApiService } from '../slc-api.service';
 
 @Component({
   selector: 'snc-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private municipios_aderidos: Number;
+  private estados_aderidos: Number;
+  private querie_municipios = {'estadual' : 'false'};
+  private querie_estados = {'municipal' : 'false'};
 
-  ngOnInit() {
+  constructor(private slcApiService: SlcApiService) { }
+
+  ngOnInit() {	
+  	this.slcApiService.searchFilter(this.querie_municipios).subscribe(listaRetorno => 
+  		this.municipios_aderidos = listaRetorno['municipios_aderidos']); 
+
+  	this.slcApiService.searchFilter(this.querie_estados).subscribe(listaRetorno => 
+  		this.estados_aderidos = listaRetorno['estados_aderidos']); 
   }
 
 }

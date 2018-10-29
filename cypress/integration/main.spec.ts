@@ -14,6 +14,20 @@ describe('' +
       cy.get('app-root snc-busca h4').contains('Consulte seu Estado ou Município');
     });
 
+    it('Apresenta número de municípios aderidos', () => {
+      cy.api_count_municipios();
+      cy.api_count_estados();
+      cy.visit('http://localhost:4200/');
+      cy.get('.mat-card').eq(0).contains('1995');
+    });
+
+    it('Apresenta número de estados aderidos', () => {
+      cy.api_count_municipios();
+      cy.api_count_estados();
+      cy.visit('http://localhost:4200/');
+      cy.get('.mat-card').eq(1).contains('18');
+    });
+
     it('Apresenta Tabela na Pagina Inicial', () => {
       cy.api();
       cy.visit('http://localhost:4200/');

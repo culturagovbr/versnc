@@ -46,7 +46,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
   private tituloEnteFederado: 'ENTE FEDERADO';
-  private listaComponentes = ['Lei Sistema Cultura','Orgão Gestor','Conselho Cultural', 'Fundo Cultura','Plano Cultura'];
+  private listaComponentes = ['Sistema de Cultura','Orgão Gestor','Conselho de Política Cultural', 'Fundo de Cultura','Plano de Cultura'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -100,16 +100,6 @@ export class SncTableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
     this.getEntesFederados();
-  }
-
-  getNomeComponente(componente) {
-      var nomes = componente.split('_');  
-
-      for (var i=1; i<nomes.length; i++) {
-        nomes[i] = nomes[i].charAt(0).toUpperCase() + nomes[i].slice(1);
-      }
-
-      return nomes.slice(1).join(' ');
   }
 
   setAnimationAsDisabled(status: boolean) {

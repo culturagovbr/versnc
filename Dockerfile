@@ -8,4 +8,4 @@ RUN npm install -g npm@latest && npm install yarn && yarn install
 
 VOLUME /source/dist
 
-CMD ["yarn", "run", "ng", "build", "--prod", "--source-map", "--env=prod", "&&", "chmod", "-R", "777", "/source/dist/*"]
+CMD ["yarn", "run", "ng", "build", "--prod", "--env=prod"]

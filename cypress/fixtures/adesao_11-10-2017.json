@@ -1,0 +1,890 @@
+{
+    "_links": {
+        "self": {
+            "href": "http://localhost:8000/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=1/11/2017&data_adesao_max=&format=json"
+        },
+        "next": {
+            "href": "http://localhost:8000/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=1%2F11%2F2017&estado_sigla=&format=json&limit=10&nome_municipio=&offset=10"
+        },
+        "page": {
+            "href": "http://localhost:8000/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=1%2F11%2F2017&estado_sigla=&format=json&limit={?page}&nome_municipio=&offset=",
+            "templated": true
+        }
+    },
+    "_embedded": {
+        "items": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4366/?format=json"
+                    }
+                },
+                "id": 4366,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6129/?format=json"
+                            }
+                        },
+                        "id": 6129,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4366/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "18.296.665/0001-50",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 31,
+                            "sigla": "MG"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 314350,
+                            "nome_municipio": "Morada Nova de Minas"
+                        },
+                        "cep": "35.628-000",
+                        "bairro": "Centro",
+                        "endereco": "Avenida Coronel Sebastião Pereira de Magalhães e  Castro 315",
+                        "complemento": "Avenida"
+                    },
+                    "telefones": {
+                        "telefone_um": "3737551100",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.moradanova.mg.gov.br"
+                },
+                "governo": {
+                    "nome_prefeito": "Olímpio Francisco de Moura",
+                    "email_institucional_prefeito": "gabinete@moradanova.mg.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/termo_de_posse_prefeito.docx"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4363/?format=json"
+                    }
+                },
+                "id": 4363,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6128/?format=json"
+                            }
+                        },
+                        "id": 6128,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4363/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "02.296.002/0001-03",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 52,
+                            "sigla": "GO"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 520960,
+                            "nome_municipio": "Heitoraí"
+                        },
+                        "cep": "76.670-000",
+                        "bairro": "Centro ",
+                        "endereco": "AV. Coronel Heitor",
+                        "complemento": "sn"
+                    },
+                    "telefones": {
+                        "telefone_um": "6233463161",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": ""
+                },
+                "governo": {
+                    "nome_prefeito": "LUCIO PIRES DOS SANTOS",
+                    "email_institucional_prefeito": "prefeituraheitorai@gmail.com",
+                    "termo_posse_prefeito": "/media/termo_posse/ATA_E_TERMO_DE_POSSE.jpg"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4358/?format=json"
+                    }
+                },
+                "id": 4358,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6119/?format=json"
+                            }
+                        },
+                        "id": 6119,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4358/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "18.243.253/0001-51",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 31,
+                            "sigla": "MG"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 312520,
+                            "nome_municipio": "Fama"
+                        },
+                        "cep": "37.144-000",
+                        "bairro": "Centro",
+                        "endereco": "Praça Getúlio Vargas nº1",
+                        "complemento": "Prefeitura"
+                    },
+                    "telefones": {
+                        "telefone_um": "3532961257",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": ""
+                },
+                "governo": {
+                    "nome_prefeito": "Osmair Leal dos Reis",
+                    "email_institucional_prefeito": "gabinete@fama.mg.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/Termo_de_Posse_SSTqO8e.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4357/?format=json"
+                    }
+                },
+                "id": 4357,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6126/?format=json"
+                            }
+                        },
+                        "id": 6126,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4357/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "25.223.850/0001-80",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 31,
+                            "sigla": "MG"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 317052,
+                            "nome_municipio": "Urucuia"
+                        },
+                        "cep": "39.315-000",
+                        "bairro": "Centro",
+                        "endereco": "Rod. MG 202 Km 120, SN",
+                        "complemento": "Avenida Principal"
+                    },
+                    "telefones": {
+                        "telefone_um": "3836349246",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "https://www.urucuia.mg.gov.br"
+                },
+                "governo": {
+                    "nome_prefeito": "Rutilio Eugenio Cavalcanti Filho",
+                    "email_institucional_prefeito": "prefeito@urucuia.mg.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/Termo_de_Posse_Prefeito_Rutilio.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4354/?format=json"
+                    }
+                },
+                "id": 4354,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6120/?format=json"
+                            }
+                        },
+                        "id": 6120,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4354/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "92.411.099/0001-32",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 43,
+                            "sigla": "RS"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 431449,
+                            "nome_municipio": "Pinheirinho do Vale"
+                        },
+                        "cep": "98.435-000",
+                        "bairro": "CENTRO",
+                        "endereco": "RUA DUQUE DE CAXIAS",
+                        "complemento": "223"
+                    },
+                    "telefones": {
+                        "telefone_um": "557921102",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://pinheirinhodovale.rs.gov.br/index.php"
+                },
+                "governo": {
+                    "nome_prefeito": "ELTON TATTO",
+                    "email_institucional_prefeito": "prefeitotatto@pinheirinhodovale.rs.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/TERMO_DE_POSSE_boZC2E9.jpg"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4353/?format=json"
+                    }
+                },
+                "id": 4353,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6130/?format=json"
+                            }
+                        },
+                        "id": 6130,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4353/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "36.388.445/0001-38",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 32,
+                            "sigla": "ES"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 320455,
+                            "nome_municipio": "Santa Maria de Jetibá"
+                        },
+                        "cep": "29.645-000",
+                        "bairro": "Centro",
+                        "endereco": "Rua Dalmácio Espindula, 115",
+                        "complemento": "Prefeitura"
+                    },
+                    "telefones": {
+                        "telefone_um": "2732634863",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.pmsmj.es.gov.br"
+                },
+                "governo": {
+                    "nome_prefeito": "HILÁRIO ROEPKE",
+                    "email_institucional_prefeito": "cultura@pmsmj.es.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/doc.2.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4348/?format=json"
+                    }
+                },
+                "id": 4348,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6123/?format=json"
+                            }
+                        },
+                        "id": 6123,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4348/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "13.109.954/0001-89",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 28,
+                            "sigla": "SE"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 280650,
+                            "nome_municipio": "Santa Rosa de Lima"
+                        },
+                        "cep": "49.640-000",
+                        "bairro": "CENTRO",
+                        "endereco": "Praça Antonio Dantas do Prado, 026",
+                        "complemento": "Praça da Igreja Matriz"
+                    },
+                    "telefones": {
+                        "telefone_um": "79988098510",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.santarosadelima.se.gov.br/"
+                },
+                "governo": {
+                    "nome_prefeito": "LUIZ ROBERTO AZEVEDO SANTOS JUNIOR",
+                    "email_institucional_prefeito": "luiz.junior.adv@hotmail.com",
+                    "termo_posse_prefeito": "/media/termo_posse/1B_33.jpg"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4346/?format=json"
+                    }
+                },
+                "id": 4346,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6124/?format=json"
+                            }
+                        },
+                        "id": 6124,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4346/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "01.612.375/0001-75",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 24,
+                            "sigla": "RN"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 240185,
+                            "nome_municipio": "Caiçara do Norte"
+                        },
+                        "cep": "59.592-000",
+                        "bairro": "Centro",
+                        "endereco": "Rua São Pedro",
+                        "complemento": "S/N"
+                    },
+                    "telefones": {
+                        "telefone_um": "8436960186",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.caicaradonorte.rn.gov.br/"
+                },
+                "governo": {
+                    "nome_prefeito": "Amarildo Elias de Morais Filho",
+                    "email_institucional_prefeito": "pmcaicaradonorte@hotmail.com",
+                    "termo_posse_prefeito": "/media/termo_posse/termo.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4344/?format=json"
+                    }
+                },
+                "id": 4344,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6127/?format=json"
+                            }
+                        },
+                        "id": 6127,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4344/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "18.428.888/0001-23",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 31,
+                            "sigla": "MG"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 311820,
+                            "nome_municipio": "Conquista"
+                        },
+                        "cep": "38.195-000",
+                        "bairro": "Centro",
+                        "endereco": "Praça Coronel Tancredo França 181",
+                        "complemento": "Prefeitura Municipal de Conquista"
+                    },
+                    "telefones": {
+                        "telefone_um": "3433531227",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": ""
+                },
+                "governo": {
+                    "nome_prefeito": "Tarcízio Henrique Zago",
+                    "email_institucional_prefeito": "prefeito@conquista.mg.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/ATA_DE_POSSE_PREFEITO_yKnDcDq.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4337/?format=json"
+                    }
+                },
+                "id": 4337,
+                "_embedded": {
+                    "acoes_plano_trabalho": {
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost:8000/api/v1/acoesplanotrabalho/6122/?format=json"
+                            }
+                        },
+                        "id": 6122,
+                        "criacao_lei_sistema_cultura": {
+                            "lei_sistema_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_orgao_gestor": {
+                            "relatorio_atividade_secretaria": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_conselho_cultural": {
+                            "ata_regimento_aprovado": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_fundo_cultura": {
+                            "cnpj_fundo_cultura": null,
+                            "lei_fundo_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "criacao_plano_cultura": {
+                            "relatorio_diretrizes_aprovadas": null,
+                            "minuta_preparada": null,
+                            "ata_reuniao_aprovacao_plano": null,
+                            "ata_votacao_projeto_lei": null,
+                            "lei_plano_cultura": null,
+                            "situacao": "Em preenchimento"
+                        },
+                        "_embedded": {
+                            "sistema_cultura_local": {
+                                "_links": {
+                                    "self": {
+                                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4337/?format=json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ente_federado": {
+                    "cnpj_prefeitura": "18.558.098/0001-62",
+                    "localizacao": {
+                        "estado": {
+                            "codigo_ibge": 31,
+                            "sigla": "MG"
+                        },
+                        "cidade": {
+                            "codigo_ibge": 312130,
+                            "nome_municipio": "Descoberto"
+                        },
+                        "cep": "36.690-000",
+                        "bairro": "Centro",
+                        "endereco": "Rua Capitão Basilio nº39",
+                        "complemento": "Casa"
+                    },
+                    "telefones": {
+                        "telefone_um": "3232651740",
+                        "telefone_dois": "",
+                        "telefone_tres": ""
+                    },
+                    "endereco_eletronico": "http://www.descoberto.mg.gov.br"
+                },
+                "governo": {
+                    "nome_prefeito": "Marcos de Araujo Lima",
+                    "email_institucional_prefeito": "prefeitura@descoberto.mg.gov.br",
+                    "termo_posse_prefeito": "/media/termo_posse/termo_de_posse_do_Prefeito.pdf"
+                },
+                "conselho": {
+                    "conselheiros": []
+                },
+                "situacao_adesao": {
+                    "situacao_adesao": "Publicado no DOU"
+                },
+                "data_adesao": "2017-11-07"
+            }
+        ]
+    },
+    "count": 18,
+    "page_size": 10
+}

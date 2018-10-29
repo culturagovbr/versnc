@@ -1,9 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-  <snc-table></snc-table>
-</div>
-<router-outlet></router-outlet>
+<header>
+  <mat-toolbar class="menuTop background top">
+    <mat-toolbar-row class="menuRow">
+      <a class="homeLink" routerLink="/">
+        <img src="./assets/Group 1.png">
+      </a>
+      <span class="space"></span>
+      <span id="dashMenu">
+        <a href="http://cultura.gov.br/snc" target="_blank">Sobre o SNC</a>|
+        <a href="http://www.cultura.gov.br/documents/10883/1289124/microsoft-word-nova-plataforma-perguntas-frequentes-_2_.pdf/798876e0-902c-4346-96f9-cbf76c097554" target="_blank">Perguntas frequentes</a>|
+        <a href="http://hmg.snc.cultura.gov.br/adesao/faleconosco/" target="_blank">Fale conosco</a>|
+        <a href="http://hmg.snc.cultura.gov.br/">
+          <strong>Entrar</strong>
+        </a>
+      </span>
+      <img class="imageTop" src="./assets/Group 20.2.png" />
 
+      <button id="menu" mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>dehaze</mat-icon>
+      </button>
+      <mat-menu class="menuContent" #menu="matMenu">
+        <a mat-menu-item href="http://cultura.gov.br/snc" target="_blank">Sobre SNC</a>
+        <a mat-menu-item href="http://www.cultura.gov.br/documents/10883/1289124/microsoft-word-nova-plataforma-perguntas-frequentes-_2_.pdf/798876e0-902c-4346-96f9-cbf76c097554"
+          target="_blank">Perguntas frequentes</a>
+        <a mat-menu-item href="http://hmg.snc.cultura.gov.br/adesao/faleconosco/" target="_blank">Fale conosco</a>
+        <a mat-menu-item href="http://hmg.snc.cultura.gov.br/"><strong>Entrar</strong></a>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+<snc-busca></snc-busca>
+<router-outlet></router-outlet>

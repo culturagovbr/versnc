@@ -1,0 +1,194 @@
+{
+   "_links":{
+      "self":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?format=json&limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=Distrito%20Federal"
+      },
+      "page":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=Distrito+Federal&estado_sigla=&estadual=&format=json&limit={?page}&municipal=&nome_municipio=&nome_uf=&offset=",
+         "templated":true
+      }
+   },
+   "_embedded":{
+      "items":[
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4466/?format=json"
+               }
+            },
+            "id":4466,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/6185/?format=json"
+                     }
+                  },
+                  "id":6185,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":null,
+                     "situacao":"Arquivo incorreto"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":null,
+                     "situacao":"Concluída"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":null,
+                     "situacao":"Arquivo danificado"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"18.851.446/0001-95",
+                     "lei_fundo_cultura":null,
+                     "situacao":"Concluída"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":null,
+                     "minuta_preparada":null,
+                     "ata_reuniao_aprovacao_plano":null,
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":null,
+                     "situacao":"Concluída"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4466/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"18.761.172/0001-43",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":53,
+                     "sigla":"DF",
+                     "nome_uf":"Distrito Federal"
+                  },
+                  "cidade":{
+                     "codigo_ibge":530010,
+                     "nome_municipio":"Brasília"
+                  },
+                  "cep":"70.770-100",
+                  "bairro":"Asa Norte",
+                  "endereco":"Bla bla bla",
+                  "complemento":"bla bla"
+               },
+               "telefones":{
+                  "telefone_um":"99999999999",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":"https://www.geradordecpf.org/"
+            },
+            "governo":{
+               "nome_prefeito":"Chico Xavier",
+               "email_institucional_prefeito":"janaina.lima.df@gmail.com",
+               "termo_posse_prefeito":"/media/termo_posse/Chrysanthemum.jpg"
+            },
+            "conselho":{
+               "conselheiros":[
+
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2018-05-16"
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3/?format=json"
+               }
+            },
+            "id":3,
+            "_embedded":{
+               "acoes_plano_trabalho":{
+                  "_links":{
+                     "self":{
+                        "href":"http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/3270/?format=json"
+                     }
+                  },
+                  "id":3270,
+                  "criacao_lei_sistema_cultura":{
+                     "lei_sistema_cultura":null,
+                     "situacao":"Em preenchimento"
+                  },
+                  "criacao_orgao_gestor":{
+                     "relatorio_atividade_secretaria":null,
+                     "situacao":"Em preenchimento"
+                  },
+                  "criacao_conselho_cultural":{
+                     "ata_regimento_aprovado":null,
+                     "situacao":"Em preenchimento"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cnpj_fundo_cultura":"",
+                     "lei_fundo_cultura":null,
+                     "situacao":"Em preenchimento"
+                  },
+                  "criacao_plano_cultura":{
+                     "relatorio_diretrizes_aprovadas":null,
+                     "minuta_preparada":null,
+                     "ata_reuniao_aprovacao_plano":null,
+                     "ata_votacao_projeto_lei":null,
+                     "lei_plano_cultura":null,
+                     "situacao":"Em preenchimento"
+                  },
+                  "_embedded":{
+                     "sistema_cultura_local":{
+                        "_links":{
+                           "self":{
+                              "href":"http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3/?format=json"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "ente_federado":{
+               "cnpj_prefeitura":"00.394.601/0001-26",
+               "localizacao":{
+                  "estado":{
+                     "codigo_ibge":53,
+                     "sigla":"DF",
+                     "nome_uf":"Distrito Federal"
+                  },
+                  "cidade":null,
+                  "cep":"70075-900",
+                  "bairro":"",
+                  "endereco":" PALÁCIO DO BURITI, 1º ANDAR ",
+                  "complemento":"ZONA CÍVICO ADMINISTRATIVA"
+               },
+               "telefones":{
+                  "telefone_um":"39611556",
+                  "telefone_dois":"",
+                  "telefone_tres":""
+               },
+               "endereco_eletronico":null
+            },
+            "governo":{
+               "nome_prefeito":"AGNELO SANTOS QUEIROZ FILHO",
+               "email_institucional_prefeito":"agnelo.queiroz@buriti.gov.br",
+               "termo_posse_prefeito":null
+            },
+            "conselho":{
+               "conselheiros":[
+
+               ]
+            },
+            "situacao_adesao":{
+               "situacao_adesao":"Publicado no DOU"
+            },
+            "data_adesao":"2013-02-07"
+         }
+      ]
+   },
+   "count":2,
+   "page_size":10
+}

@@ -1,94 +1,135 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, async, fakeAsync } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
-// import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { SlcApiService } from './slc-api.service';
+import { MessageService } from './message.service';
+import { Entidade } from './models/entidade.model';
+import { Location } from '@angular/common';
+import { RouterTestingModule} from '@angular/router/testing';
+
 
 describe('SlcApiService', () => {
-  let httpMock, service;
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [
         SlcApiService,
-        // { provide: XHRBackend, useClass: MockBackend }
+        MessageService,
+        Location,
       ]
     });
-  });
-
-  beforeEach(inject([SlcApiService, HttpTestingController], (_service, _httpMock) => {
-    service = _service;
-    httpMock = _httpMock;
-    // mockbackend = _mockbackend;
+    httpClient = TestBed.get(HttpClient);
+    httpTestingController = TestBed.get(HttpTestingController);
   }));
 
-  it('deve retornar o service', () => {
+  it('deve retornar o service', inject([SlcApiService], (service: SlcApiService) => {
     expect(service).toBeTruthy();
-  });
+  }));
 
-  it('service tem o metodod get()', () => {
-    expect(service.get()).toBeTruthy();
-  });
+  it('service tem o metodo search()', inject([SlcApiService], (service: SlcApiService) => {
+    expect(service.searchFilter('')).toBeTruthy();
+  }));
 
-  it('retorna um unico elemento da API', () => {
-    let response = {
-      "_embedded": {
-        "items": [
-          {
-            "id": 4460,
-            "situacao_adesao": {
-              "situacao_adesao": "Aguardando envio da documentação"
-            },
-            "_embedded": {
-              "acoes_plano_trabalho": null
-            },
-            "ente_federado": {
-              "cnpj_prefeitura": "14.105.217/0001-70",
-              "localizacao": {
-                "estado": {
-                  "codigo_ibge": 29,
-                  "sigla": "BA"
-                },
-                "cidade": {
-                  "codigo_ibge": 292020,
-                  "nome_municipio": "Malhada"
-                },
-                "cep": "46.440-000",
-                "bairro": "centro",
-                "endereco": "Praça Santa Cruz",
-                "complemento": "casa"
-              },
-              "telefones": {
-                "telefone_um": "7736912145",
-                "telefone_dois": "",
-                "telefone_tres": ""
-              },
-              "endereco_eletronico": "http://www.malhada.ba.gov.br"
-            },
-            "conselho": null,
-            "_links": {
-              "self": {
-                "href": "http://snc.cultura.gov.br/api/v1/sistemadeculturalocal/4460/"
-              }
-            },
-            "governo": {
-              "nome_prefeito": "Valdemar Larceda  Silva Filho",
-              "email_institucional_prefeito": "administracao@malhada.ba.gov.br",
-              "termo_posse_prefeito": "/media/termo_posse/termo_OS7pAZV.docx"
-            }
-          }
-        ]
-      },
+  it('retorna um unico elemento da API', (() => {
+    const response: Entidade = {
+      acoes_plano_trabalho: null,
+      conselho: '',
+      data_adesao: undefined,
+      ente_federado: {
+          cnpj_prefeitura: '',
+          localizacao: { bairro: '',
+                         cep: '',
+                         cidade: {codigo_ibge: 170710, nome_municipio: 'Divinópolis do Tocantins'},
+                         complemento: '',
+                         endereco: '',
+                         estado: {codigo_ibge: 17, sigla: 'TO'}
+                        },
+          telefones: { telefone_um: '', telefone_dois: '', telefone_tres: '' },
+          endereco_eletronico: null },
+      id: 4456,
+      link_entidade: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4456.json',
+      nome_municipio: 'Divinópolis do Tocantins',
+      sigla_estado: 'TO',
+      situacao_adesao: '',
     };
 
-    service.get().subscribe(res => {
-      expect(res).toEqual(response);
-    });
+    httpClient.get<Entidade>('http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/')
+      .subscribe(data => expect(data).toEqual(response));
+    }));
 
-    const req = httpMock.expectOne('http://snchomolog.cultura.gov.br/api/v1/sistemadeculturalocal/');
-    req.flush(response);
-    httpMock.verify();
-  });
+  it('verifica obtenção dos componentes com situação', inject([SlcApiService], (service: SlcApiService) => {
+    let response = {
+        "id": 6186,
+        "criacao_lei_sistema_cultura": {
+          "lei_sistema_cultura": null,
+          "situacao": "Em preenchimento"
+        },
+        "criacao_orgao_gestor": {
+          "relatorio_atividade_secretaria": null,
+          "situacao": "Em preenchimento"
+        },
+        "criacao_conselho_cultural": {
+          "ata_regimento_aprovado": null,
+          "situacao": "Em preenchimento"
+        },
+        "criacao_fundo_cultura": {
+          "cnpj_fundo_cultura": null,
+          "lei_fundo_cultura": null,
+          "situacao": "Em preenchimento"
+        },
+        "criacao_plano_cultura": {
+          "relatorio_diretrizes_aprovadas": null,
+          "minuta_preparada": null,
+          "ata_reuniao_aprovacao_plano": null,
+          "ata_votacao_projeto_lei": null,
+          "lei_plano_cultura": null,
+          "situacao": "Em preenchimento"
+        },
+    };
+
+    let componentes = service.getComponentes(response);
+    expect(componentes.length).toEqual(5);
+    for(var i=0; i<componentes.length; i++) {
+      expect(componentes[i].value.situacao).toEqual("Em preenchimento");
+    }
+  }));
+
+  it('verifica obtenção dos componentes sem situação', inject([SlcApiService], (service: SlcApiService) => {
+    let response = {
+        "id": 6061,
+        "criacao_lei_sistema_cultura": null,
+        "criacao_orgao_gestor": null,
+        "criacao_conselho_cultural": null,
+        "criacao_fundo_cultura": null,
+        "criacao_plano_cultura": null,
+        "_embedded": {
+            "sistema_cultura_local": {
+                "_links": {
+                    "self": {
+                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4327/?format=json"
+                    }
+                }
+            }
+        }
+    };
+
+    let componentes = service.getComponentes(response);
+    expect(componentes.length).toEqual(5);
+    for(var i=0; i<componentes.length; i++) {
+      expect(componentes[i].value).toEqual("");
+    }
+  }));
+
+  it('verifica obtenção dos componentes quando a api retorna nulo', inject([SlcApiService], (service: SlcApiService) => {
+    let response = null;
+
+    let componentes = service.getComponentes(response);
+    expect(componentes.length).toEqual(0);
+  }));
+
 });

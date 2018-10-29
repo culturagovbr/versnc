@@ -10,10 +10,7 @@ addons:
 language: node_js
 
 node_js:
-  - "6"
-
-# before_install:
-#   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - "8"
 
 before_script:
   - sudo chown root /opt/google/chrome/chrome-sandbox
@@ -27,7 +24,7 @@ install:
   - yarn install --dev
 
 script:
-  - ng test --watch=false --code-coverage
+  - yarn test:coverage
   - yarn e2e
 
 after_script:

@@ -1,0 +1,93 @@
+.fit{
+    max-height: 315px;
+    min-height: 250px;
+    min-width: 500px;
+}
+.alinhamento{
+    width: 60%;
+    max-width: 60%;
+    text-align:center;
+    margin-left: 20%;
+}
+
+.card-busca {
+    background-color: #ededed66;
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 500px;
+}
+
+.layoutFill{
+    width: 60%;
+}
+
+.textCenter{
+    text-align: center
+}
+
+.busca h4 {
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 36px;
+    color: #2B9087;
+    text-align: center;
+    margin-bottom: 2px;
+}
+ 
+#trocaBusca {
+    width: 135px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-transform: capitalize;
+    color: #828282;
+    padding: 8px;
+}
+
+.checkbox {
+    color: #595959;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+}
+
+mat-checkbox {
+    margin-left: 10px;
+    padding: 2%;
+}
+
+section mat-checkbox  {
+    padding: 2%;
+}
+
+form section {
+    padding-bottom: 10px;
+}
+
+section {
+    width: 50%;
+}
+
+@media (max-width: 580px) {
+    form {
+        width: 100%;
+        min-width: 100%;
+        margin: 0 0 0 0;
+    }
+    .alinhamento {
+        margin-left:5%;
+    }
+    .fit {
+        max-height: 360px;
+    }
+}
+
+@media (min-width: 1268px) {
+    .alinhamento {
+        width: 62%;
+        max-width: 62%;
+    }
+}
+

@@ -1,12 +1,77 @@
-<mat-table #snctable [dataSource]="sncDataSource">
-  <ng-container matColumnDef="cidade">
-    <mat-header-cell *matHeaderCellDef>Cidade</mat-header-cell>
-    <mat-cell *matCellDef="let localizacao"> {{localizacao.cidade}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="uf">
-    <mat-header-cell *matHeaderCellDef>Uf</mat-header-cell>
-    <mat-cell *matCellDef="let localizacao"> {{localizacao.uf}} </mat-cell>
-  </ng-container>
-  <mat-header-row *matHeaderRowDef="['cidade', 'uf']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['cidade', 'uf'];"></mat-row>
-</mat-table>
+<mat-card id="tabela">
+  <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
+
+  <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
+    <ng-container matColumnDef="nome_municipio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">{{this.tituloEnteFederado}}</mat-header-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="data_adesao">
+      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="plano_trabalho">
+      <mat-header-cell *matHeaderCellDef>DETALHAR</mat-header-cell>
+      <mat-cell *matCellDef="let entidade">
+        <a href="http://hmg.snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
+          <i class="material-icons">insert_drive_file</i>
+        </a>
+        <!-- <a href="http://localhost:8000/gestao/detalhar/{{entidade.id}}" class="detalhe-municipio">
+          <i class="material-icons">insert_drive_file</i>
+        </a> -->
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"
+      (click)="setAnimationAsDisabled(false)">
+    </mat-row>
+
+  </mat-table>
+
+
+
+  <ng-template #tpl let-entidade>
+    <div class="mat-table">
+      <div class="mat-header-row header_componentes">
+        <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
+        <div class="mat-header-cell componentes">Situação</div>
+      </div>
+
+      <div *ngFor="let item of entidade.acoes_plano_trabalho">
+        <div class="mat-row " *ngIf="entidade.acoes_plano_trabalho.length > 0">
+          <div class="mat-cell">{{getNomeComponente(item.key)}}</div>
+          <div class="mat-cell">
+            <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
+              <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>
+            </div>
+
+            <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
+              <p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let i of listaComponentes">  <!-- TABELA VISÌVEL PARA QUEM NÃO TEM COMPONENTES DO SISTEMA-->
+        <div class="mat-row" *ngIf="entidade.acoes_plano_trabalho.length==0">
+          <div class="mat-cell">{{i}}</div>
+          <div class="mat-cell"><p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p></div>
+        </div>
+      </div>
+
+    </div>
+  </ng-template>
+
+  <div id="filtros" fxLayout="row" fxLayoutAlign="end center">
+    <div *ngIf="count_estados != 0">
+      <h3 class="total">Estados: {{count_estados}}</h3>
+    </div>
+    <div *ngIf="(count - count_estados) != 0">
+      <h3 class="total">Municípios: {{count - count_estados}}</h3>
+    </div>
+  </div>
+</mat-card>

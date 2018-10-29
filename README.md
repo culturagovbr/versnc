@@ -12,6 +12,8 @@ O código fonte da plataforma original e da API podem ser encontrados em [https:
 
 ## Servidor de Desenvolvimento
 
+Execute um `npm install` para instalar todas as dependências.
+
 Execute `ng serve` para usar o servidor de desenvolvimento. Navegue para `http://localhost:4200/`. A aplicação será recarregada automaticamente cada vez que algum arquivo for alterado.
 
 ## Code scaffolding
@@ -22,9 +24,13 @@ Execute `ng generate component component-name` para gerar um novo componente. Vo
 
 Execute `ng build` para construir o projeto. Artefatos gerados durante a construção estarão armazenados no diretório `dist/`. Use o parametro `-prod` para uma construção pronta para produção.
 
+Em caso de ambiente que não detenha as configurações necessárias, pode se usar o conteiner docker para efetuar  build do projeto através do comando `docker-compose up`.
+
 ## Executar testes unitários
 
-Execute `ng test` para executar os testes unitários através de [Karma](https://karma-runner.github.io).
+Execute `yarn test` para executar os testes unitários através de [Jest](http://facebook.github.io/jest).
+Você pode ainda usar `yarn test:partial` para executar apenas os ultimos testes adicionados desde o ultimo commit.
+E também `yarn test:coverage` para gerar os relatório de cobertura dos testes unitários.
 
 ## Executar os testes E2E
 

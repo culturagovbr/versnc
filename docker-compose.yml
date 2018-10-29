@@ -1,0 +1,9 @@
+version: '2'
+services:
+  versnc:
+    volumes:
+     - ./:/source
+    container_name: versnc
+    build: .
+    ports:
+      - "4200:4200"

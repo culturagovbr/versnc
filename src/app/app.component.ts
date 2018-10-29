@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-root',

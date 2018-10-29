@@ -1,0 +1,63 @@
+{
+  "_embedded": {
+    "items": [
+      {
+        "id": 4460,
+        "conselho": null,
+        "_links": {
+          "self": {
+            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4460/"
+          }
+        },
+        "_embedded": {
+          "acoes_plano_trabalho": null
+        },
+        "situacao_adesao": {
+          "situacao_adesao": "Aguardando envio da documentação"
+        },
+        "governo": {
+          "nome_prefeito": "Valdemar Larceda  Silva Filho",
+          "email_institucional_prefeito": "administracao@malhada.ba.gov.br",
+          "termo_posse_prefeito": "/media/termo_posse/termo_OS7pAZV.docx"
+        },
+        "ente_federado": {
+          "cnpj_prefeitura": "14.105.217/0001-70",
+          "localizacao": {
+            "estado": {
+              "codigo_ibge": 29,
+              "sigla": "BA"
+            },
+            "cidade": {
+              "codigo_ibge": 292020,
+              "nome_municipio": "Malhada"
+            },
+            "cep": "46.440-000",
+            "bairro": "centro",
+            "endereco": "Praça Santa Cruz",
+            "complemento": "casa"
+          },
+          "telefones": {
+            "telefone_um": "7736912145",
+            "telefone_dois": "",
+            "telefone_tres": ""
+          },
+          "endereco_eletronico": "http://www.malhada.ba.gov.br"
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=1000"
+    },
+    "page": {
+      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit={?page}",
+      "templated": true
+    },
+    "next": {
+      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=100&offset=100"
+    }
+  },
+  "count": 2967,
+  "page_size": 100
+}

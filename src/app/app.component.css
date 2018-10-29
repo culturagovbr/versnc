@@ -1,0 +1,95 @@
+.background {
+  background: radial-gradient(48.16px at 50% 49.17%, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(270deg, rgba(90, 201, 127, 0.6) 0%, rgba(204, 255, 0, 0.6) 49.49%, rgba(0, 159, 227, 0.6) 100%), #082C48;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.imageTop {
+  position: absolute;
+  margin-top: 0px;
+  width: 48%;
+  height: 100%;
+  top: 47%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  #menu {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  #menu {
+    float: right;
+  }
+
+  #menu mat-icon {
+    color: ghostwhite;
+    font-size: 42px;
+    width: 100%;
+    height: 100%;
+  }
+  #dashMenu {
+    display: none;
+  }
+
+  .menuContent a{
+    text-decoration-line: none;
+  }
+}
+
+@media (max-width: 701px) {
+  .imageTop {
+    display: none;
+  }
+}
+
+.top {
+  height: 80px;
+}
+
+.menuRow {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.homeLink {
+  text-align: left !important;
+}
+
+.homeLink img {
+  max-width: 100%;
+}
+
+.menuTop span {
+  z-index: 2;
+}
+
+.menuTop a {
+  text-decoration-color: snow;
+  color: snow;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  text-align: right;
+  text-decoration: none;
+  padding: 0 .6rem 0 .3rem;
+  z-index: 2;
+}
+
+#dashMenu {
+  color: snow;
+}
+
+.menuTop mat-toolbar {
+  width: 50%;
+  align-items: right;
+}
+
+.space {
+  flex: 1 1 auto;
+}

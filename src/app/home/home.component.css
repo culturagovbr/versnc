@@ -1,0 +1,149 @@
+.card {
+  width: 200px;
+  height: 150px;
+  background-color: transparent;
+  box-shadow: transparent;
+}
+
+.contador {
+  background: #F2F2F2;
+  height: 200px;
+  min-height: 40px;
+  margin: 0 0 0 0px;
+}
+
+.contador mat-card{
+  background-color: transparent;
+  box-shadow: transparent;
+  width: 30%;
+}
+
+.contador p{
+  color: #2B9087;
+  margin: 0 0 0 0;
+}
+.contador h1{
+  color: #2B9087;
+}
+
+.contador h2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-align: center;
+  color: #828282;
+  margin: 30px 0px 0px 0px;
+}
+
+#numeroAdesoes {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+}
+
+@media (min-width: 288px) {
+  .alinhamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0px;
+  }
+
+  .locations {
+    width: 30%;
+  }
+
+}
+
+@media (min-width: 360px) {
+  .locations{
+    margin-right: 6%;
+    margin-left: 6%;
+  }
+}
+
+@media (min-width: 659px) {
+  .alinhamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0px;
+  }
+
+  #cardsHome {
+    height: 360px;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 660px) {
+  .alinhamento {
+    align-items: center;
+    justify-content: space-around;
+  }
+  #cardsHome {
+    height: 110%;
+  }
+}
+
+.background {
+  background: radial-gradient(723.00px at 50% 50%, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(270deg, rgba(141, 225, 71, 0.7) 0%, rgba(42, 179, 180, 0.7) 47.03%, rgba(0, 77, 110, 0.7) 100%), #082C48;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+#cardsHome h2 {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 10px;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 36px;
+  font-style: normal;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+#amareloClaro {
+  color: whitesmoke;
+}
+
+#amareloClaro span {
+  color: #FFEAA8;
+}
+
+#azulClaro {
+  color: whitesmoke;
+}
+
+#azulClaro span {
+  color: #56CCF2;
+}
+
+#verdeClaro {
+  color: whitesmoke;
+}
+
+#verdeClaro span {
+  color: #00FF6A;
+}
+
+.locations {
+  margin-right: -15px;
+}
+
+mat-card h1 {
+  text-align: left;
+  color: #2B9087;
+  font-weight: 300;
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+
+mat-card p {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}

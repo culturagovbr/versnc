@@ -3,12 +3,14 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import {MaterialModule} from './material/material.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        MaterialModule,
       ],
       declarations: [
         AppComponent,
@@ -27,10 +29,11 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('VerSNC');
   }));
-  it('should render title in a h1 tag', async(() => {
+  it('Testa imagens rederizadas da aplicação', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('VerSNC');
+    expect(compiled.querySelector('img.imageTop').src).toContain('/assets/Group 20.2.png');
+    expect(compiled.querySelector('img').src).toContain('/assets/Group 1.png');
   }));
 });

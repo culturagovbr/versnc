@@ -15,11 +15,12 @@ import { PlanoTrabalho } from './models/planotrabalho.model';
 import { element } from 'protractor';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import { environment } from './../environments/environment';
+
 @Injectable()
 export class SlcApiService {
 
-  private sncUrlHmgLocal = 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/';
-  private sncUrlLocal = 'http://localhost:8000/api/v1/sistemadeculturalocal';
+  private API_URL = environment.API_URL;
   private listaRetorno = {};
   private buscar = new BehaviorSubject<any>([]);
   buscaAtual = this.buscar.asObservable();
@@ -75,8 +76,8 @@ export class SlcApiService {
     return componentes;
   }
 
-  searchFilter(queries): Observable<any> { 
-    return this.http.get(this.sncUrlHmgLocal, { params: queries })
+  searchFilter(queries): Observable<any> {
+    return this.http.get(this.API_URL, { params: queries })
       .map(res => {
         let entesFederados: Entidade[] = [];
         let count: number = res['count'];
@@ -104,7 +105,7 @@ export class SlcApiService {
   carregarPagina(index: number, queries) {
     this.searchFilter(queries).subscribe(
       resposta => {
-        this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index, 
+        this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index,
                         resposta['count_estados'], resposta['estados_aderidos'], resposta['municipios_aderidos']]);
         this.router.navigate(['/tabela-uf-municipio']);
       });

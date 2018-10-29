@@ -2,13 +2,10 @@ FROM mhart/alpine-node:8
 
 WORKDIR /source
 
-RUN npm install yarn
+COPY . /source/
 
-COPY start.sh /source/.
+RUN npm install yarn && yarn install
 
-COPY package.json /source/.
+VOLUME /source/dist
 
-RUN chmod +x start.sh
-
-CMD /source/start.sh
-
+CMD ["yarn", "run", "ng", "build", "--prod", "--source-map", "--env=prod", "&&", "chmod", "-R", "777", "/source/dist/*"]

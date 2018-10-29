@@ -5,5 +5,3 @@ services:
      - ./:/source
     container_name: versnc
     build: .
-    ports:
-      - "4200:4200"

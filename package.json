@@ -10,8 +10,7 @@
     "test:partial": "jest -o src/",
     "test:coverage": "jest --coverage src/",
     "lint": "ng lint",
-    "e2e": "cypress run",
-    "pre-push-action": "sh git_hooks/pre-push.sh"
+    "e2e": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +46,6 @@
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "cypress": "^2.1.0",
-    "husky": "^1.0.0-rc.8",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^22.1.4",
@@ -68,10 +66,5 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run pre-push-action"
-    }
   }
 }

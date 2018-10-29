@@ -264,11 +264,11 @@ describe('' +
       cy.get('mat-row').eq(0).click();
 
       cy.get('div.mat-table').should('be.visible');
-      cy.get('div.mat-row').contains('Lei Sistema Cultura');
-      cy.get('div.mat-row').contains('Orgao Gestor');
-      cy.get('div.mat-row').contains('Conselho Cultural');
-      cy.get('div.mat-row').contains('Fundo Cultura');
-      cy.get('div.mat-row').contains('Plano Cultura');
+      cy.get('div.mat-row').contains('Sistema de Cultura');
+      cy.get('div.mat-row').contains('Órgão Gestor');
+      cy.get('div.mat-row').contains('Conselho de Política Cultural');
+      cy.get('div.mat-row').contains('Fundo de Cultura');
+      cy.get('div.mat-row').contains('Plano de Cultura');
       cy.get('div.mat-row div.mat-cell').contains('check_circle');
       cy.get('div.mat-row div.mat-cell p').should('not.be.empty');
 
@@ -283,11 +283,11 @@ describe('' +
       cy.get('mat-row').eq(1).click();
 
       cy.get('div.mat-table').should('be.visible');
-      cy.get('div.mat-row').contains('Lei Sistema Cultura');
-      cy.get('div.mat-row').contains('Orgao Gestor');
-      cy.get('div.mat-row').contains('Conselho Cultural');
-      cy.get('div.mat-row').contains('Fundo Cultura');
-      cy.get('div.mat-row').contains('Plano Cultura');
+      cy.get('div.mat-row').contains('Sistema de Cultura');
+      cy.get('div.mat-row').contains('Órgão Gestor');
+      cy.get('div.mat-row').contains('Conselho de Política Cultural');
+      cy.get('div.mat-row').contains('Fundo de Cultura');
+      cy.get('div.mat-row').contains('Plano de Cultura');
       cy.get('div.mat-row div.mat-cell').contains('cancel');
       cy.get('div.mat-row div.mat-cell p').should('not.be.empty')
 
@@ -311,11 +311,11 @@ describe('' +
 
       cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
         cy.wrap($el).click();
-        cy.get('div.mat-row').contains('Lei Sistema Cultura');
-        cy.get('div.mat-row').contains('Orgao Gestor');
-        cy.get('div.mat-row').contains('Conselho Cultural');
-        cy.get('div.mat-row').contains('Fundo Cultura');
-        cy.get('div.mat-row').contains('Plano Cultura');
+        cy.get('div.mat-row').contains('Sistema de Cultura');
+        cy.get('div.mat-row').contains('Órgão Gestor');
+        cy.get('div.mat-row').contains('Conselho de Política Cultural');
+        cy.get('div.mat-row').contains('Fundo de Cultura');
+        cy.get('div.mat-row').contains('Plano de Cultura');
         cy.get('div.mat-row div.mat-cell').contains('check_circle');
 
       });

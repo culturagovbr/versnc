@@ -7,5 +7,3 @@ COPY . /source/
 RUN npm install -g npm@latest yarn && yarn install --prod
 
 VOLUME /source
-
-CMD ["yarn", "run", "ng", "build", "--env=prod"]

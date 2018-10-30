@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build:prod": "ng build --env=prod",
+    "build:dev": "ng build",
     "test": "jest src/",
     "test:partial": "jest -o src/",
     "test:coverage": "jest --coverage src/",

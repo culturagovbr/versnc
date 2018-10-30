@@ -4,7 +4,7 @@ WORKDIR /source
 
 COPY . /source/
 
-RUN npm install -g npm@latest && npm install yarn && yarn install
+RUN npm install -g npm@latest yarn && yarn install --prod
 
 VOLUME /source
 

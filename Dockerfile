@@ -1,9 +1,9 @@
-FROM mhart/alpine-node:8
+FROM node:8-alpine
 
 WORKDIR /source
 
 COPY . /source/
 
-RUN npm install -g npm@latest yarn && yarn install --prod
+RUN yarn install --prod
 
 VOLUME /source

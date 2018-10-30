@@ -4,6 +4,6 @@ WORKDIR /source
 
 COPY . /source/
 
-RUN yarn install --prod
+RUN yarn
 
-VOLUME /source
+VOLUME /source/out

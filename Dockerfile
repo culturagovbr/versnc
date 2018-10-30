@@ -6,6 +6,6 @@ COPY . /source/
 
 RUN npm install -g npm@latest && npm install yarn && yarn install
 
-VOLUME /source/dist
+VOLUME /source
 
-CMD ["yarn", "run", "ng", "build", "--prod", "--env=prod"]
+CMD ["yarn", "run", "ng", "build", "--env=prod"]

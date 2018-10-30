@@ -64,7 +64,7 @@
               <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>
             </div>
 
-            <div *ngIf="item.value.situacao && (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
+            <div *ngIf="!item.value.situacao || (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
               <p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p>
             </div>
 

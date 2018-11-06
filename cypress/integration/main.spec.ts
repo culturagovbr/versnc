@@ -309,6 +309,8 @@ describe('' +
 
       cy.get('input').eq(1).type('{enter}');
 
+      cy.get('.alinhamento').eq(1).click();
+
       cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
         cy.wrap($el).click();
         cy.get('div.mat-row').contains('Sistema de Cultura');
@@ -319,6 +321,4 @@ describe('' +
         cy.get('div.mat-row div.mat-cell').contains('check_circle');
 
       });
-    });
-
   });

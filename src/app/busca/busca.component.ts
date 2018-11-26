@@ -74,6 +74,9 @@ export class BuscaComponent implements OnInit {
       this.queries['estadual'] = !this.visualizarEstados ? 'false' : '';
       this.queries['municipal'] = !this.visualizarMunicipios ? 'false' : '';
     }
+
+    const PUBLICADOS_NO_DOU = '6'
+    this.queries['situacao_adesao'] = PUBLICADOS_NO_DOU
     
     this.params = new HttpParams({ fromObject: this.queries });
   }

@@ -2,9 +2,9 @@
   <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
 
   <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
-    <ng-container matColumnDef="nome_municipio">
+    <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">{{this.tituloEnteFederado}}</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.municipioUF}} </mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade">{{entidade.nome }} - {{entidade.sigla_estado}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="data_adesao">
@@ -18,9 +18,6 @@
         <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
           <i class="material-icons">insert_drive_file</i>
         </a>
-        <!-- <a href="http://localhost:8000/gestao/detalhar/{{entidade.id}}" class="detalhe-municipio">
-          <i class="material-icons">insert_drive_file</i>
-        </a> -->
       </mat-cell>
     </ng-container>
 

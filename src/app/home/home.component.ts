@@ -16,11 +16,11 @@ export class HomeComponent implements OnInit {
   constructor(private slcApiService: SlcApiService) { }
 
   ngOnInit() {	
-  	this.slcApiService.searchFilter(this.querie_municipios).subscribe(listaRetorno => 
-  		this.municipios_aderidos = listaRetorno['municipios_aderidos']); 
-
-  	this.slcApiService.searchFilter(this.querie_estados).subscribe(listaRetorno => 
-  		this.estados_aderidos = listaRetorno['estados_aderidos']); 
+  	this.slcApiService.searchFilter(this.querie_municipios).subscribe(listaRetorno => {
+      this.municipios_aderidos = listaRetorno['municipios_aderidos'];
+      this.estados_aderidos = listaRetorno['estados_aderidos'];
+      return this
+    });
   }
 
 }

@@ -4,7 +4,8 @@
   <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
     <ng-container matColumnDef="nome">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">{{this.tituloEnteFederado}}</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade">{{entidade.nome }} - {{entidade.sigla_estado}}</mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade">{{entidade.nome}}<span *ngIf="entidade.is_municipio"> - {{entidade.sigla_estado}} </span></mat-cell>
+      
     </ng-container>
 
     <ng-container matColumnDef="data_adesao">
@@ -25,57 +26,56 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"
       (click)="setAnimationAsDisabled(false)">
     </mat-row>
-
   </mat-table>
-
-
 
   <ng-template #tpl let-entidade>
     <div class="mat-table">
       <div class="mat-header-row header_componentes">
         <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
-        <div class="mat-header-cell componentes">Situação</div>
+        <div class="mat-header-cell componentes">Situação
+        </div>
       </div>
-
       <div *ngFor="let item of entidade.acoes_plano_trabalho">
-        <div class="mat-row " *ngIf="entidade.acoes_plano_trabalho.length > 0">
-          <div class="mat-cell">
-            <div *ngIf="item.key == 'criacao_lei_sistema_cultura'">
-              Sistema de Cultura
+          <div class="mat-row">
+            <div class="mat-cell">
+              <div *ngIf="item.key == 'criacao_lei_sistema'">
+                Sistema de Cultura
+              </div>
+              <div *ngIf="item.key == 'criacao_orgao_gestor'">
+                Órgão Gestor
+              </div>
+              <div *ngIf="item.key == 'criacao_conselho_cultural'">
+                Conselho de Política Cultural
+              </div>
+              <div *ngIf="item.key == 'criacao_fundo_cultura'">
+                Fundo de Cultura
+              </div>
+              <div *ngIf="item.key == 'criacao_plano_cultura'">
+                Plano de Cultura
+              </div>
             </div>
-            <div *ngIf="item.key == 'criacao_orgao_gestor'">
-              Órgão Gestor
-            </div>
-            <div *ngIf="item.key == 'criacao_conselho_cultural'">
-              Conselho de Política Cultural
-            </div>
-            <div *ngIf="item.key == 'criacao_fundo_cultura'">
-              Fundo de Cultura
-            </div>
-            <div *ngIf="item.key == 'criacao_plano_cultura'">
-              Plano de Cultura
+            <div class="mat-cell">
+              <div *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3')">
+                <p><i class="material-icons icon-componente-status-ok">check_circle</i> 
+                  {{item.value.situacao}}
+                </p>
+              </div>
+              <div *ngIf="item.value != null && (item.value.cod_situacao == '0' || item.value.cod_situacao == '1')">
+                  <p><i class="material-icons icon-componente-status-progress">timelapse</i> 
+                    {{item.value.situacao}}
+                  </p>
+              </div>
+              <div *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6')">
+                  <p><i class="material-icons icon-componente-status-not-ok">cancel</i>
+                    {{item.value.situacao}}</p>
+                </div>
+              <div *ngIf="item.value == null">
+                <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
+                   Sem plano de trabalho</p>
+              </div>
             </div>
           </div>
-          <div class="mat-cell">
-            <div *ngIf="item.value.situacao && (item.value.situacao=='Concluída' || item.value.situacao=='Arquivo aprovado com ressalvas')">
-              <p><i class="material-icons icon-componente-status-ok">check_circle</i> Documento Validado</p>
-            </div>
-
-            <div *ngIf="!item.value.situacao || (item.value.situacao!=='Concluída' && item.value.situacao!='Arquivo aprovado com ressalvas')">
-              <p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p>
-            </div>
-
-          </div>
         </div>
-      </div>
-
-      <div *ngFor="let i of listaComponentes">  <!-- TABELA VISÌVEL PARA QUEM NÃO TEM COMPONENTES DO SISTEMA-->
-        <div class="mat-row" *ngIf="entidade.acoes_plano_trabalho.length==0">
-          <div class="mat-cell">{{i}}</div>
-          <div class="mat-cell"><p><i class="material-icons icon-componente-status-not-ok">cancel</i> Documento não validado</p></div>
-        </div>
-      </div>
-
     </div>
   </ng-template>
 

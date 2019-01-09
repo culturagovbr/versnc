@@ -62,20 +62,6 @@ export class SlcApiService {
     this.messageService.add('slc-api.service: ' + message);
   }
 
-  getComponentes(acoes_plano_trabalho: {}) {
-    let componentes = [];
-
-    for (var key in acoes_plano_trabalho) {
-      if (acoes_plano_trabalho[key] && acoes_plano_trabalho[key].hasOwnProperty('situacao'))
-        componentes.push({ key: key, value: acoes_plano_trabalho[key] });
-      else if (key != "_links" && key != "_embedded" && key != "id") {
-        componentes.push({ key: key, value: '' })
-      }
-    }
-
-    return componentes;
-  }
-
   searchFilter(queries): Observable<any> {
     return this.http.get(this.API_URL, { params: queries })
       .map(res => {
@@ -89,12 +75,12 @@ export class SlcApiService {
           const entidade: Entidade = {
             id: '',
             situacao_adesao: '',
-            acoes_plano_trabalho: {},
+            acoes_plano_trabalho: [],
             cod_situacao_adesao: '',
             nome: '',
             sigla_estado: '',
-            nome_estado: '',
-            data_adesao: ''
+            data_adesao: '',
+            is_municipio: '',
           };
 
           this.definirPropriedadesEntidade(entidade, element);
@@ -115,20 +101,27 @@ export class SlcApiService {
       });
   }
 
+  getComponentes(acoes_plano_trabalho: {}) {
+    let componentes = [];
+    for (var key in acoes_plano_trabalho) {
+      componentes.push({ key: key, value: acoes_plano_trabalho[key] });
+    }
+    return componentes;
+  }
+
   definirPropriedadesEntidade(entidade, element) { //define as propriedades padrão do Ente Federado
     entidade.id = element.id;
     entidade.nome = element._embedded.ente_federado.nome;
     entidade.sigla_estado = element._embedded.ente_federado.sigla;
     entidade.data_adesao = element.data_adesao;
+    entidade.is_municipio = element._embedded.ente_federado.is_municipio
 
     entidade.situacao_adesao = element.situacao_adesao ? element.situacao_adesao : '';
     entidade.cod_situacao_adesao = element.cod_situacao_adesao ? element.cod_situacao_adesao : '';
 
-    entidade.acoes_plano_trabalho = {};
     if (element.acoes_plano_trabalho) {
-      let acoes_plano_trabalho = element.acoes_plano_trabalho;
-
-      entidade.acoes_plano_trabalho = acoes_plano_trabalho._embedded;
+      let componentes = element.acoes_plano_trabalho._embedded;
+      entidade.acoes_plano_trabalho = this.getComponentes(componentes);
     }
   }
 }

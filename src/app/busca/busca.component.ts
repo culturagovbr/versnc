@@ -33,8 +33,8 @@ export class BuscaComponent implements OnInit {
   private data_adesao_max: string = "";
   private filtrarEstados = true;
   private filtrarMunicipios = true;
-  private componentesIds = ['situacao_lei_id', 'situacao_plano_id', 'situacao_orgao_id', 'situacao_fundo_id',
-    'situacao_conselho_id'];
+  private componentesIds = ['situacao_lei_sistema', 'situacao_plano_cultura', 'situacao_orgao_gestor', 'situacao_fundo_cultura',
+    'situacao_conselho_cultural'];
   params: HttpParams;
 
   constructor(private slcApiService: SlcApiService, private table: SncTableComponent) {

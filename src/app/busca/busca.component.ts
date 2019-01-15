@@ -139,7 +139,8 @@ export class BuscaComponent implements OnInit {
   }
 
   definirTituloEnteFederado(): Observable<string> { // Define o título da 1a coluna da tabela de acordo com o tipo da Busca
-    if (this.filtrarEstados == true && this.filtrarMunicipios == true) {
+    if ((this.filtrarEstados == true && this.filtrarMunicipios == true) ||
+        (this.filtrarEstados == false && this.filtrarMunicipios == false)) {
       return Observable.of('ENTE FEDERADO');
     }
     else if (this.filtrarEstados == true && this.filtrarMunicipios == false) {

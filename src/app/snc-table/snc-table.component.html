@@ -1,90 +1,92 @@
-<mat-card id="tabela">
-  <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
-
-  <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">{{this.tituloEnteFederado}}</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade">{{entidade.nome}}<span *ngIf="entidade.is_municipio"> - {{entidade.sigla_estado}} </span></mat-cell>
+<div class="mat-elevation-z4 alinhamento" flex-offset="15">
+    <mat-card class="linha_topo">
+        <mat-paginator fxLayoutAlign="end end" [length]="count" [pageSize]="10" (page)="onTrocaPagina($event)"></mat-paginator>
       
-    </ng-container>
-
-    <ng-container matColumnDef="data_adesao">
-      <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="plano_trabalho">
-      <mat-header-cell *matHeaderCellDef>DETALHAR</mat-header-cell>
-      <mat-cell *matCellDef="let entidade">
-        <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
-          <i class="material-icons">insert_drive_file</i>
-        </a>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"
-      (click)="setAnimationAsDisabled(false)">
-    </mat-row>
-  </mat-table>
-
-  <ng-template #tpl let-entidade>
-    <div class="mat-table">
-      <div class="mat-header-row header_componentes">
-        <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
-        <div class="mat-header-cell componentes">Situação
-        </div>
-      </div>
-      <div *ngFor="let item of entidade.acoes_plano_trabalho">
-          <div class="mat-row">
-            <div class="mat-cell">
-              <div *ngIf="item.key == 'criacao_lei_sistema'">
-                Sistema de Cultura
-              </div>
-              <div *ngIf="item.key == 'criacao_orgao_gestor'">
-                Órgão Gestor
-              </div>
-              <div *ngIf="item.key == 'criacao_conselho_cultural'">
-                Conselho de Política Cultural
-              </div>
-              <div *ngIf="item.key == 'criacao_fundo_cultura'">
-                Fundo de Cultura
-              </div>
-              <div *ngIf="item.key == 'criacao_plano_cultura'">
-                Plano de Cultura
+        <mat-table #snctable [dataSource]="sncDataSource" matSort (matSortChange)="setAnimationAsDisabled(true)">
+          <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">{{this.tituloEnteFederado}}</mat-header-cell>
+            <mat-cell class="linha_principal" *matCellDef="let entidade">{{entidade.nome}}<span *ngIf="entidade.is_municipio"> - {{entidade.sigla_estado}} </span></mat-cell>
+            
+          </ng-container>
+      
+          <ng-container matColumnDef="data_adesao">
+            <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
+            <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="plano_trabalho">
+            <mat-header-cell *matHeaderCellDef>DETALHAR</mat-header-cell>
+            <mat-cell *matCellDef="let entidade">
+              <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
+                <i class="material-icons">insert_drive_file</i>
+              </a>
+            </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"
+            (click)="setAnimationAsDisabled(false)">
+          </mat-row>
+        </mat-table>
+      
+        <ng-template #tpl let-entidade>
+          <div class="mat-table">
+            <div class="mat-header-row header_componentes">
+              <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
+              <div class="mat-header-cell componentes">Situação
               </div>
             </div>
-            <div class="mat-cell">
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3')">
-                <p><i class="material-icons icon-componente-status-ok">check_circle</i> 
-                  {{item.value.situacao}}
-                </p>
-              </div>
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '0' || item.value.cod_situacao == '1')">
-                  <p><i class="material-icons icon-componente-status-progress">timelapse</i> 
-                    {{item.value.situacao}}
-                  </p>
-              </div>
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6')">
-                  <p><i class="material-icons icon-componente-status-not-ok">cancel</i>
-                    {{item.value.situacao}}</p>
+            <div *ngFor="let item of entidade.acoes_plano_trabalho">
+                <div class="mat-row">
+                  <div class="mat-cell">
+                    <div *ngIf="item.key == 'criacao_lei_sistema'">
+                      Sistema de Cultura
+                    </div>
+                    <div *ngIf="item.key == 'criacao_orgao_gestor'">
+                      Órgão Gestor
+                    </div>
+                    <div *ngIf="item.key == 'criacao_conselho_cultural'">
+                      Conselho de Política Cultural
+                    </div>
+                    <div *ngIf="item.key == 'criacao_fundo_cultura'">
+                      Fundo de Cultura
+                    </div>
+                    <div *ngIf="item.key == 'criacao_plano_cultura'">
+                      Plano de Cultura
+                    </div>
+                  </div>
+                  <div class="mat-cell">
+                    <div *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3')">
+                      <p><i class="material-icons icon-componente-status-ok">check_circle</i> 
+                        {{item.value.situacao}}
+                      </p>
+                    </div>
+                    <div *ngIf="item.value != null && (item.value.cod_situacao == '0' || item.value.cod_situacao == '1')">
+                        <p><i class="material-icons icon-componente-status-progress">timelapse</i> 
+                          {{item.value.situacao}}
+                        </p>
+                    </div>
+                    <div *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6')">
+                        <p><i class="material-icons icon-componente-status-not-ok">cancel</i>
+                          {{item.value.situacao}}</p>
+                      </div>
+                    <div *ngIf="item.value == null">
+                      <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
+                          Sem plano de trabalho</p>
+                    </div>
+                  </div>
                 </div>
-              <div *ngIf="item.value == null">
-                <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
-                   Sem plano de trabalho</p>
               </div>
-            </div>
+          </div>
+        </ng-template>
+      
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <div *ngIf="count_estados != 0">
+            <h3 class="total">Estados: {{count_estados}}</h3>
+          </div>
+          <div *ngIf="(count - count_estados) != 0">
+            <h3 class="total">Municípios: {{count - count_estados}}</h3>
           </div>
         </div>
-    </div>
-  </ng-template>
-
-  <div id="filtros" fxLayout="row" fxLayoutAlign="end center">
-    <div *ngIf="count_estados != 0">
-      <h3 class="total">Estados: {{count_estados}}</h3>
-    </div>
-    <div *ngIf="(count - count_estados) != 0">
-      <h3 class="total">Municípios: {{count - count_estados}}</h3>
-    </div>
-  </div>
-</mat-card>
+    </mat-card>
+</div>

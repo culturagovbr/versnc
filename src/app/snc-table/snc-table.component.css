@@ -8,9 +8,9 @@
     padding-top: 0px;
     background-color: #F2F2F2;
 }
-.mat-table, .mat-paginator{
+/* .mat-table, .mat-paginator{
     background-color: #F2F2F2;    
-}
+} */
 
 .mat-header-cell{
     font-size: 16px;
@@ -37,11 +37,18 @@
 }
 
 #filtros {
-    position: sticky;
     bottom: 0;
     z-index: 1;
     background-color: #f2f2f2;
     font-size: 14px;
+}
+
+.alinhamento{
+    width: 90%;
+    /* max-width: 60%; */
+    text-align:center;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }
 
 .total {
@@ -100,6 +107,11 @@
 
 .linha_principal {
     color: #1b1b1b;
+    text-align: left;
+}
+
+.linha_topo {
+    border-top: 3px solid #C4E053;
 }
 
 .detail-row {

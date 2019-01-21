@@ -8,6 +8,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { SncTableComponent } from '../snc-table/snc-table.component';
 
+
+
+
 import { SlcApiService } from '../slc-api.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -29,12 +32,12 @@ export class BuscaComponent implements OnInit {
   private termoSimples: string = '';
   private termoUF: string = '';
   private page: number = 0;
-  private data_adesao_min: string = "";
-  private data_adesao_max: string = "";
+  private data_adesao_min: string = '';
+  private data_adesao_max: string = '';
   private filtrarEstados = true;
   private filtrarMunicipios = true;
-  private componentesIds = ['situacao_lei_id', 'situacao_plano_id', 'situacao_orgao_id', 'situacao_fundo_id',
-    'situacao_conselho_id'];
+  private componentesIds = ['situacao_lei_sistema', 'situacao_plano_cultura', 'situacao_orgao_gestor', 'situacao_fundo_cultura',
+    'situacao_conselho_cultural'];
   params: HttpParams;
 
   constructor(private slcApiService: SlcApiService, private table: SncTableComponent) {
@@ -72,11 +75,12 @@ export class BuscaComponent implements OnInit {
   definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA
     if (!this.seletorTipoBusca) { // BUSCA SIMPLES - Usa somente a query 'ente_federado'
       this.limparQueriesDaBusca();
-      this.queries['ente_federado'] = this.termoSimples.length < 3 ? this.termoSimples.toUpperCase() : this.termoSimples;
+      this.queries['ente_federado'] = this.termoSimples;
 
     } else { // BUSCA AVANÇADA
-      this.pesquisarEstado(this.termoUF);
-      this.queries['ente_federado'] = '';
+
+      this.queries['ente_federado'] = this.termoSimples;
+
       this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
       this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
       this.queries['estadual'] = this.filtrarEstados ? 'true' : '';
@@ -115,11 +119,6 @@ export class BuscaComponent implements OnInit {
     for (var comp in this.componentes) {
       this.componentes[comp] = false;
     }
-  }
-
-  pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado
-    this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
-    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   getDatePicker(datepicker: String) { // recebe um objeto Datepicker e retorna somente a data

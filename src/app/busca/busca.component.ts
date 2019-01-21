@@ -7,9 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { SncTableComponent } from '../snc-table/snc-table.component';
-
-
-
+import { fadeInOnEnterAnimation } from 'angular-animations';
 
 import { SlcApiService } from '../slc-api.service';
 import { Observable } from 'rxjs/Observable';
@@ -21,7 +19,10 @@ import { Observable } from 'rxjs/Observable';
   providers: [SncTableComponent,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }]
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
+  animations: [
+    fadeInOnEnterAnimation()
+  ]
 })
 
 export class BuscaComponent implements OnInit {

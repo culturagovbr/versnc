@@ -2,6 +2,8 @@
     max-height: 315px;
     min-height: 250px;
     min-width: 500px;
+    margin-bottom: 5%;
+
 }
 .alinhamento{
     width: 60%;
@@ -26,13 +28,22 @@
 }
 
 .busca h4 {
+    color: #828282;
+    font-family: Lato;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 36px;
-    color: #2B9087;
     text-align: center;
-    margin-bottom: 2px;
+}
+
+#subtitulo {
+    font-size: 24px;
+    text-transform: inherit;
+}
+
+#titulo {
+    font-size: 36px;
+    text-transform: uppercase;
 }
  
 #trocaBusca {
@@ -93,7 +104,6 @@ section {
 @media (min-width: 1268px) {
     .alinhamento {
         width: 62%;
-        max-width: 62%;
     }
 }
 

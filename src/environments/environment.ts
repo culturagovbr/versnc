@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/'
+  API_URL: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/'
 };

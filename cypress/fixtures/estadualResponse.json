@@ -1,885 +1,937 @@
 {
-    "_links": {
-        "self": {
-            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?format=json&limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=false"
-        },
-        "next": {
-            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&estado_sigla=&estadual=&format=json&limit=10&municipal=false&nome_municipio=&nome_uf=&offset=10"
-        },
-        "page": {
-            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&estado_sigla=&estadual=&format=json&limit={?page}&municipal=false&nome_municipio=&nome_uf=&offset=",
-            "templated": true
-        }
-    },
-    "_embedded": {
-        "items": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4409/?format=json"
-                    }
-                },
-                "id": 4409,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/6179/?format=json"
-                            }
-                        },
-                        "id": 6179,
-                        "criacao_lei_sistema_cultura": {
-                            "lei_sistema_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_orgao_gestor": {
-                            "relatorio_atividade_secretaria": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_conselho_cultural": {
-                            "ata_regimento_aprovado": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_fundo_cultura": {
-                            "cnpj_fundo_cultura": null,
-                            "lei_fundo_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_plano_cultura": {
-                            "relatorio_diretrizes_aprovadas": null,
-                            "minuta_preparada": null,
-                            "ata_reuniao_aprovacao_plano": null,
-                            "ata_votacao_projeto_lei": null,
-                            "lei_plano_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4409/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "44.477.909/0001-00",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 35,
-                            "sigla": "SP",
-                            "nome_uf": "São Paulo"
-                        },
-                        "cidade": null,
-                        "cep": "17.501-080",
-                        "bairro": "Centro",
-                        "endereco": "Rua Bahia, 40",
-                        "complemento": "2º Andar"
-                    },
-                    "telefones": {
-                        "telefone_um": "1434026000",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "Daniel Alonso",
-                    "email_institucional_prefeito": "alonsodaniel.marilia@gmail.com",
-                    "termo_posse_prefeito": "/media/termo_posse/Termo_de_Posse_BKL8x6N.pdf"
-                },
-                "conselho": {
-                    "conselheiros": []
-                },
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2013-11-07"
+   "_links":{
+      "self":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?format=json&limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=true&municipal=&ente_federado=&situacao_adesao=6"
+      },
+      "next":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=&estado_sigla=&estadual=true&format=json&limit=10&municipal=&nome_uf=&offset=10&situacao_adesao=6"
+      },
+      "page":{
+         "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=&estado_sigla=&estadual=true&format=json&limit={?page}&municipal=&nome_uf=&offset=&situacao_adesao=6",
+         "templated":true
+      }
+   },
+   "_embedded":{
+      "items":[
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/1538/?format=json"
+               }
             },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4045/?format=json"
-                    }
-                },
-                "id": 4045,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5749/?format=json"
-                            }
-                        },
-                        "id": 5749,
-                        "criacao_lei_sistema_cultura": {
-                            "lei_sistema_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_orgao_gestor": {
-                            "relatorio_atividade_secretaria": "/media/relatorio_atividades/lei-22257_estabelece_a_estrutura_org%C3%A2nica_do_Estado_de_Minas_Gerais.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_conselho_cultural": {
-                            "ata_regimento_aprovado": "/media/regimentos/CONSEC_-_DECRETO_CRIA%C3%87%C3%83O.pdf",
-                            "situacao": "Avaliando anexo"
-                        },
-                        "criacao_fundo_cultura": {
-                            "cnpj_fundo_cultura": "",
-                            "lei_fundo_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_plano_cultura": {
-                            "relatorio_diretrizes_aprovadas": null,
-                            "minuta_preparada": null,
-                            "ata_reuniao_aprovacao_plano": null,
-                            "ata_votacao_projeto_lei": null,
-                            "lei_plano_cultura": "/media/lei_plano_cultura/caderno1_2017-08-1_1.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4045/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "19.138.890/0001-20",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 31,
-                            "sigla": "MG",
-                            "nome_uf": "Minas Gerais"
-                        },
-                        "cidade": null,
-                        "cep": "37.773-163",
-                        "bairro": "Cidade Administrativa do Estado de Minas Gerais",
-                        "endereco": "Cidade Administrativa do Estado de Minas Gerais",
-                        "complemento": "Cidade Administrativa do Estado de Minas Gerais"
-                    },
-                    "telefones": {
-                        "telefone_um": "3139159210",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "Fernando Damata Pimentel",
-                    "email_institucional_prefeito": "governador@governo.mg.gov.br",
-                    "termo_posse_prefeito": "/media/termo_posse/C%C3%B3pia_do_Livro_de_Posse_com_carimbo_da_ALMG.pdf"
-                },
-                "conselho": {
-                    "conselheiros": []
-                },
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2014-01-15"
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":12,
+                  "nome":"Acre",
+                  "territorio":"164123.737",
+                  "populacao":869265,
+                  "idh":"0.663",
+                  "is_municipio":false,
+                  "sigla":"AC"
+               },
+               "governo":{
+                  "email_institucional":"",
+                  "nome_prefeito":"SEBASTIÃO AFONSO VIANA MACEDO NEVES",
+                  "termo_posse_prefeito":""
+               },
+               "conselho":{
+                  "conselheiros":[
+
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"63.606.479/0001-24",
+                     "endereco":"PRAÇA EURICO DUTRA ",
+                     "cep":"69908-340",
+                     "bairro":"",
+                     "complemento":""
+                  },
+                  "telefones":{
+                     "telefone_um":"32152800",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":null
+               }
             },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4041/?format=json"
-                    }
-                },
-                "id": 4041,
-                "_embedded": {
-                    "acoes_plano_trabalho": null
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "87.934.675/0001-96",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 43,
-                            "sigla": "RS",
-                            "nome_uf": "Rio Grande do Sul"
-                        },
-                        "cidade": null,
-                        "cep": "90.010-282",
-                        "bairro": "Centro",
-                        "endereco": "Praça Marechal Deodoro, s/nº",
-                        "complemento": "Palacio Piratini"
-                    },
-                    "telefones": {
-                        "telefone_um": "51321004100",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "Jose Ivo Sartori",
-                    "email_institucional_prefeito": "gabinete-governador@gg.rs.gov.br",
-                    "termo_posse_prefeito": "/media/termo_posse/Ata_de_Posse_Governador.pdf"
-                },
-                "conselho": null,
-                "situacao_adesao": {
-                    "situacao_adesao": "Aguardando envio da documentação"
-                },
-                "data_adesao": null
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3991/?format=json"
-                    }
-                },
-                "id": 3991,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5676/?format=json"
-                            }
-                        },
-                        "id": 5676,
-                        "criacao_lei_sistema_cultura": {
-                            "lei_sistema_cultura": "/media/leis_sistema_cultura/lei_10362_-_sistema.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_orgao_gestor": {
-                            "relatorio_atividade_secretaria": "/media/relatorio_atividades/lei_comp_572_-_secretaria_de_cultura.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_conselho_cultural": {
-                            "ata_regimento_aprovado": "/media/regimentos/lei_10378_-_conselho.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_fundo_cultura": {
-                            "cnpj_fundo_cultura": "03.507.415/0026-00",
-                            "lei_fundo_cultura": "/media/lei_fundo_cultura/lei_10379_-_fundo.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_plano_cultura": {
-                            "relatorio_diretrizes_aprovadas": null,
-                            "minuta_preparada": null,
-                            "ata_reuniao_aprovacao_plano": null,
-                            "ata_votacao_projeto_lei": null,
-                            "lei_plano_cultura": "/media/lei_plano_cultura/lei_10363_-_plano.pdf",
-                            "situacao": "Arquivo incompleto"
-                        },
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3991/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "03.507.415/0001-44",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 51,
-                            "sigla": "MT",
-                            "nome_uf": "Mato Grosso"
-                        },
-                        "cidade": null,
-                        "cep": "78.050-970",
-                        "bairro": "CENTRO POLÍTICO ADMINISTRATIVO",
-                        "endereco": "PALÁCIO PAIAGUÁS",
-                        "complemento": "PRÉDIO CASA CIVIL"
-                    },
-                    "telefones": {
-                        "telefone_um": "6536134100",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": "http://www.cultura.mt.gov.br"
-                },
-                "governo": {
-                    "nome_prefeito": "JOSE PEDRO GONÇALVES TAQUES",
-                    "email_institucional_prefeito": "gabinete@casacivil.mt.gov.br",
-                    "termo_posse_prefeito": "/media/termo_posse/POSSE_GOV.pdf"
-                },
-                "conselho": {
-                    "conselheiros": []
-                },
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2013-03-07"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3942/?format=json"
-                    }
-                },
-                "id": 3942,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5561/?format=json"
-                            }
-                        },
-                        "id": 5561,
-                        "criacao_lei_sistema_cultura": {
-                            "lei_sistema_cultura": "/media/leis_sistema_cultura/O80052015.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_orgao_gestor": {
-                            "relatorio_atividade_secretaria": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_conselho_cultural": {
-                            "ata_regimento_aprovado": "/media/regimentos/01_LEI_DO_CONSELHO.pdf",
-                            "situacao": "Arquivo aprovado com ressalvas"
-                        },
-                        "criacao_fundo_cultura": {
-                            "cnpj_fundo_cultura": "05.653.843/0001-00",
-                            "lei_fundo_cultura": "/media/lei_fundo_cultura/Lei_4.490_-_2001.FUNCART.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_plano_cultura": null,
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3942/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "13.108.089/0001-56",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 28,
-                            "sigla": "SE",
-                            "nome_uf": "Sergipe"
-                        },
-                        "cidade": null,
-                        "cep": "49480-000",
-                        "bairro": "Centro",
-                        "endereco": "Praça Barão de Santa Rosa, 275",
-                        "complemento": ""
-                    },
-                    "telefones": {
-                        "telefone_um": "7936111211",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "Jackson Barreto de Lima",
-                    "email_institucional_prefeito": "prefeiturasimaodias@yahoo.com",
-                    "termo_posse_prefeito": null
-                },
-                "conselho": {
-                    "conselheiros": []
-                },
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2013-06-25"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3923/?format=json"
-                    }
-                },
-                "id": 3923,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/3211/?format=json"
-                            }
-                        },
-                        "id": 3211,
-                        "criacao_lei_sistema_cultura": null,
-                        "criacao_orgao_gestor": null,
-                        "criacao_conselho_cultural": null,
-                        "criacao_fundo_cultura": null,
-                        "criacao_plano_cultura": null,
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/3923/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "06.553.481/0001-49",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 22,
-                            "sigla": "PI",
-                            "nome_uf": "Piauí"
-                        },
-                        "cidade": null,
-                        "cep": "64.001-040",
-                        "bairro": "Centro",
-                        "endereco": "Av. Antonino Freire, 1450. ",
-                        "complemento": "Palacio de Karnak"
-                    },
-                    "telefones": {
-                        "telefone_um": "8632215001",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "José WellingtonBarroso de Araujo Dias",
-                    "email_institucional_prefeito": "karnak.pi@gmail.com",
-                    "termo_posse_prefeito": null
-                },
-                "conselho": null,
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2013-03-07"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1220/?format=json"
-                    }
-                },
-                "id": 1220,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/3295/?format=json"
-                            }
-                        },
-                        "id": 3295,
-                        "criacao_lei_sistema_cultura": null,
-                        "criacao_orgao_gestor": null,
-                        "criacao_conselho_cultural": null,
-                        "criacao_fundo_cultura": null,
-                        "criacao_plano_cultura": null,
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1220/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "08.241.739/0001-05",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 24,
-                            "sigla": "RN",
-                            "nome_uf": "Rio Grande do Norte"
-                        },
-                        "cidade": null,
-                        "cep": "59064-901",
-                        "bairro": "LAGOA NOVA",
-                        "endereco": " Centro Administrativo do Estado do RN, Prédio da Governadoria, BR 101, KM 0, Lagoa Nova, Natal, RN, CEP 59064-901",
-                        "complemento": "Prédio da Governadoria"
-                    },
-                    "telefones": {
-                        "telefone_um": "8432325227",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "ROBINSON MESQUITA DE FARIA",
-                    "email_institucional_prefeito": "chefiadegabinetegac@rn.gov.br",
-                    "termo_posse_prefeito": null
-                },
-                "conselho": null,
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2015-06-03"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1192/?format=json"
-                    }
-                },
-                "id": 1192,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/5373/?format=json"
-                            }
-                        },
-                        "id": 5373,
-                        "criacao_lei_sistema_cultura": null,
-                        "criacao_orgao_gestor": null,
-                        "criacao_conselho_cultural": null,
-                        "criacao_fundo_cultura": null,
-                        "criacao_plano_cultura": null,
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1192/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "42.498.600/0001-71",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 33,
-                            "sigla": "RJ",
-                            "nome_uf": "Rio de Janeiro"
-                        },
-                        "cidade": null,
-                        "cep": "20040-000",
-                        "bairro": "",
-                        "endereco": "RUA DA AJUDA 5",
-                        "complemento": "13º ANDAR"
-                    },
-                    "telefones": {
-                        "telefone_um": "23331332",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "SERGIO DE OLIVEIRA CABRAL SANTOS FILHO",
-                    "email_institucional_prefeito": "",
-                    "termo_posse_prefeito": null
-                },
-                "conselho": null,
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2014-05-07"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1128/?format=json"
-                    }
-                },
-                "id": 1128,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/4834/?format=json"
-                            }
-                        },
-                        "id": 4834,
-                        "criacao_lei_sistema_cultura": {
-                            "lei_sistema_cultura": null,
-                            "situacao": "Em preenchimento"
-                        },
-                        "criacao_orgao_gestor": {
-                            "relatorio_atividade_secretaria": "/media/relatorio_atividades/Lei_Complementar_n%C2%BA_391-2007_-_Reorganiza_a_SECULT.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_conselho_cultural": {
-                            "ata_regimento_aprovado": "/media/regimentos/Lei_Complementar_n%C2%BA_421_que_reorganiza_o_Conselho_Estadual_de_Cultura.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_fundo_cultura": {
-                            "cnpj_fundo_cultura": "20.310.626/0001-01",
-                            "lei_fundo_cultura": "/media/lei_fundo_cultura/LC_Funcultura.pdf",
-                            "situacao": "Concluída"
-                        },
-                        "criacao_plano_cultura": {
-                            "relatorio_diretrizes_aprovadas": null,
-                            "minuta_preparada": null,
-                            "ata_reuniao_aprovacao_plano": null,
-                            "ata_votacao_projeto_lei": null,
-                            "lei_plano_cultura": "/media/lei_plano_cultura/LEI_10296_-_PLANO_ESTADUAL_DE_CULTURA_DO_ES.PDF",
-                            "situacao": "Arquivo incompleto"
-                        },
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1128/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "27.080.530/0001-43",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 32,
-                            "sigla": "ES",
-                            "nome_uf": "Espírito Santo"
-                        },
-                        "cidade": null,
-                        "cep": "29.015-110",
-                        "bairro": "Cidade Alta",
-                        "endereco": "Palácio Anchieta",
-                        "complemento": "Praça João Clímaco, s/nº"
-                    },
-                    "telefones": {
-                        "telefone_um": "2736361105",
-                        "telefone_dois": "2736361006",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": ""
-                },
-                "governo": {
-                    "nome_prefeito": "Paulo Cesar Hartung Gomes",
-                    "email_institucional_prefeito": "governador@es.gov.br",
-                    "termo_posse_prefeito": "/media/termo_posse/Documento_Exemplo.pdf"
-                },
-                "conselho": {
-                    "conselheiros": [
-                        {
-                            "nome": "Felipe Alves dos Santos",
-                            "segmento": "Artes Cênicas",
-                            "email": "churupitafilho@hotmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Oscar Ferreira de Oliveira Neto ",
-                            "segmento": "Região Norte",
-                            "email": "marerike@bol.com.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Henrique Luiz Custódio",
-                            "segmento": "Região Centro-Oeste",
-                            "email": "hcustodio.tst@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Presidente: João Gualberto Moreira Vasconcellos   ",
-                            "segmento": "Secretaria de Estado da Cultura",
-                            "email": "gabinete@secult.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": null,
-                            "data_situacao": null
-                        },
-                        {
-                            "nome": "Cristina Souza Bastos",
-                            "segmento": "Artes Visuais",
-                            "email": "cristinasbastos@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Igor Pontini Mesquita",
-                            "segmento": "Audiovisual",
-                            "email": "igorpontini@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Sebastião Ribeiro Filho",
-                            "segmento": "Patrimônio Ecológico, Natural e Paisagístico ",
-                            "email": "sefil@uol.com.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Matusalém Dias de Moura",
-                            "segmento": "Literatura e Biblioteca",
-                            "email": "matusalemdiasdemoura@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": null,
-                            "data_situacao": null
-                        },
-                        {
-                            "nome": "Viviane Lima Pimentel",
-                            "segmento": "Patrimônio Arquitetônico, Bens Móveis e  Acervos",
-                            "email": "pimentelvix@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": null,
-                            "data_situacao": null
-                        },
-                        {
-                            "nome": "Geová Alves da Silva ",
-                            "segmento": "Bens Imateriais",
-                            "email": "geovasilva@hotmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Hudson Alves Braga",
-                            "segmento": "Região Metropolitana da Grande Vitória",
-                            "email": "hudson_braga1@yahoo.com.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Valquíria Rigon Volpato",
-                            "segmento": "Região Sul",
-                            "email": "val.volpato@gmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Paulo Cassa Domingues",
-                            "segmento": "Região do Caparaó",
-                            "email": "paulocassa@hotmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Lilia Jonat Stein",
-                            "segmento": "Região Serrana",
-                            "email": "lilia.js@hotmail.com",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Luciana de Abreu Júdice ",
-                            "segmento": "Procuradoria Geral do Estado - PGE",
-                            "email": "lucianajudice@pge.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Maria José Angeli de Paula",
-                            "segmento": "Secretaria de Estado da Educação - SEDU",
-                            "email": "mjapaula@sedu.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Simone Carvalho Trancoso Módolo",
-                            "segmento": "Secretaria de Estado do Turismo - SETUR",
-                            "email": "simone.modolo@turismo.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Alberto Flávio Pêgo e Silva",
-                            "segmento": "Secretaria de Estado de Saneamento, Habitação e Desenvolvimento Urbano - SEDURB",
-                            "email": "alberto.pego@sedurb.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        },
-                        {
-                            "nome": "Giulianna Calmon Faria",
-                            "segmento": "Instituto Estadual de Meio Ambiente e Recursos Hídricos - IEMA",
-                            "email": "giulianna.faria@iema.es.gov.br",
-                            "situacao": "Habilitado",
-                            "data_cadastro": "2017-05-02",
-                            "data_situacao": "2017-05-02"
-                        }
-                    ]
-                },
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2013-03-07"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1030/?format=json"
-                    }
-                },
-                "id": 1030,
-                "_embedded": {
-                    "acoes_plano_trabalho": {
-                        "_links": {
-                            "self": {
-                                "href": "http://hmg.snc.cultura.gov.br/api/v1/acoesplanotrabalho/3292/?format=json"
-                            }
-                        },
-                        "id": 3292,
-                        "criacao_lei_sistema_cultura": null,
-                        "criacao_orgao_gestor": null,
-                        "criacao_conselho_cultural": null,
-                        "criacao_fundo_cultura": null,
-                        "criacao_plano_cultura": null,
-                        "_embedded": {
-                            "sistema_cultura_local": {
-                                "_links": {
-                                    "self": {
-                                        "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/1030/?format=json"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "ente_federado": {
-                    "cnpj_prefeitura": "83.021.147/0001-95",
-                    "localizacao": {
-                        "estado": {
-                            "codigo_ibge": 42,
-                            "sigla": "SC",
-                            "nome_uf": "Santa Catarina"
-                        },
-                        "cidade": null,
-                        "cep": "89890-000",
-                        "bairro": "Centro",
-                        "endereco": "Rua Espirito Santo 1.089",
-                        "complemento": "Casa"
-                    },
-                    "telefones": {
-                        "telefone_um": "4936463300",
-                        "telefone_dois": "",
-                        "telefone_tres": ""
-                    },
-                    "endereco_eletronico": null
-                },
-                "governo": {
-                    "nome_prefeito": "JOÃO RAIMUNDO COLOMBO",
-                    "email_institucional_prefeito": "",
-                    "termo_posse_prefeito": null
-                },
-                "conselho": null,
-                "situacao_adesao": {
-                    "situacao_adesao": "Publicado no DOU"
-                },
-                "data_adesao": "2015-06-03"
+            "id":1538,
+            "data_adesao":"2013-04-11",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/1538/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-10-31",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/2/docs/criacaosistema/ac-sec-acre.pdf"
+                  },
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":null,
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-10-29",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/2/docs/conselhocultural/decreto-conselho-de-cultura-do-acre.pdf"
+                  }
+               },
+               "id":1538
             }
-        ]
-    },
-    "count": 24,
-    "page_size": 10
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3058/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":27,
+                  "nome":"Alagoas",
+                  "territorio":"27848.140",
+                  "populacao":3322820,
+                  "idh":"0.631",
+                  "is_municipio":false,
+                  "sigla":"AL"
+               },
+               "governo":{
+                  "email_institucional":"governoestado@palacio.al.gov.br",
+                  "nome_prefeito":"Teotônio Brandão Vilela Filho",
+                  "termo_posse_prefeito":"termo_posse/Termo_Posse_PE_THdJZxp.pdf"
+               },
+               "conselho":null,
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"12.200.176/0001-76",
+                     "endereco":"Rua Cincinato Pinto, S/N",
+                     "cep":"57.020-050",
+                     "bairro":"Centro",
+                     "complemento":"sem complemento"
+                  },
+                  "telefones":{
+                     "telefone_um":"8233152008",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":"http://www.cultura.al.gov.br/"
+               }
+            },
+            "id":3058,
+            "data_adesao":"2014-02-12",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3058/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":null,
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"1",
+                     "situacao":"Avaliando anexo",
+                     "data_envio":"2019-01-11",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/27/docs/plano/al-pec-alagoas.pdf"
+                  },
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":null
+               },
+               "id":3058
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3518/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":13,
+                  "nome":"Amazonas",
+                  "territorio":"1559146.876",
+                  "populacao":4080611,
+                  "idh":"0.674",
+                  "is_municipio":false,
+                  "sigla":"AM"
+               },
+               "governo":{
+                  "email_institucional":"agenda_gagov@casacivil.am.gov.br",
+                  "nome_prefeito":"AMAZONINO ARMANDO MENDES",
+                  "termo_posse_prefeito":"termo_posse/DOCs_GOV_-_Termo_de_Posse.pdf"
+               },
+               "conselho":{
+                  "conselheiros":[
+
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"06.053.723/0001-35",
+                     "endereco":"AVENIDA BRASIL 3.925",
+                     "cep":"69036-110",
+                     "bairro":"COMPENSA II",
+                     "complemento":"CASA CIVIL"
+                  },
+                  "telefones":{
+                     "telefone_um":"9233038420",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":"http://www.amazonas.am.gov.br/"
+               }
+            },
+            "id":3518,
+            "data_adesao":"2013-04-18",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3518/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null
+                  },
+                  "criacao_orgao_gestor":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null
+                  },
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null
+                  },
+                  "criacao_fundo_cultura":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null,
+                     "cnpj":null
+                  },
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null
+                  }
+               },
+               "id":3518
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/1607/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":29,
+                  "nome":"Bahia",
+                  "territorio":"564732.450",
+                  "populacao":14812617,
+                  "idh":"0.660",
+                  "is_municipio":false,
+                  "sigla":"BA"
+               },
+               "governo":{
+                  "email_institucional":"gabinete@cultura.ba.gov.br",
+                  "nome_prefeito":"JAQUES WAGNER",
+                  "termo_posse_prefeito":""
+               },
+               "conselho":null,
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"13.937.032/0001-60",
+                     "endereco":"AVENIDA LUIZ VIANA FILHO, 3ª AVENIDA 390",
+                     "cep":"41745-005",
+                     "bairro":"",
+                     "complemento":"ALA SUL, 3º ANDAR, PRÉDIO DA GOVERNADORIA"
+                  },
+                  "telefones":{
+                     "telefone_um":"31033409",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":null
+               }
+            },
+            "id":1607,
+            "data_adesao":"2013-04-11",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/1607/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":null,
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"1",
+                     "situacao":"Avaliando anexo",
+                     "data_envio":"2019-01-11",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/29/docs/plano/ba-pec-bahia.pdf"
+                  },
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":null
+               },
+               "id":1607
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/1589/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":23,
+                  "nome":"Ceará",
+                  "territorio":"148887.633",
+                  "populacao":9075649,
+                  "idh":"0.682",
+                  "is_municipio":false,
+                  "sigla":"CE"
+               },
+               "governo":{
+                  "email_institucional":"cidgomes@gabgov.ce.gov.br",
+                  "nome_prefeito":"CID FERREIRA GOMES",
+                  "termo_posse_prefeito":""
+               },
+               "conselho":null,
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"23.478.597/0001-80",
+                     "endereco":"rua Onze de Maio 739",
+                     "cep":"62410-000",
+                     "bairro":"Centro",
+                     "complemento":""
+                  },
+                  "telefones":{
+                     "telefone_um":"8836231137",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":null
+               }
+            },
+            "id":1589,
+            "data_adesao":"2013-03-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/1589/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":null,
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"1",
+                     "situacao":"Avaliando anexo",
+                     "data_envio":"2019-01-14",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/23/docs/plano/ce-pec-ceara.pdf"
+                  },
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":null
+               },
+               "id":1589
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3590/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":53,
+                  "nome":"Distrito Federal",
+                  "territorio":"5779.997",
+                  "populacao":2974703,
+                  "idh":"0.824",
+                  "is_municipio":false,
+                  "sigla":"DF"
+               },
+               "governo":{
+                  "email_institucional":"rodrigo.rollemberg@buriti.df.gov.br",
+                  "nome_prefeito":"RODRIGO SOBRAL ROLLEMBERG",
+                  "termo_posse_prefeito":"termo_posse/Termo_de_posse_iVRt9Na.pdf"
+               },
+               "conselho":{
+                  "conselheiros":[
+
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"00.394.601/0001-26",
+                     "endereco":"PALÁCIO DO BURITI, 1º ANDAR",
+                     "cep":"70075-900",
+                     "bairro":"Brasília-DF",
+                     "complemento":"ZONA CÍVICO ADMINISTRATIVA"
+                  },
+                  "telefones":{
+                     "telefone_um":"6139614415",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":"http://www.df.gov.br"
+               }
+            },
+            "id":3590,
+            "data_adesao":"2013-02-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3590/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3/docs/criacaosistema/lei-complementar-934-de-07_12_2017-sinj.pdf"
+                  },
+                  "criacao_orgao_gestor":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3/docs/orgaogestor/decreto-de-criacao-da-secretaria-de-cultura.pdf"
+                  },
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3/docs/planocultura/plano-de-cultura_loc.pdf"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3/docs/fundocultura/fundo-de-cultura_loc.pdf",
+                     "cnpj":"03.658.028/0001-09"
+                  },
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3/docs/conselhocultural/conselho-de-politica-cultural_loc.pdf"
+                  }
+               },
+               "id":3590
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3159/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":32,
+                  "nome":"Espírito Santo",
+                  "territorio":"46086.907",
+                  "populacao":3972388,
+                  "idh":"0.740",
+                  "is_municipio":false,
+                  "sigla":"ES"
+               },
+               "governo":{
+                  "email_institucional":"governador@es.gov.br",
+                  "nome_prefeito":"Paulo Cesar Hartung Gomes",
+                  "termo_posse_prefeito":"termo_posse/Documento_Exemplo.pdf"
+               },
+               "conselho":{
+                  "conselheiros":[
+                     {
+                        "nome":"Felipe Alves dos Santos",
+                        "email":"churupitafilho@hotmail.com",
+                        "segmento":"Artes Cênicas",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Oscar Ferreira de Oliveira Neto ",
+                        "email":"marerike@bol.com.br",
+                        "segmento":"Região Norte",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Henrique Luiz Custódio",
+                        "email":"hcustodio.tst@gmail.com",
+                        "segmento":"Região Centro-Oeste",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Presidente: João Gualberto Moreira Vasconcellos   ",
+                        "email":"gabinete@secult.es.gov.br",
+                        "segmento":"Secretaria de Estado da Cultura",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":null,
+                        "data_situacao":null
+                     },
+                     {
+                        "nome":"Cristina Souza Bastos",
+                        "email":"cristinasbastos@gmail.com",
+                        "segmento":"Artes Visuais",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Igor Pontini Mesquita",
+                        "email":"igorpontini@gmail.com",
+                        "segmento":"Audiovisual",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Sebastião Ribeiro Filho",
+                        "email":"sefil@uol.com.br",
+                        "segmento":"Patrimônio Ecológico, Natural e Paisagístico ",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Matusalém Dias de Moura",
+                        "email":"matusalemdiasdemoura@gmail.com",
+                        "segmento":"Literatura e Biblioteca",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":null,
+                        "data_situacao":null
+                     },
+                     {
+                        "nome":"Viviane Lima Pimentel",
+                        "email":"pimentelvix@gmail.com",
+                        "segmento":"Patrimônio Arquitetônico, Bens Móveis e  Acervos",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":null,
+                        "data_situacao":null
+                     },
+                     {
+                        "nome":"Geová Alves da Silva ",
+                        "email":"geovasilva@hotmail.com",
+                        "segmento":"Bens Imateriais",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Hudson Alves Braga",
+                        "email":"hudson_braga1@yahoo.com.br",
+                        "segmento":"Região Metropolitana da Grande Vitória",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Valquíria Rigon Volpato",
+                        "email":"val.volpato@gmail.com",
+                        "segmento":"Região Sul",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Paulo Cassa Domingues",
+                        "email":"paulocassa@hotmail.com",
+                        "segmento":"Região do Caparaó",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Lilia Jonat Stein",
+                        "email":"lilia.js@hotmail.com",
+                        "segmento":"Região Serrana",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Luciana de Abreu Júdice ",
+                        "email":"lucianajudice@pge.es.gov.br",
+                        "segmento":"Procuradoria Geral do Estado - PGE",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Maria José Angeli de Paula",
+                        "email":"mjapaula@sedu.es.gov.br",
+                        "segmento":"Secretaria de Estado da Educação - SEDU",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Simone Carvalho Trancoso Módolo",
+                        "email":"simone.modolo@turismo.es.gov.br",
+                        "segmento":"Secretaria de Estado do Turismo - SETUR",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Alberto Flávio Pêgo e Silva",
+                        "email":"alberto.pego@sedurb.es.gov.br",
+                        "segmento":"Secretaria de Estado de Saneamento, Habitação e Desenvolvimento Urbano - SEDURB",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     },
+                     {
+                        "nome":"Giulianna Calmon Faria",
+                        "email":"giulianna.faria@iema.es.gov.br",
+                        "segmento":"Instituto Estadual de Meio Ambiente e Recursos Hídricos - IEMA",
+                        "cod_situacao":"1",
+                        "situacao":"Habilitado",
+                        "data_cadastro":"2017-05-02",
+                        "data_situacao":"2017-05-02"
+                     }
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"27.080.530/0001-43",
+                     "endereco":"Palácio Anchieta",
+                     "cep":"29.015-110",
+                     "bairro":"Cidade Alta",
+                     "complemento":"Praça João Clímaco, s/nº"
+                  },
+                  "telefones":{
+                     "telefone_um":"2736361105",
+                     "telefone_dois":"2736361006",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":""
+               }
+            },
+            "id":3159,
+            "data_adesao":"2013-03-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3159/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":{
+                     "cod_situacao":"0",
+                     "situacao":"Em preenchimento",
+                     "data_envio":"2018-08-17",
+                     "arquivo":null
+                  },
+                  "criacao_orgao_gestor":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/1128/docs/orgaogestor/lei_complementar_no_391-2007_-_reorganiza_a_secult_UpIBu7F.pdf"
+                  },
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"5",
+                     "situacao":"Arquivo incompleto",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/1128/docs/planocultura/es-pec-espirito-santo.pdf"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/1128/docs/fundocultura/lc_funcultura_zcEQPKO.pdf",
+                     "cnpj":"20.310.626/0001-01"
+                  },
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/1128/docs/conselhocultural/lei_complementar_no_421_que_reorganiza_o_conselho_estadual_de_KBzYVbL.pdf"
+                  }
+               },
+               "id":3159
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/1523/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":52,
+                  "nome":"Goiás",
+                  "territorio":"340106.492",
+                  "populacao":6921161,
+                  "idh":"0.735",
+                  "is_municipio":false,
+                  "sigla":"GO"
+               },
+               "governo":{
+                  "email_institucional":"governadormarconi@palacio.go.gov.br",
+                  "nome_prefeito":"MARCONI FERREIRA PERILLO JUNIOR",
+                  "termo_posse_prefeito":""
+               },
+               "conselho":null,
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"01.409.580/0001-38",
+                     "endereco":"PRAÇA CÍVICA 1",
+                     "cep":"74088-900",
+                     "bairro":"CENTRO",
+                     "complemento":""
+                  },
+                  "telefones":{
+                     "telefone_um":"32164500",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":null
+               }
+            },
+            "id":1523,
+            "data_adesao":"2013-03-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/1523/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":null,
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":null,
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":null
+               },
+               "id":1523
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/1594/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":21,
+                  "nome":"Maranhão",
+                  "territorio":"331936.949",
+                  "populacao":7035055,
+                  "idh":"0.639",
+                  "is_municipio":false,
+                  "sigla":"MA"
+               },
+               "governo":{
+                  "email_institucional":"gabgov@casacivil.ma.gov.br",
+                  "nome_prefeito":"ROSEANA SARNEY MURAD",
+                  "termo_posse_prefeito":""
+               },
+               "conselho":{
+                  "conselheiros":[
+
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"06.354.468/0001-60",
+                     "endereco":"AVENIDA PEDRO II None",
+                     "cep":"65070-901",
+                     "bairro":"CENTRO",
+                     "complemento":"PALÁCIO DOS LEÕES"
+                  },
+                  "telefones":{
+                     "telefone_um":"21089000",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":null
+               }
+            },
+            "id":1594,
+            "data_adesao":"2013-03-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/1594/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":null,
+                  "criacao_orgao_gestor":null,
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-10-29",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/614/docs/planocultura/ma-pec-maranhao.pdf"
+                  },
+                  "criacao_fundo_cultura":null,
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-10-29",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/614/docs/conselhocultural/decreto-no-24720-de-3-de-novembro-de-2008-conselho-estadual-maranhao.pdf"
+                  }
+               },
+               "id":1594
+            }
+         },
+         {
+            "_links":{
+               "self":{
+                  "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3299/?format=json"
+               }
+            },
+            "_embedded":{
+               "ente_federado":{
+                  "cod_ibge":51,
+                  "nome":"Mato Grosso",
+                  "territorio":"903202.446",
+                  "populacao":3441998,
+                  "idh":"0.725",
+                  "is_municipio":false,
+                  "sigla":"MT"
+               },
+               "governo":{
+                  "email_institucional":"gabinete@casacivil.mt.gov.br",
+                  "nome_prefeito":"JOSE PEDRO GONÇALVES TAQUES",
+                  "termo_posse_prefeito":"termo_posse/POSSE_GOV.pdf"
+               },
+               "conselho":{
+                  "conselheiros":[
+
+                  ]
+               },
+               "sede":{
+                  "localizacao":{
+                     "cnpj":"03.507.415/0001-44",
+                     "endereco":"PALÁCIO PAIAGUÁS",
+                     "cep":"78.050-970",
+                     "bairro":"CENTRO POLÍTICO ADMINISTRATIVO",
+                     "complemento":"PRÉDIO CASA CIVIL"
+                  },
+                  "telefones":{
+                     "telefone_um":"6536134100",
+                     "telefone_dois":"",
+                     "telefone_tres":""
+                  },
+                  "endereco_eletronico":"http://www.cultura.mt.gov.br"
+               }
+            },
+            "id":3299,
+            "data_adesao":"2013-03-07",
+            "situacao_adesao":"Publicado no DOU",
+            "cod_situacao_adesao":"6",
+            "acoes_plano_trabalho":{
+               "_links":{
+                  "self":{
+                     "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3299/?format=json"
+                  }
+               },
+               "_embedded":{
+                  "criacao_lei_sistema":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3991/docs/criacaosistema/lei_10362_-_sistema_joNKtpU.pdf"
+                  },
+                  "criacao_orgao_gestor":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3991/docs/orgaogestor/lei_comp_572_-_secretaria_de_cultura_p0yvgAV.pdf"
+                  },
+                  "criacao_plano_cultura":{
+                     "cod_situacao":"5",
+                     "situacao":"Arquivo incompleto",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3991/docs/planocultura/lei_10363_-_plano.pdf"
+                  },
+                  "criacao_fundo_cultura":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3991/docs/fundocultura/lei_10379_-_fundo_XxiCufL.pdf",
+                     "cnpj":"03.507.415/0026-00"
+                  },
+                  "criacao_conselho_cultural":{
+                     "cod_situacao":"2",
+                     "situacao":"Concluída",
+                     "data_envio":"2018-08-17",
+                     "arquivo":"http://hmg.snc.cultura.gov.br/media/3991/docs/conselhocultural/lei_10378_-_conselho_dlud03Z.pdf"
+                  }
+               },
+               "id":3299
+            }
+         }
+      ]
+   },
+   "count":25,
+   "page_size":10,
+   "municipios":0,
+   "municipios_aderidos":0,
+   "estados":25,
+   "estados_aderidos":25
 }

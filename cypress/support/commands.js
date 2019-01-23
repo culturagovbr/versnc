@@ -96,8 +96,8 @@ Cypress.Commands.add('api_data_adesao_min', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=11/10/2017&data_adesao_max=' +
-    '&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=11/10/2017&data_adesao_max=' +
+    '&nome_uf=&estadual=true&municipal=true&ente_federado=&situacao_adesao=6',    
     response: 'fixture:adesao_11-10-2017'        // and force the response to be: []
   })
 });
@@ -106,8 +106,8 @@ Cypress.Commands.add('api_data_adesao_max', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=' +
-    '1/1/2016&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=' +
+    '1/1/2016&nome_uf=&estadual=true&municipal=true&ente_federado=&situacao_adesao=6',    
     response: 'fixture:adesao_ate_1-1-2016'        // and force the response to be: []
   })
 });
@@ -134,7 +134,7 @@ Cypress.Commands.add('api_somente_municipios', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=BA&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=false&municipal=&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=true&ente_federado=&situacao_adesao=6',    
     response: 'fixture:municipalResponse'        // and force the response to be: []
   })
 });
@@ -143,7 +143,7 @@ Cypress.Commands.add('api_somente_estados', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=false&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=true&municipal=&ente_federado=&situacao_adesao=6',    
     response: 'fixture:estadualResponse'        // and force the response to be: []
   })
 });
@@ -152,7 +152,7 @@ Cypress.Commands.add('api_count_estados', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?municipal=false',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?estadual=false',    
     response: 'fixture:countEstados'        // and force the response to be: []
   })
 });

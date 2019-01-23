@@ -278,9 +278,9 @@ describe('' +
 
     it('Testa linha expansível com situações negativas', () => {
       cy.api_linha_expansivel();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
-      cy.get('mat-row').eq(1).click();
+      cy.get('mat-row').eq(0).click();
 
       cy.get('div.mat-table').should('be.visible');
       cy.get('div.mat-row').contains('Sistema de Cultura');
@@ -288,17 +288,18 @@ describe('' +
       cy.get('div.mat-row').contains('Conselho de Política Cultural');
       cy.get('div.mat-row').contains('Fundo de Cultura');
       cy.get('div.mat-row').contains('Plano de Cultura');
+
       cy.get('div.mat-row div.mat-cell').contains('cancel');
       cy.get('div.mat-row div.mat-cell p').should('not.be.empty')
 
-      cy.get('mat-row').eq(1).click();
+      cy.get('mat-row').eq(0).click();
       cy.get('div.mat-table').should('not.be.visible');
 
     });
 
     it('Testa filtro de componentes com checkboxs ativos', () => {
       cy.api_componentes();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('.mat-checkbox-input').eq(2).click({ force: true });
@@ -310,6 +311,8 @@ describe('' +
       cy.get('input').eq(1).type('{enter}');
 
       cy.get('.alinhamento').eq(1).click();
+
+      cy.wait('@componentes')
 
       cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
         cy.wrap($el).click();

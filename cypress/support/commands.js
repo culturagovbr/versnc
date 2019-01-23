@@ -41,7 +41,7 @@ Cypress.Commands.add('api_linha_expansivel', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',
     response: 'fixture:componentesExpand'        // and force the response to be: []
   })
  });
@@ -50,10 +50,10 @@ Cypress.Commands.add('api_componentes', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=' +
-    '&situacao_adesao=6&situacao_lei_id=2&situacao_lei_id=3&situacao_plano_id=2&situacao_plano_id=3&situacao_orgao_id=2&situacao_orgao_id=3&situacao_fundo_id=2&situacao_fundo_id=3&situacao_conselho_id=2&situacao_conselho_id=3',    
-    response: 'fixture:componentesFiltragem'        // and force the response to be: []
-  })
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=true&municipal=true&ente_federado=&situacao_adesao=6&' +
+    'situacao_lei_sistema=2&situacao_lei_sistema=3&situacao_plano_cultura=2&situacao_plano_cultura=3&situacao_orgao_gestor=2&situacao_orgao_gestor=3&situacao_fundo_cultura=2&situacao_fundo_cultura=3&' +
+    'situacao_conselho_cultural=2&situacao_conselho_cultural=3'
+  }).as('componentes')
  });
 
 Cypress.Commands.add('apiSimples', () => {

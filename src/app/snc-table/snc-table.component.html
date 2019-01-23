@@ -15,8 +15,8 @@
 
     <ng-container matColumnDef="plano_trabalho">
       <mat-header-cell *matHeaderCellDef>DETALHAR</mat-header-cell>
-      <mat-cell *matCellDef="let entidade">
-        <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
+      <mat-cell *matCellDef="let entidade" (click)="setAnimationAsDisabled(false)">
+        <a class="detalhe-municipio" target="_blank">
           <i class="material-icons">insert_drive_file</i>
         </a>
       </mat-cell>
@@ -75,6 +75,11 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class='mat-row mat-cell'>
+          <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.id}}" class="detalhe-municipio" target="_blank">
+            Clique aqui para ver mais informações sobre este ente
+          </a>
         </div>
     </div>
   </ng-template>

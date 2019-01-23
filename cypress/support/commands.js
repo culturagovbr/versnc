@@ -32,7 +32,7 @@ Cypress.Commands.add('api', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
     response: 'fixture:entidadeResponse'        // and force the response to be: []
   })
  });

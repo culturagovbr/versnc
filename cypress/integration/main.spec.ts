@@ -243,18 +243,18 @@ describe('' +
 
     it('Testa se a quantidade de municípios retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
 
-      cy.get('div h3.total').eq(1).contains('Municípios: 3018');
+      cy.get('div h3.total').eq(1).contains('Municípios: 2730');
     });
 
     it('Testa se a quantidade de estados retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
 
-      cy.get('div h3.total').eq(0).contains('Estados: 24');
+      cy.get('div h3.total').eq(0).contains('Estados: 25');
     });
 
     it('Testa linha expansível com situações positivas', () => {
@@ -269,8 +269,8 @@ describe('' +
       cy.get('div.mat-row').contains('Conselho de Política Cultural');
       cy.get('div.mat-row').contains('Fundo de Cultura');
       cy.get('div.mat-row').contains('Plano de Cultura');
-      cy.get('div.mat-row div.mat-cell').contains('check_circle');
-      cy.get('div.mat-row div.mat-cell p').should('not.be.empty');
+      cy.get('div.mat-row div.mat-cell').eq(3).contains('check_circle');
+      cy.get('div.mat-row div.mat-cell p').eq(1).contains('Concluída');
 
       cy.get('mat-row').eq(0).click();
       cy.get('div.mat-table').should('not.be.visible');
@@ -289,8 +289,8 @@ describe('' +
       cy.get('div.mat-row').contains('Fundo de Cultura');
       cy.get('div.mat-row').contains('Plano de Cultura');
 
-      cy.get('div.mat-row div.mat-cell').contains('cancel');
-      cy.get('div.mat-row div.mat-cell p').should('not.be.empty')
+      cy.get('div.mat-row div.mat-cell').eq(1).contains('cancel');
+      cy.get('div.mat-row div.mat-cell p').eq(0).contains('Arquivo danificado')
 
       cy.get('mat-row').eq(0).click();
       cy.get('div.mat-table').should('not.be.visible');

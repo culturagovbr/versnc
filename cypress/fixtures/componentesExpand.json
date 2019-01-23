@@ -56,7 +56,12 @@
                      "data_envio": "2018-08-17",
                      "arquivo": "http://hmg.snc.cultura.gov.br/media/3846/docs/orgaogestor/lei_-_197__2013_-_dispoe_sobre_a_reestruturacao_administrativa_mun_mj3hutC.pdf"
                   },
-                  "criacao_orgao_gestor":null,
+                  "criacao_orgao_gestor": {
+                     "cod_situacao": "2",
+                     "situacao": "Concluída",
+                     "data_envio": "2018-08-17",
+                     "arquivo": "http://hmg.snc.cultura.gov.br/media/3846/docs/orgaogestor/lei_-_197__2013_-_dispoe_sobre_a_reestruturacao_administrativa_mun_mj3hutC.pdf"
+                  },
                   "criacao_plano_cultura":null,
                   "criacao_fundo_cultura":null,
                   "criacao_conselho_cultural":null

@@ -15,17 +15,15 @@ describe('' +
     });
 
     it('Apresenta número de municípios aderidos', () => {
-      cy.api_count_municipios();
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(0).contains('1995');
+      cy.get('.mat-card').eq(0).contains('2730');
     });
 
     it('Apresenta número de estados aderidos', () => {
-      cy.api_count_municipios();
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(1).contains('18');
+      cy.get('.mat-card').eq(1).contains('24');
     });
 
     it('Apresenta Tabela na Pagina Inicial', () => {
@@ -186,10 +184,10 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('mat-checkbox').eq(0).click();
 
-      cy.get('input').eq(0).type('BA{enter}');
+      cy.get('input').eq(0).type('{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' Arataca - BA ');
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Aporá - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains('Abaetetuba - PA');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains('Abaiara - CE');
     });
 
     it('Testa retorno de SOMENTE ESTADOS na busca Avançada', () => {
@@ -200,10 +198,9 @@ describe('' +
 
       cy.get('input').eq(0).type('{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' São Paulo ');
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Minas Gerais ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains('Acre');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains('Alagoas');
     });
-
 
     it('Testa a opção de ADESÃO A PARTIR DE, na Busca Avançada', () => {
       cy.api_data_adesao_min();
@@ -227,7 +224,7 @@ describe('' +
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click();
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click({ force: true });
 
       cy.get('mat-cell').eq(0).contains('Abaetetuba - PA');
     });
@@ -236,8 +233,7 @@ describe('' +
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click();
-
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click({ force: true }).click({ force: true });
       cy.get('mat-cell').eq(0).contains('Acaraú - CE');
     });
 

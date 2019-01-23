@@ -97,7 +97,7 @@ Cypress.Commands.add('api_data_adesao_min', () => {
   cy.route({
     method: 'GET',      // Route all GET requests
     url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&estado_sigla=&data_adesao_min=11/10/2017&data_adesao_max=' +
-    '&nome_uf=&estadual=&municipal=&ente_federado=&situacao_adesao=6',    
+    '&nome_uf=&estadual=true&municipal=true&ente_federado=&situacao_adesao=6',    
     response: 'fixture:adesao_11-10-2017'        // and force the response to be: []
   })
 });

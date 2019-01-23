@@ -211,7 +211,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('input').eq(2).type('11/10/2017{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Morada Nova de Minas - MG ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Afrânio - PE');
     });
 
     it('Testa a opção de ADESÃO ATÉ A DATA, na Busca Avançada', () => {
@@ -220,7 +220,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('input').eq(3).type('1/1/2016{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Aparecida de Goiânia - GO ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Abaetetuba - PA');
     });
 
     it('Testa ordenação alfabética ASC da tabela ao clicar no titulo ENTE FEDERADO', () => {

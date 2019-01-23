@@ -229,7 +229,7 @@ describe('' +
       cy.get('input').type('{enter}');
       cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click();
 
-      cy.get('mat-cell').eq(0).contains(' Antonina do Norte - CE ');
+      cy.get('mat-cell').eq(0).contains(' Abaetetuba - PA ');
     });
 
     it('Testa ordenação alfabética DESC da tabela ao clicar no titulo ENTE FEDERADO', () => {
@@ -238,7 +238,7 @@ describe('' +
       cy.get('input').type('{enter}');
       cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click();
 
-      cy.get('mat-cell').eq(0).contains(' São Sebastião da Amoreira - PR ');
+      cy.get('mat-cell').eq(0).contains(' Acaraú - CE ');
     });
 
     it('Testa se a quantidade de municípios retornados pela busca está correto na descrição abaixo da tabela', () => {

@@ -1,63 +1,167 @@
 {
-  "_embedded": {
-    "items": [
-      {
-        "id": 4460,
-        "conselho": null,
-        "_links": {
-          "self": {
-            "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4460/"
-          }
+  "_links":{
+     "self":{
+        "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?limit=&offset=&nome_municipio=&estado_sigla=&data_adesao_min=&data_adesao_max=&nome_uf=&estadual=&municipal=&ente_federado=Malhada&situacao_adesao=6&format=json"
+     },
+     "page":{
+        "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?data_adesao_max=&data_adesao_min=&ente_federado=Malhada&estado_sigla=&estadual=&format=json&limit={?page}&municipal=&nome_municipio=&nome_uf=&offset=&situacao_adesao=6",
+        "templated":true
+     }
+  },
+  "_embedded":{
+     "items":[
+        {
+           "_links":{
+              "self":{
+                 "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/3640/?format=json"
+              }
+           },
+           "_embedded":{
+              "ente_federado":{
+                 "cod_ibge":2920205,
+                 "nome":"Malhada",
+                 "territorio":"1971.717",
+                 "populacao":16830,
+                 "idh":"0.562",
+                 "is_municipio":true,
+                 "sigla":"BA"
+              },
+              "governo":{
+                 "email_institucional":"administracao@malhada.ba.gov.br",
+                 "nome_prefeito":"Valdemar Larceda  Silva Filho",
+                 "termo_posse_prefeito":"termo_posse/termo_OS7pAZV.docx"
+              },
+              "conselho":{
+                 "conselheiros":[
+
+                 ]
+              },
+              "sede":{
+                 "localizacao":{
+                    "cnpj":"14.105.217/0001-70",
+                    "endereco":"Praça Santa Cruz",
+                    "cep":"46.440-000",
+                    "bairro":"centro",
+                    "complemento":"casa"
+                 },
+                 "telefones":{
+                    "telefone_um":"7736912145",
+                    "telefone_dois":"",
+                    "telefone_tres":""
+                 },
+                 "endereco_eletronico":"http://www.malhada.ba.gov.br"
+              }
+           },
+           "id":3640,
+           "data_adesao":"2018-01-24",
+           "situacao_adesao":"Publicado no DOU",
+           "cod_situacao_adesao":"6",
+           "acoes_plano_trabalho":{
+              "_links":{
+                 "self":{
+                    "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/3640/?format=json"
+                 }
+              },
+              "_embedded":{
+                 "criacao_lei_sistema":{
+                    "cod_situacao":"0",
+                    "situacao":"Em preenchimento",
+                    "data_envio":"2018-08-17",
+                    "arquivo":null
+                 },
+                 "criacao_orgao_gestor":{
+                    "cod_situacao":"0",
+                    "situacao":"Em preenchimento",
+                    "data_envio":"2018-08-17",
+                    "arquivo":null
+                 },
+                 "criacao_plano_cultura":{
+                    "cod_situacao":"0",
+                    "situacao":"Em preenchimento",
+                    "data_envio":"2018-08-17",
+                    "arquivo":null
+                 },
+                 "criacao_fundo_cultura":{
+                    "cod_situacao":"0",
+                    "situacao":"Em preenchimento",
+                    "data_envio":"2018-08-17",
+                    "arquivo":null,
+                    "cnpj":null
+                 },
+                 "criacao_conselho_cultural":{
+                    "cod_situacao":"0",
+                    "situacao":"Em preenchimento",
+                    "data_envio":"2018-08-17",
+                    "arquivo":null
+                 }
+              },
+              "id":3640
+           }
         },
-        "_embedded": {
-          "acoes_plano_trabalho": null
-        },
-        "situacao_adesao": {
-          "situacao_adesao": "Aguardando envio da documentação"
-        },
-        "governo": {
-          "nome_prefeito": "Valdemar Larceda  Silva Filho",
-          "email_institucional_prefeito": "administracao@malhada.ba.gov.br",
-          "termo_posse_prefeito": "/media/termo_posse/termo_OS7pAZV.docx"
-        },
-        "ente_federado": {
-          "cnpj_prefeitura": "14.105.217/0001-70",
-          "localizacao": {
-            "estado": {
-              "codigo_ibge": 29,
-              "sigla": "BA"
-            },
-            "cidade": {
-              "codigo_ibge": 292020,
-              "nome_municipio": "Malhada"
-            },
-            "cep": "46.440-000",
-            "bairro": "centro",
-            "endereco": "Praça Santa Cruz",
-            "complemento": "casa"
-          },
-          "telefones": {
-            "telefone_um": "7736912145",
-            "telefone_dois": "",
-            "telefone_tres": ""
-          },
-          "endereco_eletronico": "http://www.malhada.ba.gov.br"
+        {
+           "_links":{
+              "self":{
+                 "href":"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/587/?format=json"
+              }
+           },
+           "_embedded":{
+              "ente_federado":{
+                 "cod_ibge":2920304,
+                 "nome":"Malhada de Pedras",
+                 "territorio":"549.535",
+                 "populacao":8430,
+                 "idh":"0.578",
+                 "is_municipio":true,
+                 "sigla":"BA"
+              },
+              "governo":{
+                 "email_institucional":"pmmpedras@gmail.com",
+                 "nome_prefeito":"TEREZINHA BALEEIRO ALVES SANTOS",
+                 "termo_posse_prefeito":""
+              },
+              "conselho":null,
+              "sede":{
+                 "localizacao":{
+                    "cnpj":"14106561000184",
+                    "endereco":"Praça Praça da Bandeira 7",
+                    "cep":"46110-000",
+                    "bairro":"centro",
+                    "complemento":""
+                 },
+                 "telefones":{
+                    "telefone_um":"7734492120",
+                    "telefone_dois":"",
+                    "telefone_tres":""
+                 },
+                 "endereco_eletronico":null
+              }
+           },
+           "id":587,
+           "data_adesao":"2015-02-23",
+           "situacao_adesao":"Publicado no DOU",
+           "cod_situacao_adesao":"6",
+           "acoes_plano_trabalho":{
+              "_links":{
+                 "self":{
+                    "href":"http://hmg.snc.cultura.gov.br/api/v2/acoesplanotrabalho/587/?format=json"
+                 }
+              },
+              "_embedded":{
+                 "criacao_lei_sistema":null,
+                 "criacao_orgao_gestor":null,
+                 "criacao_plano_cultura":null,
+                 "criacao_fundo_cultura":null,
+                 "criacao_conselho_cultural":null
+              },
+              "id":587
+           }
         }
-      }
-    ]
+     ]
   },
-  "_links": {
-    "self": {
-      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=1000"
-    },
-    "page": {
-      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit={?page}",
-      "templated": true
-    },
-    "next": {
-      "href": "http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/?limit=100&offset=100"
-    }
-  },
-  "count": 2967,
-  "page_size": 100
+  "count":2,
+  "page_size":10,
+  "municipios":2,
+  "municipios_aderidos":2,
+  "estados":0,
+  "estados_aderidos":0
 }

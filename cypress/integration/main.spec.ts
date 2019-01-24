@@ -106,7 +106,7 @@ describe('' +
       cy.apiSimples();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Malhada{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa pesquisa do Nome do Município na Busca Simples pelo botão', () => {
@@ -114,26 +114,15 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Malhada');
       cy.get('.mat-raised-button').click()
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa pesquisa do Nome do Estado por extenso na Busca Simples', () => {
       cy.api_df();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Distrito Federal{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
-
-
-    it('Testa pesquisa da Sigla do Estado na Busca Simples', () => {
-      cy.api_busca_uf_simples();
-      cy.visit('http://localhost:4200/');
-      cy.get('input').type('DF{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
-    });
-
 
     it('Testa mudança da Busca Simples p/ Busca Avançada após click no botão de Abrir Filtros', () => {
       cy.api();
@@ -147,7 +136,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(1).type('Malhada{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa input Municipio - Busca Avançada pelo botão', () => {
@@ -157,7 +146,7 @@ describe('' +
       cy.get('input').eq(1).type('Malhada');
       cy.get('.mat-raised-button').click()
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa input da sigla do Estado - Busca Avançada', () => {
@@ -166,16 +155,16 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(0).type('DF{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
 
     it('Testa a pesquisa do nome do Estado por extenso - Busca Avançada ', () => {
       cy.api_busca_estado_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('Distrito Federal{enter}');
+      cy.get('input').eq(1).type('Distrito Federal{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
 
     it('Testa retorno de SOMENTE MUNÌCIPIOS na busca Avançada', () => {

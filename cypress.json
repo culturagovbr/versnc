@@ -1,4 +1,3 @@
 {
-  "videoRecording": false,
-  "requestTimeout": 10000
+  "videoRecording": false
 }

@@ -77,14 +77,6 @@ describe('BuscaComponent', () => {
     expect(component['termoSimples']).toBe('pe');
     expect(component['queries']['ente_federado']).toBe('PE');
   }));
-  
-  it('Verifica método que trata a pesquisa pelo nome do Estado por extenso - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
-    component['termoUF'] = 'Distrito Federal';
-    component['seletorTipoBusca'] = true;
-    component.onRealizarBuscaComEnter(event);
-
-    expect(component.queries['nome_uf']).toEqual('Distrito Federal');
-  }));
 
   it('Verifica método que trata a pesquisa pela sigla do Estado - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
     component['termoUF'] = 'ba';

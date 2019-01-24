@@ -76,7 +76,7 @@ export class BuscaComponent implements OnInit {
 
     } else { // BUSCA AVANÇADA
       this.pesquisarEstado(this.termoUF);
-      this.queries['ente_federado'] = '';
+      this.queries['ente_federado'] = this.termoSimples;
       this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
       this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
       this.queries['estadual'] = this.filtrarEstados ? 'true' : '';
@@ -119,7 +119,6 @@ export class BuscaComponent implements OnInit {
 
   pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado
     this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
-    this.queries['nome_uf'] = nome_uf.length > 2 ? nome_uf : '';
   }
 
   getDatePicker(datepicker: String) { // recebe um objeto Datepicker e retorna somente a data

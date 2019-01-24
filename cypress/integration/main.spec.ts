@@ -15,17 +15,15 @@ describe('' +
     });
 
     it('Apresenta número de municípios aderidos', () => {
-      cy.api_count_municipios();
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(0).contains('1995');
+      cy.get('.mat-card').eq(0).contains('2730');
     });
 
     it('Apresenta número de estados aderidos', () => {
-      cy.api_count_municipios();
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(1).contains('18');
+      cy.get('.mat-card').eq(1).contains('24');
     });
 
     it('Apresenta Tabela na Pagina Inicial', () => {
@@ -108,7 +106,7 @@ describe('' +
       cy.apiSimples();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Malhada{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa pesquisa do Nome do Município na Busca Simples pelo botão', () => {
@@ -116,26 +114,15 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Malhada');
       cy.get('.mat-raised-button').click()
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa pesquisa do Nome do Estado por extenso na Busca Simples', () => {
       cy.api_df();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('Distrito Federal{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
-
-
-    it('Testa pesquisa da Sigla do Estado na Busca Simples', () => {
-      cy.api_busca_uf_simples();
-      cy.visit('http://localhost:4200/');
-      cy.get('input').type('DF{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(3).contains(' Distrito Federal ');
-    });
-
 
     it('Testa mudança da Busca Simples p/ Busca Avançada após click no botão de Abrir Filtros', () => {
       cy.api();
@@ -149,7 +136,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(1).type('Malhada{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa input Municipio - Busca Avançada pelo botão', () => {
@@ -159,7 +146,7 @@ describe('' +
       cy.get('input').eq(1).type('Malhada');
       cy.get('.mat-raised-button').click()
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Malhada - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
     it('Testa input da sigla do Estado - Busca Avançada', () => {
@@ -168,16 +155,16 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('input').eq(0).type('DF{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
 
     it('Testa a pesquisa do nome do Estado por extenso - Busca Avançada ', () => {
       cy.api_busca_estado_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('Distrito Federal{enter}');
+      cy.get('input').eq(1).type('Distrito Federal{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Brasília - DF ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
 
     it('Testa retorno de SOMENTE MUNÌCIPIOS na busca Avançada', () => {
@@ -186,10 +173,10 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
       cy.get('mat-checkbox').eq(0).click();
 
-      cy.get('input').eq(0).type('BA{enter}');
+      cy.get('input').eq(0).type('{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' Arataca - BA ');
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Aporá - BA ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains('Abaetetuba - PA');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains('Abaiara - CE');
     });
 
     it('Testa retorno de SOMENTE ESTADOS na busca Avançada', () => {
@@ -200,10 +187,9 @@ describe('' +
 
       cy.get('input').eq(0).type('{enter}');
 
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains(' São Paulo ');
-      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains(' Minas Gerais ');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(0).contains('Acre');
+      cy.get('app-root snc-table mat-card mat-table mat-row').eq(1).contains('Alagoas');
     });
-
 
     it('Testa a opção de ADESÃO A PARTIR DE, na Busca Avançada', () => {
       cy.api_data_adesao_min();
@@ -211,7 +197,7 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('input').eq(2).type('11/10/2017{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Morada Nova de Minas - MG ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Afrânio - PE');
     });
 
     it('Testa a opção de ADESÃO ATÉ A DATA, na Busca Avançada', () => {
@@ -220,41 +206,40 @@ describe('' +
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('input').eq(3).type('1/1/2016{enter}');
-      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains(' Aparecida de Goiânia - GO ');
+      cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Abaetetuba - PA');
     });
 
     it('Testa ordenação alfabética ASC da tabela ao clicar no titulo ENTE FEDERADO', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click();
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click({ force: true });
 
-      cy.get('mat-cell').eq(0).contains(' Antonina do Norte - CE ');
+      cy.get('mat-cell').eq(0).contains('Abaetetuba - PA');
     });
 
     it('Testa ordenação alfabética DESC da tabela ao clicar no titulo ENTE FEDERADO', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click();
-
-      cy.get('mat-cell').eq(0).contains(' São Sebastião da Amoreira - PR ');
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click({ force: true }).click({ force: true });
+      cy.get('mat-cell').eq(0).contains('Acaraú - CE');
     });
 
     it('Testa se a quantidade de municípios retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
 
-      cy.get('div h3.total').eq(1).contains('Municípios: 3018');
+      cy.get('div h3.total').eq(1).contains('Municípios: 2730');
     });
 
     it('Testa se a quantidade de estados retornados pela busca está correto na descrição abaixo da tabela', () => {
       cy.api();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
 
-      cy.get('div h3.total').eq(0).contains('Estados: 24');
+      cy.get('div h3.total').eq(0).contains('Estados: 25');
     });
 
     it('Testa linha expansível com situações positivas', () => {
@@ -269,8 +254,8 @@ describe('' +
       cy.get('div.mat-row').contains('Conselho de Política Cultural');
       cy.get('div.mat-row').contains('Fundo de Cultura');
       cy.get('div.mat-row').contains('Plano de Cultura');
-      cy.get('div.mat-row div.mat-cell').contains('check_circle');
-      cy.get('div.mat-row div.mat-cell p').should('not.be.empty');
+      cy.get('div.mat-row div.mat-cell').eq(3).contains('check_circle');
+      cy.get('div.mat-row div.mat-cell p').eq(1).contains('Concluída');
 
       cy.get('mat-row').eq(0).click();
       cy.get('div.mat-table').should('not.be.visible');
@@ -278,9 +263,9 @@ describe('' +
 
     it('Testa linha expansível com situações negativas', () => {
       cy.api_linha_expansivel();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
-      cy.get('mat-row').eq(1).click();
+      cy.get('mat-row').eq(0).click();
 
       cy.get('div.mat-table').should('be.visible');
       cy.get('div.mat-row').contains('Sistema de Cultura');
@@ -288,17 +273,18 @@ describe('' +
       cy.get('div.mat-row').contains('Conselho de Política Cultural');
       cy.get('div.mat-row').contains('Fundo de Cultura');
       cy.get('div.mat-row').contains('Plano de Cultura');
-      cy.get('div.mat-row div.mat-cell').contains('cancel');
-      cy.get('div.mat-row div.mat-cell p').should('not.be.empty')
 
-      cy.get('mat-row').eq(1).click();
+      cy.get('div.mat-row div.mat-cell').eq(1).contains('cancel');
+      cy.get('div.mat-row div.mat-cell p').eq(0).contains('Arquivo danificado')
+
+      cy.get('mat-row').eq(0).click();
       cy.get('div.mat-table').should('not.be.visible');
 
     });
 
     it('Testa filtro de componentes com checkboxs ativos', () => {
       cy.api_componentes();
-      cy.visit('http://localhost:4200/');
+      cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('.alinhamento').eq(1).click();
 
       cy.get('.mat-checkbox-input').eq(2).click({ force: true });
@@ -310,6 +296,8 @@ describe('' +
       cy.get('input').eq(1).type('{enter}');
 
       cy.get('.alinhamento').eq(1).click();
+
+      cy.wait('@componentes')
 
       cy.get('mat-table').children('mat-row').each(($el, index, $list) => {
         cy.wrap($el).click();

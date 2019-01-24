@@ -17,7 +17,7 @@ describe('' +
     it('Apresenta número de municípios aderidos', () => {
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(0).eq(0).contains('2730')
+      cy.get('.mat-card').eq(0).eq(0).contains('2730');
     });
 
     it('Apresenta número de estados aderidos', () => {

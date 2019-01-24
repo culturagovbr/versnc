@@ -17,13 +17,13 @@ describe('' +
     it('Apresenta número de municípios aderidos', () => {
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(0).contains('2730');
+      cy.get('.mat-card').eq(0).eq(0).contains('2730')
     });
 
     it('Apresenta número de estados aderidos', () => {
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(1).contains('24');
+      cy.get('.mat-card').eq(1).eq(0).contains('25');
     });
 
     it('Apresenta Tabela na Pagina Inicial', () => {
@@ -134,7 +134,7 @@ describe('' +
       cy.api_municipio_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Malhada{enter}');
+      cy.get('input').eq(0).type('Malhada{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
@@ -143,7 +143,7 @@ describe('' +
       cy.api_municipio_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Malhada');
+      cy.get('input').eq(0).type('Malhada');
       cy.get('.mat-raised-button').click()
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
@@ -153,7 +153,9 @@ describe('' +
       cy.api_busca_uf_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('DF{enter}');
+      cy.get('.mat-select').click();
+      cy.get('[value="DF"]').click();
+      cy.get('input').eq(0).type('{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
@@ -162,7 +164,7 @@ describe('' +
       cy.api_busca_estado_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Distrito Federal{enter}');
+      cy.get('input').eq(0).type('Distrito Federal{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
@@ -196,7 +198,7 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
 
-      cy.get('input').eq(2).type('11/10/2017{enter}');
+      cy.get('input').eq(1).type('11/10/2017{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Afrânio - PE');
     });
 
@@ -205,7 +207,7 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
 
-      cy.get('input').eq(3).type('1/1/2016{enter}');
+      cy.get('input').eq(2).type('1/1/2016{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Abaetetuba - PA');
     });
 

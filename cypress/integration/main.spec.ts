@@ -85,6 +85,7 @@ describe('' +
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
+      cy.scrollTo('top')
       cy.get('mat-table mat-row').eq(0).click();
       cy.get('mat-table div.mat-row');
     });
@@ -134,7 +135,7 @@ describe('' +
       cy.api_municipio_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Malhada{enter}');
+      cy.get('input').eq(0).type('Malhada{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
@@ -143,17 +144,19 @@ describe('' +
       cy.api_municipio_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Malhada');
+      cy.get('input').eq(0).type('Malhada');
       cy.get('.mat-raised-button').click()
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Malhada - BA');
     });
 
-    it('Testa input da sigla do Estado - Busca Avançada', () => {
+    it('Testa select da sigla do Estado - Busca Avançada', () => {
       cy.api_busca_uf_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(0).type('DF{enter}');
+      cy.get('.mat-select').click();
+      cy.get('[value="DF"]').click();
+      cy.get('input').eq(0).type('{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
@@ -162,7 +165,7 @@ describe('' +
       cy.api_busca_estado_avancada();
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
-      cy.get('input').eq(1).type('Distrito Federal{enter}');
+      cy.get('input').eq(0).type('Distrito Federal{enter}');
 
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Distrito Federal');
     });
@@ -196,7 +199,7 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
 
-      cy.get('input').eq(2).type('11/10/2017{enter}');
+      cy.get('input').eq(1).type('11/10/2017{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Afrânio - PE');
     });
 
@@ -205,7 +208,7 @@ describe('' +
       cy.visit('http://localhost:4200/');
       cy.get('.alinhamento').eq(1).click();
 
-      cy.get('input').eq(3).type('1/1/2016{enter}');
+      cy.get('input').eq(2).type('1/1/2016{enter}');
       cy.get('app-root snc-table mat-card mat-table mat-row mat-cell').eq(0).contains('Abaetetuba - PA');
     });
 
@@ -222,7 +225,8 @@ describe('' +
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click({ force: true }).click({ force: true });
+      cy.scrollTo('top')
+      cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click()
       cy.get('mat-cell').eq(0).contains('Acaraú - CE');
     });
 

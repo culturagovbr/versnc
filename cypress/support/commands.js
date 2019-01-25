@@ -143,7 +143,7 @@ Cypress.Commands.add('api_count_estados', () => {
   cy.server()           // enable response stubbing
   cy.route({
     method: 'GET',      // Route all GET requests
-    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?estadual=true',
+    url: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/?estadual=false',
     response: 'fixture:countEstados'        // and force the response to be: []
   })
 });

@@ -84,8 +84,8 @@ describe('' +
     it('Criação de uma nova linha após o click em alguma das linhas da tabela', () => {
       cy.api();
       cy.visit('http://localhost:4200/');
-      cy.get('input').type('{enter}');
-      cy.scrollTo('top')
+      cy.get('input').type('{enter}')
+      cy.wait(50);
       cy.get('mat-table mat-row').eq(0).click();
       cy.get('mat-table div.mat-row');
     });
@@ -225,7 +225,7 @@ describe('' +
       cy.api();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
-      cy.scrollTo('top')
+      cy.wait(50);
       cy.get('.mat-sort-header-button').eq(0).contains('ENTE FEDERADO').click().click()
       cy.get('mat-cell').eq(0).contains('Acaraú - CE');
     });
@@ -250,6 +250,7 @@ describe('' +
       cy.api_linha_expansivel();
       cy.visit('http://localhost:4200/');
       cy.get('input').type('{enter}');
+      cy.wait(50);
       cy.get('mat-row').eq(0).click();
 
       cy.get('div.mat-table').should('be.visible');
@@ -269,6 +270,7 @@ describe('' +
       cy.api_linha_expansivel();
       cy.visit('http://localhost:4200/tabela-uf-municipio');
       cy.get('input').type('{enter}');
+      cy.wait(50);
       cy.get('mat-row').eq(0).click();
 
       cy.get('div.mat-table').should('be.visible');

@@ -22,14 +22,40 @@
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
-      <mat-placeholder> Estado
-        <mat-icon>search</mat-icon>
-      </mat-placeholder>
-      <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}" autofocus/>
-    </mat-form-field>
+        <mat-select placeholder="Estados" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}">
+            <mat-option>Todos</mat-option>
+            <mat-option value="AC">Acre</mat-option>
+            <mat-option value="AL">Alagoas</mat-option>
+            <mat-option value="AP">Amapá</mat-option>
+            <mat-option value="AM">Amazonas</mat-option>
+            <mat-option value="BA">Bahia</mat-option>
+            <mat-option value="CE">Ceará</mat-option>
+            <mat-option value="DF">Distrito Federal</mat-option>
+            <mat-option value="ES">Espírito Santo</mat-option>
+            <mat-option value="GO">Goiás</mat-option>
+            <mat-option value="MA">Maranhão</mat-option>
+            <mat-option value="MT">Mato Grosso</mat-option>
+            <mat-option value="MS">Mato Grosso do Sul</mat-option>
+            <mat-option value="MG">Minas Gerais</mat-option>
+            <mat-option value="PA">Pará</mat-option>
+            <mat-option value="PB">Paraíba</mat-option>
+            <mat-option value="PR">Paraná</mat-option>
+            <mat-option value="PE">Pernambuco</mat-option>
+            <mat-option value="PI">Piauí</mat-option>
+            <mat-option value="RJ">Rio de Janeiro</mat-option>
+            <mat-option value="RN">Rio Grande do Norte</mat-option>
+            <mat-option value="RS">Rio Grande do Sul</mat-option>
+            <mat-option value="RO">Rondônia</mat-option>
+            <mat-option value="RR">Roraima</mat-option>
+            <mat-option value="SC">Santa Catarina</mat-option>
+            <mat-option value="SP">São Paulo</mat-option>
+            <mat-option value="SE">Sergipe</mat-option>
+            <mat-option value="TO">Tocantins</mat-option>
+        </mat-select>
+      </mat-form-field>
 
     <mat-form-field class="textCenter">
-      <mat-placeholder> Município
+      <mat-placeholder> Ente Federado
         <mat-icon>search</mat-icon>
       </mat-placeholder>
       <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="termoSimples" [ngModelOptions]="{standalone: true}"

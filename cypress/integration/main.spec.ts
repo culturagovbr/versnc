@@ -23,7 +23,7 @@ describe('' +
     it('Apresenta número de estados aderidos', () => {
       cy.api_count_estados();
       cy.visit('http://localhost:4200/');
-      cy.get('.mat-card').eq(1).contains('24');
+      cy.get('.mat-card').eq(1).contains('25');
     });
 
     it('Apresenta Tabela na Pagina Inicial', () => {

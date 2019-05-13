@@ -81,6 +81,7 @@ export class SlcApiService {
             sigla_estado: '',
             data_adesao: '',
             is_municipio: '',
+            cod_ibge: '',
           };
 
           this.definirPropriedadesEntidade(entidade, element);
@@ -111,6 +112,7 @@ export class SlcApiService {
 
   definirPropriedadesEntidade(entidade, element) { //define as propriedades padrão do Ente Federado
     entidade.id = element.id;
+    entidade.cod_ibge = element._embedded.ente_federado.cod_ibge;
     entidade.nome = element._embedded.ente_federado.nome;
     entidade.sigla_estado = element._embedded.ente_federado.sigla;
     entidade.data_adesao = element.data_adesao;

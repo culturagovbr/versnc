@@ -7,4 +7,5 @@ export class Entidade {
     sigla_estado: string;
     data_adesao: string;
     is_municipio: string;
+    cod_ibge: string;
   }

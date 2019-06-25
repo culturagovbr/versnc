@@ -36,7 +36,8 @@ describe('SlcApiService', () => {
   }));
 
   it('retorna um unico elemento da API', (() => {
-    const response: Entidade = {
+
+      const response: Entidade = {
       acoes_plano_trabalho: null,
       conselho: '',
       data_adesao: undefined,
@@ -49,87 +50,72 @@ describe('SlcApiService', () => {
                          endereco: '',
                          estado: {codigo_ibge: 17, sigla: 'TO'}
                         },
-          telefones: { telefone_um: '', telefone_dois: '', telefone_tres: '' },
-          endereco_eletronico: null },
-      id: 4456,
-      link_entidade: 'http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/4456.json',
-      nome_municipio: 'Divinópolis do Tocantins',
-      sigla_estado: 'TO',
-      situacao_adesao: '',
-    };
+        id: 2757,
+        data_adesao:null,
+        situacao_adesao:"Publicado no DOU",
+        cod_situacao_adesao: "6",
+      }
+    }
 
-    httpClient.get<Entidade>('http://hmg.snc.cultura.gov.br/api/v1/sistemadeculturalocal/')
+    httpClient.get<Entidade>('"http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/2757/?format=json')
       .subscribe(data => expect(data).toEqual(response));
     }));
 
   it('verifica obtenção dos componentes com situação', inject([SlcApiService], (service: SlcApiService) => {
     let response = {
-        "id": 6186,
         "criacao_lei_sistema_cultura": {
-          "lei_sistema_cultura": null,
-          "situacao": "Em preenchimento"
+          arquivo: "http://hmg.snc.cultura.gov.br/media/3846/docs/criacaosistema/pi-smc-antonio-almeida.pdf",
+          cod_situacao: "2",
+          data_envio: "2018-08-17",
+          situacao: "Concluída"
         },
         "criacao_orgao_gestor": {
-          "relatorio_atividade_secretaria": null,
-          "situacao": "Em preenchimento"
+          arquivo: "http://hmg.snc.cultura.gov.br/media/3846/docs/orgaogestor/lei_-_197__2013_-_dispoe_sobre_a_reestruturacao_administrativa_mun_mj3hutC.pdf",
+          cod_situacao: "2",
+          data_envio: "2018-08-17",
+          situacao: "Concluída"
         },
         "criacao_conselho_cultural": {
-          "ata_regimento_aprovado": null,
-          "situacao": "Em preenchimento"
+          arquivo: "http://hmg.snc.cultura.gov.br/media/3846/docs/conselhocultural/decreto_de_nomeacao_dos_conselheiros_de_cultura_XFJ3aCH.pdf",
+          cod_situacao: "2",
+          data_envio: "2018-08-17",
+          situacao: "Concluída",
         },
         "criacao_fundo_cultura": {
-          "cnpj_fundo_cultura": null,
-          "lei_fundo_cultura": null,
-          "situacao": "Em preenchimento"
+          arquivo: "http://hmg.snc.cultura.gov.br/media/3846/docs/fundocultura/decreto_k1b3YvI.pdf",
+          cnpj: "22.945.625/0001-69",
+          cod_situacao: "2",
+          data_envio: "2018-08-17",
+          situacao: "Concluída"
         },
         "criacao_plano_cultura": {
-          "relatorio_diretrizes_aprovadas": null,
-          "minuta_preparada": null,
-          "ata_reuniao_aprovacao_plano": null,
-          "ata_votacao_projeto_lei": null,
-          "lei_plano_cultura": null,
-          "situacao": "Em preenchimento"
+          arquivo: "http://hmg.snc.cultura.gov.br/media/3846/docs/planocultura/antonio_almeida_lei_231-16_aAoH4MK.pdf",
+          cod_situacao: "2",
+          data_envio: "2018-08-17",
+          situacao: "Concluída"
         },
     };
 
     let componentes = service.getComponentes(response);
     expect(componentes.length).toEqual(5);
     for(var i=0; i<componentes.length; i++) {
-      expect(componentes[i].value.situacao).toEqual("Em preenchimento");
+      expect(componentes[i].value.situacao).toEqual("Concluída");
     }
   }));
 
   it('verifica obtenção dos componentes sem situação', inject([SlcApiService], (service: SlcApiService) => {
     let response = {
-        "id": 6061,
-        "criacao_lei_sistema_cultura": null,
-        "criacao_orgao_gestor": null,
-        "criacao_conselho_cultural": null,
-        "criacao_fundo_cultura": null,
-        "criacao_plano_cultura": null,
-        "_embedded": {
-            "sistema_cultura_local": {
-                "_links": {
-                    "self": {
-                        "href": "http://localhost:8000/api/v1/sistemadeculturalocal/4327/?format=json"
-                    }
-                }
-            }
-        }
+      "criacao_lei_sistema_cultura": null,
+      "criacao_orgao_gestor": null,
+      "criacao_conselho_cultural": null,
+      "criacao_fundo_cultura": null,
+      "criacao_plano_cultura": null
     };
 
     let componentes = service.getComponentes(response);
     expect(componentes.length).toEqual(5);
-    for(var i=0; i<componentes.length; i++) {
-      expect(componentes[i].value).toEqual("");
-    }
+    componentes.forEach((componente, key) => {
+        expect(componente.value).toEqual(null);
+    })
   }));
-
-  it('verifica obtenção dos componentes quando a api retorna nulo', inject([SlcApiService], (service: SlcApiService) => {
-    let response = null;
-
-    let componentes = service.getComponentes(response);
-    expect(componentes.length).toEqual(0);
-  }));
-
 });

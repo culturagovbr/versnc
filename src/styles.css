@@ -1,7 +1,7 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 #footer-brasil {
-    background: none repeat scroll 0% 0% #0042b1;
+    background: #004D6E;
     padding: 1em 0px;
     max-width: 100%;
  }

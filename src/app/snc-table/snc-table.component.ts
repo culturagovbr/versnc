@@ -43,10 +43,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private mySubscription: Subscription;
   private pages: number = 0;
   private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  private displayedColumns = ['nome_municipio', 'data_adesao', 'plano_trabalho'];
+  private displayedColumns = ['nome', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
   private tituloEnteFederado: 'ENTE FEDERADO';
-  private listaComponentes = ['Lei Sistema Cultura','Orgão Gestor','Conselho Cultural', 'Fundo Cultura','Plano Cultura'];
+  private listaComponentes = ['Sistema de Cultura','Órgão Gestor','Conselho de Política Cultural', 'Fundo de Cultura','Plano de Cultura'];
 
   constructor(private slcApiService: SlcApiService, private router: Router) {
 
@@ -77,6 +77,21 @@ export class SncTableComponent implements OnInit, OnDestroy {
     this.municipios_aderidos = this.listaRetorno[6];
   }
 
+
+  public ptRangeLabel = (page: number, pageSize: number, length: number) => {
+    if (length == 0 || pageSize == 0) { return `0 de ${length}`; }
+
+    length = Math.max(length, 0);
+
+    const startIndex = page * pageSize;
+    const endIndex = startIndex < length ?
+        Math.min(startIndex + pageSize, length) :
+        startIndex + pageSize;
+
+    return `${startIndex + 1} - ${endIndex} de ${length}`;
+  }
+
+
   ngOnDestroy() {
     if (this.mySubscription)
       this.mySubscription.unsubscribe();
@@ -98,18 +113,10 @@ export class SncTableComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit() {
+    this.paginator._intl.itemsPerPageLabel = "Itens por página:"
+    this.paginator._intl.getRangeLabel = this.ptRangeLabel;
     this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
     this.getEntesFederados();
-  }
-
-  getNomeComponente(componente) {
-      var nomes = componente.split('_');  
-
-      for (var i=1; i<nomes.length; i++) {
-        nomes[i] = nomes[i].charAt(0).toUpperCase() + nomes[i].slice(1);
-      }
-
-      return nomes.slice(1).join(' ');
   }
 
   setAnimationAsDisabled(status: boolean) {

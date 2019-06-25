@@ -6,12 +6,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { BuscaComponent } from './busca.component';
 import { MaterialModule } from '../material/material.module';
 import { SlcApiService } from '../slc-api.service';
-import { AppModule } from '../app.module';
 import { MessageService } from '../message.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { renderTemplate, elementStart } from '@angular/core/src/render3/instructions';
-import { element } from 'protractor';
+
 
 describe('BuscaComponent', () => {
   let component: BuscaComponent;
@@ -41,15 +39,8 @@ describe('BuscaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Verifica se a query de UF  é setada corretamente ao digitar string de tamanho menor que 3', () => {
-    component['termoSimples'] = 'df';
-    component.onRealizarBuscaComEnter(event);
 
-    expect(component['queries']['ente_federado']).toEqual('DF');
-    expect(component['queries']['nome_municipio']).toEqual('');
-  });
-
-  it('Verifica se a query de Municipio é setada corretamente ao digitar string de tamanho maior que 2', () => {
+  it('Verifica se a query de busca está procurando pelo nome do ente federado', () => {
     component['termoSimples'] = 'Brasília';
     component.onRealizarBuscaComEnter(event);
 
@@ -86,14 +77,6 @@ describe('BuscaComponent', () => {
     expect(component['termoSimples']).toBe('pe');
     expect(component['queries']['ente_federado']).toBe('PE');
   }));
-  
-  it('Verifica método que trata a pesquisa pelo nome do Estado por extenso - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
-    component['termoUF'] = 'Distrito Federal';
-    component['seletorTipoBusca'] = true;
-    component.onRealizarBuscaComEnter(event);
-
-    expect(component.queries['nome_uf']).toEqual('Distrito Federal');
-  }));
 
   it('Verifica método que trata a pesquisa pela sigla do Estado - Busca Avançada', inject([SlcApiService], (service: SlcApiService) => {
     component['termoUF'] = 'ba';
@@ -110,20 +93,20 @@ describe('BuscaComponent', () => {
     component['seletorTipoBusca'] = true;
     component.onRealizarBuscaComEnter(event);
   
-    expect(component.params.getAll('situacao_lei_id')[0]).toBe('2');
-    expect(component.params.getAll('situacao_lei_id')[1]).toBe('3');
+    expect(component.params.getAll('situacao_lei_sistema')[0]).toBe('2');
+    expect(component.params.getAll('situacao_lei_sistema')[1]).toBe('3');
 
-    expect(component.params.getAll('situacao_plano_id')[0]).toBe('2');
-    expect(component.params.getAll('situacao_plano_id')[1]).toBe('3');
+    expect(component.params.getAll('situacao_plano_cultura')[0]).toBe('2');
+    expect(component.params.getAll('situacao_plano_cultura')[1]).toBe('3');
 
-    expect(component.params.getAll('situacao_orgao_id')[0]).toBe('2');
-    expect(component.params.getAll('situacao_orgao_id')[1]).toBe('3');
+    expect(component.params.getAll('situacao_orgao_gestor')[0]).toBe('2');
+    expect(component.params.getAll('situacao_orgao_gestor')[1]).toBe('3');
 
-    expect(component.params.getAll('situacao_fundo_id')[0]).toBe('2');
-    expect(component.params.getAll('situacao_fundo_id')[1]).toBe('3');
+    expect(component.params.getAll('situacao_fundo_cultura')[0]).toBe('2');
+    expect(component.params.getAll('situacao_fundo_cultura')[1]).toBe('3');
 
-    expect(component.params.getAll('situacao_conselho_id')[0]).toBe('2');
-    expect(component.params.getAll('situacao_conselho_id')[1]).toBe('3');
+    expect(component.params.getAll('situacao_conselho_cultural')[0]).toBe('2');
+    expect(component.params.getAll('situacao_conselho_cultural')[1]).toBe('3');
     
   }));
 

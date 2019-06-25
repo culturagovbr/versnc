@@ -1,14 +1,9 @@
-FROM mhart/alpine-node:8
+FROM node:8-alpine
 
 WORKDIR /source
 
-RUN npm install yarn
+COPY . /source/
 
-COPY start.sh /source/.
+RUN yarn
 
-COPY package.json /source/.
-
-RUN chmod +x start.sh
-
-CMD /source/start.sh
-
+VOLUME /source/out

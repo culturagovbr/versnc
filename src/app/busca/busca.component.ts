@@ -33,6 +33,16 @@ export class BuscaComponent implements OnInit {
   private data_adesao_max: string = "";
   private filtrarEstados = true;
   private filtrarMunicipios = true;
+  private data_lei_min: string = "";
+  private data_lei_max: string = "";
+  private data_orgao_gestor_min: string = "";
+  private data_orgao_gestor_max: string = "";
+  private data_conselho_min: string = "";
+  private data_conselho_max: string = "";
+  private data_fundo_cultura_min: string = "";
+  private data_fundo_cultura_max: string = "";
+  private data_plano_min: string = "";
+  private data_plano_max: string = "";
   private componentesIds = ['situacao_lei_sistema', 'situacao_plano_cultura', 'situacao_orgao_gestor', 'situacao_fundo_cultura',
     'situacao_conselho_cultural'];
   params: HttpParams;
@@ -50,8 +60,17 @@ export class BuscaComponent implements OnInit {
       'nome_uf': '',
       'estadual': '',
       'municipal': '',
-      'ente_federado': ''
-
+      'ente_federado': '',
+      'data_lei_min': '',
+      'data_lei_max': '',
+      'data_orgao_gestor_min': '',
+      'data_orgao_gestor_max': '',
+      'data_conselho_min': '',
+      'data_conselho_max': '',
+      'data_fundo_cultura_min': '',
+      'data_fundo_cultura_max': '',
+      'data_plano_min': '',
+      'data_plano_max': ''
     };
 
   componentes = [false, false, false, false, false]; // leiSistema, PlanoCultura, OrgaoGestor, Fundocultura, ConselhoCultura
@@ -77,15 +96,20 @@ export class BuscaComponent implements OnInit {
     } else { // BUSCA AVANÇADA
       this.pesquisarEstado(this.termoUF);
       this.queries['ente_federado'] = this.termoSimples;
-      this.queries['data_adesao_min'] = this.getDatePicker(this.data_adesao_min);
-      this.queries['data_adesao_max'] = this.getDatePicker(this.data_adesao_max);
+
+      Object.keys(this).forEach(propertyController => {
+        if (propertyController.includes('data')) {
+          this.queries[propertyController] = this.getDatePicker(this[propertyController]);
+        }
+      });
+
       this.queries['estadual'] = this.filtrarEstados ? 'true' : '';
       this.queries['municipal'] = this.filtrarMunicipios ? 'true' : '';
     }
 
     const PUBLICADOS_NO_DOU = '6'
     this.queries['situacao_adesao'] = PUBLICADOS_NO_DOU
-    
+
     this.params = new HttpParams({ fromObject: this.queries });
   }
 
@@ -127,7 +151,7 @@ export class BuscaComponent implements OnInit {
     }
     else if (datepicker['_i']['date']) {
       var dd = datepicker['_i']['date'];
-      var mm = datepicker['_i']['month']; // objeto tem as posições 0-11 por default 
+      var mm = datepicker['_i']['month']; // objeto tem as posições 0-11 por default
       var yy = datepicker['_i']['year'];
 
       return (dd + '/' + (mm + 1) + '/' + yy);
@@ -139,7 +163,7 @@ export class BuscaComponent implements OnInit {
 
   definirTituloEnteFederado(): Observable<string> { // Define o título da 1a coluna da tabela de acordo com o tipo da Busca
     if ((this.filtrarEstados == true && this.filtrarMunicipios == true) ||
-        (this.filtrarEstados == false && this.filtrarMunicipios == false)) {
+      (this.filtrarEstados == false && this.filtrarMunicipios == false)) {
       return Observable.of('ENTE FEDERADO');
     }
     else if (this.filtrarEstados == true && this.filtrarMunicipios == false) {

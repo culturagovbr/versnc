@@ -102,16 +102,16 @@ export class SncTableComponent implements OnInit, OnDestroy {
     let index = this.slcApiService['paginaAtual'];
 
     this.pages = index * 10; // Number offset que vai para a chamada da API
-    this.listaRetorno[3] = this.pages; 
+    this.listaRetorno[3] = this.pages;
     this.listaRetorno[2] = this.listaRetorno[2].set('offset', this.pages.toString());
     this.slcApiService.carregarPagina(index, this.listaRetorno[2]);
   }
-  
+
   ngAfterViewInit() {
-    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente    
+    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente
     this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
   }
-  
+
   ngOnInit() {
     this.paginator._intl.itemsPerPageLabel = "Itens por página:"
     this.paginator._intl.getRangeLabel = this.ptRangeLabel;

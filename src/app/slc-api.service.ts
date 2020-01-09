@@ -117,6 +117,7 @@ export class SlcApiService {
     entidade.sigla_estado = element._embedded.ente_federado.sigla;
     entidade.data_adesao = element.data_adesao;
     entidade.is_municipio = element._embedded.ente_federado.is_municipio
+    entidade.link_publicacao_acordo = element.link_publicacao_acordo;
 
     entidade.situacao_adesao = element.situacao_adesao ? element.situacao_adesao : '';
     entidade.cod_situacao_adesao = element.cod_situacao_adesao ? element.cod_situacao_adesao : '';

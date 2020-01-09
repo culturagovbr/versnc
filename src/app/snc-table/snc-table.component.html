@@ -10,7 +10,9 @@
 
     <ng-container matColumnDef="data_adesao">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade">
+        <a href="{{entidade.link_publicacao_acordo}}" target="_blank">{{ entidade.data_adesao | date: 'dd/MM/y'}}</a>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="plano_trabalho">

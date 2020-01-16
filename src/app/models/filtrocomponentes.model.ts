@@ -7,12 +7,12 @@ export class FiltroComponentes {
         public conselho: Filtro,
         public adesao: Filtro
     ) {
-        this.lei = new Filtro(),
-        this.fundo_cultura = new Filtro(),
-        this.orgao_gestor = new Filtro(),
-        this.plano = new Filtro(),
-        this.conselho = new Filtro(),
-        this.adesao = new Filtro()
+        this.lei = new Filtro(false),
+        this.fundo_cultura = new Filtro(false),
+        this.orgao_gestor = new Filtro(false),
+        this.plano = new Filtro(false),
+        this.conselho = new Filtro(false),
+        this.adesao = new Filtro(false)
     }
 }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { HttpParams } from '@angular/common/http';
 import { Entidade } from '../models/entidade.model';
-import { FiltroComponentes } from '../models/filtrocomponentes.model';
+import { FiltroComponentes, Filtro } from '../models/filtrocomponentes.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -37,7 +37,14 @@ export class BuscaComponent implements OnInit {
   private data_max: string = "";
   private filtrarEstados = true;
   private filtrarMunicipios = true;
-  private filtro_data: FiltroComponentes = new FiltroComponentes();
+  private filtro_data: FiltroComponentes = new FiltroComponentes(
+    new Filtro(false),
+    new Filtro(false),
+    new Filtro(false),
+    new Filtro(false),
+    new Filtro(false),
+    new Filtro(false)
+    );
   params: HttpParams;
 
   constructor(
@@ -129,7 +136,13 @@ export class BuscaComponent implements OnInit {
       this.queries[query.toString()] = '';
     }
 
-    this.filtro_data = new FiltroComponentes();
+    this.filtro_data = new FiltroComponentes(
+      new Filtro(false),
+      new Filtro(false),
+      new Filtro(false),
+      new Filtro(false),
+      new Filtro(false),
+      new Filtro(false));
   }
  
   pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado

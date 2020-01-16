@@ -12,7 +12,7 @@
       </mat-placeholder>
 
       <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoSimples"
-             [ngModelOptions]="{standalone: true}" (keypress)="onRealizarBuscaComEnter($event)"/>
+        [ngModelOptions]="{standalone: true}" (keypress)="onRealizarBuscaComEnter($event)" />
 
     </mat-form-field>
 
@@ -59,181 +59,82 @@
         <mat-icon>search</mat-icon>
       </mat-placeholder>
       <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="termoSimples"
-             [ngModelOptions]="{standalone: true}" autofocus/>
+        [ngModelOptions]="{standalone: true}" autofocus />
     </mat-form-field>
 
 
     <mat-form-field class="textCenter">
-      <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_adesao_min"
-             [ngModelOptions]="{standalone: true}" placeholder="Adesão a partir da data">
+      <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_min"
+        [ngModelOptions]="{standalone: true}" placeholder="A partir da data">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="textCenter">
-      <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_adesao_max"
-             [ngModelOptions]="{standalone: true}" placeholder="Adesão até a data">
+      <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_max"
+        [ngModelOptions]="{standalone: true}" placeholder="Até a data">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
 
     <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>
 
-    <div fxLayout="row" style="padding-left: 5%" fxLayoutAlign="space-between start">
-      <div class="labelColor"><b>Filtrar por tipo de busca:</b></div>
-    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+        <mat-checkbox class="primary" [(ngModel)]="filtrarEstados" color="primary"
+          [ngModelOptions]="{standalone: true}">
+          <span class="checkbox">Estados</span>
+        </mat-checkbox>
+        <mat-checkbox class="primary" [(ngModel)]="filtrarMunicipios" color="primary"
+          [ngModelOptions]="{standalone: true}">
+          <span class="checkbox">Municípios</span>
+        </mat-checkbox>
 
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <mat-checkbox class="primary" [(ngModel)]="filtrarEstados" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Estados</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="filtrarMunicipios" color="primary"
-                    [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Municípios</span>
-      </mat-checkbox>
-    </div>
+      </div>
+      
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <!-- COMPONENTES -->
 
-    <div fxLayout="row" style="padding-left: 5%" fxLayoutAlign="space-between start">
-      <div class="labelColor"><b>Filtrar componentes concluídos:</b></div>
-    </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.lei.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Lei Sistema</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.plano.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Plano Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.orgao_gestor.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Órgão Gestor</span>
+          </mat-checkbox>
+        </div>
 
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <mat-checkbox class="primary" [(ngModel)]="componentes[0]" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Lei Sistema</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="componentes[1]" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Plano Cultura</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="componentes[2]" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Órgão Gestor</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="componentes[3]" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Fundo Cultura</span>
-      </mat-checkbox>
-      <mat-checkbox class="primary" [(ngModel)]="componentes[4]" color="primary" [ngModelOptions]="{standalone: true}">
-        <span class="checkbox">Conselho Cultura</span>
-      </mat-checkbox>
-    </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Fundo Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Conselho Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.adesao.filtrar" color="primary"
+            [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Adesão</span>
+          </mat-checkbox>
+        </div>
 
-    <div fxLayout="row" style="padding-left: 5%" fxLayoutAlign="space-between start">
-      <div class="labelColor"><b>Filtrar data de inserção dos componentes:</b></div>
-    </div>
+      </div>
 
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <div fxFlexAlign="center" class="labelColor">Conselho Cultura</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_conselho_min_picker" [(ngModel)]="data_conselho_min"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_conselho_min_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_conselho_min_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div fxFlexAlign="center" class="labelColor">até</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_conselho_max_picker" [(ngModel)]="data_conselho_max"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_conselho_max_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_conselho_max_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
     </div>
-
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <div fxFlexAlign="center" class="labelColor">Lei do sistema</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_lei_min_picker" [(ngModel)]="data_lei_min"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_lei_min_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_lei_min_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div fxFlexAlign="center" class="labelColor">até</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_lei_max_picker" [(ngModel)]="data_lei_max"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_lei_max_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_lei_max_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <div fxFlexAlign="center" class="labelColor">Plano cultura</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_plano_min_picker" [(ngModel)]="data_plano_min"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_plano_min_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_plano_min_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div fxFlexAlign="center" class="labelColor">até</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_plano_max_picker" [(ngModel)]="data_plano_max"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_plano_max_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_plano_max_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <div fxFlexAlign="center" class="labelColor">Órgão gestor</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_orgao_gestor_min_picker" [(ngModel)]="data_orgao_gestor_min"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_orgao_gestor_min_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_orgao_gestor_min_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div fxFlexAlign="center" class="labelColor">até</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_orgao_gestor_max_picker" [(ngModel)]="data_orgao_gestor_max"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_orgao_gestor_max_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_orgao_gestor_max_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-      <div fxFlexAlign="center" class="labelColor">Fundo cultura</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_fundo_cultura_min_picker" [(ngModel)]="data_fundo_cultura_min"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_fundo_cultura_min_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_fundo_cultura_min_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div fxFlexAlign="center" class="labelColor">até</div>
-      <div>
-        <mat-form-field class="textCenter">
-          <input #searchBox matInput [matDatepicker]="data_fundo_cultura_max_picker" [(ngModel)]="data_fundo_cultura_max"
-                 [ngModelOptions]="{standalone: true}">
-          <mat-datepicker-toggle matSuffix [for]="data_fundo_cultura_max_picker"></mat-datepicker-toggle>
-          <mat-datepicker #data_fundo_cultura_max_picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </div>
-
   </form>
 
-  <div class="alinhamento">
-    <button *ngIf="!seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = true">
-      <span class="material-icons">keyboard_arrow_down</span>{{ seletorTipoBusca ? false : 'Abrir Filtros'}}
-    </button>
-    <button *ngIf="seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = false">
-      <span class="material-icons">keyboard_arrow_up</span> Fechar Filtros
-    </button>
-  </div>
-
+  <button *ngIf="!seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = true">
+    <span class="material-icons">keyboard_arrow_down</span>{{ seletorTipoBusca ? false : 'Abrir Filtros'}}
+  </button>
+  <button *ngIf="seletorTipoBusca" id="trocaBusca" mat-button class="alinhamento" (click)="seletorTipoBusca = false">
+    <span class="material-icons">keyboard_arrow_up</span> Fechar Filtros
+  </button>
 
 </div>

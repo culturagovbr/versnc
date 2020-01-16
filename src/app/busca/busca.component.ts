@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { HttpParams } from '@angular/common/http';
 import { Entidade } from '../models/entidade.model';
+import { FiltroComponentes } from '../models/filtrocomponentes.model';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -29,22 +30,11 @@ export class BuscaComponent implements OnInit {
   private termoSimples: string = '';
   private termoUF: string = '';
   private page: number = 0;
-  private data_adesao_min: string = "";
-  private data_adesao_max: string = "";
+  private data_min: string = "";
+  private data_max: string = "";
   private filtrarEstados = true;
   private filtrarMunicipios = true;
-  private data_lei_min: string = "";
-  private data_lei_max: string = "";
-  private data_orgao_gestor_min: string = "";
-  private data_orgao_gestor_max: string = "";
-  private data_conselho_min: string = "";
-  private data_conselho_max: string = "";
-  private data_fundo_cultura_min: string = "";
-  private data_fundo_cultura_max: string = "";
-  private data_plano_min: string = "";
-  private data_plano_max: string = "";
-  private componentesIds = ['situacao_lei_sistema', 'situacao_plano_cultura', 'situacao_orgao_gestor', 'situacao_fundo_cultura',
-    'situacao_conselho_cultural'];
+  private filtro_data: FiltroComponentes = new FiltroComponentes();
   params: HttpParams;
 
   constructor(private slcApiService: SlcApiService, private table: SncTableComponent) {
@@ -55,25 +45,12 @@ export class BuscaComponent implements OnInit {
       'limit': '',
       'offset': '',
       'estado_sigla': '',
-      'data_adesao_min': '',
-      'data_adesao_max': '',
       'nome_uf': '',
       'estadual': '',
       'municipal': '',
       'ente_federado': '',
-      'data_lei_min': '',
-      'data_lei_max': '',
-      'data_orgao_gestor_min': '',
-      'data_orgao_gestor_max': '',
-      'data_conselho_min': '',
-      'data_conselho_max': '',
-      'data_fundo_cultura_min': '',
-      'data_fundo_cultura_max': '',
-      'data_plano_min': '',
-      'data_plano_max': ''
     };
 
-  componentes = [false, false, false, false, false]; // leiSistema, PlanoCultura, OrgaoGestor, Fundocultura, ConselhoCultura
 
   ngOnInit(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
@@ -97,12 +74,6 @@ export class BuscaComponent implements OnInit {
       this.pesquisarEstado(this.termoUF);
       this.queries['ente_federado'] = this.termoSimples;
 
-      Object.keys(this).forEach(propertyController => {
-        if (propertyController.includes('data')) {
-          this.queries[propertyController] = this.getDatePicker(this[propertyController]);
-        }
-      });
-
       this.queries['estadual'] = this.filtrarEstados ? 'true' : '';
       this.queries['municipal'] = this.filtrarMunicipios ? 'true' : '';
     }
@@ -114,14 +85,24 @@ export class BuscaComponent implements OnInit {
   }
 
   filtraComponentes() {
-    const STATUS_CONCLUIDO = '2';
-    const STATUS_APROVADO_COM_RESSALVAS = '3';
-    for (var i = 0; i < this.componentes.length; i++) {
-      if (this.componentes[i]) {
-        this.params = this.params.append(this.componentesIds[i], STATUS_CONCLUIDO);
-        this.params = this.params.append(this.componentesIds[i], STATUS_APROVADO_COM_RESSALVAS);
+    Object.keys(this.filtro_data).forEach((dataFiltro, index) => {
+      if (this.filtro_data[dataFiltro].filtrar) {
+        this.params = this.params.append(
+          this.parseDatePropertyName(dataFiltro, 'min'), 
+          this.getDatePicker(this.data_min)
+        );
+
+        this.params = this.params.append(
+          this.parseDatePropertyName(dataFiltro, 'max'),
+          this.getDatePicker(this.data_max)
+        );
       }
-    }
+    });
+
+  }
+
+  parseDatePropertyName(propertyName: string, suffixType: string): string {
+    return `data_${propertyName}_${suffixType}`;
   }
 
   onRealizarBusca() {
@@ -136,11 +117,9 @@ export class BuscaComponent implements OnInit {
       this.queries[query.toString()] = '';
     }
 
-    for (var comp in this.componentes) {
-      this.componentes[comp] = false;
-    }
+    this.filtro_data = new FiltroComponentes();
   }
-
+ 
   pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado
     this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
   }

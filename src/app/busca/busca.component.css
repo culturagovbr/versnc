@@ -1,10 +1,13 @@
 .fit{
-    margin-bottom: 2%
+    max-height: 315px;
+    min-height: 250px;
+    min-width: 500px;
 }
 .alinhamento{
-    margin: auto;
-    width: 50%;
+    width: 60%;
+    max-width: 60%;
     text-align:center;
+    margin-left: 20%;
 }
 
 .card-busca {
@@ -38,6 +41,7 @@
     font-style: normal;
     font-weight: normal;
     line-height: normal;
+    text-transform: capitalize;
     color: #828282;
     padding: 8px;
 }
@@ -72,10 +76,6 @@ section {
     width: 50%;
 }
 
-.labelColor {
-    color: rgba(0,0,0,.54);
-}
-
 @media (max-width: 580px) {
     form {
         width: 100%;
@@ -96,4 +96,3 @@ section {
         max-width: 62%;
     }
 }
-

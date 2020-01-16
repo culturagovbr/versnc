@@ -17,8 +17,11 @@
     </mat-form-field>
 
     <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>
-
-  </form>
+    <button mat-raised-button [matMenuTriggerFor]="exportacao">EXPORTAR</button>
+    <mat-menu #exportacao="matMenu">
+      <button (click)="exportar('xls')" mat-menu-item>XLS</button>
+      <button (click)="exportar('ods')" mat-menu-item>ODS</button>
+    </mat-menu>  </form>
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
@@ -78,6 +81,11 @@
     </mat-form-field>
 
     <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>
+    <button mat-raised-button [matMenuTriggerFor]="exportacaoAvancado">EXPORTAR</button>
+    <mat-menu #exportacaoAvancado="matMenu">
+      <button (click)="exportar('xls')" mat-menu-item>XLS</button>
+      <button (click)="exportar('ods')" mat-menu-item>ODS</button>
+    </mat-menu>
 
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <div fxLayout="column" fxLayoutAlign="space-between start">

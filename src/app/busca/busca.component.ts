@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { SncTableComponent } from '../snc-table/snc-table.component';
+import { Router } from '@angular/router';
+import { environment } from './../../environments/environment';
 
 import { SlcApiService } from '../slc-api.service';
 import { Observable } from 'rxjs/Observable';
@@ -24,6 +26,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class BuscaComponent implements OnInit {
 
+  private API_URL = environment.API_URL;
   private listaRetorno = {};
   private listaEntidades: [Entidade];
   private seletorTipoBusca: boolean = false;
@@ -37,7 +40,10 @@ export class BuscaComponent implements OnInit {
   private filtro_data: FiltroComponentes = new FiltroComponentes();
   params: HttpParams;
 
-  constructor(private slcApiService: SlcApiService, private table: SncTableComponent) {
+  constructor(
+    private slcApiService: SlcApiService,
+    private table: SncTableComponent,
+    private router: Router) {
   }
 
   queries: { [query: string]: string }
@@ -63,6 +69,12 @@ export class BuscaComponent implements OnInit {
       this.filtraComponentes();
       this.onRealizarBusca();
     }
+  }
+  
+  exportar(tipoExportacao) {
+      this.definirTipoDeBusca(this.seletorTipoBusca);
+      this.filtraComponentes();
+      window.open(`${this.API_URL}?` + this.params.toString() + `&format=${tipoExportacao}`, '_blank');
   }
 
   definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA

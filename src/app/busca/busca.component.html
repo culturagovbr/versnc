@@ -26,7 +26,7 @@
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
       <mat-select placeholder="Estados" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}">
-        <mat-option>Todos</mat-option>
+        <mat-option value="">Todos</mat-option>
         <mat-option value="AC">Acre</mat-option>
         <mat-option value="AL">Alagoas</mat-option>
         <mat-option value="AP">Amapá</mat-option>
@@ -99,7 +99,7 @@
         </mat-checkbox>
 
       </div>
-      
+
       <div fxLayout="row" fxLayoutAlign="space-between start">
         <!-- COMPONENTES -->
 

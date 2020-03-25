@@ -83,7 +83,7 @@
                   Documento não enviado</p>
               </div>
             </div>
-            <div *ngIf="item.key == 'criacao_plano_metas'; else dataPublicacao" class="mat-cell data-componente">
+            <div *ngIf="(item.key == 'criacao_plano_metas')||(item.key == 'criacao_fundo_cultura_cnpj'); else dataPublicacao" class="mat-cell data-componente">
               {{item?.value?.data_envio | date: 'dd/MM/yyyy'}}
             </div>
             <ng-template #dataPublicacao >

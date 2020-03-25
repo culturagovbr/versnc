@@ -17,8 +17,18 @@
     color: rgb(43, 144, 135);
     font-weight: bold;
 }
+
 .mat-cell{
     color: rgba(0, 0, 0, 0.65);
+}
+
+.center{
+  text-align:center;
+}
+.data-componente{
+  color: rgb(43, 144, 135);
+  text-align:center;
+  font-weight: bold;
 }
 
 

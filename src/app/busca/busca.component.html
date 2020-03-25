@@ -89,6 +89,8 @@
     </mat-menu>
 
     <div fxLayout="row" fxLayoutAlign="space-around center">
+
+      <div class="labelFiltros">Tipo de Ente</div>
       <div fxLayout="column" fxLayoutAlign="space-between start">
         <mat-checkbox class="primary" [(ngModel)]="filtrarEstados" color="primary"
                       [ngModelOptions]="{standalone: true}">
@@ -105,7 +107,7 @@
         <!-- COMPONENTES -->
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
-
+          <div class="labelFiltros">Adesão</div>
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.adesao.filtrar" color="primary"
                         [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Adesão</span>
@@ -113,6 +115,7 @@
         </div>
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
+          <div class="labelFiltros">Institucionalização</div>
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.lei.filtrar" color="primary"
                         [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Lei Sistema</span>
@@ -136,6 +139,7 @@
         </div>
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
+          <div class="labelFiltros">Implementação</div>
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura_cnpj.filtrar" color="primary"
                         [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Fundo Cultura - CNPJ</span>

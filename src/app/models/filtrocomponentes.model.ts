@@ -2,6 +2,7 @@ export class FiltroComponentes {
   constructor(
     public lei: Filtro,
     public fundo_cultura: Filtro,
+    public fundo_cultura_cnpj: Filtro,
     public orgao_gestor: Filtro,
     public plano: Filtro,
     public plano_meta: Filtro,
@@ -11,6 +12,7 @@ export class FiltroComponentes {
   ) {
     this.lei = new Filtro(false),
       this.fundo_cultura = new Filtro(false),
+      this.fundo_cultura_cnpj = new Filtro(false),
       this.orgao_gestor = new Filtro(false),
       this.plano = new Filtro(false),
       this.plano_meta = new Filtro(false),

@@ -45,6 +45,7 @@ export class BuscaComponent implements OnInit {
     new Filtro(false),
     new Filtro(false),
     new Filtro(false),
+    new Filtro(false),
     new Filtro(false)
     );
   params: HttpParams;
@@ -139,6 +140,7 @@ export class BuscaComponent implements OnInit {
     }
 
     this.filtro_data = new FiltroComponentes(
+      new Filtro(false),
       new Filtro(false),
       new Filtro(false),
       new Filtro(false),

@@ -88,10 +88,11 @@
       <button (click)="exportar('ods')" mat-menu-item>ODS</button>
     </mat-menu>
 
-    <div fxLayout="row" fxLayoutAlign="space-around center">
 
-      <div class="labelFiltros">Tipo de Ente</div>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+
       <div fxLayout="column" fxLayoutAlign="space-between start">
+        <div class="labelFiltros">Tipo de Ente</div>
         <mat-checkbox class="primary" [(ngModel)]="filtrarEstados" color="primary"
                       [ngModelOptions]="{standalone: true}">
           <span class="checkbox">Estados</span>
@@ -103,7 +104,6 @@
 
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-between start">
         <!-- COMPONENTES -->
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
@@ -154,7 +154,6 @@
           </mat-checkbox>
         </div>
 
-      </div>
 
     </div>
   </form>

@@ -43,6 +43,8 @@ export class BuscaComponent implements OnInit {
     new Filtro(false),
     new Filtro(false),
     new Filtro(false),
+    new Filtro(false),
+    new Filtro(false),
     new Filtro(false)
     );
   params: HttpParams;
@@ -77,7 +79,7 @@ export class BuscaComponent implements OnInit {
       this.onRealizarBusca();
     }
   }
-  
+
   exportar(tipoExportacao) {
       this.definirTipoDeBusca(this.seletorTipoBusca);
       this.filtraComponentes();
@@ -107,7 +109,7 @@ export class BuscaComponent implements OnInit {
     Object.keys(this.filtro_data).forEach((dataFiltro, index) => {
       if (this.filtro_data[dataFiltro].filtrar) {
         this.params = this.params.append(
-          this.parseDatePropertyName(dataFiltro, 'min'), 
+          this.parseDatePropertyName(dataFiltro, 'min'),
           this.getDatePicker(this.data_min)
         );
 
@@ -142,9 +144,11 @@ export class BuscaComponent implements OnInit {
       new Filtro(false),
       new Filtro(false),
       new Filtro(false),
+      new Filtro(false),
+      new Filtro(false),
       new Filtro(false));
   }
- 
+
   pesquisarEstado(nome_uf) { // Recebe um termo relacionado ao estado- Pesquisa na sigla ou nome do estado
     this.queries['estado_sigla'] = nome_uf.length == 2 ? nome_uf.toUpperCase() : '';
   }

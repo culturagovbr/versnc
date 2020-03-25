@@ -104,6 +104,14 @@
         <!-- COMPONENTES -->
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
+
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.adesao.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Adesão</span>
+          </mat-checkbox>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-between start">
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.lei.filtrar" color="primary"
             [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Lei Sistema</span>
@@ -116,21 +124,27 @@
             [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Órgão Gestor</span>
           </mat-checkbox>
+
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho_lei.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Conselho Cultura - Lei</span>
+          </mat-checkbox>
         </div>
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura.filtrar" color="primary"
             [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Fundo Cultura</span>
+            <span class="checkbox">Fundo Cultura - CNPJ</span>
           </mat-checkbox>
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho.filtrar" color="primary"
             [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Conselho Cultura</span>
+            <span class="checkbox">Conselho Cultura - Ata</span>
           </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.adesao.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Adesão</span>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.plano_meta.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Plano de Cultura - Metas</span>
           </mat-checkbox>
+
         </div>
 
       </div>

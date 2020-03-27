@@ -19,6 +19,7 @@ export class DetalheComponent implements OnInit {
 
 
     this.entidade = this.ente.getEnte();
+    console.log(this.entidade)
 
   }
 

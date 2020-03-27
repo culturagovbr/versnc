@@ -12,7 +12,7 @@
       </mat-placeholder>
 
       <input #searchBox matInput type="search" id="search-box" [(ngModel)]="termoSimples"
-        [ngModelOptions]="{standalone: true}" (keypress)="onRealizarBuscaComEnter($event)" />
+             [ngModelOptions]="{standalone: true}" (keypress)="onRealizarBuscaComEnter($event)"/>
 
     </mat-form-field>
 
@@ -21,12 +21,13 @@
     <mat-menu #exportacao="matMenu">
       <button (click)="exportar('xls')" mat-menu-item>XLS</button>
       <button (click)="exportar('ods')" mat-menu-item>ODS</button>
-    </mat-menu>  </form>
+    </mat-menu>
+  </form>
 
   <form *ngIf="seletorTipoBusca == true" class="alinhamento card-busca" (keypress)="onRealizarBuscaComEnter($event)">
     <mat-form-field class="textCenter">
       <mat-select placeholder="Estados" [(ngModel)]="termoUF" [ngModelOptions]="{standalone: true}">
-        <mat-option>Todos</mat-option>
+        <mat-option value="">Todos</mat-option>
         <mat-option value="AC">Acre</mat-option>
         <mat-option value="AL">Alagoas</mat-option>
         <mat-option value="AP">Amapá</mat-option>
@@ -62,20 +63,20 @@
         <mat-icon>search</mat-icon>
       </mat-placeholder>
       <input #searchBox matInput type="text" date="true" id="search-box" [(ngModel)]="termoSimples"
-        [ngModelOptions]="{standalone: true}" autofocus />
+             [ngModelOptions]="{standalone: true}" autofocus/>
     </mat-form-field>
 
 
     <mat-form-field class="textCenter">
       <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_min"
-        [ngModelOptions]="{standalone: true}" placeholder="A partir da data">
+             [ngModelOptions]="{standalone: true}" placeholder="A partir da data">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="textCenter">
       <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_max"
-        [ngModelOptions]="{standalone: true}" placeholder="Até a data">
+             [ngModelOptions]="{standalone: true}" placeholder="Até a data">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
@@ -87,53 +88,72 @@
       <button (click)="exportar('ods')" mat-menu-item>ODS</button>
     </mat-menu>
 
-    <div fxLayout="row" fxLayoutAlign="space-around center">
+
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+
       <div fxLayout="column" fxLayoutAlign="space-between start">
+        <div class="labelFiltros">Tipo de Ente</div>
         <mat-checkbox class="primary" [(ngModel)]="filtrarEstados" color="primary"
-          [ngModelOptions]="{standalone: true}">
+                      [ngModelOptions]="{standalone: true}">
           <span class="checkbox">Estados</span>
         </mat-checkbox>
         <mat-checkbox class="primary" [(ngModel)]="filtrarMunicipios" color="primary"
-          [ngModelOptions]="{standalone: true}">
+                      [ngModelOptions]="{standalone: true}">
           <span class="checkbox">Municípios</span>
         </mat-checkbox>
 
       </div>
-      
-      <div fxLayout="row" fxLayoutAlign="space-between start">
+
         <!-- COMPONENTES -->
 
         <div fxLayout="column" fxLayoutAlign="space-between start">
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.lei.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Lei Sistema</span>
-          </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.plano.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Plano Cultura</span>
-          </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.orgao_gestor.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Órgão Gestor</span>
-          </mat-checkbox>
-        </div>
-
-        <div fxLayout="column" fxLayoutAlign="space-between start">
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Fundo Cultura</span>
-          </mat-checkbox>
-          <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
-            <span class="checkbox">Conselho Cultura</span>
-          </mat-checkbox>
+          <div class="labelFiltros">Adesão</div>
           <mat-checkbox class="primary" [(ngModel)]="filtro_data.adesao.filtrar" color="primary"
-            [ngModelOptions]="{standalone: true}">
+                        [ngModelOptions]="{standalone: true}">
             <span class="checkbox">Adesão</span>
           </mat-checkbox>
         </div>
 
-      </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <div class="labelFiltros">Institucionalização</div>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.lei.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Lei Sistema</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.plano.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Plano Cultura</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.orgao_gestor.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Órgão Gestor</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Fundo Cultura - Lei</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho_lei.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Conselho Cultura - Lei</span>
+          </mat-checkbox>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <div class="labelFiltros">Implementação</div>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.fundo_cultura_cnpj.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Fundo Cultura - CNPJ</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.conselho.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Conselho Cultura - Ata</span>
+          </mat-checkbox>
+          <mat-checkbox class="primary" [(ngModel)]="filtro_data.plano_meta.filtrar" color="primary"
+                        [ngModelOptions]="{standalone: true}">
+            <span class="checkbox">Plano de Cultura - Metas</span>
+          </mat-checkbox>
+        </div>
+
 
     </div>
   </form>

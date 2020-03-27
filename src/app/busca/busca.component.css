@@ -1,5 +1,5 @@
 .fit{
-    max-height: 315px;
+    max-height: 390px;
     min-height: 250px;
     min-width: 500px;
 }
@@ -22,7 +22,13 @@
 }
 
 .textCenter{
-    text-align: center
+  text-align: center;
+}
+
+.labelFiltros{
+  color: #828282;
+  width: 100%;
+  text-align: center;
 }
 
 .busca h4 {

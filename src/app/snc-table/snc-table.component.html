@@ -94,11 +94,16 @@
 
           </div>
         </div>
-        <div class='mat-row mat-cell'>
-          <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.cod_ibge}}" class="detalhe-municipio" target="_blank">
-            Clique aqui para ver mais informações sobre este ente
-          </a>
-        </div>
+      <div class='mat-row mat-cell'>
+        <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.cod_ibge}}" class="detalhe-municipio" target="_blank">
+          Clique aqui para ver mais informações sobre este ente
+        </a>
+      </div>
+      <div class='mat-row mat-cell'>
+<!--        <a routerLink="/detalhe/{{entidade.cod_ibge}}" (click)="updateEnte(entidade.cod_ibge)" class="detalhe-municipio" routerLinkActive="active">Detalhe</a>-->
+        <button (click)="updateEnte(entidade)">Detalhes</button>
+      </div>
+
     </div>
   </ng-template>
 

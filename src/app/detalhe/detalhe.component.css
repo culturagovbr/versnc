@@ -1,6 +1,42 @@
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+
+.mat-raised-button {
+  background-color: #2B9087;
+  color: white;
+  margin: 8px;
+}
+
 .detalhe-municipio{
   color: #0006;
 }
+hr {
+  display: block;
+  height: 1px;
+  min-width: 10px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.mat-cell > img{
+  width: 100%;
+}
+
+.destaque h4 {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 36px;
+  color: #2B9087;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
 #tabela{
   padding-bottom: 100px;
   padding-left: 80px;
@@ -12,6 +48,10 @@
 
 .label{
   color: #828282;
+  display: flex;
+  align-items: center;
+  padding: 10px 24px 0 24px;
+  box-sizing: border-box;
 }
 
 .mat-table, .mat-paginator{
@@ -35,6 +75,12 @@
   color: rgb(43, 144, 135);
   text-align:center;
   font-weight: bold;
+  min-height: 40px;
+  border-bottom-style: none;  
+}
+
+.no-border {
+  border-bottom-style: none;
 }
 
 
@@ -131,6 +177,15 @@ div.mat-table {
   background-color: white;
   margin: 2%;
 }
+
+div .row-detalhe{
+  display: flex;
+  line-height: 20px;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
 
 .componentes {
   font-size: 14px;

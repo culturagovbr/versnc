@@ -119,6 +119,12 @@ export class SlcApiService {
     entidade.is_municipio = element._embedded.ente_federado.is_municipio;
     entidade.link_publicacao_acordo = element.link_publicacao_acordo;
 
+    entidade.situacao_adesao = element._embedded.situacao_adesao;
+
+    entidade.cnpj = element._embedded.sede? element._embedded.sede.localizacao.cnpj : '-';
+    entidade.localizacao = element._embedded.sede? element._embedded.sede.localizacao : '-';
+    entidade.email = element._embedded.sede? element._embedded.sede.endereco_eletronico : '-';
+    entidade.telefone = element._embedded.sede? element._embedded.sede.telefones.telefone_um : '-';
 
     entidade.pib = element._embedded.ente_federado.pib;
     entidade.idh = element._embedded.ente_federado.idh;

@@ -12,6 +12,13 @@
     background-color: #F2F2F2;
 }
 
+
+.mat-raised-button {
+    background-color: #2B9087;
+    color: white;
+    margin: 8px;
+}
+
 .mat-header-cell{
     font-size: 16px;
     color: rgb(43, 144, 135);

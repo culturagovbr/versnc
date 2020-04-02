@@ -12,8 +12,6 @@ import { MatIconModule, MatIconRegistry } from '@angular/material';
   styleUrls: ['./detalhe.component.css'],
 })
 export class DetalheComponent implements OnInit {
-  private teste = "oi";
-  private id = 0;
   private entidade = {};
   constructor(private ente: EnteService, private router: Router) { }
 

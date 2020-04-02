@@ -187,24 +187,24 @@
                 <div class="mat-row  no-border "  fxLayoutAlign="space-around center">
 
                   <div   class="mat-cell  no-border   ">
-                    <img *ngIf="true"  src="./assets/adesao_concluida.png">
-                    <img *ngIf="false"  src="./assets/adesao.png">
+                    <img *ngIf="entidade.adesao_concluida" matTooltip="Adesão Concluída" src="./assets/adesao_concluida.png">
+                    <img *ngIf="!entidade.adesao_concluida" matTooltip="Adesão Pendente"  src="./assets/adesao.png">
                   </div>
                   <div class="mat-cell  no-border   ">
                    <hr />
                   </div>
                   
                   <div class="mat-cell  no-border ">
-                    <img *ngIf="true"  src="./assets/institucionalizacao_concluida.png">
-                    <img *ngIf="false"  src="./assets/institucionalizacao.png">
+                    <img *ngIf="entidade.institucionalizacao_concluida" matTooltip="Institucionalização Concluída"  src="./assets/institucionalizacao_concluida.png">
+                    <img *ngIf="!entidade.institucionalizacao_concluida" matTooltip="Institucionalização Pendente" src="./assets/institucionalizacao.png">
                   </div>
 
                   <div class="mat-cell  no-border   ">
                     <hr />
                    </div>
                   <div class="mat-cell  no-border ">
-                    <img *ngIf="true"  src="./assets/implementacao_concluida.png">
-                    <img *ngIf="false"  src="./assets/implementacao.png">
+                    <img *ngIf="entidade.implementacao_concluida" matTooltip="Implementação Concluída" src="./assets/implementacao_concluida.png">
+                    <img *ngIf="!entidade.implementacao_concluida" matTooltip="Implementação Pendente" src="./assets/implementacao.png">
                   </div>
                 </div>
               </div>

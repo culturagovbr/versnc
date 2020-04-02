@@ -97,7 +97,7 @@ export class SlcApiService {
     this.searchFilter(queries).subscribe(
       resposta => {
         this.trocaBusca([resposta['count'], resposta['entesFederados'], queries, index,
-                        resposta['count_estados'], resposta['estados_aderidos'], resposta['municipios_aderidos']]);
+        resposta['count_estados'], resposta['estados_aderidos'], resposta['municipios_aderidos']]);
         this.router.navigate(['/tabela-uf-municipio']);
       });
   }
@@ -121,10 +121,10 @@ export class SlcApiService {
 
     entidade.situacao_adesao = element._embedded.situacao_adesao;
 
-    entidade.cnpj = element._embedded.sede? element._embedded.sede.localizacao.cnpj : '-';
-    entidade.localizacao = element._embedded.sede? element._embedded.sede.localizacao : '-';
-    entidade.email = element._embedded.sede? element._embedded.sede.endereco_eletronico : '-';
-    entidade.telefone = element._embedded.sede? element._embedded.sede.telefones.telefone_um : '-';
+    entidade.cnpj = element._embedded.sede ? element._embedded.sede.localizacao.cnpj : '-';
+    entidade.localizacao = element._embedded.sede ? element._embedded.sede.localizacao : '-';
+    entidade.email = element._embedded.sede ? element._embedded.sede.endereco_eletronico : '-';
+    entidade.telefone = element._embedded.sede ? element._embedded.sede.telefones.telefone_um : '-';
 
     entidade.pib = element._embedded.ente_federado.pib;
     entidade.idh = element._embedded.ente_federado.idh;
@@ -137,9 +137,44 @@ export class SlcApiService {
     entidade.situacao_adesao = element.situacao_adesao ? element.situacao_adesao : '';
     entidade.cod_situacao_adesao = element.cod_situacao_adesao ? element.cod_situacao_adesao : '';
 
+    let institucionalizacao, implementacao, adesao;
+    institucionalizacao = implementacao = adesao = false;
+
+
+    adesao = (entidade.cod_situacao_adesao == 6); //Publicado no DOU
+
     if (element.acoes_plano_trabalho) {
       let componentes = element.acoes_plano_trabalho._embedded;
       entidade.acoes_plano_trabalho = this.getComponentes(componentes);
+      //Institucionalização
+      let lei_sistema = componentes['criacao_lei_sistema'] && componentes['criacao_lei_sistema']['cod_situacao'] ? componentes['criacao_lei_sistema']['cod_situacao'] : -1;
+      let orgao_gestor = componentes['criacao_orgao_gestor'] && componentes['criacao_orgao_gestor']['cod_situacao'] ? componentes['criacao_orgao_gestor']['cod_situacao'] : -1;
+      let plano_cultura = componentes['criacao_plano_cultura'] && componentes['criacao_plano_cultura']['cod_situacao'] ? componentes['criacao_plano_cultura']['cod_situacao'] : -1;
+      let fundo_cultura = componentes['criacao_fundo_cultura'] && componentes['criacao_fundo_cultura']['cod_situacao'] ? componentes['criacao_fundo_cultura']['cod_situacao'] : -1;
+      let conselho_cultural_lei = componentes['criacao_conselho_cultural_lei'] && componentes['criacao_conselho_cultural_lei']['cod_situacao'] ? componentes['criacao_conselho_cultural_lei']['cod_situacao'] : -1;
+      const concluidoOuAprovadoRessalvas = [2, 3]
+      institucionalizacao = (lei_sistema in concluidoOuAprovadoRessalvas &&
+        orgao_gestor in concluidoOuAprovadoRessalvas &&
+        plano_cultura in concluidoOuAprovadoRessalvas &&
+        fundo_cultura in concluidoOuAprovadoRessalvas &&
+        conselho_cultural_lei in concluidoOuAprovadoRessalvas
+      );
+
+      //implementação
+      let conselho_cultural_ata = componentes['criacao_conselho_cultural_ata'] && componentes['criacao_conselho_cultural_ata']['cod_situacao'] ? componentes['criacao_conselho_cultural_ata']['cod_situacao'] : -1;
+      let fundo_cultura_cnpj = componentes['criacao_fundo_cultura_cnpj'] && componentes['criacao_fundo_cultura_cnpj']['cod_situacao'] ? componentes['criacao_fundo_cultura_cnpj']['cod_situacao'] : -1;
+      let plano_metas = componentes['criacao_plano_metas'] && componentes['criacao_plano_metas']['cod_situacao'] ? componentes['criacao_plano_metas']['cod_situacao'] : -1;
+
+      implementacao = (conselho_cultural_ata in concluidoOuAprovadoRessalvas &&
+        fundo_cultura_cnpj in concluidoOuAprovadoRessalvas &&
+        plano_metas in concluidoOuAprovadoRessalvas
+      );
+
     }
+
+    entidade.adesao_concluida = adesao;
+    entidade.institucionalizacao_concluida = institucionalizacao;
+    entidade.implementacao_concluida = implementacao;
+
   }
 }

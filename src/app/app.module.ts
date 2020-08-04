@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
 import { SlcApiService } from './slc-api.service';
+import { EnteService } from './ente.service';
 
 import { AppComponent } from './app.component';
 import { SncTableComponent } from './snc-table/snc-table.component';
@@ -23,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MessageComponent } from './message/message.component';
 import { MessageService } from './message.service';
 import { FormsModule } from '@angular/forms';
+import { DetalheComponent } from './detalhe/detalhe.component';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     MessageComponent,
     SncTableComponent,
+    DetalheComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -46,7 +49,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [SlcApiService, MessageService, SncTableComponent],
+  providers: [SlcApiService, EnteService, MessageService, SncTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

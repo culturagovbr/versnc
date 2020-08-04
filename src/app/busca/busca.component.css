@@ -1,6 +1,6 @@
 .fit{
-    max-height: 315px;
-    min-height: 250px;
+    max-height: 390px;
+   /* min-height: 250px;*/
     min-width: 500px;
 }
 .alinhamento{
@@ -22,7 +22,13 @@
 }
 
 .textCenter{
-    text-align: center
+  text-align: center;
+}
+
+.labelFiltros{
+  color: #828282;
+  width: 100%;
+  text-align: center;
 }
 
 .busca h4 {
@@ -34,7 +40,7 @@
     text-align: center;
     margin-bottom: 2px;
 }
- 
+
 #trocaBusca {
     width: 135px;
     font-family: Roboto;
@@ -96,4 +102,3 @@ section {
         max-width: 62%;
     }
 }
-

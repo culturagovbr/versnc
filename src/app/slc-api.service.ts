@@ -116,7 +116,23 @@ export class SlcApiService {
     entidade.nome = element._embedded.ente_federado.nome;
     entidade.sigla_estado = element._embedded.ente_federado.sigla;
     entidade.data_adesao = element.data_adesao;
-    entidade.is_municipio = element._embedded.ente_federado.is_municipio
+    entidade.is_municipio = element._embedded.ente_federado.is_municipio;
+    entidade.link_publicacao_acordo = element.link_publicacao_acordo;
+
+    entidade.situacao_adesao = element._embedded.situacao_adesao;
+
+    entidade.cnpj = element._embedded.sede? element._embedded.sede.localizacao.cnpj : '-';
+    entidade.localizacao = element._embedded.sede? element._embedded.sede.localizacao : '-';
+    entidade.email = element._embedded.sede? element._embedded.sede.endereco_eletronico : '-';
+    entidade.telefone = element._embedded.sede? element._embedded.sede.telefones.telefone_um : '-';
+
+    entidade.pib = element._embedded.ente_federado.pib;
+    entidade.idh = element._embedded.ente_federado.idh;
+    entidade.populacao = element._embedded.ente_federado.populacao;
+
+    entidade.prefeito = element._embedded.governo ? element._embedded.governo.nome_prefeito : '-';
+    entidade.gestor_cultura = element._embedded.cultura ? element._embedded.cultura.nome_gestor_cultura : '-';
+
 
     entidade.situacao_adesao = element.situacao_adesao ? element.situacao_adesao : '';
     entidade.cod_situacao_adesao = element.cod_situacao_adesao ? element.cod_situacao_adesao : '';

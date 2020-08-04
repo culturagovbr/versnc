@@ -4,12 +4,19 @@
 #tabela{
     padding-bottom: 100px;
     padding-left: 80px;
-    padding-right: 80px; 
+    padding-right: 80px;
     padding-top: 0px;
     background-color: #F2F2F2;
 }
 .mat-table, .mat-paginator{
-    background-color: #F2F2F2;    
+    background-color: #F2F2F2;
+}
+
+
+.mat-raised-button {
+    background-color: #2B9087;
+    color: white;
+    margin: 8px;
 }
 
 .mat-header-cell{
@@ -17,8 +24,18 @@
     color: rgb(43, 144, 135);
     font-weight: bold;
 }
+
 .mat-cell{
     color: rgba(0, 0, 0, 0.65);
+}
+
+.center{
+  text-align:center;
+}
+.data-componente{
+  color: rgb(43, 144, 135);
+  text-align:center;
+  font-weight: bold;
 }
 
 
@@ -121,5 +138,15 @@ div.mat-table {
 }
 
 .header_componentes{
-    border-bottom-color: #C4C4C4; 
+    border-bottom-color: #C4C4C4;
+}
+
+a {
+    color: #555555;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color:#000000;
 }

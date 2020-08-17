@@ -102,12 +102,63 @@ export class SlcApiService {
       });
   }
 
+  customSortCompnentes(componentes: {}){
+    var componenteList = ['criacao_lei_sistema', 'criacao_orgao_gestor', 'criacao_orgao_gestor_cnpj','criacao_orgao_gestor_dados_bancarios',
+    'criacao_conselho_cultural_lei',
+    'criacao_conselho_cultural_ata',
+    'criacao_fundo_cultura',
+    'criacao_fundo_cultura_cnpj',
+    'criacao_fundo_cultura_dados_bancarios',
+    'criacao_plano_cultura',
+    'criacao_plano_metas'];
+
+    let sortedComponentes = [];;
+
+    for(var comp in componenteList){
+      for (var item in componentes) {
+        if(componentes[item]['key'] === componenteList[comp]){
+          sortedComponentes.push(componentes[item]);
+        }
+      }
+    }
+    return sortedComponentes
+  }
+
   getComponentes(acoes_plano_trabalho: {}) {
     let componentes = [];
     for (var key in acoes_plano_trabalho) {
       componentes.push({ key: key, value: acoes_plano_trabalho[key] });
+      if(key == "criacao_orgao_gestor"){
+        var acaoTemp = {...acoes_plano_trabalho[key]}
+        if(acaoTemp["banco"] > 0){
+          acaoTemp["cod_situacao"] = 1;
+          acaoTemp["situacao"] = "Informado";
+          componentes.push({ key: "criacao_orgao_gestor_dados_bancarios", value: acaoTemp });
+        } else {
+          acaoTemp["cod_situacao"] = 0;
+          acaoTemp["banco"] = 0;
+          acaoTemp["situacao"] = "Não Informado";
+          componentes.push({ key: "criacao_orgao_gestor_dados_bancarios", value: acaoTemp });
+        }
+        acaoTemp = null;
+      }
+      if(key == "criacao_fundo_cultura"){
+        var acaoTemp = {...acoes_plano_trabalho[key]}
+        if(acaoTemp["banco"] > 0){
+          acaoTemp["cod_situacao"] = 1;
+          acaoTemp["situacao"] = "Informado";
+          componentes.push({ key: "criacao_fundo_cultura_dados_bancarios", value: acaoTemp });
+        } else {
+          acaoTemp["cod_situacao"] = 0;
+          acaoTemp["banco"] = 0;
+          acaoTemp["situacao"] = "Não Informado";
+          componentes.push({ key: "criacao_fundo_cultura_dados_bancarios", value: acaoTemp });
+        }
+        acaoTemp = null;
+      }
+
     }
-    return componentes;
+    return this.customSortCompnentes(componentes);
   }
 
   definirPropriedadesEntidade(entidade, element) { //define as propriedades padrão do Ente Federado

@@ -26,6 +26,10 @@ import { MessageService } from './message.service';
 import { FormsModule } from '@angular/forms';
 import { DetalheComponent } from './detalhe/detalhe.component';
 
+// import alert service and component
+import { AlertComponent } from './_directives/index';
+import { AlertService } from './_services/index';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { DetalheComponent } from './detalhe/detalhe.component';
     MessageComponent,
     SncTableComponent,
     DetalheComponent,
+    AlertComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -49,7 +54,7 @@ import { DetalheComponent } from './detalhe/detalhe.component';
     MaterialModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [SlcApiService, EnteService, MessageService, SncTableComponent],
+  providers: [SlcApiService, EnteService, MessageService, SncTableComponent, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

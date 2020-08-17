@@ -134,46 +134,64 @@
             <div *ngFor="let item of entidade.acoes_plano_trabalho" class="mat-row no-border">
               <div class="mat-cell no-border ">
 
-                <i *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3')"
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
                   class="material-icons icon-componente-status-ok">
                   check_circle
                 </i>
-                <i *ngIf="item.value != null && (item.value.cod_situacao == '1')"
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '1') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
                   class="material-icons icon-componente-status-progress">
                   timelapse
                 </i>
-                <i *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6')"
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
                   class="material-icons icon-componente-status-not-ok">
                   cancel
                 </i>
-                <i *ngIf="item.value == null || (item.value != null && item.value.cod_situacao == '0')"
+                <i *ngIf="item.value == null || (item.value != null && item.value.cod_situacao == '0') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
+                  class="material-icons icon-componente-status-default">
+                  radio_button_unchecked
+                </i>
+                <i *ngIf="item.value != null && (item.value.banco != 0 ) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')"
+                  class="material-icons icon-componente-status-ok">
+                  check_circle
+                </i>
+                <i *ngIf="item.value != null && (item.value.banco == 0) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')"
                   class="material-icons icon-componente-status-default">
                   radio_button_unchecked
                 </i>
 
                 <span *ngIf="item.key == 'criacao_lei_sistema'">
-                  Sistema de Cultura
+                  Lei Sistema de Cultura
                 </span>
                 <span *ngIf="item.key == 'criacao_orgao_gestor'">
-                  Órgão Gestor
+                  Órgão Gestor - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_orgao_gestor_cnpj'">
+                  Órgão Gestor - CNPJ
+                </span>
+                <span *ngIf="item.key == 'criacao_orgao_gestor_dados_bancarios'">
+                  Órgão Gestor - Dados Bancários
+                </span>
+                <span *ngIf="item.key == 'criacao_conselho_cultural_lei'">
+                  Conselho de Política Cultural - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_conselho_cultural_ata'">
+                  Conselho de Política Cultural - Ata
                 </span>
                 <span *ngIf="item.key == 'criacao_fundo_cultura'">
-                  Fundo de Cultura
+                  Fundo de Cultura - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_fundo_cultura_cnpj'">
+                  Fundo de Cultura - CNPJ
+                </span>
+                <span *ngIf="item.key == 'criacao_fundo_cultura_dados_bancarios'">
+                  Fundo de Cultura - Dados Bancários
                 </span>
                 <span *ngIf="item.key == 'criacao_plano_cultura'">
                   Plano de Cultura
                 </span>
-                <span *ngIf="item.key == 'criacao_conselho_cultural_ata'">
-                  Conselho de Política Cultural (Ata)
-                </span>
-                <span *ngIf="item.key == 'criacao_conselho_cultural_lei'">
-                  Conselho de Política Cultural (Lei)
-                </span>
-                <span *ngIf="item.key == 'criacao_fundo_cultura_cnpj'">
-                  Fundo de Cultura (CNPJ)
-                </span>
+                
                 <span *ngIf="item.key == 'criacao_plano_metas'">
-                  Plano de Cultura (Metas)
+                  Plano de Cultura - Metas
                 </span>
               </div>
             </div>

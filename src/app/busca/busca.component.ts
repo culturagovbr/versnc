@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { HttpParams } from '@angular/common/http';
 import { Entidade } from '../models/entidade.model';
@@ -14,11 +15,13 @@ import { environment } from './../../environments/environment';
 import { SlcApiService } from '../slc-api.service';
 import { Observable } from 'rxjs/Observable';
 
+import { AlertService } from '../_services/index';
+
 @Component({
   selector: 'snc-busca',
   templateUrl: './busca.component.html',
   styleUrls: ['./busca.component.css'],
-  providers: [SncTableComponent,
+  providers: [SncTableComponent, DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }]
@@ -33,10 +36,12 @@ export class BuscaComponent implements OnInit {
   private termoSimples: string = '';
   private termoUF: string = '';
   private page: number = 0;
-  private data_min: string = "";
-  private data_max: string = "";
+  private data_min = '';
+  private data_max = '';
   private filtrarEstados = true;
   private filtrarMunicipios = true;
+  private filtrarOrgaoGestorDadosBancarios = false;
+  private filtrarFundoCulturaDadosBancarios = false;
   private filtro_data: FiltroComponentes = new FiltroComponentes(
     new Filtro(false),
     new Filtro(false),
@@ -46,14 +51,36 @@ export class BuscaComponent implements OnInit {
     new Filtro(false),
     new Filtro(false),
     new Filtro(false),
+    new Filtro(false),
     new Filtro(false)
-    );
+  );
   params: HttpParams;
 
   constructor(
     private slcApiService: SlcApiService,
     private table: SncTableComponent,
-    private router: Router) {
+    private router: Router,
+    private alertService: AlertService,
+    private datePipe: DatePipe) { }
+
+  success(message: string) {
+    this.alertService.success(message);
+  }
+
+  error(message: string) {
+    this.alertService.error(message);
+  }
+
+  info(message: string) {
+    this.alertService.info(message);
+  }
+
+  warn(message: string) {
+    this.alertService.warn(message);
+  }
+
+  clear() {
+    this.alertService.clear();
   }
 
   queries: { [query: string]: string }
@@ -82,9 +109,9 @@ export class BuscaComponent implements OnInit {
   }
 
   exportar(tipoExportacao) {
-      this.definirTipoDeBusca(this.seletorTipoBusca);
-      this.filtraComponentes();
-      window.open(`${this.API_URL}?` + this.params.toString() + `&format=${tipoExportacao}`, '_blank');
+    this.definirTipoDeBusca(this.seletorTipoBusca);
+    this.filtraComponentes();
+    window.open(`${this.API_URL}?` + this.params.toString() + `&format=${tipoExportacao}`, '_blank');
   }
 
   definirTipoDeBusca(tipoBusca: boolean) { // define as propriedades da busca de acordo com seu tipo - SIMPLES ou AVANÇADA
@@ -102,26 +129,48 @@ export class BuscaComponent implements OnInit {
 
     const PUBLICADOS_NO_DOU = '6'
     this.queries['situacao_adesao'] = PUBLICADOS_NO_DOU
+    this.queries['orgao_gestor_dados_bancarios'] = this.filtrarOrgaoGestorDadosBancarios ? 'true' : '';
+    this.queries['fundo_cultura_dados_bancarios'] = this.filtrarFundoCulturaDadosBancarios ? 'true' : '';
 
     this.params = new HttpParams({ fromObject: this.queries });
   }
 
+  getDataMinMax(tipoData) {
+    if (tipoData == 'min') {
+      if (this.data_min != "") {
+        return this.getDatePicker(this.data_min);
+      } else {
+        return '01/01/1900';
+      }
+    } else {
+      if (this.data_max != "") {
+        return this.getDatePicker(this.data_max);
+      } else {
+        return this.datePipe.transform(new Date(), 'dd/MM/yyyy');;
+      }
+    }
+  }
+
   filtraComponentes() {
     Object.keys(this.filtro_data).forEach((dataFiltro, index) => {
+      var dtMin = this.getDataMinMax('min');
+      var dtMax = this.getDataMinMax('max');
+
       if (this.filtro_data[dataFiltro].filtrar) {
         this.params = this.params.append(
           this.parseDatePropertyName(dataFiltro, 'min'),
-          this.getDatePicker(this.data_min)
+          dtMin
         );
 
         this.params = this.params.append(
           this.parseDatePropertyName(dataFiltro, 'max'),
-          this.getDatePicker(this.data_max)
+          dtMax
         );
       }
     });
-
   }
+
+  
 
   parseDatePropertyName(propertyName: string, suffixType: string): string {
     return `data_${propertyName}_${suffixType}`;
@@ -140,6 +189,7 @@ export class BuscaComponent implements OnInit {
     }
 
     this.filtro_data = new FiltroComponentes(
+      new Filtro(false),
       new Filtro(false),
       new Filtro(false),
       new Filtro(false),

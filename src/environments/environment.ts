@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   //API_URL: 'http://127.0.0.1:8000/api/v2/sistemadeculturalocal/'
-  //API_URL: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/'
-  API_URL: 'http://localhost:8000/api/v2/sistemadeculturalocal/'
+  API_URL: 'http://hmg.snc.cultura.gov.br/api/v2/sistemadeculturalocal/'
+  //API_URL: 'http://localhost:8000/api/v2/sistemadeculturalocal/'
 };

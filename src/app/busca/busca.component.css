@@ -1,5 +1,5 @@
 .fit{
-    max-height: 450px;
+    max-height: 500px;
    /* min-height: 250px;*/
     min-width: 500px;
 }
@@ -18,7 +18,7 @@
 }
 
 .layoutFill{
-    width: 60%;
+    width: 40%;
 }
 
 .textCenter{
@@ -39,6 +39,7 @@
     color: #2B9087;
     text-align: center;
     margin-bottom: 2px;
+    margin-top: 50px;
 }
 
 #trocaBusca {

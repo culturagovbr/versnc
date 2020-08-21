@@ -1,8 +1,9 @@
 .card {
-  width: 200px;
+  width: 250px;
   height: 150px;
   background-color: transparent;
   box-shadow: transparent;
+  word-wrap:  normal;
 }
 
 .contador {

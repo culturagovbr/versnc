@@ -99,7 +99,7 @@
                 <p><i class="material-icons icon-componente-status-ok">check_circle</i>
                   {{item?.value.situacao}}</p>
               </div>
-                <div *ngIf="item?.value != null && (item?.value.banco == 0) && (item.key != 'criacao_orgao_gestor_dados_bancarios' || item.key != 'criacao_fundo_cultura_dados_bancarios')">
+                <div *ngIf="item?.value != null && (item?.value.banco == 0) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')">
                   <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
                     Dado não informado</p>
                 </div>
@@ -109,7 +109,10 @@
               {{item?.value?.data_envio | date: 'dd/MM/yyyy'}} 
             </div>
             <ng-template #dataPublicacao >
-              <div *ngIf="((item?.value?.data_publicacao?.length  > 0) && (item?.key != 'criacao_orgao_gestor_dados_bancarios' && item?.key != 'criacao_fundo_cultura_dados_bancarios')) else dataNaoDisponivel " class="mat-cell data-componente">
+              <div *ngIf="(item?.value != null && (item?.value?.cod_situacao == '1' ) && (item?.key == 'criacao_orgao_gestor_dados_bancarios' || item?.key == 'criacao_fundo_cultura_dados_bancarios')) " class="mat-cell data-componente">
+                {{item?.value?.data_envio | date: 'dd/MM/yyyy'}} 
+              </div> 
+              <div *ngIf="(item?.value != null && (item?.value?.data_publicacao?.length  > 0) && (item?.key != 'criacao_orgao_gestor_dados_bancarios' || item?.key != 'criacao_fundo_cultura_dados_bancarios')) else dataNaoDisponivel " class="mat-cell data-componente">
                 {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} (Publicação)
               </div> 
               <div *ngIf="(item?.value?.cod_situacao == '0' || item?.value?.cod_situacao == null)"  class="mat-cell data-componente">

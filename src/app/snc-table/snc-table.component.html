@@ -79,7 +79,9 @@
             <div class="mat-cell">
               <div *ngIf="item?.value != null && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">
                 <p><i class="material-icons icon-componente-status-ok">check_circle</i>
-                  {{item?.value.situacao}}
+                  <a class="link_publicacao" target="_blank" href="{{ item.value.arquivo }}">
+                    {{item?.value.situacao}}
+                  </a>
                 </p>
               </div>
               <div *ngIf="item?.value != null && (item?.value.cod_situacao == '1') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">

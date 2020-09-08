@@ -202,25 +202,27 @@
 
             <div class="mat-table">
               <div>
-                <div class="mat-row  no-border "  fxLayoutAlign="space-around center">
+                <div fxLayout="row" fxLayoutAlign="space-evenly center">
 
-                  <div   class="mat-cell  no-border   ">
+                  <div  *ngIf="adesaoStatus" class="no-border   ">
                     <img *ngIf="true"  src="./assets/adesao_concluida.png">
                     <img *ngIf="false"  src="./assets/adesao.png">
                   </div>
-                  <div class="mat-cell  no-border   ">
+                  
+                  <div *ngIf="institucionalizacaoStatus" class="no-border" style="width: 70px;">
                    <hr />
                   </div>
                   
-                  <div class="mat-cell  no-border ">
+                  <div *ngIf="institucionalizacaoStatus" class="no-border ">
                     <img *ngIf="true"  src="./assets/institucionalizacao_concluida.png">
                     <img *ngIf="false"  src="./assets/institucionalizacao.png">
                   </div>
 
-                  <div class="mat-cell  no-border   ">
+                  <div *ngIf="implementacaoStatus" class="no-border">
                     <hr />
-                   </div>
-                  <div class="mat-cell  no-border ">
+                  </div>
+
+                  <div *ngIf="implementacaoStatus"  class="no-border " style="width: 70px;">
                     <img *ngIf="true"  src="./assets/implementacao_concluida.png">
                     <img *ngIf="false"  src="./assets/implementacao.png">
                   </div>

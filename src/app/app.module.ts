@@ -30,6 +30,9 @@ import { DetalheComponent } from './detalhe/detalhe.component';
 import { AlertComponent } from './_directives/index';
 import { AlertService } from './_services/index';
 
+import {NgxMaskModule, IConfig} from 'ngx-mask-2'
+
+export const options: Partial<IConfig>  = null;
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { AlertService } from './_services/index';
     HttpClientModule,
     HttpModule,
     MaterialModule,
+    NgxMaskModule.forRoot(options),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [SlcApiService, EnteService, MessageService, SncTableComponent, AlertService],

@@ -68,17 +68,13 @@
 
 
     <mat-form-field class="textCenter">
-      <input #searchBox matInput [matDatepicker]="picker" [(ngModel)]="data_min" [ngModelOptions]="{standalone: true}"
-        placeholder="A partir da data">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input #searchBox1 matInput [(ngModel)]="data_min" mask="00/00/0000" [ngModelOptions]="{standalone: true}" 
+        placeholder="A partir da data" maxlength="10" >
     </mat-form-field>
 
     <mat-form-field class="textCenter">
-      <input #searchBox matInput [matDatepicker]="picker2" [(ngModel)]="data_max" [ngModelOptions]="{standalone: true}"
-        placeholder="Até a data">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
+      <input #searchBox2 matInput  [(ngModel)]="data_max" mask="00/00/0000" [ngModelOptions]="{standalone: true}" 
+        placeholder="Até a data" maxlength="10">
     </mat-form-field>
 
     <button mat-raised-button (click)="onRealizarBuscaComEnter($event)">BUSCAR</button>

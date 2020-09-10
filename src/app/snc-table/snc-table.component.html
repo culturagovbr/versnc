@@ -107,19 +107,19 @@
                 </div>
             </div>
 
-            <div *ngIf="(item?.value?.data_envio?.length  > 0 && item?.key != 'criacao_orgao_gestor_dados_bancarios' &&  item?.key != 'criacao_fundo_cultura_dados_bancarios'); else dataPublicacao" class="mat-cell data-componente">
-              {{item?.value?.data_envio | date: 'dd/MM/yyyy'}} 
+            <div *ngIf="(item?.value?.data_publicacao?.length  > 0 && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item?.key != 'criacao_orgao_gestor_dados_bancarios' &&  item?.key != 'criacao_fundo_cultura_dados_bancarios'); else dataPublicacao" class="mat-cell data-componente">
+              {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} 
             </div>
             <ng-template #dataPublicacao >
-              <div *ngIf="(item?.value != null && (item?.value?.cod_situacao == '1' ) && (item?.key == 'criacao_orgao_gestor_dados_bancarios' || item?.key == 'criacao_fundo_cultura_dados_bancarios')) " class="mat-cell data-componente">
+              <!-- <div *ngIf="(item?.value != null && (item?.value?.cod_situacao == '1' ) && (item?.key == 'criacao_orgao_gestor_dados_bancarios' || item?.key == 'criacao_fundo_cultura_dados_bancarios')) " class="mat-cell data-componente">
                 {{item?.value?.data_envio | date: 'dd/MM/yyyy'}} 
               </div> 
               <div *ngIf="(item?.value != null && (item?.value?.data_publicacao?.length  > 0) && (item?.key != 'criacao_orgao_gestor_dados_bancarios' || item?.key != 'criacao_fundo_cultura_dados_bancarios')) else dataNaoDisponivel " class="mat-cell data-componente">
                 {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} (Publicação)
-              </div> 
-              <div *ngIf="(item?.value?.cod_situacao == '0' || item?.value?.cod_situacao == null)"  class="mat-cell data-componente">
+              </div> -->
+              <div class="mat-cell data-componente">
                 {{ ' - ' }}
-              </div> 
+              </div>  
             </ng-template>
           </div>
         </div>

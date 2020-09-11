@@ -18,8 +18,7 @@ export class DetalheComponent implements OnInit {
   private adesaoStatus = false;
   private institucionalizacaoStatus = false;
   private implementacaoStatus = false;
-  private listLeis = ['criacao_lei_sistema', 'criacao_orgao_gestor', 'criacao_orgao_gestor_cnpj', 'criacao_fundo_cultura', 'criacao_fundo_cultura_cnpj', 'criacao_conselho_cultural_lei', 'criacao_conselho_cultural_ata', 'criacao_plano_cultura',
-    'criacao_plano_metas'];
+  private listLeis = ['criacao_lei_sistema', 'criacao_orgao_gestor', 'criacao_orgao_gestor_cnpj', 'criacao_fundo_cultura', 'criacao_fundo_cultura_cnpj', 'criacao_conselho_cultural_lei', 'criacao_conselho_cultural_ata', 'criacao_plano_cultura', 'criacao_plano_metas'];
 
   constructor(private ente: EnteService, private router: Router) { }
 
@@ -75,8 +74,8 @@ export class DetalheComponent implements OnInit {
 
       }
     }
+    if( Object.keys(this.entidade).length === 0){
 
-    if(Object.keys(this.entidade).length === 0) {
       this.router.navigate(['/']);
     }
   }

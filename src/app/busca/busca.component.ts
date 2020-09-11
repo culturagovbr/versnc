@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, ElementRef } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/';
 import { HttpParams } from '@angular/common/http';
@@ -17,6 +18,9 @@ import { Observable } from 'rxjs/Observable';
 
 import { AlertService } from '../_services/index';
 
+import {NgxMaskModule} from 'ngx-mask-2'
+import { min } from 'rxjs/operator/min';
+
 @Component({
   selector: 'snc-busca',
   templateUrl: './busca.component.html',
@@ -24,10 +28,12 @@ import { AlertService } from '../_services/index';
   providers: [SncTableComponent, DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }]
+    { provide: MAT_DATE_FORMATS, useValue: 'dd/MM/yyyy' }]
 })
 
 export class BuscaComponent implements OnInit {
+  //@ViewChildren('searchBox1') inputMin: ElementRef;
+  //@ViewChildren('searchBox2') inputMax: ElementRef;
 
   private API_URL = environment.API_URL;
   private listaRetorno = {};
@@ -37,7 +43,9 @@ export class BuscaComponent implements OnInit {
   private termoUF: string = '';
   private page: number = 0;
   private data_min = '';
+  private error_min = true;
   private data_max = '';
+  private error_max = true;
   private filtrarEstados = true;
   private filtrarMunicipios = true;
   private filtrarOrgaoGestorDadosBancarios = false;
@@ -135,42 +143,77 @@ export class BuscaComponent implements OnInit {
     this.params = new HttpParams({ fromObject: this.queries });
   }
 
-  getDataMinMax(tipoData) {
-    if (tipoData == 'min') {
-      if (this.data_min != "") {
-        return this.getDatePicker(this.data_min);
+  getDataMin() {
+    if (this.data_min != "") {
+      var dd = this.data_min.substr(0,2);
+      var mm = this.data_min.substr(2,2);
+      var yy = this.data_min.substr(4,4);
+
+      var dateToCheckMin =  null;
+      dateToCheckMin = new Date(mm + '/' + dd + '/' + yy); 
+      if (Object.prototype.toString.call(dateToCheckMin) === "[object Date]") { 
+        if (isNaN(dateToCheckMin.getTime())) {  
+          this.data_min = '';
+          alert("Data Mínima Inválida !");
+          dateToCheckMin = null;
+          return this.data_min;
+        } 
+        else { 
+          return (dd + '/' + mm + '/' + yy);
+        } 
       } else {
-        return '01/01/1900';
-      }
+        this.data_min = '';
+        dateToCheckMin = null;
+        return this.data_min;
+      }  
     } else {
-      if (this.data_max != "") {
-        return this.getDatePicker(this.data_max);
+      return '01/01/1900';
+    }
+  }  
+    
+  getDataMax() {
+    if (this.data_max != "") {
+      var dd = this.data_max.substr(0,2);
+      var mm = this.data_max.substr(2,2);
+      var yy = this.data_max.substr(4,4);
+      
+      var dateToCheckMax =  null;
+      dateToCheckMax = new Date(mm + '/' + dd + '/' + yy); 
+
+      if (Object.prototype.toString.call(dateToCheckMax) === "[object Date]") { 
+        if (isNaN(dateToCheckMax.getTime())) {  
+          this.data_max = '';
+          alert("Data Máxima Inválida !");
+          dateToCheckMax = null;
+          return this.data_max;
+        } 
+        else { 
+          return (dd + '/' + mm + '/' + yy);
+        } 
       } else {
-        return this.datePipe.transform(new Date(), 'dd/MM/yyyy');;
-      }
+        this.data_max = '';
+        dateToCheckMax = null;
+        return this.data_max;
+      }  
+    } else {
+      return this.datePipe.transform(new Date(), 'dd/MM/yyyy');;
     }
   }
 
   filtraComponentes() {
     Object.keys(this.filtro_data).forEach((dataFiltro, index) => {
-      var dtMin = this.getDataMinMax('min');
-      var dtMax = this.getDataMinMax('max');
-
+      var dtMin = this.getDataMin();
+      var dtMax = this.getDataMax();
+      
       if (this.filtro_data[dataFiltro].filtrar) {
         this.params = this.params.append(
-          this.parseDatePropertyName(dataFiltro, 'min'),
-          dtMin
-        );
+          this.parseDatePropertyName(dataFiltro, 'min'), dtMin.toString() );
 
         this.params = this.params.append(
-          this.parseDatePropertyName(dataFiltro, 'max'),
-          dtMax
-        );
+          this.parseDatePropertyName(dataFiltro, 'max'), dtMax.toString() );
       }
     });
   }
-
-  
 
   parseDatePropertyName(propertyName: string, suffixType: string): string {
     return `data_${propertyName}_${suffixType}`;

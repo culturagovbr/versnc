@@ -14,7 +14,8 @@ import { MatIconModule, MatIconRegistry } from '@angular/material';
 export class DetalheComponent implements OnInit {
   private teste = "oi";
   private id = 0;
-  private entidade = {};
+  //private entidade =  this.ente.getEnte();
+  private entidade: any = {};
   private adesaoStatus = false;
   private institucionalizacaoStatus = false;
   private implementacaoStatus = false;

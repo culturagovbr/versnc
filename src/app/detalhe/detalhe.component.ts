@@ -75,7 +75,9 @@ export class DetalheComponent implements OnInit {
           } 
       }
 
-    } 
+    } else {
+      this.adesaoStatus = false;
+    }
 
     
     if( Object.keys(this.entidade).length ===0){

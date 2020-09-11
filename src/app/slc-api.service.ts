@@ -171,6 +171,7 @@ export class SlcApiService {
     entidade.link_publicacao_acordo = element.link_publicacao_acordo;
 
     entidade.situacao_adesao = element._embedded.situacao_adesao;
+    entidade.cod_situacao_adesao = element._embedded.cod_situacao_adesao;
 
     entidade.cnpj = element._embedded.sede? element._embedded.sede.localizacao.cnpj : '-';
     entidade.localizacao = element._embedded.sede? element._embedded.sede.localizacao : '-';

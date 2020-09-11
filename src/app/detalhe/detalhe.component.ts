@@ -28,7 +28,7 @@ export class DetalheComponent implements OnInit {
     this.entidade = this.ente.getEnte();
     let ente = this.entidade;
 
-    if(ente != undefined && ente != null && ente != {}){
+    if(ente != undefined && ente != null ){
 
       if(ente.cod_situacao_adesao == '6'){
         this.adesaoStatus = true; 
@@ -75,9 +75,7 @@ export class DetalheComponent implements OnInit {
           } 
       }
 
-    } else {
-      this.adesaoStatus = false;
-    }
+    } 
 
     
     if( Object.keys(this.entidade).length ===0){

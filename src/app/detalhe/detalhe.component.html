@@ -204,17 +204,17 @@
               <div>
                 <div fxLayout="row" fxLayoutAlign="space-evenly center">
 
-                  <div  *ngIf="adesaoStatus" class="no-border   ">
-                    <img *ngIf="true"  src="./assets/adesao_concluida.png">
-                    <img *ngIf="false"  src="./assets/adesao.png">
+                  <div  *ngIf="adesaoStatus" class="no-border">
+                    <img *ngIf="true"  src="./assets/adesao_concluida.png" alt="Adesão concluída" title="Adesão concluída">
+                    <img *ngIf="false"  src="./assets/adesao.png" alt="Adesão Concluída" title="Adesão concluída">
                   </div>
                   
-                  <div *ngIf="institucionalizacaoStatus" class="no-border" style="width: 70px;">
+                  <div *ngIf="institucionalizacaoStatus" class="no-border" style="width: 70px;" >
                    <hr />
                   </div>
                   
                   <div *ngIf="institucionalizacaoStatus" class="no-border ">
-                    <img *ngIf="true"  src="./assets/institucionalizacao_concluida.png">
+                    <img *ngIf="true"  src="./assets/institucionalizacao_concluida.png" title="Institucionalização concluída">
                     <img *ngIf="false"  src="./assets/institucionalizacao.png">
                   </div>
 
@@ -223,7 +223,7 @@
                   </div>
 
                   <div *ngIf="implementacaoStatus"  class="no-border " style="width: 70px;">
-                    <img *ngIf="true"  src="./assets/implementacao_concluida.png">
+                    <img *ngIf="true"  src="./assets/implementacao_concluida.png" title="Implementação concluída">
                     <img *ngIf="false"  src="./assets/implementacao.png">
                   </div>
                 </div>

@@ -1,0 +1,251 @@
+<div class="destaque">
+  <h4>
+
+    {{entidade.nome}}
+    -
+    {{entidade.sigla_estado}}
+  </h4>
+</div> 
+<mat-card *ngIf="(entidade | json) != ({} | json)" id="tabela">
+
+  <div>
+    <div class="mat-table">
+      <div class="mat-header-row header_componentes">
+        <div class="mat-header-cell componentes">DADOS DO ENTE</div>
+        <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
+        <div class="mat-header-cell componentes center">FASES DA INTEGRAÇÃO</div>
+      </div>
+      <div>
+        <div class="mat-row " fxLayoutAlign="start">
+
+          <div class="mat-cell">
+            <div class="label">
+              Prefeito:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.prefeito}}
+            </div>
+            <div class="label  ">
+              Gestor de Cultura:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.gestor_cultura}}
+            </div>
+
+            <div class="label  ">
+              E-mail:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.email || '-'}}
+            </div>
+
+
+            <div class="mat-row no-border">
+              <div class="mat-cell no-border">
+
+                <div class="label  " style="padding-left: 0;">
+                  Telefone:
+                </div>
+                <div class="mat-row data-componente no-border" style="padding-left: 0;">
+
+                  {{entidade.telefone || '-'}}
+                </div>
+              </div>
+              <div class="mat-cell no-border">
+                <div class="label  " style="padding-left: 0;">
+                  CNPJ:
+                </div>
+                <div class="mat-row data-componente no-border" style="padding-left: 0;">
+
+                  {{entidade.cnpj}}
+                </div>
+              </div>
+            </div>
+
+
+            <div class="label">
+              Município:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.nome}}
+              -
+              {{entidade.sigla_estado}}
+            </div>
+
+            <div class="label">
+              Endereço:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.populacao.endereco || '-'}}
+            </div>
+
+
+            <div class="label">
+              CEP:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.localizacao.cep || '-'}}
+            </div>
+
+
+            <div class="label">
+              Bairro:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.populacao.bairro || '-'}}
+            </div>
+
+            <div class="label">
+              População:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.populacao || '-'}}
+            </div>
+
+            <div class="label">
+              IDH:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.idh || '-'}}
+            </div>
+
+
+            <div class="label">
+              PIB:
+            </div>
+            <div class="mat-row data-componente">
+
+              {{entidade.pib || '-'}}
+            </div>
+          </div>
+
+
+
+          <div class="mat-cell  ">
+            <div *ngFor="let item of entidade.acoes_plano_trabalho" class="mat-row no-border">
+              <div class="mat-cell no-border ">
+
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
+                  class="material-icons icon-componente-status-ok">
+                  check_circle
+                </i>
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '1') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
+                  class="material-icons icon-componente-status-progress">
+                  timelapse
+                </i>
+                <i *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
+                  class="material-icons icon-componente-status-not-ok">
+                  cancel
+                </i>
+                <i *ngIf="item.value == null || (item.value != null && item.value.cod_situacao == '0') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'"
+                  class="material-icons icon-componente-status-default">
+                  radio_button_unchecked
+                </i>
+                <i *ngIf="item.value != null && (item.value.banco != 0 ) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')"
+                  class="material-icons icon-componente-status-ok">
+                  check_circle
+                </i>
+                <i *ngIf="item.value != null && (item.value.banco == 0) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')"
+                  class="material-icons icon-componente-status-default">
+                  radio_button_unchecked
+                </i>
+
+                <span *ngIf="item.key == 'criacao_lei_sistema'">
+                  Sistema de Cultura - Lei 
+                </span>
+                <span *ngIf="item.key == 'criacao_orgao_gestor'">
+                  Órgão Gestor - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_orgao_gestor_cnpj'">
+                  Órgão Gestor - CNPJ
+                </span>
+                <span *ngIf="item.key == 'criacao_orgao_gestor_dados_bancarios'">
+                  Órgão Gestor - Dados Bancários
+                </span>
+                <span *ngIf="item.key == 'criacao_conselho_cultural_lei'">
+                  Conselho de Política Cultural - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_conselho_cultural_ata'">
+                  Conselho de Política Cultural - Ata
+                </span>
+                <span *ngIf="item.key == 'criacao_fundo_cultura'">
+                  Fundo de Cultura - Lei
+                </span>
+                <span *ngIf="item.key == 'criacao_fundo_cultura_cnpj'">
+                  Fundo de Cultura - CNPJ
+                </span>
+                <span *ngIf="item.key == 'criacao_fundo_cultura_dados_bancarios'">
+                  Fundo de Cultura - Dados Bancários
+                </span>
+                <span *ngIf="item.key == 'criacao_plano_cultura'">
+                  Plano de Cultura - Lei
+                </span>
+                
+                <span *ngIf="item.key == 'criacao_plano_metas'">
+                  Plano de Cultura - Metas
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <div class="mat-cell data-componente">
+       
+
+            <div class="mat-table">
+              <div>
+                <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+                  <div  *ngIf="adesaoStatus" class="no-border">
+                    <img *ngIf="true"  src="./assets/adesao_concluida.png" alt="Adesão concluída" title="Adesão concluída">
+                    <img *ngIf="false"  src="./assets/adesao.png" alt="Adesão Concluída" title="Adesão concluída">
+                  </div>
+                  
+                  <div *ngIf="institucionalizacaoStatus" class="no-border" style="width: 70px;" >
+                   <hr />
+                  </div>
+                  
+                  <div *ngIf="institucionalizacaoStatus" class="no-border ">
+                    <img *ngIf="true"  src="./assets/institucionalizacao_concluida.png" title="Institucionalização concluída">
+                    <img *ngIf="false"  src="./assets/institucionalizacao.png">
+                  </div>
+
+                  <div *ngIf="implementacaoStatus" class="no-border">
+                    <hr />
+                  </div>
+
+                  <div *ngIf="implementacaoStatus"  class="no-border " style="width: 70px;">
+                    <img *ngIf="true"  src="./assets/implementacao_concluida.png" title="Implementação concluída">
+                    <img *ngIf="false"  src="./assets/implementacao.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class='mat-row mat-cell'>
+        <a class="detalhe-municipio" href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.cod_ibge}}"
+          target="_blank">
+          Clique aqui para ver mais informações sobre este ente
+        </a>
+      </div>
+
+      <div class='mat-row mat-cell'>
+                <button class="mat-raised-button" (click)="router.navigate(['/'])">Voltar</button>
+              </div>
+
+    </div>
+  </div>
+</mat-card>

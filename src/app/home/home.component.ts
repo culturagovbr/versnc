@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SlcApiService } from '../slc-api.service';
+import { AlertService } from '../_services/index';
 
 @Component({
   selector: 'snc-home',
@@ -13,7 +14,27 @@ export class HomeComponent implements OnInit {
   private querie_municipios = {'estadual' : 'false'};
   private querie_estados = {'municipal' : 'false'};
 
-  constructor(private slcApiService: SlcApiService) { }
+  constructor(private slcApiService: SlcApiService, private alertService: AlertService) { }
+
+  success(message: string) { 
+    this.alertService.success(message);
+  }
+
+  error(message: string) {
+    this.alertService.error(message);
+  }
+
+  info(message: string) {
+    this.alertService.info(message);
+  }
+
+  warn(message: string) {
+    this.alertService.warn(message);
+  }
+
+  clear() {
+    this.alertService.clear();
+  }
 
   ngOnInit() {	
   	this.slcApiService.searchFilter(this.querie_municipios).subscribe(listaRetorno => {

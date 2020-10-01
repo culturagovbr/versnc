@@ -18,6 +18,7 @@ import { Observable } from 'rxjs/Observable';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import 'rxjs/add/observable/of';
 import { forEach } from '@angular/router/src/utils/collection';
+import {EnteService}from '../ente.service';
 
 @Component({
   selector: 'snc-table',
@@ -48,7 +49,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private tituloEnteFederado: 'ENTE FEDERADO';
   private listaComponentes = ['Sistema de Cultura','Órgão Gestor','Conselho de Política Cultural', 'Fundo de Cultura','Plano de Cultura'];
 
-  constructor(private slcApiService: SlcApiService, private router: Router) {
+  constructor(private slcApiService: SlcApiService, private router: Router, private state: EnteService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -64,6 +65,11 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+  updateEnte(ente) {
+    this.state.changeEnte(ente);
+    this.router.navigate(['/detalhe']);
+  }
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
@@ -102,16 +108,16 @@ export class SncTableComponent implements OnInit, OnDestroy {
     let index = this.slcApiService['paginaAtual'];
 
     this.pages = index * 10; // Number offset que vai para a chamada da API
-    this.listaRetorno[3] = this.pages; 
+    this.listaRetorno[3] = this.pages;
     this.listaRetorno[2] = this.listaRetorno[2].set('offset', this.pages.toString());
     this.slcApiService.carregarPagina(index, this.listaRetorno[2]);
   }
-  
+
   ngAfterViewInit() {
-    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente    
+    this.paginator['_pageIndex'] = this.slcApiService['paginaAtual']; // Atualiza o valor da página atual corretamente
     this.tituloEnteFederado = this.slcApiService['tituloEnteFederado'];
   }
-  
+
   ngOnInit() {
     this.paginator._intl.itemsPerPageLabel = "Itens por página:"
     this.paginator._intl.getRangeLabel = this.ptRangeLabel;

@@ -10,7 +10,11 @@
 
     <ng-container matColumnDef="data_adesao">
       <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Ordenar A-Z" matTooltipPosition="before">DATA DA ADESÃO</mat-header-cell>
-      <mat-cell class="linha_principal" *matCellDef="let entidade"> {{entidade.data_adesao | date: 'dd/MM/y'}} </mat-cell>
+      <mat-cell class="linha_principal" *matCellDef="let entidade" (click)="setAnimationAsDisabled(false)"> 
+        <a class="link_publicacao" target="_blank" href="{{ entidade.link_publicacao_acordo }}">
+          {{entidade.data_adesao | date: 'dd/MM/y'}}
+        </a>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="plano_trabalho">
@@ -32,55 +36,103 @@
     <div class="mat-table">
       <div class="mat-header-row header_componentes">
         <div class="mat-header-cell componentes">COMPONENTES DO SISTEMA</div>
-        <div class="mat-header-cell componentes">Situação
-        </div>
+        <div class="mat-header-cell componentes">Situação</div>
+        <div class="mat-header-cell componentes center">Data do Componente</div>
       </div>
       <div *ngFor="let item of entidade.acoes_plano_trabalho">
           <div class="mat-row">
             <div class="mat-cell">
               <div *ngIf="item.key == 'criacao_lei_sistema'">
-                Sistema de Cultura
+                Sistema de Cultura - Lei
               </div>
               <div *ngIf="item.key == 'criacao_orgao_gestor'">
-                Órgão Gestor
+                Órgão Gestor - Lei
               </div>
-              <div *ngIf="item.key == 'criacao_conselho_cultural'">
-                Conselho de Política Cultural
+              <div *ngIf="item.key == 'criacao_orgao_gestor_cnpj'">
+                Órgão Gestor  - CNPJ
+              </div>
+              <div *ngIf="item.key == 'criacao_orgao_gestor_dados_bancarios'">
+                Órgão Gestor  - Dados Bancários
               </div>
               <div *ngIf="item.key == 'criacao_fundo_cultura'">
-                Fundo de Cultura
+                Fundo de Cultura - Lei
+              </div>
+              <div *ngIf="item.key == 'criacao_fundo_cultura_dados_bancarios'">
+                Fundo de Cultura  - Dados Bancários
               </div>
               <div *ngIf="item.key == 'criacao_plano_cultura'">
-                Plano de Cultura
+                Plano de Cultura - Lei
+              </div>
+              <div *ngIf="item.key == 'criacao_conselho_cultural_ata'">
+                Conselho de Política Cultural - Ata
+              </div>
+              <div *ngIf="item.key == 'criacao_conselho_cultural_lei'">
+                Conselho de Política Cultural - Lei
+              </div>
+              <div *ngIf="item.key == 'criacao_fundo_cultura_cnpj'">
+                Fundo de Cultura - CNPJ
+              </div>
+              <div *ngIf="item.key == 'criacao_plano_metas'">
+                Plano de Cultura - Metas 
               </div>
             </div>
             <div class="mat-cell">
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '2' || item.value.cod_situacao == '3')">
+              <div *ngIf="item?.value != null && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">
                 <p><i class="material-icons icon-componente-status-ok">check_circle</i>
-                  {{item.value.situacao}}
+                  <a class="link_publicacao" target="_blank" href="{{ item.value.arquivo }}">
+                    {{item?.value.situacao}}
+                  </a>
                 </p>
               </div>
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '0' || item.value.cod_situacao == '1')">
+              <div *ngIf="item?.value != null && (item?.value.cod_situacao == '1') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">
                   <p><i class="material-icons icon-componente-status-progress">timelapse</i>
-                    {{item.value.situacao}}
+                    {{item?.value.situacao}}
                   </p>
               </div>
-              <div *ngIf="item.value != null && (item.value.cod_situacao == '4' || item.value.cod_situacao == '5' || item.value.cod_situacao == '6')">
+              <div *ngIf="item?.value != null && (item?.value.cod_situacao == '4' || item?.value.cod_situacao == '5' || item?.value.cod_situacao == '6') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">
                   <p><i class="material-icons icon-componente-status-not-ok">cancel</i>
-                    {{item.value.situacao}}</p>
+                    {{item?.value.situacao}}</p>
                 </div>
-              <div *ngIf="item.value == null">
+              <div *ngIf="item?.value == null || (item?.value != null && item?.value.cod_situacao == '0') && item.key != 'criacao_orgao_gestor_dados_bancarios' && item.key != 'criacao_fundo_cultura_dados_bancarios'">
                 <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
-                   Documento não enviado</p>
+                  Documento não enviado</p>
               </div>
+              <div *ngIf="item?.value != null && (item?.value.banco != 0 ) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')">
+                <p><i class="material-icons icon-componente-status-ok">check_circle</i>
+                  {{item?.value.situacao}}</p>
+              </div>
+                <div *ngIf="item?.value != null && (item?.value.banco == 0) && (item.key == 'criacao_orgao_gestor_dados_bancarios' || item.key == 'criacao_fundo_cultura_dados_bancarios')">
+                  <p><i class="material-icons icon-componente-status-default">radio_button_unchecked</i>
+                    Dado não informado</p>
+                </div>
             </div>
+
+            <div *ngIf="(item?.value?.data_publicacao?.length  > 0 && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item?.key != 'criacao_orgao_gestor_dados_bancarios' &&  item?.key != 'criacao_fundo_cultura_dados_bancarios'); else dataPublicacao" class="mat-cell data-componente">
+              {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} 
+            </div>
+            <ng-template #dataPublicacao >
+              <!-- <div *ngIf="(item?.value != null && (item?.value?.cod_situacao == '1' ) && (item?.key == 'criacao_orgao_gestor_dados_bancarios' || item?.key == 'criacao_fundo_cultura_dados_bancarios')) " class="mat-cell data-componente">
+                {{item?.value?.data_envio | date: 'dd/MM/yyyy'}} 
+              </div> 
+              <div *ngIf="(item?.value != null && (item?.value?.data_publicacao?.length  > 0) && (item?.key != 'criacao_orgao_gestor_dados_bancarios' || item?.key != 'criacao_fundo_cultura_dados_bancarios')) else dataNaoDisponivel " class="mat-cell data-componente">
+                {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} (Publicação)
+              </div> -->
+              <div class="mat-cell data-componente">
+                {{ ' - ' }}
+              </div>  
+            </ng-template>
           </div>
         </div>
-        <div class='mat-row mat-cell'>
-          <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.cod_ibge}}" class="detalhe-municipio" target="_blank">
-            Clique aqui para ver mais informações sobre este ente
-          </a>
-        </div>
+      <div class='mat-row mat-cell'>
+        <a href="http://snc.cultura.gov.br/adesao/detalhar/{{entidade.cod_ibge}}" class="detalhe-municipio" target="_blank">
+          Clique aqui para ver mais informações sobre este ente
+        </a>
+      </div>
+      <div class='mat-row mat-cell'>
+<!--        <a routerLink="/detalhe/{{entidade.cod_ibge}}" (click)="updateEnte(entidade.cod_ibge)" class="detalhe-municipio" routerLinkActive="active">Detalhe</a>-->
+        <button class="mat-raised-button" (click)="updateEnte(entidade)">Detalhes</button>
+      </div>
+
     </div>
   </ng-template>
 
@@ -88,8 +140,8 @@
     <div *ngIf="count_estados != 0">
       <h3 class="total">Estados: {{count_estados}}</h3>
     </div>
-    <div *ngIf="(count - count_estados) != 0">
-      <h3 class="total">Municípios: {{count - count_estados}}</h3>
+    <div *ngIf="(count - count_estados) > 0">
+      <h3 class="total">Municípios: {{ count - count_estados }}</h3>
     </div>
   </div>
 </mat-card>

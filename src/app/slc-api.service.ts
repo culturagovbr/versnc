@@ -102,12 +102,63 @@ export class SlcApiService {
       });
   }
 
+  customSortCompnentes(componentes: {}){
+    var componenteList = ['criacao_lei_sistema', 'criacao_orgao_gestor', 'criacao_orgao_gestor_cnpj','criacao_orgao_gestor_dados_bancarios',
+    'criacao_conselho_cultural_lei',
+    'criacao_conselho_cultural_ata',
+    'criacao_fundo_cultura',
+    'criacao_fundo_cultura_cnpj',
+    'criacao_fundo_cultura_dados_bancarios',
+    'criacao_plano_cultura',
+    'criacao_plano_metas'];
+
+    let sortedComponentes = [];;
+
+    for(var comp in componenteList){
+      for (var item in componentes) {
+        if(componentes[item]['key'] === componenteList[comp]){
+          sortedComponentes.push(componentes[item]);
+        }
+      }
+    }
+    return sortedComponentes
+  }
+
   getComponentes(acoes_plano_trabalho: {}) {
     let componentes = [];
     for (var key in acoes_plano_trabalho) {
       componentes.push({ key: key, value: acoes_plano_trabalho[key] });
+      if(key == "criacao_orgao_gestor"){
+        var acaoTemp = {...acoes_plano_trabalho[key]}
+        if(acaoTemp["banco"] > 0){
+          acaoTemp["cod_situacao"] = 1;
+          acaoTemp["situacao"] = "Informado";
+          componentes.push({ key: "criacao_orgao_gestor_dados_bancarios", value: acaoTemp });
+        } else {
+          acaoTemp["cod_situacao"] = 0;
+          acaoTemp["banco"] = 0;
+          acaoTemp["situacao"] = "Não Informado";
+          componentes.push({ key: "criacao_orgao_gestor_dados_bancarios", value: acaoTemp });
+        }
+        acaoTemp = null;
+      }
+      if(key == "criacao_fundo_cultura"){
+        var acaoTemp = {...acoes_plano_trabalho[key]}
+        if(acaoTemp["banco"] > 0){
+          acaoTemp["cod_situacao"] = 1;
+          acaoTemp["situacao"] = "Informado";
+          componentes.push({ key: "criacao_fundo_cultura_dados_bancarios", value: acaoTemp });
+        } else {
+          acaoTemp["cod_situacao"] = 0;
+          acaoTemp["banco"] = 0;
+          acaoTemp["situacao"] = "Não Informado";
+          componentes.push({ key: "criacao_fundo_cultura_dados_bancarios", value: acaoTemp });
+        }
+        acaoTemp = null;
+      }
+
     }
-    return componentes;
+    return this.customSortCompnentes(componentes);
   }
 
   definirPropriedadesEntidade(entidade, element) { //define as propriedades padrão do Ente Federado
@@ -116,7 +167,24 @@ export class SlcApiService {
     entidade.nome = element._embedded.ente_federado.nome;
     entidade.sigla_estado = element._embedded.ente_federado.sigla;
     entidade.data_adesao = element.data_adesao;
-    entidade.is_municipio = element._embedded.ente_federado.is_municipio
+    entidade.is_municipio = element._embedded.ente_federado.is_municipio;
+    entidade.link_publicacao_acordo = element.link_publicacao_acordo;
+
+    entidade.situacao_adesao = element._embedded.situacao_adesao;
+    entidade.cod_situacao_adesao = element._embedded.cod_situacao_adesao;
+
+    entidade.cnpj = element._embedded.sede? element._embedded.sede.localizacao.cnpj : '-';
+    entidade.localizacao = element._embedded.sede? element._embedded.sede.localizacao : '-';
+    entidade.email = element._embedded.sede? element._embedded.sede.endereco_eletronico : '-';
+    entidade.telefone = element._embedded.sede? element._embedded.sede.telefones.telefone_um : '-';
+
+    entidade.pib = element._embedded.ente_federado.pib;
+    entidade.idh = element._embedded.ente_federado.idh;
+    entidade.populacao = element._embedded.ente_federado.populacao;
+
+    entidade.prefeito = element._embedded.governo ? element._embedded.governo.nome_prefeito : '-';
+    entidade.gestor_cultura = element._embedded.cultura ? element._embedded.cultura.nome_gestor_cultura : '-';
+
 
     entidade.situacao_adesao = element.situacao_adesao ? element.situacao_adesao : '';
     entidade.cod_situacao_adesao = element.cod_situacao_adesao ? element.cod_situacao_adesao : '';

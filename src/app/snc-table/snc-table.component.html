@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-            <div *ngIf="(item?.value?.data_publicacao?.length  > 0 && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item?.key != 'criacao_orgao_gestor_dados_bancarios' &&  item?.key != 'criacao_fundo_cultura_dados_bancarios'); else dataPublicacao" class="mat-cell data-componente">
+            <div *ngIf="(item?.value?.data_publicacao?.length > 0 && (item?.value.cod_situacao == '2' || item?.value.cod_situacao == '3') && item?.key != 'criacao_orgao_gestor_dados_bancarios' &&  item?.key != 'criacao_fundo_cultura_dados_bancarios'); else dataPublicacao" class="mat-cell data-componente">
               {{item?.value?.data_publicacao | date: 'dd/MM/yyyy'}} 
             </div>
             <ng-template #dataPublicacao >

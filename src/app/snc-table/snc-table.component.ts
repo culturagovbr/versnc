@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import 'rxjs/add/observable/of';
 import { forEach } from '@angular/router/src/utils/collection';
-import {EnteService}from '../ente.service';
+import {EnteService} from '../ente.service';
 
 @Component({
   selector: 'snc-table',
@@ -42,9 +42,9 @@ export class SncTableComponent implements OnInit, OnDestroy {
   private listaRetorno = {};
   private sncDataSource: any;
   private mySubscription: Subscription;
-  private pages: number = 0;
-  private isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
-  private displayedColumns = ['nome', 'data_adesao', 'plano_trabalho'];
+  private pages: Number = 0;
+  private isExpansionDetailRow = (i: Number, row: Object) => row.hasOwnProperty('detailRow');
+  displayedColumns = ['nome', 'data_adesao', 'plano_trabalho'];
   private isDisabled = false;
   private tituloEnteFederado: 'ENTE FEDERADO';
   private listaComponentes = ['Sistema de Cultura','Órgão Gestor','Conselho de Política Cultural', 'Fundo de Cultura','Plano de Cultura'];
@@ -73,7 +73,7 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
   public getEntesFederados(): void {
     this.slcApiService.buscaAtual.subscribe(listaRetorno => this.listaRetorno = listaRetorno);
-    let entidades = this.listaRetorno[1] as Entidade[];
+    const entidades = this.listaRetorno[1] as Entidade[];
     this.sncDataSource = new MatTableDataSource(entidades);
     this.sncDataSource.sort = this.sort;
     this.pages = this.listaRetorno[3];
@@ -99,8 +99,9 @@ export class SncTableComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-    if (this.mySubscription)
+    if (this.mySubscription){
       this.mySubscription.unsubscribe();
+    }
   }
 
   onTrocaPagina(event?: PageEvent){
